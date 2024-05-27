@@ -26,12 +26,16 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/core.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/icon-font.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/style.css" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
         crossorigin="anonymous"></script>
+
+
+
     <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -59,10 +63,16 @@
     })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
     </script>
     <!-- End Google Tag Manager -->
+
+    <style>
+    .rq {
+        color: red;
+    }
+    </style>
 </head>
 
 <body>
-    <div class="pre-loader">
+    <!-- <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo">
                 <img src="vendors/images/deskapp-logo.svg" alt="" />
@@ -73,7 +83,7 @@
             <div class="percent" id="percent1">0%</div>
             <div class="loading-text">Loading...</div>
         </div>
-    </div>
+    </div> -->
 
     <!-- include the header -->
     <?= $this->include('Layout/header'); ?>
@@ -84,12 +94,21 @@
 
     <!-- main contetn -->
     <div class="main-container">
-        <?= $this->renderSection('content'); ?>
+        <div class="pd-ltr-20 xs-pd-20-10">
+            <div class="min-height-200px">
+                <!-- include the breadcrumb -->
+                <?= $this->include('Layout/breadcrumb'); ?>
 
+                <!-- render the section -->
+                <?= $this->renderSection('content'); ?>
+            </div>
+
+            <!-- include the footer -->
+            <?= $this->include('Layout/footer'); ?>
+        </div>
     </div>
     <!-- endContent -->
 
-    <?= $this->include('Layout/footer'); ?>
 
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -106,6 +125,7 @@
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/dashboard3.js"></script>
     <!-- buttons for Export datatable -->
 
+
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.buttons.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.print.min.js"></script>
@@ -115,6 +135,37 @@
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/vfs_fonts.js"></script>
     <!-- Datatable Setting js -->
     <?= $this->renderSection('dataTables');?>
+
+    <script src="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
+    <script type="text/javascript">
+    $(document).on('focusout', '.required', function() {
+        const id = $(this).attr('id');
+        if ($(this).val() == '') {
+            $(this).addClass('form-control-danger');
+            $(`#error${id}`).html('Field ini tidak boleh kosong');
+            $(`#error${id}`).addClass('has-danger');
+        } else {
+            $(this).addClass('form-control-success');
+            $(this).removeClass('form-control-danger');
+            $(`#error${id}`).html('');
+            $(`#error${id}`).removeClass('has-danger');
+        }
+    });
+
+    $(document).on('keyup', '.required', function() {
+        const id = $(this).attr('id');
+        if ($(this).val() != '') {
+            $(this).removeClass('form-control-danger');
+            $(this).addClass('form-control-success');
+            $(`#error${id}`).html('');
+            $(`#error${id}`).removeClass('has-danger');
+        } else {
+            $(this).addClass('form-control-danger');
+            $(`#error${id}`).html('Field ini tidak boleh kosong');
+            $(`#error${id}`).addClass('has-danger');
+        }
+    });
+    </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>

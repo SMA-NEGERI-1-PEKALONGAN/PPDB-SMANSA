@@ -21,6 +21,11 @@ class masterKategoriModel extends Model
         }
         return $this->where(['id_kategori' => $id])->first();
     }
+
+    public function destroy($id)
+    {
+        return $this->where(['id_kategori' => $id])->delete();
+    }
 }
 
 ?>
