@@ -11,12 +11,17 @@
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             <ul id="accordion-menu">
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
+                <li>
+                    <a href="<?= base_url('Dasboard')?>" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-house"></span><span class="mtext">Home</span>
                     </a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-gear"></span><span class="mtext">Administrator</span>
+                    </a>
                     <ul class="submenu">
-                        <li><a href="index.html">Dashboard style 1</a></li>
+                        <li><a href="<?= base_url('Admin/Referensi')?>">Master Referensi</a></li>
                         <li><a href="index2.html">Dashboard style 2</a></li>
                         <li><a href="index3.html">Dashboard style 3</a></li>
                     </ul>
