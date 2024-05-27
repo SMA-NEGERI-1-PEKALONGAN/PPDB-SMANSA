@@ -16,13 +16,13 @@
                         <span class="micon bi bi-house"></span><span class="mtext">Home</span>
                     </a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown show">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon bi bi-gear"></span><span class="mtext">Administrator</span>
                     </a>
                     <ul class="submenu">
                         <li><a href="<?= base_url('Admin/Referensi')?>">Master Referensi</a></li>
-                        <li><a href="index2.html">Dashboard style 2</a></li>
+                        <li><a href="index2.html" class="active">Dashboard style 2</a></li>
                         <li><a href="index3.html">Dashboard style 3</a></li>
                     </ul>
                 </li>

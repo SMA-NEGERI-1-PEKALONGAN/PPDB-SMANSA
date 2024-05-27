@@ -17,13 +17,15 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/core.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/icon-font.min.css" />
+
+    <!-- dataTables -->
     <link rel="stylesheet" type="text/css"
         href="<?= base_url('Assets/'); ?>src/plugins/datatables/css/dataTables.bootstrap4.min.css" />
     <link rel="stylesheet" type="text/css"
         href="<?= base_url('Assets/'); ?>src/plugins/datatables/css/responsive.bootstrap4.min.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/core.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/icon-font.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/style.css" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -82,16 +84,16 @@
 
     <!-- main contetn -->
     <div class="main-container">
+        <?= $this->renderSection('content'); ?>
 
-        <?= $this->include('Layout/footer'); ?>
     </div>
     <!-- endContent -->
 
-    <!-- include the footer -->
-    <!-- endFooter -->
-
+    <?= $this->include('Layout/footer'); ?>
 
     <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/core.js"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/script.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/process.js"></script>
@@ -102,6 +104,17 @@
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.responsive.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/dashboard3.js"></script>
+    <!-- buttons for Export datatable -->
+
+    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.print.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.flash.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/pdfmake.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/vfs_fonts.js"></script>
+    <!-- Datatable Setting js -->
+    <?= $this->renderSection('dataTables');?>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>

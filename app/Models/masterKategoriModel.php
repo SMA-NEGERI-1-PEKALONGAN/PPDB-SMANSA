@@ -17,7 +17,7 @@ class masterKategoriModel extends Model
     public function getKategori($id = false)
     {
         if ($id == false) {
-            return $this->select('*');
+            return $this->select('id_kategori, nama_kategori, kode_kategori, status_kategori');
         }
         return $this->where(['id_kategori' => $id])->first();
     }
