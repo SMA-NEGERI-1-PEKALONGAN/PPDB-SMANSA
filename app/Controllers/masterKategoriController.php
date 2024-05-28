@@ -29,7 +29,7 @@ class masterKategoriController extends BaseController
         // dd($builder);
         return DataTable::of($builder)
             ->add('status_kategori', function ($row) {
-                return '<input type="checkbox" checked class="switch-btn" data-size="small" data-color="#0099ff" />';
+                return '<input type="checkbox" checked class="switch-btn change_status_kategori" data-size="small" data-color="#0099ff" id="'.$row->id_kategori.'">';
             })
             ->add('action', function ($row) {
                 return '

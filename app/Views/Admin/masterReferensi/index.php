@@ -350,7 +350,7 @@ function dataTableReferensi() {
                     data: 'urutan'
                 },
                 {
-                    data: 'nama_referensi',
+                    data: 'status_referensi',
                 },
                 {
                     data: 'action',
@@ -403,7 +403,7 @@ $(function() {
             $("#btn_tambah_kategori").attr("disabled", "disabled");
             $("#btn_tambah_kategori").html("Loading.....");
             $.ajax({
-                url: '<?= base_url('Admin/Kategori/saveKategori') ?>',
+                url: '<?= base_url('Admin/Kategori/save') ?>',
                 method: 'post',
                 data: formData,
                 contentType: false,
@@ -449,7 +449,7 @@ $(function() {
 $(document).on('click', '.edit_kategori', function() {
     const id = $(this).attr('id');
     $.ajax({
-        url: '<?= base_url('Admin/Kategori/editKategori') ?>',
+        url: '<?= base_url('Admin/Kategori/edit') ?>',
         method: 'post',
         data: {
             id_kategori: id
@@ -476,7 +476,7 @@ $(function() {
             $("#btn_edit_kategori").attr("disabled", "disabled");
             $("#btn_edit_kategori").html("Loading.....");
             $.ajax({
-                url: '<?= base_url('Admin/Kategori/updateKategori') ?>',
+                url: '<?= base_url('Admin/Kategori/update') ?>',
                 method: 'post',
                 data: formData,
                 contentType: false,
@@ -534,7 +534,7 @@ $(document).on('click', '.delete_kategori', function() {
         .then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: '<?= base_url('Admin/Kategori/deleteKategori') ?>',
+                    url: '<?= base_url('Admin/Kategori/delete') ?>',
                     method: 'post',
                     data: {
                         id_kategori: id
@@ -542,6 +542,7 @@ $(document).on('click', '.delete_kategori', function() {
                     dataType: 'json',
                     success: function(response) {
                         $('#tableKategori').DataTable().ajax.reload();
+                        $('#tableReferensi').DataTable().ajax.reload();
                         getSwall(response.status, response.data);
                     }
                 });
@@ -590,7 +591,7 @@ $(function() {
             $("#btn_tambah_referensi").attr("disabled", "disabled");
             $("#btn_tambah_referensi").html("Loading.....");
             $.ajax({
-                url: '<?= base_url('Admin/Referensi/saveReferensi') ?>',
+                url: '<?= base_url('Admin/Referensi/save') ?>',
                 method: 'post',
                 data: formData,
                 contentType: false,
@@ -630,6 +631,128 @@ $(function() {
             });
         }
     });
+});
+
+// edit referensi
+$(document).on('click', '.edit_referensi', function() {
+    const id = $(this).attr('id');
+    $.ajax({
+        url: '<?= base_url('Admin/Referensi/edit') ?>',
+        method: 'post',
+        data: {
+            id_referensi: id
+        },
+        dataType: 'json',
+        success: function(response) {
+            $('#editreferensi').modal('show');
+            $.each(response.data, function(key, value) {
+                $('#edit' + key).val(value);
+            });
+            $.ajax({
+                url: '<?= base_url('Admin/Kategori/fetch') ?>',
+                method: 'get',
+                dataType: 'json',
+                success: function(response) {
+                    $('#editkategori_id').html('');
+                    $('#editkategori_id').append(
+                        '<option value="">Pilih Kategori</option>');
+                    $.each(response.data, function(key, value) {
+                        $('#editkategori_id').append('<option value="' + value
+                            .id_kategori + '"  ' + (value.id_kategori ==
+                                response.data[0].id_kategori ? 'selected' :
+                                '') + '>' + value.nama_kategori +
+                            '</option>');
+                    });
+                    $('#editkategori_id').val(response.data[0].id_kategori);
+                }
+            });
+        }
+    });
+});
+
+// update referensi
+$(function() {
+    $("#form_edit_referensi").submit(function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        if (!this.checkValidity()) {
+            e.preventDefault();
+            $(this).addClass('form-control-success');
+        } else {
+            $("#btn_edit_referensi").attr("disabled", "disabled");
+            $("#btn_edit_referensi").html("Loading.....");
+            $.ajax({
+                url: '<?= base_url('Admin/Referensi/update') ?>',
+                method: 'post',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.error) {
+                        // foeach error 
+                        $.each(response.data, function(key, value) {
+                            if (value != '') {
+                                $("#" + key).addClass('form-control-danger');
+                                $("#" + key).addClass('has-danger');
+                                $("#error" + key).html(value);
+                            } else {
+                                $("#" + key).removeClass('form-control-danger');
+                                $("#" + key).addClass('form-control-success');
+                                $("#error" + key).html('');
+                                $("#error" + key).removeClass('has-danger');
+                            }
+                        });
+                    } else {
+                        $("#form_edit_referensi")[0].reset();
+                        $("#editreferensi").modal('hide');
+                        $('#tableReferensi').DataTable().ajax.reload();
+                        getSwall(response.status, response.data);
+                        Referensi.forEach(function(item) {
+                            $("#" + item).removeClass('form-control-danger');
+                            $("#" + item).removeClass('form-control-success');
+                            $("#error" + item).html('');
+                            $("#error" + item).removeClass('has-danger');
+                        });
+                    }
+                    $("#btn_edit_referensi").removeAttr("disabled");
+                    $("#btn_edit_referensi").html("Edit");
+                }
+            });
+        }
+    });
+});
+
+// delete referensi
+$(document).on('click', '.delete_referensi', function() {
+    const id = $(this).attr('id');
+    swal({
+            title: "Apakah anda yakin?",
+            text: "Data yang dihapus tidak dapat dikembalikan!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Ya, Hapus!",
+            confirmButtonClass: "btn btn-success margin-5",
+            cancelButtonText: "Batal",
+        })
+        .then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: '<?= base_url('Admin/Referensi/delete') ?>',
+                    method: 'post',
+                    data: {
+                        id_referensi: id
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#tableReferensi').DataTable().ajax.reload();
+                        getSwall(response.status, response.data);
+                    }
+                });
+            }
+        });
 });
 </script>
 
