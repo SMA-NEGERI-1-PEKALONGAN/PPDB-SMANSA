@@ -28,6 +28,14 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="<?= base_url('Admin/Antrian')?>"
+                        class="dropdown-toggle no-arrow <?= $active == 'Antrian'  ? 'active' : '' ?>">
+                        <span class="micon bi bi-card-checklist">
+
+                        </span><span class="mtext">Antrian</span>
+                    </a>
+                </li>
+                <li>
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>

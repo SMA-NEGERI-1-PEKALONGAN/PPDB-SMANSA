@@ -29,7 +29,9 @@ class masterKategoriController extends BaseController
         // dd($builder);
         return DataTable::of($builder)
             ->add('status_kategori', function ($row) {
-                return '<input type="checkbox" checked class="switch-btn change_status_kategori" data-size="small" data-color="#0099ff" id="'.$row->id_kategori.'">';
+                return '<div class="custom-control custom-switch"> <input type="checkbox" 
+                '.($row->status_kategori == 1 ? 'checked' : '').' 
+                class="custom-control-input switch-btn change_status_kategori" data-size="small" data-color="#0099ff" id="'.$row->id_kategori.'"> <label class="custom-control-label" for="'.$row->id_kategori.'"></label> </div>';
             })
             ->add('action', function ($row) {
                 return '

@@ -35,5 +35,6 @@ $routes->group('Admin', function ($routes) {
         $routes->post('edit', 'usersController::edit');
         $routes->post('update', 'usersController::update');
         $routes->post('reset', 'usersController::reset');
+        $routes->post('changeStatus', 'usersController::changeStatus');
     });
 });

@@ -205,6 +205,7 @@
     </div>
 </div>
 
+
 <!-- ======================================== END users ======================================== -->
 
 
@@ -516,6 +517,24 @@ $(document).on('click', '.reset_pass', function() {
                 });
             }
         });
+});
+
+// change status
+$(document).on('click', '.change_status_user', function() {
+    const id = $(this).attr('id');
+    // alert(id);
+    $.ajax({
+        url: '<?= base_url('Admin/User/changeStatus') ?>',
+        method: 'post',
+        data: {
+            id_user: id
+        },
+        dataType: 'json',
+        success: function(response) {
+            // $('#tableUsers').DataTable().ajax.reload();
+            getSwall(response.status, response.data);
+        }
+    });
 });
 </script>
 

@@ -30,6 +30,11 @@ class usersController extends BaseController
         $builder = $this->userModel->getUser();
         // dd($builder);
         return DataTable::of($builder)
+         ->add('status_user', function ($row) {
+                return '<div class="custom-control custom-switch"> <input type="checkbox" 
+                '.($row->status_user == 1 ? 'checked' : '').' 
+                class="custom-control-input switch-btn change_status_user" data-size="small" data-color="#0099ff" id="'.$row->id_user.'"> <label class="custom-control-label" for="'.$row->id_user.'"></label> </div>';
+            })
             ->add('action', function ($row) {
                 return '
                 <div class="dropdown">
@@ -183,5 +188,22 @@ class usersController extends BaseController
             'data' => 'Password berhasil direset menjadi username',
             'status' => '200'
         ]);
+    }
+
+    public function changeStatus(){
+        $id_user = $this->request->getPost('id_user');
+        $data = $this->userModel->find($id_user);
+        $status = $data['status_user'] == 1 ? '0' : '1';
+        $data = [
+            'status_user' => $status,
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->userModel->update($id_user, $data);
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => 'Status berhasil diubah',
+            'status' => '200'
+        ]);
+        
     }
 }

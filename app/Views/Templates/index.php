@@ -21,9 +21,6 @@
         rel="stylesheet" />
 
 
-    <!-- switchery css -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>src/plugins/switchery/switchery.min.css" />
-
     <!-- dataTables -->
     <link rel="stylesheet" type="text/css"
         href="<?= base_url('Assets/'); ?>src/plugins/datatables/css/dataTables.bootstrap4.min.css" />
@@ -40,7 +37,6 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
         crossorigin="anonymous"></script>
-
 
 
     <script>
@@ -118,8 +114,8 @@
 
 
     <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/core.js"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/script.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/process.js"></script>

@@ -1,6 +1,5 @@
 <?= $this->extend('Templates/index'); ?>
 <?= $this->section('content'); ?>
-
 <div class="row">
     <div class="col-md-6">
         <div class="card-box mb-30">
@@ -285,6 +284,8 @@
 
 <script text="text/javascript">
 // dataTables Kategori
+
+
 function dataTablesKategori() {
     $(document).ready(function() {
         $('#tableKategori').DataTable({
@@ -370,6 +371,7 @@ $(document).ready(function() {
     dataTablesKategori();
     dataTableReferensi();
 });
+
 
 function getSwall(status, message) {
     swal({
@@ -759,7 +761,5 @@ $(document).on('click', '.delete_referensi', function() {
 });
 </script>
 
-<!-- switchery js -->
-<script src="<?= base_url('Assets/'); ?>src/plugins/switchery/switchery.min.js"></script>
-<script src="<?= base_url('Assets/'); ?>vendors/scripts/advanced-components.js"></script>
+
 <?= $this->endSection('dataTables');?>

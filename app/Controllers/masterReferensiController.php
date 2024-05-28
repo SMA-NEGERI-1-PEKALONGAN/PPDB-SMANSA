@@ -48,7 +48,9 @@ class masterReferensiController extends BaseController
         // dd($builder);
         return DataTable::of($builder)
             ->add('status_referensi', function ($row) {
-                return '<input type="checkbox" checked class="switch-btn change_status_referensi" data-size="small" data-color="#0099ff" id="'.$row->id_referensi.'">';
+                return '<div class="custom-control custom-switch"> <input type="checkbox" 
+                '.($row->status_referensi == 1 ? 'checked' : '').' 
+                class="custom-control-input switch-btn change_status_referensi" data-size="small" data-color="#0099ff" id="'.$row->id_referensi.'"> <label class="custom-control-label" for="'.$row->id_referensi.'"></label> </div>';
             })
             ->add('action', function ($row) {
                 return '
