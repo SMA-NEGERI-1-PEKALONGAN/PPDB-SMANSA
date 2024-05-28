@@ -4,7 +4,9 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8" />
-    <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+    <title>
+        <?= $title; ?>
+    </title>
 
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png" />
@@ -76,7 +78,7 @@
     </style>
 </head>
 
-<body>
+<body class="sidebar-light">
     <!-- <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo">

@@ -165,34 +165,44 @@
 
 
 <!-- ======================================== REFERENSI ======================================== -->
-<div class="modal fade" id="addKategori" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+<div class="modal fade" id="addReferensi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Tambah Katgori
+                    Tambah Referensi
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
                 </button>
             </div>
-            <form id="form_tambah_kategori">
+            <form id="form_tambah_referensi">
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="nama_kategori" class="col-sm-4 col-form-label">Nama <span
+                        <label for="nama_referensi" class="col-sm-4 col-form-label">Nama <span
                                 class="rq">*</span></label></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control required" id="nama_kategori" name="nama_kategori">
-                            <div class="form-control-feedback " id="errornama_kategori"></div>
+                            <input type="text" class="form-control required" id="nama_referensi" name="nama_referensi">
+                            <div class="form-control-feedback " id="errornama_referensi"></div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="kode_kategori" class="col-sm-4 col-form-label">Kode<span
+                        <label for="kode_referensi" class="col-sm-4 col-form-label">Kode<span
                                 class="rq">*</span></label></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control required" id="kode_kategori" name="kode_kategori">
-                            <div class="form-control-feedback " id="errorkode_kategori"></div>
+                            <input type="text" class="form-control required" id="kode_referensi" name="kode_referensi">
+                            <div class="form-control-feedback " id="errorkode_referensi"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="kategori_id" class="col-sm-4 col-form-label">Kategori<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <select class="form-control required" id="kategori_id" name="kategori_id">
+
+                            </select>
+                            <div class="form-control-feedback " id="errorkategori_id"></div>
                         </div>
                     </div>
                 </div>
@@ -200,7 +210,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Batal
                     </button>
-                    <button type="submit" class="btn btn-primary" id="btn_tambah_kategori">
+                    <button type="submit" class="btn btn-primary" id="btn_tambah_referensi">
                         Tambah
                     </button>
                 </div>
@@ -210,37 +220,48 @@
 </div>
 
 <!-- modal edit -->
-<div class="modal fade" id="editKategori" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+<div class="modal fade" id="editreferensi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Edit Kategori
+                    Edit Referensi
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
                 </button>
             </div>
-            <form id="form_edit_kategori">
+            <form id="form_edit_referensi">
                 <div class="modal-body">
                     <div class="form-group row">
-                        <input type="hidden" class="form-control required" id="editid_kategori" name="editid_kategori">
-                        <label for="nama_kategori" class="col-sm-4 col-form-label">Nama <span
+                        <input type="hidden" class="form-control required" id="editid_referensi"
+                            name="editid_referensi">
+                        <label for="nama_referensi" class="col-sm-4 col-form-label">Nama <span
                                 class="rq">*</span></label></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control required" id="editnama_kategori"
-                                name="editnama_kategori">
-                            <div class="form-control-feedback " id="erroreditnama_kategori"></div>
+                            <input type="text" class="form-control required" id="editnama_referensi"
+                                name="editnama_referensi">
+                            <div class="form-control-feedback " id="erroreditnama_referensi"></div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="kode_kategori" class="col-sm-4 col-form-label">Kode<span
+                        <label for="kode_referensi" class="col-sm-4 col-form-label">Kode<span
                                 class="rq">*</span></label></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control required" id="editkode_kategori"
-                                name="editkode_kategori">
-                            <div class="form-control-feedback " id="erroreditkode_kategori"></div>
+                            <input type="text" class="form-control required" id="editkode_referensi"
+                                name="editkode_referensi">
+                            <div class="form-control-feedback " id="erroreditkode_referensi"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="kategori_id" class="col-sm-4 col-form-label">Kategori<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <select class="form-control required" id="editkategori_id" name="editkategori_id">
+
+                            </select>
+                            <div class="form-control-feedback " id="erroreditkategori_id"></div>
                         </div>
                     </div>
                 </div>
@@ -248,7 +269,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Batal
                     </button>
-                    <button type="submit" class="btn btn-primary" id="btn_edit_kategori">
+                    <button type="submit" class="btn btn-primary" id="btn_edit_referensi">
                         Edit
                     </button>
                 </div>
@@ -329,7 +350,7 @@ function dataTableReferensi() {
                     data: 'urutan'
                 },
                 {
-                    data: 'status_referensi',
+                    data: 'nama_referensi',
                 },
                 {
                     data: 'action',
@@ -362,8 +383,9 @@ function getSwall(status, message) {
     })
 }
 
+// ======================================== Kategori ========================================
 
-// validasi
+// DATA
 const Kategori = [
     'nama_kategori',
     'kode_kategori'
@@ -422,7 +444,6 @@ $(function() {
         }
     });
 });
-
 
 // edit kategori
 $(document).on('click', '.edit_kategori', function() {
@@ -526,6 +547,89 @@ $(document).on('click', '.delete_kategori', function() {
                 });
             }
         });
+});
+
+// ======================================== END Kategori ========================================
+
+
+// ======================================== Referensi ========================================
+// DATA
+const Referensi = [
+    'nama_referensi',
+    'kode_referensi',
+    'kategori_id'
+];
+
+// whe add referensi modal show
+$('#addReferensi').on('show.bs.modal', function() {
+    $.ajax({
+        url: '<?= base_url('Admin/Kategori/fetch') ?>',
+        method: 'get',
+        dataType: 'json',
+        success: function(response) {
+            $('#kategori_id').html('');
+            $('#kategori_id').append('<option value="">Pilih Kategori</option>');
+            $.each(response.data, function(key, value) {
+                $('#kategori_id').append('<option value="' + value.id_kategori + '">' +
+                    value.nama_kategori +
+                    '</option>');
+            });
+        }
+    });
+});
+
+// tambah referensi
+$(function() {
+    $("#form_tambah_referensi").submit(function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        if (!this.checkValidity()) {
+            e.preventDefault();
+            $(this).addClass('form-control-success');
+        } else {
+            $("#btn_tambah_referensi").attr("disabled", "disabled");
+            $("#btn_tambah_referensi").html("Loading.....");
+            $.ajax({
+                url: '<?= base_url('Admin/Referensi/saveReferensi') ?>',
+                method: 'post',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'json',
+                success: function(response) {
+                    if (response.error) {
+                        // foeach error 
+                        $.each(response.data, function(key, value) {
+                            if (value != '') {
+                                $("#" + key).addClass('form-control-danger');
+                                $("#error" + key).html(value);
+                                $("#error" + key).addClass('has-danger');
+                            } else {
+                                $("#" + key).removeClass('form-control-danger');
+                                $("#" + key).addClass('form-control-success');
+                                $("#error" + key).html('');
+                                $("#error" + key).removeClass('has-danger');
+                            }
+                        });
+                    } else {
+                        $("#form_tambah_referensi")[0].reset();
+                        $("#addReferensi").modal('hide');
+                        $('#tableReferensi').DataTable().ajax.reload();
+                        getSwall(response.status, response.data);
+                        Referensi.forEach(function(item) {
+                            $("#" + item).removeClass('form-control-danger');
+                            $("#" + item).removeClass('form-control-success');
+                            $("#error" + item).html('');
+                            $("#error" + item).removeClass('has-danger');
+                        });
+                    }
+                    $("#btn_tambah_referensi").removeAttr("disabled");
+                    $("#btn_tambah_referensi").html("Tambah");
+                }
+            });
+        }
+    });
 });
 </script>
 

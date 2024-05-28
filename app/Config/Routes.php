@@ -11,6 +11,7 @@ $routes->get('/', 'Home::index');
 $routes->group('Admin', function ($routes) {
     // group route master kategori
     $routes->group('Kategori', function ($routes) {
+        $routes->get('fetch', 'masterKategoriController::fetchKategori');
         $routes->get('DataTables', 'masterKategoriController::ajaxDataTables');
         $routes->post('saveKategori', 'masterKategoriController::store');
         $routes->post('deleteKategori', 'masterKategoriController::destroy');
@@ -20,5 +21,6 @@ $routes->group('Admin', function ($routes) {
     $routes->group('Referensi', function ($routes) {
         $routes->get('/', 'masterReferensiController::index');
         $routes->get('DataTables', 'masterReferensiController::ajaxDataTables');
+        $routes->post('saveReferensi', 'masterReferensiController::store');
     });
 });

@@ -13,6 +13,16 @@ class masterKategoriController extends BaseController
         $this->masterKategoriModel = new masterKategoriModel();
     }
 
+    public function fetchKategori($id = false)
+    {
+        $data = $this->masterKategoriModel->fetchKategori($id);
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => $data,
+            'status' => '200'
+        ]);
+    }
+
     public function ajaxDataTables()
     {
         $builder = $this->masterKategoriModel->getKategori($id = false);

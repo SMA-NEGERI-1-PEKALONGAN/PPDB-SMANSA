@@ -22,10 +22,15 @@ class masterKategoriModel extends Model
         return $this->where(['id_kategori' => $id])->first();
     }
 
-    public function destroy($id)
+    public function fetchKategori($id = false)
     {
-        return $this->where(['id_kategori' => $id])->delete();
+        if ($id == false) {
+            return $this->orderBy('nama_kategori', 'ASC')->findAll();
+        }
+        return $this->where(['id_kategori' => $id])->first();
     }
+
+
 }
 
 ?>

@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Models\masterReferensiModel;
-use Hermawan\DataTables\DataTable;
 use CodeIgniter\HTTP\RequestInterface;
+use Hermawan\DataTables\DataTable;
+use App\Models\masterReferensiModel;
+use App\Models\masterKategoriModel;
 
 class masterReferensiController extends BaseController
 {
@@ -15,8 +16,7 @@ class masterReferensiController extends BaseController
         $this->masterReferensiModel = new masterReferensiModel();
     }
 
-    public function index()
-    {
+    public function index(){
         $data = [
             'title' => 'Master Referensi',
             'active' => 'Referensi',
@@ -26,7 +26,7 @@ class masterReferensiController extends BaseController
 
     public function ajaxDataTables()
     {
-        $builder = $this->masterReferensiModel->getReferensi($id = false);
+        $builder = $this->masterReferensiModel->getReferensi();
         // dd($builder);
         return DataTable::of($builder)
             ->add('action', function ($row) {
@@ -44,6 +44,57 @@ class masterReferensiController extends BaseController
             ->toJson(true);
     }
 
-
+    public function store()
+    {
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'nama_referensi' => [
+                'label' => 'Nama Referensi',
+                 'rules' => 'required|is_unique[master_referensi.nama_referensi]',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                    'is_unique' => '{field} sudah ada',
+                ],
+            ],
+            'kode_referensi' => [
+                'label' => 'Kode Referensi',
+                'rules' => 'required|is_unique[master_referensi.kode_referensi]',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                    'is_unique' => '{field} sudah ada',
+                ],
+            ],
+            'kategori_id' => [
+                'label' => 'Kategori',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                ],
+            ],
+        ]);
+        
+         if (!$validation->withRequest($this->request)->run()) {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => $validation->getErrors(),
+                'status' => '422'
+            ]);
+        } else {
+            $nomor = $this->masterReferensiModel->where('kategori_id', $this->request->getPost('kategori_id'))->countAllResults() + 1;
+            $data = [
+                'nama_referensi' => $this->request->getPost('nama_referensi'),
+                'kode_referensi' => $this->request->getPost('kode_referensi'),
+                'kategori_id' => $this->request->getPost('kategori_id'),
+                'status_referensi' => 1,
+                'urutan' => $nomor,
+            ];
+            $this->masterReferensiModel->insert($data);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Data berhasil disimpan',
+                'status' => '200'
+            ]);
+        }
+    }
 }
 ?>
