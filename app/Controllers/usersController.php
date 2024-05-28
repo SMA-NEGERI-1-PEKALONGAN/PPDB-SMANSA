@@ -35,9 +35,10 @@ class usersController extends BaseController
                 <div class="dropdown">
 					<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"> <i class="dw dw-more"></i></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-							<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-							<button class="dropdown-item delete_kategori" id="'.$row->id_user.'"><i class="dw dw-delete-3"></i> Delete</button>
+                            <button class="dropdown-item view_user" id="'.$row->id_user.'"><i class="dw dw-eye"></i> View</a>
+                            <button class="dropdown-item edit_user" id="'.$row->id_user.'"><i class="dw dw-edit2"></i> Edit</button>
+                            <button class="dropdown-item reset_pass" id="'.$row->id_user.'"><i class="dw dw-refresh2"></i> Reset Password</button>
+							<button class="dropdown-item delete_user" id="'.$row->id_user.'"><i class="dw dw-delete-3"></i> Delete</button>
 						</div>
 				</div>
                 ';
@@ -89,6 +90,7 @@ class usersController extends BaseController
                 'role' => $this->request->getPost('role'),
                 'nama_user' => $this->request->getPost('nama_user'),
                 'status_user' => '1',
+                'created_at' => date('Y-m-d H:i:s'),
             ];
             $this->userModel->insert($data);
             return $this->response->setJSON([
@@ -97,5 +99,89 @@ class usersController extends BaseController
                 'status' => '200'
             ]);
         }
+    }
+
+    public function edit(){
+        $id_user = $this->request->getPost('id_user');
+        $data = $this->userModel->find($id_user);
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => $data,
+            'status' => '200'
+        ]);
+    }
+
+    public function update(){
+        $validation =  \Config\Services::validation();
+        $id = $this->request->getPost('id_user');
+        $validation->setRules([
+            'username' => [
+                'label' => 'Username',
+                'rules' => 'required|is_unique[users.username,id_user,'.$id.']',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                    'is_unique' => '{field} sudah ada',
+                ],
+            ],
+            'role' => [
+                'label' => 'Role',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                ],
+            ],
+            'nama_user' => [
+                'label' => 'Nama User',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                ],
+            ],
+        ]);
+        
+        if (!$validation->withRequest($this->request)->run()) {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => $validation->getErrors(),
+                'status' => '422'
+            ]);
+        } else {
+            $data = [
+                'username' => $this->request->getPost('username'),
+                'role' => $this->request->getPost('role'),
+                'nama_user' => $this->request->getPost('nama_user'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ];
+            $this->userModel->update($id, $data);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Data berhasil diupdate',
+                'status' => '200'
+            ]);
+        }
+    }
+
+    public function destroy(){
+        $id_user = $this->request->getPost('id_user');
+        $this->userModel->delete($id_user);
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => 'Data berhasil dihapus',
+            'status' => '200'
+        ]);
+    }
+
+    public function reset(){
+        $id_user = $this->request->getPost('id_user');
+        $data = [
+            'password' => password_hash($this->request->getPost('username'), PASSWORD_DEFAULT),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->userModel->update($id_user, $data);
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => 'Password berhasil direset menjadi username',
+            'status' => '200'
+        ]);
     }
 }

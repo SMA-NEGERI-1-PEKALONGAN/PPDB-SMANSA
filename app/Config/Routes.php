@@ -9,7 +9,7 @@ $routes->get('/', 'Home::index');
 
 // group route admin
 $routes->group('Admin', function ($routes) {
-    // group route master kategori
+    $routes->get('Dashboard', 'Home::index');
     $routes->group('Kategori', function ($routes) {
         $routes->get('fetch', 'masterKategoriController::fetchKategori');
         $routes->get('DataTables', 'masterKategoriController::ajaxDataTables');
@@ -34,5 +34,6 @@ $routes->group('Admin', function ($routes) {
         $routes->post('delete', 'usersController::destroy');
         $routes->post('edit', 'usersController::edit');
         $routes->post('update', 'usersController::update');
+        $routes->post('reset', 'usersController::reset');
     });
 });

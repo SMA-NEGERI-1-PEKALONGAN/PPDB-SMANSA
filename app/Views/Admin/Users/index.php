@@ -7,7 +7,7 @@
             <div class="pd-20">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h4 class="text-blue h4">Master users</h4>
+                        <h4 class="text-blue h4">Master User</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addUser" type="button">
@@ -95,14 +95,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Edit users
+                    Edit User
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
                 </button>
             </div>
-            <form id="form_edit_users">
+            <form id="form_edit_user">
                 <div class="modal-body">
+                    <input type="hidden" id="editid_user" name="id_user">
                     <div class="form-group row">
                         <label for="editnama_user" class="col-sm-4 col-form-label">Nama User<span
                                 class="rq">*</span></label></label>
@@ -143,6 +144,67 @@
         </div>
     </div>
 </div>
+
+<!-- modal view -->
+<div class="modal fade" id="viewuser" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">
+                    View User
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="viewnama_user" class="col-sm-4 col-form-label">Nama User</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="viewnama_user" name="nama_user" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="viewusername" class="col-sm-4 col-form-label">Username</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="viewusername" name="username" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="viewrole" class="col-sm-4 col-form-label">Role</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="viewrole" name="role" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="viewlast_login" class="col-sm-4 col-form-label">Last Login</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="viewlast_login" name="last_login" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="viewcreated_at" class="col-sm-4 col-form-label">Created At</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="viewcreated_at" name="created_at" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="viewupdated_at" class="col-sm-4 col-form-label">Updated At</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="viewupdated_at" name="updated_at" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ======================================== END users ======================================== -->
 
 
@@ -208,9 +270,10 @@ function getSwall(status, message) {
 
 // DATA
 const users = [
-    'nama_users',
+    'nama_user',
     'username',
-    'role'
+    'role',
+    'id_user'
 ];
 
 // whe add user modal show
@@ -289,7 +352,7 @@ $(function() {
 $(document).on('click', '.edit_user', function() {
     const id = $(this).attr('id');
     $.ajax({
-        url: '<?= base_url('Admin/user/edit') ?>',
+        url: '<?= base_url('Admin/User/edit') ?>',
         method: 'post',
         data: {
             id_user: id
@@ -300,25 +363,21 @@ $(document).on('click', '.edit_user', function() {
             $.each(response.data, function(key, value) {
                 $('#edit' + key).val(value);
             });
-            let datausers = response.data.users_id;
-
+            let role = response.data.role;
             $.ajax({
-                url: '<?= base_url('Admin/users/fetch') ?>',
+                url: '<?= base_url('Admin/Referensi/fetchKodeKategori/ROLE') ?>',
                 method: 'get',
                 dataType: 'json',
                 success: function(response) {
-                    $('#editusers_id').html('');
-                    $('#editusers_id').append(
-                        '<option value="">Pilih users</option>');
+                    $('#editrole').html('');
+                    $('#editrole').append('<option value="">Pilih Role</option>');
                     $.each(response.data, function(key, value) {
-                        $('#editusers_id').append('<option value="' + value
-                            .id_users + '" ' + (datausers == value
-                                .id_users ?
-                                'selected' : '') + '>' +
-                            value.nama_users +
-                            '</option>');
+                        $('#editrole').append('<option value="' + value
+                            .nama_referensi + '" ' + (role == value
+                                .nama_referensi ? 'selected' : '') +
+                            '>' + value.nama_referensi + '</option>');
+
                     });
-                    $('#editusers_id').val(datausers);
                 }
             });
         }
@@ -337,7 +396,7 @@ $(function() {
             $("#btn_edit_user").attr("disabled", "disabled");
             $("#btn_edit_user").html("Loading.....");
             $.ajax({
-                url: '<?= base_url('Admin/user/update') ?>',
+                url: '<?= base_url('Admin/User/update') ?>',
                 method: 'post',
                 data: formData,
                 contentType: false,
@@ -349,26 +408,26 @@ $(function() {
                         // foeach error 
                         $.each(response.data, function(key, value) {
                             if (value != '') {
-                                $("#" + key).addClass('form-control-danger');
-                                $("#" + key).addClass('has-danger');
-                                $("#error" + key).html(value);
+                                $("#edit" + key).addClass('form-control-danger');
+                                $("#erroredit" + key).addClass('has-danger');
+                                $("#erroredit" + key).html(value);
                             } else {
-                                $("#" + key).removeClass('form-control-danger');
-                                $("#" + key).addClass('form-control-success');
-                                $("#error" + key).html('');
-                                $("#error" + key).removeClass('has-danger');
+                                $("#edit" + key).removeClass('form-control-danger');
+                                $("#edit" + key).addClass('form-control-success');
+                                $("#erroredit" + key).html('');
+                                $("#erroredit" + key).removeClass('has-danger');
                             }
                         });
                     } else {
                         $("#form_edit_user")[0].reset();
                         $("#edituser").modal('hide');
-                        $('#tableuser').DataTable().ajax.reload();
+                        $('#tableUsers').DataTable().ajax.reload();
                         getSwall(response.status, response.data);
-                        user.forEach(function(item) {
-                            $("#" + item).removeClass('form-control-danger');
-                            $("#" + item).removeClass('form-control-success');
-                            $("#error" + item).html('');
-                            $("#error" + item).removeClass('has-danger');
+                        users.forEach(function(item) {
+                            $("#edit" + item).removeClass('form-control-danger');
+                            $("#edit" + item).removeClass('form-control-success');
+                            $("#erroredit" + item).html('');
+                            $("#erroredit" + item).removeClass('has-danger');
                         });
                     }
                     $("#btn_edit_user").removeAttr("disabled");
@@ -395,14 +454,63 @@ $(document).on('click', '.delete_user', function() {
         .then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: '<?= base_url('Admin/user/delete') ?>',
+                    url: '<?= base_url('Admin/User/delete') ?>',
                     method: 'post',
                     data: {
                         id_user: id
                     },
                     dataType: 'json',
                     success: function(response) {
-                        $('#tableuser').DataTable().ajax.reload();
+                        $('#tableUsers').DataTable().ajax.reload();
+                        getSwall(response.status, response.data);
+                    }
+                });
+            }
+        });
+});
+
+// view user
+$(document).on('click', '.view_user', function() {
+    const id = $(this).attr('id');
+    $.ajax({
+        url: '<?= base_url('Admin/User/edit') ?>',
+        method: 'post',
+        data: {
+            id_user: id
+        },
+        dataType: 'json',
+        success: function(response) {
+            $('#viewuser').modal('show');
+            $.each(response.data, function(key, value) {
+                $('#view' + key).val(value);
+            });
+        }
+    });
+});
+
+// reset password
+$(document).on('click', '.reset_pass', function() {
+    const id = $(this).attr('id');
+    swal({
+            title: "Apakah anda yakin?",
+            text: "Password akan direset menjadi default!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Ya, Reset!",
+            confirmButtonClass: "btn btn-success margin-5",
+            cancelButtonText: "Batal",
+        })
+        .then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: '<?= base_url('Admin/User/reset') ?>',
+                    method: 'post',
+                    data: {
+                        id_user: id
+                    },
+                    dataType: 'json',
+                    success: function(response) {
                         getSwall(response.status, response.data);
                     }
                 });
