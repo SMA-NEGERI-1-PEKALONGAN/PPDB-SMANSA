@@ -18,6 +18,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
+
+    <!-- switchery css -->
+    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>src/plugins/switchery/switchery.min.css" />
+
     <!-- dataTables -->
     <link rel="stylesheet" type="text/css"
         href="<?= base_url('Assets/'); ?>src/plugins/datatables/css/dataTables.bootstrap4.min.css" />
@@ -28,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/icon-font.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/style.css" />
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
@@ -117,6 +122,7 @@
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/script.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/process.js"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/layout-settings.js"></script>
+
     <script src="<?= base_url('Assets/'); ?>src/plugins/apexcharts/apexcharts.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
@@ -125,7 +131,6 @@
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/dashboard3.js"></script>
     <!-- buttons for Export datatable -->
 
-
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.buttons.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.print.min.js"></script>
@@ -133,10 +138,12 @@
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/buttons.flash.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/pdfmake.min.js"></script>
     <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/vfs_fonts.js"></script>
+
     <!-- Datatable Setting js -->
     <?= $this->renderSection('dataTables');?>
 
     <script src="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
+
     <script type="text/javascript">
     $(document).on('focusout', '.required', function() {
         const id = $(this).attr('id');
