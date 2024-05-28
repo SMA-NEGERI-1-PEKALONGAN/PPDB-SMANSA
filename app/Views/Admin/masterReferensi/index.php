@@ -648,6 +648,8 @@ $(document).on('click', '.edit_referensi', function() {
             $.each(response.data, function(key, value) {
                 $('#edit' + key).val(value);
             });
+            let dataKategori = response.data.kategori_id;
+
             $.ajax({
                 url: '<?= base_url('Admin/Kategori/fetch') ?>',
                 method: 'get',
@@ -658,12 +660,13 @@ $(document).on('click', '.edit_referensi', function() {
                         '<option value="">Pilih Kategori</option>');
                     $.each(response.data, function(key, value) {
                         $('#editkategori_id').append('<option value="' + value
-                            .id_kategori + '"  ' + (value.id_kategori ==
-                                response.data[0].id_kategori ? 'selected' :
-                                '') + '>' + value.nama_kategori +
+                            .id_kategori + '" ' + (dataKategori == value
+                                .id_kategori ?
+                                'selected' : '') + '>' +
+                            value.nama_kategori +
                             '</option>');
                     });
-                    $('#editkategori_id').val(response.data[0].id_kategori);
+                    $('#editkategori_id').val(dataKategori);
                 }
             });
         }

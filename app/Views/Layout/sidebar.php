@@ -16,15 +16,15 @@
                         <span class="micon bi bi-house"></span><span class="mtext">Home</span>
                     </a>
                 </li>
-                <li class="dropdown <?= $active == 'Referensi' || $active == 'Kategori' ? 'show' : '' ?>">
+                <li class="dropdown <?= $active == 'Referensi' || $active == 'Users' ? 'show' : '' ?>">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon bi bi-gear"></span><span class="mtext">Administrator</span>
                     </a>
                     <ul class="submenu">
                         <li><a href="<?= base_url('Admin/Referensi')?>"
                                 class="<?= $active == 'Referensi'  ? 'active' : '' ?>">Master Referensi</a></li>
-                        <li><a href="index2.html" class="">Dashboard style 2</a></li>
-                        <li><a href="index3.html" class="">Dashboard style 3</a></li>
+                        <li><a href="<?= base_url('Admin/User')?>"
+                                class="<?= $active == 'Users'  ? 'active' : '' ?>">Users</a></li>
                     </ul>
                 </li>
                 <li>

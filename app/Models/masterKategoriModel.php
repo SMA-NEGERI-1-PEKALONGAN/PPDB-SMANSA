@@ -22,15 +22,6 @@ class masterKategoriModel extends Model
         return $this->where(['id_kategori' => $id])->first();
     }
 
-    public function fetchKategori($id = false)
-    {
-        if ($id == false) {
-            return $this->orderBy('nama_kategori', 'ASC')->findAll();
-        }
-        return $this->where(['id_kategori' => $id])->first();
-    }
-
-
 }
 
 ?>

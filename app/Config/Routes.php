@@ -25,5 +25,14 @@ $routes->group('Admin', function ($routes) {
         $routes->post('delete', 'masterReferensiController::destroy');
         $routes->post('edit', 'masterReferensiController::edit');
         $routes->post('update', 'masterReferensiController::update');
+        $routes->get('fetchKodeKategori/(:segment)', 'masterReferensiController::fetchKodeKategori/$1');
+    });
+    $routes->group('User', function ($routes) {
+        $routes->get('/', 'usersController::index');
+        $routes->get('DataTables', 'usersController::ajaxDataTables');
+        $routes->post('save', 'usersController::store');
+        $routes->post('delete', 'usersController::destroy');
+        $routes->post('edit', 'usersController::edit');
+        $routes->post('update', 'usersController::update');
     });
 });

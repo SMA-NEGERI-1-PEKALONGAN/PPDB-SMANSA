@@ -5,7 +5,6 @@ namespace App\Controllers;
 use CodeIgniter\HTTP\RequestInterface;
 use Hermawan\DataTables\DataTable;
 use App\Models\masterReferensiModel;
-use App\Models\masterKategoriModel;
 
 class masterReferensiController extends BaseController
 {
@@ -22,6 +21,25 @@ class masterReferensiController extends BaseController
             'active' => 'Referensi',
         ];
         return view('Admin/masterReferensi/index', $data);
+    }
+
+    public function fetchKodeKategori($id = false)
+    {
+        $data = $this->masterReferensiModel->getReferensiByKodeKategori($id);
+        if ($data) {
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => $data,
+                'status' => '200'
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
+
     }
 
     public function ajaxDataTables()
@@ -113,10 +131,10 @@ class masterReferensiController extends BaseController
 
     public function update()
     {
-        $id = $this->request->getPost('id_referensi');
+        $id = $this->request->getPost('editid_referensi');
         $validation =  \Config\Services::validation();
         $validation->setRules([
-            'nama_referensi' => [
+            'editnama_referensi' => [
                 'label' => 'Nama Referensi',
                 'rules' => 'required|is_unique[master_referensi.nama_referensi,id_referensi,'.$id.']',
                 'errors' => [
@@ -124,7 +142,7 @@ class masterReferensiController extends BaseController
                     'is_unique' => '{field} sudah ada',
                 ],
             ],
-            'kode_referensi' => [
+            'editkode_referensi' => [
                 'label' => 'Kode Referensi',
                 'rules' => 'required|is_unique[master_referensi.kode_referensi,id_referensi,'.$id.']',
                 'errors' => [
@@ -132,7 +150,7 @@ class masterReferensiController extends BaseController
                     'is_unique' => '{field} sudah ada',
                 ],
             ],
-            'kategori_id' => [
+            'editkategori_id' => [
                 'label' => 'Kategori',
                 'rules' => 'required',
                 'errors' => [
@@ -149,9 +167,9 @@ class masterReferensiController extends BaseController
             ]);
         } else {
             $data = [
-                'nama_referensi' => $this->request->getPost('nama_referensi'),
-                'kode_referensi' => $this->request->getPost('kode_referensi'),
-                'kategori_id' => $this->request->getPost('kategori_id'),
+                'nama_referensi' => $this->request->getPost('editnama_referensi'),
+                'kode_referensi' => $this->request->getPost('editkode_referensi'),
+                'kategori_id' => $this->request->getPost('editkategori_id'),
             ];
             $this->masterReferensiModel->update($id, $data);
             return $this->response->setJSON([

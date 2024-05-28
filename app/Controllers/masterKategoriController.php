@@ -15,7 +15,7 @@ class masterKategoriController extends BaseController
 
     public function fetchKategori($id = false)
     {
-        $data = $this->masterKategoriModel->fetchKategori($id);
+        $data = $this->masterKategoriModel->getKategori($id)->findAll();
         return $this->response->setJSON([
             'error' => false,
             'data' => $data,
