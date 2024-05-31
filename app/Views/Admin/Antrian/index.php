@@ -45,7 +45,7 @@
                     ×
                 </button>
             </div>
-            <form id="form_tambah_antrian" enctype="multipart/form-data">
+            <form id="" enctype="multipart/form-data" method="post" action="<?= base_url('Admin/Antrian/save') ?>">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="nama_siswa" class="col-sm-4 col-form-label">nama_siswa<span
@@ -134,7 +134,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Batal
                     </button>
-                    <button type="submit" class="btn btn-primary" id="btn_tambah_antiran">
+                    <button type="submit" class="btn btn-primary" id="">
                         Tambah
                     </button>
                 </div>
@@ -218,7 +218,7 @@
                 <div class="form-group row ">
                     <label for="jalur_pendaftaran" class="col-sm-4 col-form-label">Jalur Pendaftaran</label></label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="jalur_pendaftaran" name="jalur_pendaftaran"
+                        <input type="text" class="form-control" id="detailjalur_pendaftaran" name="jalur_pendaftaran"
                             placeholder="Jalur Pendaftaran" readonly>
                     </div>
                 </div>

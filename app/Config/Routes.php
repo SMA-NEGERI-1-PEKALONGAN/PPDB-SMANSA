@@ -50,5 +50,8 @@ $routes->group('Admin', function ($routes) {
         $routes->post('delete', 'antrianController::destroy');
         $routes->post('edit', 'antrianController::edit');
         $routes->post('update', 'antrianController::update');
+        $routes->get('scan', 'antrianController::scan');
+        $routes->post('changeStatus', 'antrianController::changeStatus');
+        $routes->post('checkIn', 'antrianController::checkIn');
     });
 });

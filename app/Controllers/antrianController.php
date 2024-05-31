@@ -124,6 +124,32 @@ class antrianController extends BaseController
                     'status' => '422'
                 ]);
             } else {
+                $max_antrian = 105;
+                $last_antrian = $this->antrianModel->getLastAntrian();
+                $sesi1 = 'Sesi 1 (07.00 - 09.00)';
+                $sesi2 = 'Sesi 2 (09.00 - 11.00)';
+                $sesi3 = 'Sesi 3 (13.00 - 15.00)';
+                if ($last_antrian) {
+                    $no_antrian = $last_antrian['no_antrian'] + 1;
+                    if ($no_antrian > $max_antrian) {
+                        return $this->response->setJSON([
+                            'error' => true,
+                            'data' => 'Antrian sudah penuh',
+                            'status' => '422'
+                        ]);
+                    }
+                } else {
+                    $no_antrian = 1;
+                }
+                
+                if ($no_antrian <= 35) {
+                    $sesi_antrian = $sesi1;
+                } elseif ($no_antrian > 35 && $no_antrian <= 70) {
+                    $sesi_antrian = $sesi2;
+                } else {
+                    $sesi_antrian = $sesi3;
+                }
+
                 $uuid = Uuid::uuid4();
                 $id_antrian = $uuid->toString();
 
@@ -158,10 +184,11 @@ class antrianController extends BaseController
                     'jalur_pendaftaran' => $this->request->getPost('jalur_pendaftaran'),
                     'kode_pendaftaran' => $this->request->getPost('kode_pendaftaran'),
                     'qr_code' => $id_antrian . '.png',
-                    'status_antrian' => '1',
-                    'tanggal_antrian' => date('Y-m-d H:i:s'),
+                    'status_antrian' => '0',
+                    'no_antrian' => $no_antrian,
+                    'sesi_antrian' => $sesi_antrian,
+                    'tanggal_antrian' => date('Y-m-d'),
                     'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
                 ];
                 $this->antrianModel->insert($data);
                 return $this->response->setJSON([
@@ -196,6 +223,53 @@ class antrianController extends BaseController
             'data' => 'Data berhasil dihapus',
             'status' => '200'
         ]);
+    }
+
+    public function scan(){
+        $data = [
+            'title' => 'Scan Antrian',
+            'active' => 'Scan',
+        ];
+        return view('Admin/Antrian/scan_antrian', $data);
+    }
+
+    public function changeStatus(){
+        $id = $this->request->getPost('id');
+        $data = $this->antrianModel->getAntrian($id);
+        if ($data->status_antrian == '0') {
+            $this->antrianModel->update($id, ['status_antrian' => '1']);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Status berhasil diubah',
+                'status' => '200'
+            ]);
+        } else {
+            $this->antrianModel->update($id, ['status_antrian' => '0']);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Status berhasil diubah',
+                'status' => '200'
+            ]);
+        }
+    }
+
+    public function checkIn(){
+        $id = $this->request->getPost('id');
+        $data = $this->antrianModel->getAntrian($id);
+        if ($data['status_antrian'] == '0') {
+            $this->antrianModel->update($id, ['status_antrian' => '1']);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Check in berhasil',
+                'status' => '200'
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Anda sudah check in',
+                'status' => '422'
+            ]);
+        }
     }
 
 }
