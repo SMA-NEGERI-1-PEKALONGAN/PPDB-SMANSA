@@ -7,6 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
+$routes->get('Antrian', 'landingPageController::Antrian');
+
+
 // group route admin
 $routes->group('Admin', function ($routes) {
     $routes->get('Dashboard', 'Home::index');
@@ -18,6 +21,7 @@ $routes->group('Admin', function ($routes) {
         $routes->post('edit', 'masterKategoriController::edit');
         $routes->post('update', 'masterKategoriController::update');
     });
+    
     $routes->group('Referensi', function ($routes) {
         $routes->get('/', 'masterReferensiController::index');
         $routes->get('DataTables', 'masterReferensiController::ajaxDataTables');
@@ -27,6 +31,7 @@ $routes->group('Admin', function ($routes) {
         $routes->post('update', 'masterReferensiController::update');
         $routes->get('fetchKodeKategori/(:segment)', 'masterReferensiController::fetchKodeKategori/$1');
     });
+
     $routes->group('User', function ($routes) {
         $routes->get('/', 'usersController::index');
         $routes->get('DataTables', 'usersController::ajaxDataTables');
@@ -36,5 +41,14 @@ $routes->group('Admin', function ($routes) {
         $routes->post('update', 'usersController::update');
         $routes->post('reset', 'usersController::reset');
         $routes->post('changeStatus', 'usersController::changeStatus');
+    });
+
+    $routes->group('Antrian', function ($routes) {
+        $routes->get('/', 'antrianController::index');
+        $routes->get('DataTables', 'antrianController::ajaxDataTables');
+        $routes->post('save', 'antrianController::store');
+        $routes->post('delete', 'antrianController::destroy');
+        $routes->post('edit', 'antrianController::edit');
+        $routes->post('update', 'antrianController::update');
     });
 });

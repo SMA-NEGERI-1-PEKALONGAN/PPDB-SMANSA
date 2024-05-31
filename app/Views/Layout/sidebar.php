@@ -27,14 +27,16 @@
                                 class="<?= $active == 'Users'  ? 'active' : '' ?>">Users</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="<?= base_url('Admin/Antrian')?>"
-                        class="dropdown-toggle no-arrow <?= $active == 'Antrian'  ? 'active' : '' ?>">
-                        <span class="micon bi bi-card-checklist">
-
-                        </span><span class="mtext">Antrian</span>
+                <li class="dropdown <?= $active == 'Antrian' || $active == 'Cek' ? 'show' : '' ?>">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-card-checklist"></span><span class="mtext">Antrian</span>
                     </a>
+                    <ul class="submenu">
+                        <li><a href="<?= base_url('Admin/Antrian')?>"
+                                class="<?= $active == 'Antrian'  ? 'active' : '' ?>">Daftar Antrian</a></li>
+                    </ul>
                 </li>
+
                 <li>
                     <div class="dropdown-divider"></div>
                 </li>
