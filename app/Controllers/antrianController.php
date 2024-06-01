@@ -166,7 +166,7 @@ class antrianController extends BaseController
                 }
 
                 $uuid = Uuid::uuid4();
-                $id_antrian = $uuid->toString();
+                $id_antrian = str_replace('-', '', $uuid->toString());
 
                 $result = Builder::create()
                     ->writer(new PngWriter())

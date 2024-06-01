@@ -44,7 +44,6 @@ button:hover {
 #html5-qrcode-anchor-scan-type-change {
     text-decoration: none !important;
     color: #1d9bf0;
-
 }
 
 video {
@@ -75,12 +74,24 @@ video {
     <input type="text" name="id" id="id" value="18161d78-8004-4ccc-81c5-910514e5bdc8">
     <button type="submit" class="btn btn-primary">Check In</button>
 </form>
-<input type="text" id="barcodeInput" placeholder="Scan barcode here..." autofocus>
 <?= $this->endSection('content');?>
 
 <?= $this->section('dataTables');?>
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <script>
+// function checkIn ajax
+function checkInAntrian(id) {
+    $.ajax({
+        url: "<?= base_url('Admin/Antrian/checkIn'); ?>",
+        type: "POST",
+        data: {
+            id: id
+        },
+        success: function(data) {
+            console.log(data);
+        }
+    });
+}
 // script.js file
 const result = document.getElementById("qr-result");
 
@@ -94,6 +105,8 @@ function domReady(fn) {
         document.addEventListener("DOMContentLoaded", fn);
     }
 }
+
+// ajac to update status antrian
 
 
 domReady(function() {
@@ -129,32 +142,7 @@ domReady(function() {
         }
     );
     htmlscanner.render(onScanSuccess);
-
 });
-
-function checkInAntrian(id) {
-    alert(id);
-}
-
-function handleBarcodeInput(event) {
-    // Check if "Enter" key is pressed
-    if (event.keyCode === 13) {
-
-        const barcode = event.target.value;
-        // alert(barcode);
-        // Call the checkInAntrian function with the barcode as the parameter
-        checkInAntrian(barcode);
-
-        // Clear the input field
-        event.target.value = "";
-
-    }
-}
-
-document.getElementById("barcodeInput").addEventListener("keypress", handleBarcodeInput);
-
-// Attach event listener to input field
-// document.getElementById("barcodeInput").addEventListener("keypress", handleBarcodeInput);
 </script>
 
 

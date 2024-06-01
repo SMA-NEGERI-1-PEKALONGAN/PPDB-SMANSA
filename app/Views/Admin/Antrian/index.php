@@ -411,6 +411,33 @@ $(document).on('click', '.delete_antrian', function() {
         });
 });
 // copy clipboard
+
+// Function to handle barcode input
+function handleBarcodeInput(event) {
+    // Check if "Enter" key is pressed
+    if (event.keyCode === 13) {
+        // Get the value from the input field
+        var barcode = document.getElementById("barcodeInput").value;
+
+        // Do something with the barcode data, like sending it to the server or displaying it
+        console.log("Barcode scanned:", barcode);
+
+        // Clear the input field for the next scan
+        document.getElementById("barcodeInput").value = "";
+    }
+}
+
+// Attach event listener to input field
+document.getElementById("barcodeInput").addEventListener("keypress", handleBarcodeInput);
+
+
+// Get the value from the input field
+var barcode = document.getElementById("barcodeInput").value;
+
+// Do something with the barcode data, like sending it to the server or displaying it
+console.log("Barcode scanned:", barcode);
+
+document.getElementById("barcodeInput").value = "";
 </script>
 
 <?= $this->endSection('dataTables');?>s
