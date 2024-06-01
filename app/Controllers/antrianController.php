@@ -39,13 +39,28 @@ class antrianController extends BaseController
         
         // dd($builder);
         return DataTable::of($builder)
+            ->add('status_antrian', function ($row) {
+                switch ($row->status_antrian) {
+                    case '1':
+                        return '<span class="badge badge-pill badge-primary">Check In</span>';
+                        break;
+                    case '2':
+                        return '<span class="badge badge-pill badge-seccondary">Pemberkasan</span>';
+                        break;
+                    case '3':
+                        return '<span class="badge badge-pill badge-success">Verifikasi</span>';
+                        break;
+                    default:
+                        return '<span class="badge badge-pill badge-danger">Tidak aktif</span>';
+                        break;
+                }
+            })
             ->add('action', function ($row) {
                 return '
                 <div class="dropdown">
 					<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"> <i class="dw dw-more"></i></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                             <button class="dropdown-item detailsAntrian" id="'.$row->id_antrian.'"><i class="dw dw-eye"></i> View</a>
-                            <button class="dropdown-item edit_antrian" id="'.$row->id_antrian.'"><i class="dw dw-edit2"></i> Edit</button>
 							<button class="dropdown-item delete_antrian" id="'.$row->id_antrian.'"><i class="dw dw-delete-3"></i> Delete</button>
 						</div>
 				</div>
@@ -202,19 +217,27 @@ class antrianController extends BaseController
     public function edit(){
         $id = $this->request->getPost('id');
         $data = $this->antrianModel->getAntrian($id);
-        return $this->response->setJSON([
-            'error' => false,
-            'data' => $data,
-            'status' => '200'
-        ]);
+        if($data){
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => $data,
+                'status' => '200'
+            ]);
+        }else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
     }
 
     public function destroy(){
         $id = $this->request->getPost('id');
         // remove qr code
         $qr_code = $this->antrianModel->select('qr_code')->where('id_antrian', $id)->first();
-        if ($qr_code->qr_code != 'default.png') {
-            unlink('Assets/qr_code/' . $qr_code->qr_code);
+        if ($qr_code['qr_code'] != 'default.png') {
+            unlink('Assets/qr_code/' . $qr_code['qr_code']);
         }
         // remove data
         $this->antrianModel->delete($id);
@@ -256,18 +279,26 @@ class antrianController extends BaseController
     public function checkIn(){
         $id = $this->request->getPost('id');
         $data = $this->antrianModel->getAntrian($id);
-        if ($data['status_antrian'] == '0') {
+        if($data){
+            if ($data['status_antrian'] == '0') {
             $this->antrianModel->update($id, ['status_antrian' => '1']);
             return $this->response->setJSON([
                 'error' => false,
                 'data' => 'Check in berhasil',
                 'status' => '200'
             ]);
-        } else {
+            } else {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Anda sudah check in',
+                    'status' => '422'
+                ]);
+            }
+        }else {
             return $this->response->setJSON([
                 'error' => true,
-                'data' => 'Anda sudah check in',
-                'status' => '422'
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
             ]);
         }
     }

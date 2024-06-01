@@ -35,8 +35,10 @@
                         <li>
                             <a href="<?= base_url('Admin/Antrian')?>"
                                 class="<?= $active == 'Antrian'  ? 'active' : '' ?>">Daftar Antrian</a>
+                        </li>
+                        <li>
                             <a href="<?= base_url('Admin/Antrian/scan')?>"
-                                class="<?= $active == 'Scan'  ? 'active' : '' ?>">Scan Antrian</a>
+                                class="<?= $active == 'Scan'  ? 'active' : '' ?>">Scan QR Code</a>
                         </li>
 
                     </ul>

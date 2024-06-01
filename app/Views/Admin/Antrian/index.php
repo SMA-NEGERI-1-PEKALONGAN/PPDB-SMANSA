@@ -45,7 +45,7 @@
                     ×
                 </button>
             </div>
-            <form id="" enctype="multipart/form-data" method="post" action="<?= base_url('Admin/Antrian/save') ?>">
+            <form id="form_tambah_antrian" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="nama_siswa" class="col-sm-4 col-form-label">nama_siswa<span
@@ -134,7 +134,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Batal
                     </button>
-                    <button type="submit" class="btn btn-primary" id="">
+                    <button type="submit" class="btn btn-primary" id="btn_tambah_antiran">
                         Tambah
                     </button>
                 </div>
@@ -163,6 +163,20 @@
                     <div class="col-sm-12 text-center">
                         <img src="" alt="" id="detailqr_code" class="img-thumbnail">
                     </div>
+                </div>
+                <!-- no antrian -->
+                <div class="form-group row m-0">
+                    <div class="col-sm-12 text-center">
+                        <h2><span id="detailno_antrian" class="header_antrian"></span></h2><br>
+                        <h6><span id="detailsesi_antrian"></span></h6>
+                    </div>
+                    <style>
+                    .header_antrian {
+                        font-size: 50px;
+                        font-weight: bold;
+                        font-family: Arial, sans-serif;
+                    }
+                    </style>
                 </div>
                 <hr>
                 <div class="form-group row">
@@ -360,6 +374,8 @@ $(document).on('click', '.detailsAntrian', function() {
             });
             $("#detailqr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
                 .qr_code);
+            $("#detailno_antrian").html(response.data.no_antrian);
+            $("#detailsesi_antrian").html(response.data.sesi_antrian);
         }
     });
 });
