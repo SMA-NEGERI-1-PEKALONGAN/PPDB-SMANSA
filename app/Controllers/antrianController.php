@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use Hermawan\DataTables\DataTable;
 use App\Models\antrianModel;
+use App\Models\masterReferensiModel;   
 use Ramsey\Uuid\Uuid;
 use Endroid\QrCode\Writer\PngWriter;
 use Endroid\QrCode\Builder\Builder;
@@ -139,11 +140,30 @@ class antrianController extends BaseController
                     'status' => '422'
                 ]);
             } else {
-                $max_antrian = 105;
-                $last_antrian = $this->antrianModel->getLastAntrian();
-                $sesi1 = 'Sesi 1 (07.00 - 09.00)';
-                $sesi2 = 'Sesi 2 (09.00 - 11.00)';
-                $sesi3 = 'Sesi 3 (13.00 - 15.00)';
+                $referensi = new masterReferensiModel();
+                $data_referensi = $referensi->getReferensiByKodeKategori('set_antrian');
+                foreach ($data_referensi as $row) {
+                    if ($row['nama_referensi'] == 'tanggal_antrian') {
+                        $tanggal_antrian = $row['kode_referensi'];
+                    }
+                    if ($row['nama_referensi'] == 'max_antrian') {
+                        $max_antrian = $row['kode_referensi'];
+                    }
+                    if ($row['nama_referensi'] == 'Sesi 1') {
+                        $sesi1 = $row['kode_referensi'];
+                    }
+                    if ($row['nama_referensi'] == 'Sesi 2') {
+                        $sesi2 = $row['kode_referensi'];
+                    }
+                    if ($row['nama_referensi'] == 'Sesi 3') {
+                        $sesi3 = $row['kode_referensi'];
+                    }
+                }
+                // $max_antrian = 105;
+                $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);
+                // $sesi1 = 'Sesi 1 (07.00 - 09.00)';
+                // $sesi2 = 'Sesi 2 (09.00 - 11.00)';
+                // $sesi3 = 'Sesi 3 (13.00 - 15.00)';
                 if ($last_antrian) {
                     $no_antrian = $last_antrian['no_antrian'] + 1;
                     if ($no_antrian > $max_antrian) {
@@ -157,9 +177,10 @@ class antrianController extends BaseController
                     $no_antrian = 1;
                 }
                 
-                if ($no_antrian <= 35) {
+                // max antrian  dibagi 3 sesi
+                if ($no_antrian <= $max_antrian / 3) {
                     $sesi_antrian = $sesi1;
-                } elseif ($no_antrian > 35 && $no_antrian <= 70) {
+                } elseif ($no_antrian <= ($max_antrian / 3) * 2) {
                     $sesi_antrian = $sesi2;
                 } else {
                     $sesi_antrian = $sesi3;
@@ -202,8 +223,9 @@ class antrianController extends BaseController
                     'status_antrian' => '0',
                     'no_antrian' => $no_antrian,
                     'sesi_antrian' => $sesi_antrian,
-                    'tanggal_antrian' => date('Y-m-d'),
+                    'tanggal_antrian' => $tanggal_antrian,
                     'created_at' => date('Y-m-d H:i:s'),
+                    
                 ];
                 $this->antrianModel->insert($data);
                 return $this->response->setJSON([

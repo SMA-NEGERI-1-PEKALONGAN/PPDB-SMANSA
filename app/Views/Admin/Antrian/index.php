@@ -48,7 +48,7 @@
             <form id="form_tambah_antrian" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="nama_siswa" class="col-sm-4 col-form-label">nama_siswa<span
+                        <label for="nama_siswa" class="col-sm-4 col-form-label">Nama Siswa<span
                                 class="rq">*</span></label></label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control required" id="nama_siswa" name="nama_siswa"
@@ -338,20 +338,23 @@ $("#form_tambah_antrian").submit(function(e) {
                             $("#error" + key).removeClass('has-danger');
                         }
                     });
+                    $("#btn_tambah_antiran").removeAttr("disabled");
+                    $("#btn_tambah_antiran").html("Tambah");
                 } else {
                     $("#form_tambah_antrian")[0].reset();
                     $("#addAntrian").modal('hide');
                     $('#tableAntrian').DataTable().ajax.reload();
                     getSwall(response.status, response.data);
-                    users.forEach(function(item) {
+                    listFields.forEach(function(item) {
                         $("#" + item).removeClass('form-control-danger');
                         $("#" + item).removeClass('form-control-success');
                         $("#error" + item).html('');
                         $("#error" + item).removeClass('has-danger');
                     });
+
+                    $("#btn_tambah_antiran").removeAttr("disabled");
+                    $("#btn_tambah_antiran").html("Tambah");
                 }
-                $("#btn_tambah_antiran").removeAttr("disabled");
-                $("#btn_tambah_antiran").html("Tambah");
             }
         });
     }

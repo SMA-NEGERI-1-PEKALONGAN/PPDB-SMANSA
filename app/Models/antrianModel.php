@@ -18,11 +18,24 @@ class antrianModel extends Model
         return $this->where(['id_antrian' => $id])->first();
     }
 
-    public function getLastAntrian()
+    public function getActiveAntrian($tamggal)
     {
-        return $this->where('status_antrian', '0')->orderBy('no_antrian', 'DESC')->first();
+        return $this
+        ->where('tanggal_antrian', $tamggal)
+        ->where('status_antrian', '3')
+        ->orderBy('no_antrian', 'ASC')
+        ->first();
     }
-      
 
+    public function getLastAntrian($tamggal)
+    {
+        return $this
+       ->where('tanggal_antrian', $tamggal)
+        ->orderBy('no_antrian', 'DESC')
+        ->first();
+    }
+
+
+      
 }
 ?>
