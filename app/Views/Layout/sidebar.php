@@ -1,8 +1,20 @@
 <div class="left-side-bar">
     <div class="brand-logo">
         <a href="<?= base_url('Addmin/Dashoard')?>">
-            <img src="<?= base_url('Assets/'); ?>vendors/images/deskapp-logo.svg" alt="" class="dark-logo" />
-            <img src="<?= base_url('Assets/'); ?>vendors/images/deskapp-logo-white.svg" alt="" class="light-logo" />
+            <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="" class="dark-logo" />
+            <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="" class="light-logo" />
+            <style>
+            .dark-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .light-logo {
+                width: 50px;
+                height: 50px;
+            }
+            </style>
+            PPDB
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>
