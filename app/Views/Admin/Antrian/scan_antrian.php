@@ -203,10 +203,12 @@ function getSwall(status, message) {
         type: status == '200' ? 'success' : 'error',
         showCancelButton: false,
         showConfirmButton: true,
-        timer: 1500
-
+        timer: 1500,
+        allowOutsideClick: false
     })
 }
+
+
 
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp', 'alamat',
     'jalur_pendaftaran'
@@ -288,6 +290,11 @@ domReady(function() {
         } else if (selectedMenu == '3') {
             getDetailAntrian(id_barcode);
         }
+
+        // timer for next scan
+        setTimeout(() => {
+            htmlscanner.start();
+        }, 10000);
     }
 
     let htmlscanner = new Html5QrcodeScanner(
@@ -296,7 +303,9 @@ domReady(function() {
             qrbos: 250
         }
     );
+
     htmlscanner.render(onScanSuccess);
+
 
 });
 
