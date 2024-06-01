@@ -9,7 +9,7 @@ class landingPageController extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Landing Page',
+            'title' => 'PPDB SMANSA',
             'active' => 'Landing Page',
         ];
         return view('landingPage/index', $data);
@@ -17,7 +17,7 @@ class landingPageController extends BaseController
 
     public function Antrian(){
         $data = [
-            'title' => 'Antrian',
+            'title' => 'Antrian - PPDB SMANSA',
             'active' => 'Antrian',
         ];
         return view('landingPage/antrian', $data);

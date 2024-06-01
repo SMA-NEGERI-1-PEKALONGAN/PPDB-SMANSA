@@ -1,6 +1,6 @@
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="<?= base_url('Addmin/Dashoard')?>">
+        <a href="<?= base_url('Admin/Dashboard')?>">
             <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="" class="dark-logo" />
             <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="" class="light-logo" />
             <style>
@@ -24,8 +24,9 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li>
-                    <a href="<?= base_url('Dasboard')?>" class="dropdown-toggle no-arrow">
-                        <span class="micon bi bi-house"></span><span class="mtext">Home</span>
+                    <a href="<?= base_url('Admin/Dashboard')?>"
+                        class="dropdown-toggle no-arrow <?= $active == 'Dashboard'  ? 'active' : '' ?>">
+                        <span class="micon bi bi-house"></span><span class="mtext">Dashboard</span>
                     </a>
                 </li>
                 <li class="dropdown <?= $active == 'Referensi' || $active == 'Users' ? 'show' : '' ?>">
@@ -58,22 +59,6 @@
 
                 <li>
                     <div class="dropdown-divider"></div>
-                </li>
-                <li>
-                    <div class="sidebar-small-cap">Extra</div>
-                </li>
-                <li>
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon bi bi-file-pdf"></span><span class="mtext">Documentation</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="introduction.html">Introduction</a></li>
-                        <li><a href="getting-started.html">Getting Started</a></li>
-                        <li><a href="color-settings.html">Color Settings</a></li>
-                        <li>
-                            <a href="third-party-plugins.html">Third Party Plugins</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank"

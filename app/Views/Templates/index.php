@@ -9,10 +9,9 @@
     </title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png" />
-
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -100,7 +99,11 @@
         <div class="pd-ltr-20 xs-pd-20-10">
             <div class="min-height-200px">
                 <!-- include the breadcrumb -->
+                <?php 
+                if($active != 'Dashboard') :
+                ?>
                 <?= $this->include('Layout/breadcrumb'); ?>
+                <?php endif; ?>
 
                 <!-- render the section -->
                 <?= $this->renderSection('content'); ?>

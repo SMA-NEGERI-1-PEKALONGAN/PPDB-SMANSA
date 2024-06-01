@@ -5,7 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', 'landingPageController::index');
 
 $routes->get('Antrian', 'landingPageController::Antrian');
 
@@ -53,5 +53,6 @@ $routes->group('Admin', function ($routes) {
         $routes->get('scan', 'antrianController::scan');
         $routes->post('changeStatus', 'antrianController::changeStatus');
         $routes->post('checkIn', 'antrianController::checkIn');
+        $routes->post('verifikasiBerkas', 'antrianController::verifikasiBerkas');
     });
 });

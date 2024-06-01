@@ -236,6 +236,14 @@
                             placeholder="Jalur Pendaftaran" readonly>
                     </div>
                 </div>
+                <div class="form-group row ">
+                    <label for="tanggal_lahir" class="col-sm-4 col-form-label">Tanggal Lahir</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="detailtanggal_lahir" name="tanggal_lahir"
+                            placeholder="Tanggal Lahir" readonly>
+                    </div>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -303,7 +311,7 @@ function getSwall(status, message) {
 }
 
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp', 'alamat',
-    'jalur_pendaftaran'
+    'jalur_pendaftaran', 'tanggal_lahir',
 ];
 
 // tambah user

@@ -46,10 +46,13 @@ class antrianController extends BaseController
                         return '<span class="badge badge-pill badge-primary">Check In</span>';
                         break;
                     case '2':
-                        return '<span class="badge badge-pill badge-seccondary">Pemberkasan</span>';
+                        return '<span class="badge badge-pill badge-secondary">Pemberkasan</span>';
                         break;
                     case '3':
-                        return '<span class="badge badge-pill badge-success">Verifikasi</span>';
+                        return '<s class="badge badge-pill badge-success">Selesai</span>';
+                        break;
+                    case '4':
+                        return '<span class="badge badge-pill badge-warning">Bermasalah</span>';
                         break;
                     default:
                         return '<span class="badge badge-pill badge-danger">Tidak aktif</span>';
@@ -313,6 +316,33 @@ class antrianController extends BaseController
                 return $this->response->setJSON([
                     'error' => true,
                     'data' => 'Anda sudah check in',
+                    'status' => '422'
+                ]);
+            }
+        }else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
+    }
+
+    public function verifikasiBerkas(){
+        $id = $this->request->getPost('id_antrian');
+        $data = $this->antrianModel->getAntrian($id);
+        if($data){
+            if ($data['status_antrian'] == '1') {
+            $this->antrianModel->update($id, ['status_antrian' => '2']);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Verifikasi berkas berhasil',
+                'status' => '200'
+            ]);
+            } else {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Anda sudah verifikasi berkas',
                     'status' => '422'
                 ]);
             }
