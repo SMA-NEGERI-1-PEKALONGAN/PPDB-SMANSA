@@ -85,10 +85,10 @@ class antrianController extends BaseController
             ],
             'nisn' => [
                 'label' => 'NISN',
-                'rules' => 'required|is_unique[antrian.nisn]',
+                'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi.',
-                    'is_unique' => '{field} sudah terdaftar.'
+                    // 'is_unique' => '{field} sudah terdaftar.'
                 ]
             ],
             'asal_sekolah' => [
@@ -128,10 +128,10 @@ class antrianController extends BaseController
             ],
             'kode_pendaftaran' => [
                 'label' => 'Kode Pendaftaran',
-                'rules' => 'required|is_unique[antrian.kode_pendaftaran]',
+                'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi.',
-                    'is_unique' => '{field} sudah terdaftar.'
+                    // 'is_unique' => '{field} sudah terdaftar.'
                 ]
             ],
           ]);

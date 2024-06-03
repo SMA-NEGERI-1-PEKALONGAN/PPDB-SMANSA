@@ -218,8 +218,8 @@
                             </a>
                         </li>
                         <li class="nav-item <?= $active == 'Antrian' ? 'active-nav' : ''; ?>">
-                            <a class="nav-link" href="<?= base_url('Antrian'); ?>">
-                                Antrian</a>
+                            <a class="nav-link" href="<?= base_url('Antrean'); ?>">
+                                Antrean</a>
                         </li>
                         <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Cari'); ?>">

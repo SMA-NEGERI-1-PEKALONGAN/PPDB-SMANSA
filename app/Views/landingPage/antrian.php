@@ -3,7 +3,7 @@
 <div class="pd-20 card-box mb-30  mt-4" id="antrian">
     <div class="clearfix">
         <h4 class="text-black h4">
-            Form Antrian
+            Form Antrean
         </h4>
         <p class="mb-30">
 
@@ -94,7 +94,7 @@
                     <div class="form-group">
                         <label for="no_tlp">No telpon<span class="rq">*</span></label></label>
                         <input type="text" class="form-control required" id="no_tlp" name="no_tlp"
-                            placeholder="Masukan no telpom ">
+                            placeholder="Masukan no telpon ">
                         <div class="form-control-feedback " id="errorno_tlp"></div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" id="btn_tambah_antiran">
-                    Tambah
+                    Simpan
                 </button>
             </div>
     </form>
@@ -136,19 +136,39 @@
 
                         <div class="tab-pane fade show active" id="persyaratan" role="tabpanel">
                             <div class="pd-20">
-                                <ul>
-                                    <li>1. Membawa berkas pendaftaran
+                                <p class="fw-bold">
+                                    Ketentuan ketika melakukan verifikasi berkas:
+                                </p>
+                                <ul class="ml-3">
+                                    <li class="pb-2">1. Membawa berkas pendaftaran
                                     </li>
-                                    <li>
+                                    <li class="pb-2">
                                         <p class="ml-3">
                                             <a id="btnBerkas">
                                                 Lihat berkas</a>
                                         </p>
-                                    </li>
-                                    <li>2. Mengenakan seragam sekolah asal </li>
+                                    </li class="pb-2">
+                                    <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
+                                    <li class="pb-2">3. Potongan ramput rapi (CPD Putra) </li>
+                                    <li class="pb-2">4. Mengenakan spatu & kaos kaki </li>
+                                    <li class="pb-2">5. Mengenakan masker </li>
                                 </ul>
                             </div>
                         </div>
+
+                        <style>
+                        .ml-3 {
+                            margin-bottom: 0;
+                        }
+
+                        .pb-2 {
+                            padding-bottom: 0.5rem;
+                        }
+
+                        .fw-bold {
+                            font-weight: bold;
+                        }
+                        </style>
 
                         <div class="tab-pane fade" id="berkas" role="tabpanel">
                             <div class="pd-10">

@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'landingPageController::index');
 
-$routes->get('Antrian', 'landingPageController::Antrian');
+$routes->get('Antrean', 'landingPageController::Antrian');
 
 $routes->get('Cari', 'landingPageController::Cari');
 

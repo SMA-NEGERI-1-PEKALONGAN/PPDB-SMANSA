@@ -147,7 +147,7 @@ function fetchAntrian() {
 let play = document.getElementById('play');
 let bell = document.getElementById('bel');
 
-function playAudio() {
+function playAudio($antri, $loket) {
     // bell.pause();
     bell.currentTime = 0;
     bell.play();
@@ -157,11 +157,12 @@ function playAudio() {
 
     // mainkan suara nomor antrian
     setTimeout(function() {
-        responsiveVoice.speak("Nomor antrian 1, silahkan menuju ke loket 1", "Indonesian Male", {
-            rate: 0.9,
-            pitch: 1,
-            volume: 1,
-        });
+        responsiveVoice.speak("Nomor antrian " + $antri + " silahkan menuju loket " + $loket,
+            "Indonesian Male", {
+                rate: 0.9,
+                pitch: 1,
+                volume: 1,
+            });
     }, durasi_bell);
 
 
