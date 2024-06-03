@@ -36,8 +36,8 @@ class landingPageController extends BaseController
     public function search(){
         $keyword = $this->request->getVar('keyword');
         $antrianModel = new AntrianModel();
-        $antrian = $antrianModel->search($keyword);
-
+        $antrian = $antrianModel->search($keyword)->get()->getRow();
+        // dd($antrian);
         if($antrian){
             return $this->response->setJSON([
                 'error' => false,
@@ -47,7 +47,7 @@ class landingPageController extends BaseController
         }else{
             return $this->response->setJSON([
                 'error' => true,
-                'message' => 'Data tidak ditemukan',
+                'data' => 'Data tidak ditemukan',
                 'status' => '404'
             ]);
         }

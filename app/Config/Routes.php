@@ -11,6 +11,7 @@ $routes->get('Antrian', 'landingPageController::Antrian');
 
 $routes->get('Cari', 'landingPageController::Cari');
 
+$routes->post('search', 'landingPageController::search');
 
 // group route admin
 $routes->group('Admin', function ($routes) {

@@ -1,6 +1,6 @@
 <?= $this->extend('Templates/LandingPage') ?>
 <?= $this->section('content') ?>
-<div class="pd-20 card-box mb-30" id="antrian">
+<div class="pd-20 card-box mb-30  mt-4" id="antrian">
     <div class="clearfix">
         <h4 class="text-black h4">
             Form Antrian
@@ -378,7 +378,9 @@ $('#btn_tambah_antiran').click(function(e) {
 $('#form_syarat_ketentuan').submit(function(e) {
     e.preventDefault();
     $("#btn_sk").attr("disabled", "disabled");
-    $("#btn_sk").html("Loading...");
+    $("#btn_sk").html(
+        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+    ).attr('disabled', true);
     $.ajax({
         url: '<?= base_url('Admin/Antrian/save'); ?>',
         type: 'POST',
@@ -417,9 +419,8 @@ $('#form_syarat_ketentuan').submit(function(e) {
                 $("#btn_sk").removeAttr("disabled");
                 $("#btn_sk").html("Kirim");
             }
-
-        }
-    });
+        } //end success
+    }) //end ajax
 });
 </script>
 <?= $this->endSection('script') ?>

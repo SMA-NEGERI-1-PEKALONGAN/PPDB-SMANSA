@@ -37,7 +37,9 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
         crossorigin="anonymous"></script>
 
+    <style>
 
+    </style>
     <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -69,6 +71,14 @@
     <style>
     .rq {
         color: red;
+    }
+
+    .footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        color: #333;
+        padding: 10px 0;
     }
     </style>
 </head>

@@ -103,14 +103,16 @@
     /* perbesar icon bi bi-x */
     .bi-x {
         font-size: 2rem;
+        color: #333;
     }
 
-    .active {
+    .active-nav a !important {
         color: #007bff !important;
     }
 
-    .active::after {
+    .active-nav a::after {
         width: 20px !important;
+
     }
 
 
@@ -125,6 +127,24 @@
         .main-container {
             margin-top: 0px;
         }
+
+        .footer {
+            text-align: center;
+        }
+    }
+
+    .footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        color: #333;
+        padding: 10px 0;
+    }
+
+    /* icon nabvar */
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        color: black;
     }
     </style>
 
@@ -193,12 +213,11 @@
                             <a class="nav-link" href="<?= base_url('/'); ?>"> Home
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link <?= $active == 'Antrian' ? 'active' : ''; ?>"
-                                href="<?= base_url('Antrian'); ?>">
+                        <li class="nav-item <?= $active == 'Antrian' ? 'active-nav' : ''; ?>">
+                            <a class="nav-link" href="<?= base_url('Antrian'); ?>">
                                 Antrian</a>
                         </li>
-                        <li class="nav-item <?= $active == 'Cari' ? 'active' : ''; ?>">
+                        <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Cari'); ?>">
                                 Cari</a>
                         </li>
@@ -303,7 +322,6 @@
             showCancelButton: false,
             showConfirmButton: true,
             timer: 1500
-
         })
     }
     </script>
