@@ -1,6 +1,6 @@
 <?= $this->extend('Templates/LandingPage') ?>
 <?= $this->section('content') ?>
-<div class="pd-20 card-box mb-30">
+<div class="pd-20 card-box mb-30" id="antrian">
     <div class="clearfix">
         <h4 class="text-black h4">
             Form Antrian
@@ -343,3 +343,83 @@
     </div>
 </div>
 <?= $this->endSection('content') ?>
+
+<?= $this->section('script') ?>
+<script>
+const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
+    'alamat', 'jalur_pendaftaran'
+];
+const dataAntrian = [];
+$('#btn_tambah_antiran').click(function(e) {
+    e.preventDefault();
+    let formData = new FormData();
+    let status = true;
+    listFields.forEach((field) => {
+        if ($(`#${field}`).val() == '') {
+            $(`#${field}`).addClass('form-control-danger');
+            $(`#error${field}`).html('Field ini tidak boleh kosong');
+            $(`#error${field}`).addClass('has-danger');
+            status = false;
+        } else {
+            $(`#${field}`).addClass('form-control-success');
+            $(`#${field}`).removeClass('form-control-danger');
+            $(`#error${field}`).html('');
+            $(`#error${field}`).removeClass('has-danger');
+            formData.append(field, $(`#${field}`).val());
+        }
+    });
+
+    if (status) {
+        $('#Medium-modal').modal('show');
+        dataAntrian.push(formData);
+    }
+});
+
+$('#form_syarat_ketentuan').submit(function(e) {
+    e.preventDefault();
+    $("#btn_sk").attr("disabled", "disabled");
+    $("#btn_sk").html("Loading...");
+    $.ajax({
+        url: '<?= base_url('Admin/Antrian/save'); ?>',
+        type: 'POST',
+        data: dataAntrian[0],
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            if (response.error) {
+                $.each(response.data, function(key, value) {
+                    if (value != '') {
+                        $("#" + key).addClass('form-control-danger');
+                        $("#error" + key).addClass('has-danger');
+                        $("#error" + key).html(value);
+                    } else {
+                        $("#" + key).removeClass('form-control-danger');
+                        $("#" + key).addClass('form-control-success');
+                        $("#error" + key).html('');
+                        $("#error" + key).removeClass('has-danger');
+                    }
+                });
+                dataAntrian.pop();
+                $('#Medium-modal').modal('hide');
+                $("#btn_sk").removeAttr("disabled");
+                $("#btn_sk").html("Tambah");
+            } else {
+                getSwall(response.status, 'Antrian berhasil ditambahkan');
+                listFields.forEach(function(item) {
+                    $("#" + item).removeClass('form-control-danger');
+                    $("#" + item).removeClass('form-control-success');
+                    $("#error" + item).html('');
+                    $("#error" + item).removeClass('has-danger');
+                });
+                $('#syatKetentuan').prop('checked', false);
+                $("#form_tambah_antrian")[0].reset();
+                $('#Medium-modal').modal('hide');
+                $("#btn_sk").removeAttr("disabled");
+                $("#btn_sk").html("Kirim");
+            }
+
+        }
+    });
+});
+</script>
+<?= $this->endSection('script') ?>

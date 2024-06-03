@@ -35,6 +35,11 @@ class antrianModel extends Model
         ->first();
     }
 
+    public function search($keyword)
+    {
+        return $this->table('antrian')->like('kode_pendaftaran', $keyword)->orLike('nisn', $keyword)->orLike('no_antrian', $keyword)->orderBy('created_at', 'DESC')->limit(1);
+    }
+
 
       
 }

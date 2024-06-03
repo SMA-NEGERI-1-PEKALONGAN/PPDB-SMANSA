@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\AntrianModel;
+use CodeIgniter\HTTP\RequestInterface;
 
 class landingPageController extends BaseController
 {
@@ -29,6 +31,26 @@ class landingPageController extends BaseController
             'active' => 'Cari',
         ];
         return view('landingPage/cari', $data);
+    }
+
+    public function search(){
+        $keyword = $this->request->getVar('keyword');
+        $antrianModel = new AntrianModel();
+        $antrian = $antrianModel->search($keyword);
+
+        if($antrian){
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => $antrian,
+                'status' => '200'
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'error' => true,
+                'message' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
     }
 }
 
