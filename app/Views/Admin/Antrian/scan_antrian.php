@@ -53,285 +53,34 @@ video {
     border-radius: 0.25em;
 }
 </style>
-<div class="row mx-1">
-    <div class="col-md-7">
-        <div class="form-group row">
-            <label for="barcodeInput" class="col-sm-4 col-form-label">Scan QR Codes</label></label>
-            <input type="text" class="form-control" id="barcodeInput" placeholder="Scan QR Codes here..." autofocus>
+
+<div class="row mx-2">
+    <div class="col-6">
+        <h1>Scan QR Codes</h1>
+        <div class="section">
+            <div id="my-qr-reader">
+            </div>
         </div>
     </div>
-    <div class="col-1"></div>
-    <div class="col-md-4">
-        <div class="form-group row">
-            <label for="menu" class="col-sm-4 col-form-label">Menu</label></label>
-            <select class="form-control" id="menu">
-                <option value="1">Check In</option>
-                <option value="2">Verifikasi</option>
-            </select>
-        </div>
-    </div>
-</div>
-<div class="row mt-2">
-    <div class="col-md-6 mx-auto">
-        <div class="card-box mb-30">
-            <div class="pd-20">
-                <div class="row mb-4 mx-2">
-                    <h4 class="text-blue h4">Scan QR Codes</h4>
-                </div>
-                <div class="pb-20">
-                    <div id="my-qr-reader">
-                    </div>
-                </div>
+    <div class="col-6">
+        <h1>Result</h1>
+        <div class="section">
+            <div id="qr-result">
             </div>
         </div>
     </div>
 </div>
 
-<!-- berkas antrian -->
-<div class="modal fade" id="berkassAntrian" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">
-                    Verifikasi Berkas
-                </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
-            </div>
-            <form id="formberkasAntrian">
-                <div class="modal-body">
-                    <input type="hidden" name="id_antrian" id="berkasid_antrian">
-                    <!-- no antrian -->
-                    <div class="form-group row m-0">
-                        <div class="col-sm-12 text-center">
-                            <h2><span id="berkasno_antrian" class="header_antrian"></span></h2><br>
-                        </div>
-                        <style>
-                        .header_antrian {
-                            font-size: 50px;
-                            font-weight: bold;
-                            font-family: Arial, sans-serif;
-                        }
-                        </style>
-                    </div>
-                    <hr>
-                    <div class="form-group row">
-                        <label for="nama_siswa" class="col-sm-4 col-form-label">Nama Siswa</label></label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="berkasnama_siswa" name="nama_siswa"
-                                placeholder="Nama" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="kode_pendaftaran" class="col-sm-4 col-form-label">Kode Pendaftaran</label></label>
-                        <div class="col-sm-8">
-                            <!-- add button cliport -->
-                            <input type="text" class="form-control" id="berkaskode_pendaftaran" name="kode_pendaftaran"
-                                placeholder="Kode Pendaftaran" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group row ">
-                        <label for="jalur_pendaftaran" class="col-sm-4 col-form-label">Jalur Pendaftaran</label></label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="berkasjalur_pendaftaran"
-                                name="jalur_pendaftaran" placeholder="Jalur Pendaftaran" readonly>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="asal_sekolah" class="col-sm-4 col-form-label">Asal Sekolah</label></label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="berkasasal_sekolah" name="asal_sekolah"
-                                placeholder="Asal Sekolah" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="alamat" class="col-sm-4 col-form-label">alamat</label></label>
-                        <div class="col-sm-8">
-                            <textarea class="form-control" id="berkasalamat" name="alamat" placeholder="Alamat"
-                                readonly></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="tanggal_antrian" class="col-sm-4 col-form-label">Tanggal Antrian</label></label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="berkastanggal_antrian" name="tanggal_antrian"
-                                placeholder="Tanggal Antrian" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="checklist" class="col-sm-4 col-form-label">Checklist</label></label>
-                        <div class="col-sm-8">
-                            <div class="custom-control custom-checkbox mb-5">
-                                <input type="checkbox" class="custom-control-input required" id="chekList"
-                                    name="chekList" required>
-                                <label class="custom-control-label" for="chekList">
-                                    Berkas sudah lengkap
-                                </label>
-                                </label>
-                                <div class=" form-control-feedback " id="errorchekList"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row ">
-                        <label for="status_antrian" class="col-sm-4 col-form-label">Status</label></label>
-                        <div class="col-sm-8">
-                            <div id="berkasstatus_antrian"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Tutup
-                    </button>
-                    <button type="submit" class="btn btn-primary" id="btn_berkasAntrian">
-                        Simpan
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+<form action="<?= base_url('Admin/Antrian/checkIn'); ?>" method="post">
+    <input type="text" name="id" id="id" value="18161d78-8004-4ccc-81c5-910514e5bdc8">
+    <button type="submit" class="btn btn-primary">Check In</button>
+</form>
+<input type="text" id="barcodeInput" placeholder="Scan barcode here..." autofocus>
 <?= $this->endSection('content');?>
 
 <?= $this->section('dataTables');?>
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <script>
-// notification
-function getSwall(status, message) {
-    swal({
-        title: message,
-        type: status == '200' ? 'success' : 'error',
-        showCancelButton: false,
-        showConfirmButton: true,
-        timer: 1500,
-        allowOutsideClick: false
-    })
-}
-
-
-
-const listFields = ['id_antrian', 'nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
-    'alamat', 'jalur_pendaftaran', 'tanggal_antrian'
-];
-// get selected menu
-var selectedMenu = document.getElementById('menu').value;
-
-document.getElementById('menu').addEventListener('change', function() {
-    selectedMenu = document.getElementById('menu').value;
-});
-
-// ceck in antrian
-function checkInAntrian(id) {
-    $.ajax({
-        url: '<?= base_url('Admin/Antrian/checkIn'); ?>',
-        type: 'post',
-        data: {
-            id: id
-        },
-        success: function(response) {
-            getSwall(response.status, response.data);
-        },
-    });
-}
-
-// verifikasi berkas
-$("#formberkasAntrian").submit(function(e) {
-    e.preventDefault();
-    if ($("#chekList").prop('checked') == false) {
-        $('#chekList').addClass('form-control-danger');
-        $("#errorchekList").html('Checklist harus di centang');
-        $("#errorchekList").addClass('has-danger');
-    } else {
-        $("#btn_tambah_antiran").attr("disabled", "disabled");
-        $("#btn_tambah_antiran").html("Loading.....");
-        $.ajax({
-            url: '<?= base_url('Admin/Antrian/verifikasiBerkas') ?>',
-            method: 'post',
-            data: new FormData(this),
-            contentType: false,
-            cache: false,
-            processData: false,
-            dataType: 'json',
-            success: function(response) {
-                if (response.status == '200') {
-                    getSwall(response.status, response.data);
-                    $('#berkassAntrian').modal('hide');
-                    $("#btn_tambah_antiran").removeAttr("disabled");
-                    $("#btn_tambah_antiran").html("Simpan");
-                    $(".form-control").removeClass('form-control-danger');
-                    $(".form-control-feedback").removeClass('has-danger');
-                    $(".form-control-feedback").html('');
-                    $("#formberkasAntrian")[0].reset();
-                } else {
-                    getSwall(response.status, response.data);
-                    $("#btn_tambah_antiran").removeAttr("disabled");
-                    $("#btn_tambah_antiran").html("Simpan");
-                }
-            }
-        });
-    }
-});
-
-// get data 
-function getberkasAntrian(id) {
-    $.ajax({
-        url: '<?= base_url('Admin/Antrian/edit') ?>',
-        method: 'post',
-        data: {
-            id: id
-        },
-        success: function(response) {
-            if (response.status == '200') {
-                $('#berkassAntrian').modal('show');
-                listFields.forEach(function(item) {
-                    $("#berkas" + item).val(response.data[item]);
-                });
-                $("#berkasqr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
-                    .qr_code);
-                $("#berkasno_antrian").html(response.data.no_antrian);
-                $("#berkassesi_antrian").html(response.data.sesi_antrian);
-                if (response.data.status != 0) {
-                    $("#chekList").prop('checked', true);
-                    $("#chekList").prop('disabled', true);
-                    $("#btn_berkasAntrian").remove();
-                } else {
-                    $("#chekList").prop('checked', false);
-                }
-                switch (response.data.status_antrian) {
-                    case '1':
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-primary">Check In</span>');
-                        break;
-                    case '2':
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-secondary">Pemberkasan</span>');
-                        break;
-                    case '3':
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-success">Selesai</span>');
-                        break;
-                    case '4':
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-warning">Bermasalah</span>');
-                        break;
-                    default:
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-danger">Tidak Aktif</span>');
-                        break;
-                }
-            } else {
-                getSwall(response.status, response.data);
-            }
-
-        },
-    });
-}
-
-
 // script.js file
 const result = document.getElementById("qr-result");
 
@@ -352,18 +101,25 @@ domReady(function() {
     // If found you qr code
     function onScanSuccess(decodeText, decodeResult) {
         textContent = decodeText;
+        result.innerHTML = "";
+        const p = document.createElement("p");
+        p.append(textContent);
+        result.append(p);
+        // button clear
+        const button = document.createElement("button");
+        button.innerHTML = "Clear";
+        button.onclick = () => {
+            result.innerHTML = "";
+        };
+        result.append(button);
 
-        id_barcode = textContent.toString();
-        if (selectedMenu == '1') {
-            checkInAntrian(id_barcode);
-        } else if (selectedMenu == '2') {
-            getberkasAntrian(id_barcode);
-        }
-
-        // timer for next scan
-        setTimeout(() => {
-            htmlscanner.start();
-        }, 10000);
+        // check in button
+        const checkInButton = document.createElement("button");
+        checkInButton.innerHTML = "Check In";
+        checkInButton.onclick = () => {
+            alert(textContent);
+        };
+        result.append(checkInButton);
     }
 
     let htmlscanner = new Html5QrcodeScanner(
@@ -372,13 +128,13 @@ domReady(function() {
             qrbos: 250
         }
     );
-
     htmlscanner.render(onScanSuccess);
-
 
 });
 
-
+function checkInAntrian(id) {
+    alert(id);
+}
 
 function handleBarcodeInput(event) {
     // Check if "Enter" key is pressed
@@ -386,14 +142,8 @@ function handleBarcodeInput(event) {
 
         const barcode = event.target.value;
         // alert(barcode);
-
-        const barcodeString = barcode.toString();
-        // alert(selectedMenu);
-        if (selectedMenu == '1') {
-            checkInAntrian(barcodeString);
-        } else if (selectedMenu == '2') {
-            getberkasAntrian(barcodeString);
-        }
+        // Call the checkInAntrian function with the barcode as the parameter
+        checkInAntrian(barcode);
 
         // Clear the input field
         event.target.value = "";
@@ -402,6 +152,9 @@ function handleBarcodeInput(event) {
 }
 
 document.getElementById("barcodeInput").addEventListener("keypress", handleBarcodeInput);
+
+// Attach event listener to input field
+// document.getElementById("barcodeInput").addEventListener("keypress", handleBarcodeInput);
 </script>
 
 
