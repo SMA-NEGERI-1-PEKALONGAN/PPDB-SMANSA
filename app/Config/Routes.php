@@ -9,6 +9,8 @@ $routes->get('/', 'landingPageController::index');
 
 $routes->get('Antrian', 'landingPageController::Antrian');
 
+$routes->get('Cari', 'landingPageController::Cari');
+
 
 // group route admin
 $routes->group('Admin', function ($routes) {

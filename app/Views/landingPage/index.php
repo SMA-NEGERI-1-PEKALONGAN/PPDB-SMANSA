@@ -63,6 +63,7 @@
                     <li><a class="nav-link scrollto" href="#ketentuan">Ketentuan</a></li>
                     <li><a class="nav-link scrollto" href="#alur">Alur</a></li>
                     <li><a class="nav-link scrollto" href="#kontak">Kontak</a></li>
+                    <li><a class="nav-link scrollto" href="<?= base_url('Antrian')?>">Antrian</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

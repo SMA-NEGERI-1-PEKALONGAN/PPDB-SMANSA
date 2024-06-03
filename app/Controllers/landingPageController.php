@@ -22,6 +22,14 @@ class landingPageController extends BaseController
         ];
         return view('landingPage/antrian', $data);
     }
+
+    public function Cari(){
+        $data = [
+            'title' => 'Cari - PPDB SMANSA',
+            'active' => 'Cari',
+        ];
+        return view('landingPage/cari', $data);
+    }
 }
 
 ?>

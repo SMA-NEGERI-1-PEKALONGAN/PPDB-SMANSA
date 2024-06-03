@@ -161,7 +161,7 @@ video {
                                 placeholder="Tanggal Antrian" readonly>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" id="check_verifikasi">
                         <label for="checklist" class="col-sm-4 col-form-label">Checklist</label></label>
                         <div class="col-sm-8">
                             <div class="custom-control custom-checkbox mb-5">
@@ -294,12 +294,13 @@ function getberkasAntrian(id) {
                     .qr_code);
                 $("#berkasno_antrian").html(response.data.no_antrian);
                 $("#berkassesi_antrian").html(response.data.sesi_antrian);
-                if (response.data.status != 0) {
+                if (response.data.status_antrian == '1') {
+                    $("#chekList").prop('checked', false);
+                    $("#chekList").prop('disabled', false);
+                } else {
                     $("#chekList").prop('checked', true);
                     $("#chekList").prop('disabled', true);
                     $("#btn_berkasAntrian").remove();
-                } else {
-                    $("#chekList").prop('checked', false);
                 }
                 switch (response.data.status_antrian) {
                     case '1':

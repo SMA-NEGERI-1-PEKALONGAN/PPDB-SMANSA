@@ -237,9 +237,9 @@
                     </div>
                 </div>
                 <div class="form-group row ">
-                    <label for="tanggal_lahir" class="col-sm-4 col-form-label">Tanggal Lahir</label></label>
+                    <label for="tanggal_antrian" class="col-sm-4 col-form-label">Tanggal Lahir</label></label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="detailtanggal_lahir" name="tanggal_lahir"
+                        <input type="text" class="form-control" id="detailtanggal_antrian" name="tanggal_antrian"
                             placeholder="Tanggal Lahir" readonly>
                     </div>
                 </div>
@@ -311,7 +311,7 @@ function getSwall(status, message) {
 }
 
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp', 'alamat',
-    'jalur_pendaftaran', 'tanggal_lahir',
+    'jalur_pendaftaran', 'tanggal_antrian',
 ];
 
 // tambah user
