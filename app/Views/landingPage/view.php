@@ -153,11 +153,15 @@ function playAudio() {
     bell.play();
 
     // set delay antara suara bell dengan suara nomor antrian
-    durasi_bell = bell.duration * 770;
+    durasi_bell = bell.duration * 1000;
 
     // mainkan suara nomor antrian
     setTimeout(function() {
-        responsiveVoice.speak("Nomor antrian 1", "Indonesian Male");
+        responsiveVoice.speak("Nomor antrian 1, silahkan menuju ke loket 1", "Indonesian Male", {
+            rate: 0.9,
+            pitch: 1,
+            volume: 1,
+        });
     }, durasi_bell);
 
 
