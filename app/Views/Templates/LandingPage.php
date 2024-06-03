@@ -183,6 +183,10 @@
         </div>
     </div> -->
     <!-- navbar -->
+    <?php 
+    if($active != 'Views'):
+        
+    ?>
     <div class="row">
         <!-- list menu center -->
         <div class="col-md-12 mx-2">
@@ -227,6 +231,7 @@
             </nav>
         </div>
     </div>
+    <?php endif; ?>
 
     <div class="main-container">
         <div class="pd-ltr-20 xs-pd-20-10">
