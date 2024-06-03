@@ -57,5 +57,7 @@ $routes->group('Admin', function ($routes) {
         $routes->post('changeStatus', 'antrianController::changeStatus');
         $routes->post('checkIn', 'antrianController::checkIn');
         $routes->post('verifikasiBerkas', 'antrianController::verifikasiBerkas');
+        $routes->get('List', 'antrianController::listAntrian');
+        $routes->get('ListAntrian', 'antrianController::ajaxListAntrian');
     });
 });

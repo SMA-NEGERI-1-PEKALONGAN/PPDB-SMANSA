@@ -80,6 +80,12 @@
         color: #333;
         padding: 10px 0;
     }
+
+    @media (max-width: 764px) {
+        .footer {
+            text-align: center;
+        }
+    }
     </style>
 </head>
 

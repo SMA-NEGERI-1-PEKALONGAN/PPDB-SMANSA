@@ -355,5 +355,50 @@ class antrianController extends BaseController
         }
     }
 
+    public function listAntrian(){
+        $data = [
+            'title' => 'List Antrian',
+            'active' => 'List',
+        ];
+        return view('Admin/Antrian/list_antrian', $data);
+    }
+
+     public function ajaxListAntrian()
+     {
+    
+        $tanggal = date('Y-m-d');
+        $builder = $this->antrianModel->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at')
+            ->where('tanggal_antrian', $tanggal)->where('status_antrian', '1');
+        
+        // dd($builder);
+        return DataTable::of($builder)
+            ->add('status_antrian', function ($row) {
+                switch ($row->status_antrian) {
+                    case '1':
+                        return '<span class="badge badge-pill badge-primary">Check In</span>';
+                        break;
+                    case '2':
+                        return '<span class="badge badge-pill badge-secondary">Pemberkasan</span>';
+                        break;
+                    case '3':
+                        return '<s class="badge badge-pill badge-success">Selesai</span>';
+                        break;
+                    case '4':
+                        return '<span class="badge badge-pill badge-warning">Bermasalah</span>';
+                        break;
+                    default:
+                        return '<span class="badge badge-pill badge-danger">Tidak aktif</span>';
+                        break;
+                }
+            })
+            ->add('action', function ($row) {
+                return '
+                    <button class="btn btn-info mr-2 detailsAntrian" id="'.$row->id_antrian.'"><i class="dw dw-eye"></i> View</a>
+                    <button class="btn btn-warning mr-2 checkIn" id="'.$row->id_antrian.'"><i class="icon-copy bi bi-megaphone"></i></button>
+                ';
+            }, 'last')
+            ->toJson(true);
+    }
+
 }
 ?>
