@@ -18,14 +18,14 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendor/aos/aos.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Vendors CSS Files -->
+    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/aos/aos.css" rel="stylesheet">
+    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/remixicon/remixicon.css" rel="stylesheet">
+    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="<?= base_url('Assets/'); ?>LandingPage/css/style.css" rel="stylesheet">
@@ -872,13 +872,13 @@
             class="bi bi-arrow-up-short"></i></a>
     <div id="preloader"></div>
 
-    <!-- Vendor JS Files -->
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendor/aos/aos.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendor/php-email-form/validate.js"></script>
+    <!-- Vendors JS Files -->
+    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/purecounter/purecounter_vanilla.js"></script>
+    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/aos/aos.js"></script>
+    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/glightbox/js/glightbox.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
     <script src="<?= base_url('Assets/'); ?>LandingPage/js/main.js"></script>
