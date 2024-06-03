@@ -107,43 +107,16 @@
 
 <!-- load file audio bell antrian -->
 <audio id="bel" src="<?= base_url('Assets/audio/bell.mp3'); ?>"></audio>
-<script src="https://code.responsivevoice.org/responsivevoice.js?key=jQZ2zcdq">
-</script>
 
-<!-- play audio bel -->
-<script>
-let bell = document.getElementById('bel');
+<!-- btn play -->
+<button id="play" class="btn btn-primary">Play</button>
 
-// play bel
-bell.play();
-
-function playAudio() {
-    bell.pause();
-    bell.currentTime = 0;
-    bell.play();
-
-    // set delay antara suara bell dengan suara nomor antrian
-    durasi_bell = bell.duration * 770;
-
-    // mainkan suara nomor antrian
-    setTimeout(function() {
-        responsiveVoice.speak("Nomor Antrian, 1" +
-            "Indonesian Male" + {
-                rate: 0.9,
-                pitch: 1,
-                volume: 1
-            });
-    }, durasi_bell);
-
-}
-
-// chck play audio
-playAudio();
-</script>
 
 <?= $this->endSection('content')?>
 
 <?= $this->section('script')?>
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=jQZ2zcdq">
+</script>
 <script>
 $(document).ready(function() {
     fetchAntrian();
@@ -170,14 +143,12 @@ function fetchAntrian() {
 }
 
 
-
+// when click next button play audio bell
+let play = document.getElementById('play');
 let bell = document.getElementById('bel');
 
-// play bel
-bel.play();
-
 function playAudio() {
-    bell.pause();
+    // bell.pause();
     bell.currentTime = 0;
     bell.play();
 
@@ -186,17 +157,24 @@ function playAudio() {
 
     // mainkan suara nomor antrian
     setTimeout(function() {
-        responsiveVoice.speak("Nomor Antrian, 1" +
-            "Indonesian Male", {
-                rate: 0.9,
-                pitch: 1,
-                volume: 1
-            });
+        responsiveVoice.speak("Nomor antrian 1", "Indonesian Male");
     }, durasi_bell);
+
+
 
 }
 
-// chck play audio
-playAudio();
+play.addEventListener('click', playAudio);
+// jika play selesai maka play button akan muncul kembali
+bell.addEventListener('ended', function() {
+    // document.getElementById('play').classList.remove('hidden');
+    // document.getElementById('pause').classList.add('hidden');
+});
+// get data every 1 second
+setInterval(function() {
+    getData();
+}, 1000);
+</script>
 
-<?= $this->endSection()?>
+
+<?= $this->endSection('script')?>
