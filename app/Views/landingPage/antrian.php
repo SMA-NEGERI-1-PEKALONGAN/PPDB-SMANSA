@@ -104,6 +104,18 @@
     .bi-x {
         font-size: 2rem;
     }
+
+    @media (max-width: 1024px) {
+        .main-container {
+            margin-top: 50px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .main-container {
+            margin-top: 0px;
+        }
+    }
     </style>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -205,31 +217,41 @@
 
                         </p>
                     </div>
-                    <div class="wizard-content">
-                        <form id="form_tambah_antrian" enctype="multipart/form-data">
-                            <div class="modal-body">
-                                <div class="form-group row">
-                                    <label for="nama_siswa" class="col-sm-4 col-form-label">Nama Siswa<span
-                                            class="rq">*</span></label></label>
-                                    <div class="col-sm-8">
+                    <form id="form_tambah_antrian" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="nama_siswa">Nama Siswa<span class="rq">*</span></label>
                                         <input type="text" class="form-control required" id="nama_siswa"
                                             name="nama_siswa" placeholder="Masukan nama">
                                         <div class="form-control-feedback " id="errornama_siswa"></div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="nisn" class="col-sm-4 col-form-label">Nisn<span
-                                            class="rq">*</span></label></label>
-                                    <div class="col-sm-8">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="nisn">NISN<span class="rq">*</span></label>
                                         <input type="text" class="form-control required" id="nisn" name="nisn"
                                             placeholder="Masukan NSIN">
                                         <div class="form-control-feedback" id="errornisn"></div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="jenis_kelamin" class="col-sm-4 col-form-label">Jenis Kelamin<span
-                                            class="rq">*</span></label></label>
-                                    <div class="col-sm-8">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="kode_pendaftaran">Kode
+                                            Pendaftaran
+                                            PPDB<span class="rq">*</span></label></label>
+                                        <input type="text" class="form-control required" id="kode_pendaftaran"
+                                            name="kode_pendaftaran" placeholder="Masukan kode pendaftaran PPDB">
+                                        <div class="form-control-feedback " id="errorkode_pendaftaran"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="jenis_kelamin">Jenis
+                                            Kelamin<span class="rq">*</span></label></label>
                                         <select class="form-control required" id="jenis_kelamin" name="jenis_kelamin">
                                             <option value="">Pilih Jenis Kelamin</option>
                                             <option value="L">Laki-laki</option>
@@ -238,264 +260,425 @@
                                         <div class="form-control-feedback " id="errorjenis_kelamin"></div>
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label for="kode_pendaftaran" class="col-sm-4 col-form-label">Kode Pendaftaran
-                                        PPDB<span class="rq">*</span></label></label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control required" id="kode_pendaftaran"
-                                            name="kode_pendaftaran" placeholder="Masukan kode pendaftaran PPDB">
-                                        <div class="form-control-feedback " id="errorkode_pendaftaran"></div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="asal_sekolah" class="col-sm-4 col-form-label">Asal Sekolah<span
-                                            class="rq">*</span></label></label>
-                                    <div class="col-sm-8">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="asal_sekolah">Asal
+                                            Sekolah<span class="rq">*</span></label></label>
                                         <input type="text" class="form-control required" id="asal_sekolah"
                                             name="asal_sekolah" placeholder="Masukan asal sekolah ">
                                         <div class="form-control-feedback " id="errorasal_sekolah"></div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="no_tlp" class="col-sm-4 col-form-label">No telpon<span
-                                            class="rq">*</span></label></label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control required" id="no_tlp" name="no_tlp"
-                                            placeholder="Masukan no telpom ">
-                                        <div class="form-control-feedback " id="errorno_tlp"></div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="alamat" class="col-sm-4 col-form-label">alamat<span
-                                            class="rq">*</span></label></label>
-                                    <div class="col-sm-8">
-                                        <textarea class="form-control required" id="alamat" name="alamat"
-                                            placeholder="Masukan alamat "></textarea>
-                                        <div class="form-control-feedback " id="erroralamat"></div>
-                                    </div>
-                                </div>
-                                <div class="form-group row ">
-                                    <label for="jalur_pendaftaran" class="col-sm-4 col-form-label">Jalur
-                                        Pendaftaran<span class="rq">*</span></label></label>
-                                    <div class="col-sm-8">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="jalur_pendaftaran">Jalur
+                                            Pendaftaran<span class="rq">*</span></label></label>
                                         <select class="form-control required" id="jalur_pendaftaran"
                                             name="jalur_pendaftaran">
                                             <option value="">Pilih Jalur Pendaftaran</option>
                                             <option value="Zonasi">Zonasi</option>
                                             <option value="Afirmasi">Afirmasi</option>
-                                            <option value="Perpindahan Orang Tua">Perpindahan Orang Tua</option>
+                                            <option value="Perpindahan Orang Tua">Perpindahan Orang Tua
+                                            </option>
                                             <option value="Prestasi">Prestasi</option>
                                         </select>
-                                        <div class="form-control-feedback " id="errorjalur_pendaftaran"></div>
+                                        <div class="form-control-feedback " id="errorjalur_pendaftaran">
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="alamat">alamat<span class="rq">*</span></label></label>
+                                        <textarea class="form-control required" id="alamat" name="alamat"
+                                            placeholder="Masukan alamat "></textarea>
+                                        <div class="form-control-feedback " id="erroralamat"></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="no_tlp">No telpon<span class="rq">*</span></label></label>
+                                        <input type="text" class="form-control required" id="no_tlp" name="no_tlp"
+                                            placeholder="Masukan no telpom ">
+                                        <div class="form-control-feedback " id="errorno_tlp"></div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                    Batal
-                                </button>
                                 <button type="submit" class="btn btn-primary" id="btn_tambah_antiran">
                                     Tambah
                                 </button>
                             </div>
-                        </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer class="footer my-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script> © TIM IT SMANSA
+                </div>
+                <div class="col-md-6">
+                    <div class="text-md-right footer-links d-none d-md-block">
+                        <a href="javascript: void(0);">About Us</a>
+                        <a href="javascript: void(0);">Help</a>
+                        <a href="javascript: void(0);">Contact Us</a>
                     </div>
                 </div>
+            </div>
+        </footer>
+    </div>
 
-                <!-- success Popup html Start -->
-                <div class="modal fade" id="success-modal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body text-center font-18">
-                                <h3 class="mb-20">
-                                    Konfirmasi
-                                </h3>
-                                <div class="mb-30 text center">
-                                    <p>Apakah anda yakin ingin menyimpan data ini?</p>
+    </div>
 
+    <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myLargeModalLabel">
+                        Syarat & Ketentuan
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="tab">
+                        <ul class="nav nav-tabs customtab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#persyaratan" role="tab"
+                                    aria-selected="true" id="tabPersyaratan">Persyaratan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#berkas" role="tab" aria-selected="false"
+                                    id="tabBerkas">Berkas</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+
+                            <div class="tab-pane fade show active" id="persyaratan" role="tabpanel">
+                                <div class="pd-20">
+                                    <ul>
+                                        <li>1. Membawa berkas pendaftaran
+                                        </li>
+                                        <li>
+                                            <p class="ml-3">
+                                                <a id="btnBerkas">
+                                                    Lihat berkas</a>
+                                            </p>
+                                        </li>
+                                        <li>2. Mengenakan seragam sekolah asal </li>
+                                    </ul>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-primary btn-block"
-                                            data-dismiss="modal">Tidak</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-danger btn-block"
-                                            data-dismiss="modal">Ya</button>
+                            </div>
+
+                            <div class="tab-pane fade" id="berkas" role="tabpanel">
+                                <div class="pd-10">
+                                    <div class="faq-wrap">
+                                        <div id="accordion">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                        data-target="#zonasi">
+                                                        Zonasi
+                                                    </button>
+                                                </div>
+                                                <div id="zonasi" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                                        accusamus terry richardson ad squid. 3 wolf moon officia
+                                                        aute, non cupidatat skateboard dolor brunch. Food truck
+                                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                                        sunt aliqua put a bird on it squid single-origin coffee
+                                                        nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                                        helvetica, craft beer labore wes anderson cred nesciunt
+                                                        sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                                        Leggings occaecat craft beer farm-to-table, raw denim
+                                                        aesthetic synth nesciunt you probably haven't heard of them
+                                                        accusamus labore sustainable VHS.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                        data-target="#Afirmasi">
+                                                        Afirmasi
+                                                    </button>
+                                                </div>
+                                                <div id="Afirmasi" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                                        accusamus terry richardson ad squid. 3 wolf moon officia
+                                                        aute, non cupidatat skateboard dolor brunch. Food truck
+                                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                                        sunt aliqua put a bird on it squid single-origin coffee
+                                                        nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                                        helvetica, craft beer labore wes anderson cred nesciunt
+                                                        sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                                        Leggings occaecat craft beer farm-to-table, raw denim
+                                                        aesthetic synth nesciunt you probably haven't heard of them
+                                                        accusamus labore sustainable VHS.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                        data-target="#pto">
+                                                        Perpindahan Orang Tua
+                                                    </button>
+                                                </div>
+                                                <div id="pto" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <p>
+                                                            Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                            life
+                                                            accusamus terry richardson ad squid. 3 wolf moon officia
+                                                            aute, non cupidatat skateboard dolor brunch. Food truck
+                                                            quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                                            tempor, sunt aliqua put a bird on it squid single-origin
+                                                            coffee nulla assumenda shoreditch et. Nihil anim
+                                                            keffiyeh
+                                                            helvetica, craft beer labore wes anderson cred nesciunt
+                                                            sapiente ea proident. Ad vegan excepteur butcher vice
+                                                            lomo. Leggings occaecat craft beer farm-to-table, raw
+                                                            denim aesthetic synth nesciunt you probably haven't
+                                                            heard
+                                                            of them accusamus labore sustainable VHS.
+                                                        </p>
+                                                        <p class="mb-0">
+                                                            Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                            life
+                                                            accusamus terry richardson ad squid. 3 wolf moon officia
+                                                            aute, non cupidatat skateboard dolor brunch. Food truck
+                                                            quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                                            tempor, sunt aliqua put a bird on it squid single-origin
+                                                            coffee nulla assumenda shoreditch et. Nihil anim
+                                                            keffiyeh
+                                                            helvetica, craft beer labore wes anderson cred nesciunt
+                                                            sapiente ea proident. Ad vegan excepteur butcher vice
+                                                            lomo. Leggings occaecat craft beer farm-to-table, raw
+                                                            denim aesthetic synth nesciunt you probably haven't
+                                                            heard
+                                                            of them accusamus labore sustainable VHS.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                        data-target="#prestasi">
+                                                        Prestasi
+                                                    </button>
+                                                </div>
+                                                <div id="prestasi" class="collapse" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                                        accusamus terry richardson ad squid. 3 wolf moon officia
+                                                        aute, non cupidatat skateboard dolor brunch. Food truck
+                                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                                        sunt aliqua put a bird on it squid single-origin coffee
+                                                        nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                                        helvetica, craft beer labore wes anderson cred nesciunt
+                                                        sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+                                                        Leggings occaecat craft beer farm-to-table, raw denim
+                                                        aesthetic synth nesciunt you probably haven't heard of them
+                                                        accusamus labore sustainable VHS.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-                    <!-- success Popup html End -->
-                </div>
-                <footer class="footer my-3">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <script>
-                            document.write(new Date().getFullYear())
-                            </script> © TIM IT SMANSA
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-md-right footer-links d-none d-md-block">
-                                <a href="javascript: void(0);">About Us</a>
-                                <a href="javascript: void(0);">Help</a>
-                                <a href="javascript: void(0);">Contact Us</a>
+                    <hr>
+                    <form id="form_syarat_ketentuan">
+                        <div class="form-group mt-3">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="syatKetentuan"
+                                    name="syatKetentuan" required title="Syarat & Ketentuan harus di centang">
+                                <label class="custom-control-label" for="syatKetentuan">Saya setuju dengan syarat &
+                                    ketentuan yang berlaku</label>
                             </div>
                         </div>
-                    </div>
-                </footer>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="btn_sk">
+                        Kirim
+                    </button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Medium-modal">
+        coba
+    </button>
 
-    <!-- card privacy police -->
-    <div class="card text-center">
-        <div class="card-header">
-            Ketentuan
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Privacy Police</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card-footer text-muted">
-            2 days ago
-
-            <!-- js -->
-            <script src="<?= base_url('Assets/'); ?>vendors/scripts/core.js"></script>
-            <script src="<?= base_url('Assets/'); ?>vendors/scripts/script.min.js"></script>
-            <script src="<?= base_url('Assets/'); ?>vendors/scripts/process.js"></script>
-            <script src="<?= base_url('Assets/'); ?>vendors/scripts/layout-settings.js"></script>
-            <script src="<?= base_url('Assets/'); ?>vendors/scripts/dashboard3.js"></script>
+    <!-- js -->
+    <script src="<?= base_url('Assets/'); ?>vendors/scripts/core.js"></script>
+    <script src="<?= base_url('Assets/'); ?>vendors/scripts/script.min.js"></script>
+    <script src="<?= base_url('Assets/'); ?>vendors/scripts/process.js"></script>
+    <script src="<?= base_url('Assets/'); ?>vendors/scripts/layout-settings.js"></script>
+    <script src="<?= base_url('Assets/'); ?>vendors/scripts/dashboard3.js"></script>
 
 
-            <script src="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.js"></script>
-            <script src="<?= base_url('Assets/'); ?>vendors/scripts/steps-setting.js"></script>
+    <script src="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.js"></script>
+    <script src="<?= base_url('Assets/'); ?>vendors/scripts/steps-setting.js"></script>
 
-            <script src="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
+    <script src="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
 
-            <script type="text/javascript">
-            $('.navbar-toggler').click(function() {
-                if ($('#iconNavBar').hasClass('navbar-toggler-icon')) {
-                    $('#iconNavBar').removeClass('navbar-toggler-icon');
-                    $('#iconNavBar').addClass('bi bi-x');
-                } else {
-                    $('#iconNavBar').removeClass('bi bi-x');
-                    $('#iconNavBar').addClass('navbar-toggler-icon');
-                }
-            });
+    <script type="text/javascript">
+    $('.navbar-toggler').click(function() {
+        if ($('#iconNavBar').hasClass('navbar-toggler-icon')) {
+            $('#iconNavBar').removeClass('navbar-toggler-icon');
+            $('#iconNavBar').addClass('bi bi-x');
+        } else {
+            $('#iconNavBar').removeClass('bi bi-x');
+            $('#iconNavBar').addClass('navbar-toggler-icon');
+        }
+    });
 
-            $(document).on('focusout', '.required', function() {
-                const id = $(this).attr('id');
-                if ($(this).val() == '') {
-                    $(this).addClass('form-control-danger');
-                    $(`#error${id}`).html('Field ini tidak boleh kosong');
-                    $(`#error${id}`).addClass('has-danger');
-                } else {
-                    $(this).addClass('form-control-success');
-                    $(this).removeClass('form-control-danger');
-                    $(`#error${id}`).html('');
-                    $(`#error${id}`).removeClass('has-danger');
-                }
-            });
+    $('#btnBerkas').click(function() {
+        $('#tabBerkas').click();
+    });
 
-            // on keyup
-            $(document).on('keyup', '.required', function() {
-                const id = $(this).attr('id');
-                if ($(this).val() == '') {
-                    $(this).addClass('form-control-danger');
-                    $(`#error${id}`).html('Field ini tidak boleh kosong');
-                    $(`#error${id}`).addClass('has-danger');
-                } else {
-                    $(this).addClass('form-control-success');
-                    $(this).removeClass('form-control-danger');
-                    $(`#error${id}`).html('');
-                    $(`#error${id}`).removeClass('has-danger');
-                }
-            });
+    $(document).on('focusout', '.required', function() {
+        const id = $(this).attr('id');
+        if ($(this).val() == '') {
+            $(this).addClass('form-control-danger');
+            $(`#error${id}`).html('Field ini tidak boleh kosong');
+            $(`#error${id}`).addClass('has-danger');
+        } else {
+            $(this).addClass('form-control-success');
+            $(this).removeClass('form-control-danger');
+            $(`#error${id}`).html('');
+            $(`#error${id}`).removeClass('has-danger');
+        }
+    });
+
+    // on keyup
+    $(document).on('keyup', '.required', function() {
+        const id = $(this).attr('id');
+        if ($(this).val() == '') {
+            $(this).addClass('form-control-danger');
+            $(`#error${id}`).html('Field ini tidak boleh kosong');
+            $(`#error${id}`).addClass('has-danger');
+        } else {
+            $(this).addClass('form-control-success');
+            $(this).removeClass('form-control-danger');
+            $(`#error${id}`).html('');
+            $(`#error${id}`).removeClass('has-danger');
+        }
+    });
 
 
-            function getSwall(status, message) {
-                swal({
-                    title: message,
-                    type: status == '200' ? 'success' : 'error',
-                    showCancelButton: false,
-                    showConfirmButton: true,
-                    timer: 1500
+    function getSwall(status, message) {
+        swal({
+            title: message,
+            type: status == '200' ? 'success' : 'error',
+            showCancelButton: false,
+            showConfirmButton: true,
+            timer: 1500
 
-                })
+        })
+    }
+
+    const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
+        'alamat', 'jalur_pendaftaran'
+    ];
+    const dataAntrian = [];
+    $('#btn_tambah_antiran').click(function(e) {
+        e.preventDefault();
+        let formData = new FormData();
+        let status = true;
+        listFields.forEach((field) => {
+            if ($(`#${field}`).val() == '') {
+                $(`#${field}`).addClass('form-control-danger');
+                $(`#error${field}`).html('Field ini tidak boleh kosong');
+                $(`#error${field}`).addClass('has-danger');
+                status = false;
+            } else {
+                $(`#${field}`).addClass('form-control-success');
+                $(`#${field}`).removeClass('form-control-danger');
+                $(`#error${field}`).html('');
+                $(`#error${field}`).removeClass('has-danger');
+                formData.append(field, $(`#${field}`).val());
             }
+        });
 
-            const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
-                'alamat',
-                'jalur_pendaftaran', 'tanggal_lahir',
-            ];
+        if (status) {
+            $('#Medium-modal').modal('show');
+            dataAntrian.push(formData);
+        }
+    });
 
-            // tambah user
-            $("#form_tambah_antrian").submit(function(e) {
-                e.preventDefault();
-                const formData = new FormData(this);
-                if (!this.checkValidity()) {
-                    e.preventDefault();
-                    $(this).addClass('form-control-success');
-                } else {
-                    $("#btn_tambah_antiran").attr("disabled", "disabled");
-                    $("#btn_tambah_antiran").html("Loading.....");
-                    $.ajax({
-                        url: '<?= base_url('Admin/Antrian/save') ?>',
-                        method: 'post',
-                        data: formData,
-                        contentType: false,
-                        cache: false,
-                        processData: false,
-                        dataType: 'json',
-                        success: function(response) {
-                            if (response.error) {
-                                $.each(response.data, function(key, value) {
-                                    if (value != '') {
-                                        $("#" + key).addClass('form-control-danger');
-                                        $("#error" + key).addClass('has-danger');
-                                        $("#error" + key).html(value);
-                                    } else {
-                                        $("#" + key).removeClass('form-control-danger');
-                                        $("#" + key).addClass('form-control-success');
-                                        $("#error" + key).html('');
-                                        $("#error" + key).removeClass('has-danger');
-                                    }
-                                });
-                                $("#btn_tambah_antiran").removeAttr("disabled");
-                                $("#btn_tambah_antiran").html("Tambah");
-                            } else {
-                                $("#form_tambah_antrian")[0].reset();
-                                $("#addAntrian").modal('hide');
-                                $('#tableAntrian').DataTable().ajax.reload();
-                                getSwall(response.status, response.data);
-                                listFields.forEach(function(item) {
-                                    $("#" + item).removeClass('form-control-danger');
-                                    $("#" + item).removeClass('form-control-success');
-                                    $("#error" + item).html('');
-                                    $("#error" + item).removeClass('has-danger');
-                                });
-
-                                $("#btn_tambah_antiran").removeAttr("disabled");
-                                $("#btn_tambah_antiran").html("Tambah");
-                            }
+    $('#form_syarat_ketentuan').submit(function(e) {
+        e.preventDefault();
+        $("#btn_sk").attr("disabled", "disabled");
+        $("#btn_sk").html("Loading...");
+        $.ajax({
+            url: '<?= base_url('Admin/Antrian/save'); ?>',
+            type: 'POST',
+            data: dataAntrian[0],
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                if (response.error) {
+                    $.each(response.data, function(key, value) {
+                        if (value != '') {
+                            $("#" + key).addClass('form-control-danger');
+                            $("#error" + key).addClass('has-danger');
+                            $("#error" + key).html(value);
+                        } else {
+                            $("#" + key).removeClass('form-control-danger');
+                            $("#" + key).addClass('form-control-success');
+                            $("#error" + key).html('');
+                            $("#error" + key).removeClass('has-danger');
                         }
                     });
+                    dataAntrian.pop();
+                    $('#Medium-modal').modal('hide');
+                    $("#btn_sk").removeAttr("disabled");
+                    $("#btn_sk").html("Tambah");
+                } else {
+                    getSwall(response.status, 'Antrian berhasil ditambahkan');
+                    listFields.forEach(function(item) {
+                        $("#" + item).removeClass('form-control-danger');
+                        $("#" + item).removeClass('form-control-success');
+                        $("#error" + item).html('');
+                        $("#error" + item).removeClass('has-danger');
+                    });
+                    $('#syatKetentuan').prop('checked', false);
+                    $("#form_tambah_antrian")[0].reset();
+                    $('#Medium-modal').modal('hide');
+                    $("#btn_sk").removeAttr("disabled");
+                    $("#btn_sk").html("Kirim");
                 }
-            });
-            </script>
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
-                    style="display: none; visibility: hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
+
+            }
+        });
+    });
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 </body>
 
 </html>
