@@ -81,17 +81,14 @@
                         <h4 class="text-blue h4">List Antrian</h4>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <button class="btn btn-primary btn-sm" type="button" id="btnRefreshAntrian">
-                            <i class="fa fa-arrow-right"></i>
-                        </button>
                     </div>
                 </div>
                 <div class="pb-20 table-responsive">
                     <table class="table hover multiple-select-row nowrap" id="tableAntrian">
                         <thead>
                             <tr>
-                                <th class="table-plus">Kode Regristrasi</th>
-                                <th>Nama</th>
+                                <th class="table-plus">Nama</th>
+                                <th>Kode Regristrasi</th>
                                 <th>Jalur</th>
                                 <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
@@ -294,7 +291,7 @@ function fetchAntrian() {
             if (response.error == false) {
                 $('#total_antrian').html(response.data.totalAntrian);
                 $('#antrian_active').html(response.data.antrianActive);
-                $('#antrian_now').html(response.data.antrianNow);
+                $('#antrian_now').html(response.data.antrianNow.no_antrian);
                 $('#sisa_antrian').html(response.data.sisa_antrian);
                 $('#loket1').html(response.data.loket1);
                 $('#loket2').html(response.data.loket2);

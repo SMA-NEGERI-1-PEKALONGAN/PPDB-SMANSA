@@ -15,7 +15,7 @@
                 <div class="widget-data">
                     <div class="weight-700 font-30 text-dark" id="total_antrian"></div>
                     <div class="font-15 text-secondary weight-500">
-                        Total Antrian
+                        Total Antrean
                     </div>
                 </div>
                 <div class="widget-icon">
@@ -32,7 +32,7 @@
                 <div class="widget-data">
                     <div class="weight-700 font-30 text-dark" id="antrian_active"></div>
                     <div class="font-15 text-secondary weight-500">
-                        Antrian Aktif
+                        Antrean Aktif
                     </div>
                 </div>
                 <div class="widget-icon" data-color="#09cc06">
@@ -48,7 +48,7 @@
             <div class="d-flex flex-wrap">
                 <div class="widget-data">
                     <div class="weight-700 font-30 text-dark" id="sisa_antrian"></div>
-                    <div class="font-15 text-secondary weight-500">Antrian tidak aktif</div>
+                    <div class="font-15 text-secondary weight-500">Antrean tidak aktif</div>
                 </div>
                 <div class="widget-icon">
                     <div class="icon" data-color="#ff5b5b">
@@ -64,7 +64,7 @@
                 <div class="widget-data">
                     <div class="weight-700 font-30 text-dark" id="antrian_now"></div>
                     <div class="font-15  text-secondary weight-500">
-                        Antrian saat ini
+                        Antrean saat ini
                     </div>
                 </div>
                 <div class="widget-icon">
@@ -82,25 +82,25 @@
     <div class="col-lg-6 col-md-6 mb-30">
         <div class="card-box pd-20 height-100-p">
             <h2 class="h4 mb-20">Loket 1</h2>
-            <div id="loket1" class="nomor_antrian mb-4"> 0</div>
+            <div id="loket1" class="nomor_antrian mb-4">0</div>
         </div>
     </div>
     <div class="col-lg-6 col-md-6 mb-30">
         <div class="card-box pd-20 height-100-p">
             <h2 class="h4 mb-20">Loket 2</h2>
-            <div id="loket2" class="nomor_antrian mb-4"> 0</div>
+            <div id="loket2" class="nomor_antrian mb-4">0</div>
         </div>
     </div>
     <div class="col-lg-6 col-md-6 mb-30">
         <div class="card-box pd-20 height-100-p">
             <h2 class="h4 mb-20">Loket 3</h2>
-            <div id="loket3" class="nomor_antrian mb-4"> 0</div>
+            <div id="loket3" class="nomor_antrian mb-4">0</div>
         </div>
     </div>
     <div class="col-lg-6 col-md-6 mb-30">
         <div class="card-box pd-20 height-100-p">
             <h2 class="h4 mb-20">Loket 4</h2>
-            <div id="loket4" class="nomor_antrian mb-4"> 0</div>
+            <div id="loket4" class="nomor_antrian mb-4">0</div>
         </div>
     </div>
 </div>
@@ -128,12 +128,12 @@ function fetchAntrian() {
             if (response.error == false) {
                 $('#total_antrian').html(response.data.totalAntrian);
                 $('#antrian_active').html(response.data.antrianActive);
-                $('#antrian_now').html(response.data.antrianNow);
+                $('#antrian_now').html(response.data.antrianNow.no_antrian);
                 $('#sisa_antrian').html(response.data.sisa_antrian);
-                $('#loket1').html(response.data.loket1);
-                $('#loket2').html(response.data.loket2);
-                $('#loket3').html(response.data.loket3);
-                $('#loket4').html(response.data.loket4);
+                $('#loket1').html(response.data.loket1.no_antrian);
+                $('#loket2').html(response.data.loket2.no_antrian);
+                $('#loket3').html(response.data.loket3.no_antrian);
+                $('#loket4').html(response.data.loket4.no_antrian);
             }
         }
     });

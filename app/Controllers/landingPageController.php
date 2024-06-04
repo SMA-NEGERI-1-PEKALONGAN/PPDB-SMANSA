@@ -71,18 +71,18 @@ class landingPageController extends BaseController
         $totalAntrian = $antrianModel->where('tanggal_antrian', $tanggal)->countAllResults();
         // antrian aktif
         $antrianActive = $antrianModel->where('status_antrian', '1')->where('tanggal_antrian', $tanggal)->countAllResults();
-        // antrian saat ini
-        $antrianNow = $antrianModel->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->countAllResults();
+        // antrian saat ini 
+        $antrianNow = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->first();
         // sisa antrian
         $sisa_antrian = $antrianModel->where('status_antrian', '0')->where('tanggal_antrian', $tanggal)->countAllResults();
         // loket 1
-        $loket1 = $antrianModel->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket1')->countAllResults(); 
+        $loket1 = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket1')->first();
         // loket 2 
-        $loket2 = $antrianModel->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket2')->countAllResults();
+        $loket2 = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket2')->first();
         // loket 3
-        $loket3 = $antrianModel->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket3')->countAllResults();
+        $loket3 = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket3')->first();
         // loket 4
-        $loket4 = $antrianModel->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket4')->countAllResults();
+        $loket4 = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket4')->first();
 
         $data = [
             'totalAntrian' => $totalAntrian,

@@ -81,7 +81,7 @@
                         <h4 class="text-blue h4">List Antrian</h4>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <button class="btn btn-primary btn-sm" type="button" id="btnRefreshAntrian">
+                        <button class="btn btn-primary btn-sm" type="button" id="btn_next_antrian">
                             <i class="fa fa-arrow-right"></i>
                         </button>
                     </div>
@@ -90,8 +90,8 @@
                     <table class="table hover multiple-select-row nowrap" id="tableAntrian">
                         <thead>
                             <tr>
-                                <th class="table-plus">Kode Regristrasi</th>
-                                <th>Nama</th>
+                                <th class="table-plus">Nama</th>
+                                <th>Kode Regristrasi</th>
                                 <th>Jalur</th>
                                 <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
@@ -226,44 +226,44 @@
 <script text="text/javascript">
 // dataTables users
 function dataTablesAntrian() {
-    $(document).ready(function() {
-        $('#tableAntrian').DataTable({
-            processing: true,
-            serverSide: true,
-            scrollCollapse: true,
-            autoWidth: false,
-            responsive: true,
-            ajax: "<?php echo base_url('Admin/Antrian/ListAntrian') ?>",
-            "lengthMenu": [
-                [5, 10, 25, 50, -1],
-                [5, 10, 25, 50, "All"]
-            ],
-            columns: [{
-                    data: 'nama_siswa',
-                    class: 'table-plus'
-                },
-                {
-                    data: 'kode_pendaftaran'
-                },
-                {
-                    data: 'jalur_pendaftaran'
-                },
-                {
-                    data: 'status_antrian',
-                },
-                {
-                    data: 'action',
-                    class: 'datatable-nosort'
-                },
+    $('#tableAntrian').DataTable({
+        processing: true,
+        serverSide: true,
+        scrollCollapse: true,
+        autoWidth: false,
+        responsive: true,
+        ajax: "<?php echo base_url('Admin/Antrian/ListAntrian') ?>",
+        "lengthMenu": [
+            [5, 10, 25, 50, -1],
+            [5, 10, 25, 50, "All"]
+        ],
+        columns: [{
+                data: 'nama_siswa',
+                class: 'table-plus'
+            },
+            {
+                data: 'kode_pendaftaran'
+            },
+            {
+                data: 'jalur_pendaftaran'
+            },
+            {
+                data: 'status_antrian',
+            },
+            {
+                data: 'action',
+                class: 'datatable-nosort'
+            },
 
-            ],
-            columnDefs: [{
-                targets: "datatable-nosort",
-                orderable: false,
-            }],
-        });
+        ],
+        columnDefs: [{
+            targets: "datatable-nosort",
+            orderable: false,
+        }],
     });
 }
+
+
 dataTablesAntrian();
 
 
@@ -294,12 +294,8 @@ function fetchAntrian() {
             if (response.error == false) {
                 $('#total_antrian').html(response.data.totalAntrian);
                 $('#antrian_active').html(response.data.antrianActive);
-                $('#antrian_now').html(response.data.antrianNow);
+                $('#antrian_now').html(response.data.antrianNow.no_antrian);
                 $('#sisa_antrian').html(response.data.sisa_antrian);
-                $('#loket1').html(response.data.loket1);
-                $('#loket2').html(response.data.loket2);
-                $('#loket3').html(response.data.loket3);
-                $('#loket4').html(response.data.loket4);
             }
         }
     });
@@ -331,8 +327,39 @@ $(document).on('click', '.detailsAntrian', function() {
             $("#detailsesi_antrian").html(response.data.sesi_antrian);
         }
     });
-});;
-// copy clipboard
+});
+
+// button next antrian
+$(document).on('click', '#btn_next_antrian', function() {
+    $.ajax({
+        url: '<?= base_url('Admin/Antrian/nextAntrian') ?>',
+        method: 'get',
+        dataType: 'json',
+        success: function(response) {
+            getSwall(response.status, response.data);
+            // reload dataTables
+            $('#tableAntrian').DataTable().ajax.reload();
+            // reload antrian
+            fetchAntrian();
+        }
+    });
+});
+
+// panggil antrian
+$(document).on('click', '.panggil_antrian', function() {
+    var id = $(this).attr('id');
+    $.ajax({
+        url: '<?= base_url('Admin/Antrian/addNotifikasi') ?>',
+        method: 'post',
+        data: {
+            id: id
+        },
+        dataType: 'json',
+        success: function(response) {
+            getSwall(response.status, response.data);
+        }
+    });
+});
 </script>
 
 <?= $this->endSection('dataTables');?>s

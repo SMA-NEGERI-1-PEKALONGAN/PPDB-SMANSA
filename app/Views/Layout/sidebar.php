@@ -64,7 +64,7 @@
                                 class="<?= $active == 'Scan'  ? 'active' : '' ?>">Scan QR Code</a>
                         </li>
                         <?php 
-                             if(session()->get('role') == 'Verifikatora' || session()->get('role') == 'Administrator'):
+                             if(session()->get('role') == 'Verifikator' || session()->get('role') == 'Administrator'):
                         ?>
                         <li>
                             <a href="<?= base_url('Admin/Antrian/List')?>"

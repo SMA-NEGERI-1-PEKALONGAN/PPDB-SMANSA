@@ -366,10 +366,46 @@ class antrianController extends BaseController
 
      public function ajaxListAntrian()
      {
-    
+        $nama_loket = session()->get('username');
         $tanggal = date('Y-m-d');
         $builder = $this->antrianModel->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at')
-            ->where('tanggal_antrian', $tanggal)->where('status_antrian', '1');
+            ->where('tanggal_antrian', $tanggal)->where('status_antrian', '2')->where('loket', $nama_loket);
+        
+        // dd($builder);
+        return DataTable::of($builder)
+            ->add('status_antrian', function ($row) {
+                switch ($row->status_antrian) {
+                    case '1':
+                        return '<span class="badge badge-pill badge-primary">Check In</span>';
+                        break;
+                    case '2':
+                        return '<span class="badge badge-pill badge-secondary">Pemberkasan</span>';
+                        break;
+                    case '3':
+                        return '<s class="badge badge-pill badge-success">Selesai</span>';
+                        break;
+                    case '4':
+                        return '<span class="badge badge-pill badge-warning">Bermasalah</span>';
+                        break;
+                    default:
+                        return '<span class="badge badge-pill badge-danger">Tidak aktif</span>';
+                        break;
+                }
+            })
+            ->add('action', function ($row) {
+                return '
+                    <button class="btn btn-info mr-2 detailsAntrian" id="'.$row->id_antrian.'"><i class="dw dw-eye"></i> View</a>
+                    <button class="btn btn-warning mr-2 panggil_antrian" id="'.$row->id_antrian.'"><i class="icon-copy bi bi-megaphone"></i></button>
+                ';
+            }, 'last')
+            ->toJson(true);
+    }
+    
+     public function AjaxAntrianNotActive()
+     {
+        $tanggal = date('Y-m-d');
+        $builder = $this->antrianModel->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at')
+            ->where('tanggal_antrian', $tanggal)->where('status_antrian', '0')->orWhere('status_antrian', '4');
         
         // dd($builder);
         return DataTable::of($builder)
@@ -403,12 +439,13 @@ class antrianController extends BaseController
 
     public function addNotifikasi(){
         $id = $this->request->getPost('id');
+        $nama_loket = session()->get('nama_user');
         $data = $this->antrianModel->getAntrian($id);
         if($data){
             $notifikasiModel = new notifikasiModel();
             $data_notifikasi = [
                 'nama_notifikasi' => 'Pemberkasan Antrian',
-                'isi_notifikasi' => 'Silahkan menuju ke loket pemberkasan',
+                'isi_notifikasi' => 'Nomor antrean, ' . $data['no_antrian'] . ', silahkan menuju ke ' . $nama_loket,
                 'status_notifikasi' => '1',
                 'created_at' => date('Y-m-d H:i:s')
             ];
@@ -429,14 +466,17 @@ class antrianController extends BaseController
 
     public function nextAntrian(){
         $tanggal = date('Y-m-d');
+        $nama_loket = session()->get('nama_user');
+        $id_loket = session()->get('username');
         $activeAntrian = $this->antrianModel->getActiveAntrian($tanggal);
         if ($activeAntrian) {
-            $this->antrianModel->update($activeAntrian['id_antrian'], ['status_antrian' => '2']);
+            // update satus dan loket
+            $this->antrianModel->update($activeAntrian['id_antrian'], ['status_antrian' => '2', 'loket' => $id_loket]);
             // add data notifikasi
             $notifikasiModel = new notifikasiModel();
             $data_notifikasi = [
                 'nama_notifikasi' => 'Antrean',
-                'isi_notifikasi' => 'Nomor antrian, ' . $activeAntrian['no_antrian'] . ', silahkan menuju ke,  loket 1',
+                'isi_notifikasi' => 'Nomor antrean, ' . $activeAntrian['no_antrian'] . ', silahkan menuju ke ' . $nama_loket,
                 'status_notifikasi' => '1',
                 'created_at' => date('Y-m-d H:i:s')
             ];
