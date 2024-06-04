@@ -72,7 +72,7 @@ $routes->group('Admin', function ($routes) {
         $routes->get('scan', 'antrianController::scan');
         $routes->post('changeStatus', 'antrianController::changeStatus');
         $routes->post('checkIn', 'antrianController::checkIn');
-        $routes->post('verifikasiBerkas', 'antrianController::verifikasiBerkas');
+        $routes->post('ubahAntrian', 'antrianController::ubahAntrian');
         $routes->get('List', 'antrianController::listAntrian');
         $routes->get('ListAntrian', 'antrianController::ajaxListAntrian');
         $routes->get('nextAntrian', 'antrianController::nextAntrian');

@@ -329,24 +329,18 @@ class antrianController extends BaseController
         }
     }
 
-    public function verifikasiBerkas(){
+    public function ubahAntrian(){
         $id = $this->request->getPost('id_antrian');
         $data = $this->antrianModel->getAntrian($id);
         if($data){
-            if ($data['status_antrian'] == '1') {
-            $this->antrianModel->update($id, ['status_antrian' => '2']);
+            $status = $this->request->getPost('status_antrian');
+            $ket = $this->request->getPost('ket_antrian');
+            $this->antrianModel->update($id, ['status_antrian' => $status, 'ket_antrian' => $ket]);
             return $this->response->setJSON([
                 'error' => false,
-                'data' => 'Verifikasi berkas berhasil',
+                'data' => 'Data berhasil dirubah',
                 'status' => '200'
             ]);
-            } else {
-                return $this->response->setJSON([
-                    'error' => true,
-                    'data' => 'Anda sudah verifikasi berkas',
-                    'status' => '422'
-                ]);
-            }
         }else {
             return $this->response->setJSON([
                 'error' => true,
