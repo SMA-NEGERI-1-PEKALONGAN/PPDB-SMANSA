@@ -236,6 +236,14 @@
                             placeholder="Jalur Pendaftaran" readonly>
                     </div>
                 </div>
+                <div class="form-group row ">
+                    <label for="tanggal_antrian" class="col-sm-4 col-form-label">Tanggal Lahir</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="detailtanggal_antrian" name="tanggal_antrian"
+                            placeholder="Tanggal Lahir" readonly>
+                    </div>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -266,11 +274,13 @@ function dataTablesAntrian() {
                 [5, 10, 25, 50, "All"]
             ],
             columns: [{
-                    data: 'nama_siswa',
+
+                    data: 'kode_pendaftaran',
                     class: 'table-plus'
                 },
                 {
-                    data: 'kode_pendaftaran'
+                    data: 'nama_siswa',
+
                 },
                 {
                     data: 'status_antrian',
@@ -303,7 +313,7 @@ function getSwall(status, message) {
 }
 
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp', 'alamat',
-    'jalur_pendaftaran'
+    'jalur_pendaftaran', 'tanggal_antrian',
 ];
 
 // tambah user

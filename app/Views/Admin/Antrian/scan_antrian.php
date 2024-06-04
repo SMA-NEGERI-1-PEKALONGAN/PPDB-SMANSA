@@ -66,8 +66,7 @@ video {
             <label for="menu" class="col-sm-4 col-form-label">Menu</label></label>
             <select class="form-control" id="menu">
                 <option value="1">Check In</option>
-                <option value="2">Pemberkasan</option>
-                <option value="3">Verifikasi</option>
+                <option value="2">Verifikasi</option>
             </select>
         </div>
     </div>
@@ -88,105 +87,110 @@ video {
     </div>
 </div>
 
-<!-- detail antrian -->
-<div class="modal fade" id="detailsAntrian" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+<!-- berkas antrian -->
+<div class="modal fade" id="berkassAntrian" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Verifikasi Data
+                    Verifikasi Berkas
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
                 </button>
             </div>
-            <div class="modal-body">
+            <form id="formberkasAntrian">
+                <div class="modal-body">
+                    <input type="hidden" name="id_antrian" id="berkasid_antrian">
+                    <!-- no antrian -->
+                    <div class="form-group row m-0">
+                        <div class="col-sm-12 text-center">
+                            <h2><span id="berkasno_antrian" class="header_antrian"></span></h2><br>
+                        </div>
+                        <style>
+                        .header_antrian {
+                            font-size: 50px;
+                            font-weight: bold;
+                            font-family: Arial, sans-serif;
+                        }
+                        </style>
+                    </div>
+                    <hr>
+                    <div class="form-group row">
+                        <label for="nama_siswa" class="col-sm-4 col-form-label">Nama Siswa</label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="berkasnama_siswa" name="nama_siswa"
+                                placeholder="Nama" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="kode_pendaftaran" class="col-sm-4 col-form-label">Kode Pendaftaran</label></label>
+                        <div class="col-sm-8">
+                            <!-- add button cliport -->
+                            <input type="text" class="form-control" id="berkaskode_pendaftaran" name="kode_pendaftaran"
+                                placeholder="Kode Pendaftaran" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="jalur_pendaftaran" class="col-sm-4 col-form-label">Jalur Pendaftaran</label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="berkasjalur_pendaftaran"
+                                name="jalur_pendaftaran" placeholder="Jalur Pendaftaran" readonly>
+                        </div>
+                    </div>
 
-                <!-- add image -->
-                <div class="form-group row">
-                    <div class="col-sm-12 text-center">
-                        <img src="" alt="" id="detailqr_code" class="img-thumbnail">
+                    <div class="form-group row">
+                        <label for="asal_sekolah" class="col-sm-4 col-form-label">Asal Sekolah</label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="berkasasal_sekolah" name="asal_sekolah"
+                                placeholder="Asal Sekolah" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="alamat" class="col-sm-4 col-form-label">alamat</label></label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="berkasalamat" name="alamat" placeholder="Alamat"
+                                readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="tanggal_antrian" class="col-sm-4 col-form-label">Tanggal Antrian</label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="berkastanggal_antrian" name="tanggal_antrian"
+                                placeholder="Tanggal Antrian" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="check_verifikasi">
+                        <label for="checklist" class="col-sm-4 col-form-label">Checklist</label></label>
+                        <div class="col-sm-8">
+                            <div class="custom-control custom-checkbox mb-5">
+                                <input type="checkbox" class="custom-control-input required" id="chekList"
+                                    name="chekList" required>
+                                <label class="custom-control-label" for="chekList">
+                                    Berkas sudah lengkap
+                                </label>
+                                </label>
+                                <div class=" form-control-feedback " id="errorchekList"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="status_antrian" class="col-sm-4 col-form-label">Status</label></label>
+                        <div class="col-sm-8">
+                            <div id="berkasstatus_antrian"></div>
+                        </div>
                     </div>
                 </div>
-                <!-- no antrian -->
-                <div class="form-group row m-0">
-                    <div class="col-sm-12 text-center">
-                        <h2><span id="detailno_antrian" class="header_antrian"></span></h2><br>
-                        <h6><span id="detailsesi_antrian"></span></h6>
-                    </div>
-                    <style>
-                    .header_antrian {
-                        font-size: 50px;
-                        font-weight: bold;
-                        font-family: Arial, sans-serif;
-                    }
-                    </style>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Tutup
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="btn_berkasAntrian">
+                        Simpan
+                    </button>
                 </div>
-                <hr>
-                <div class="form-group row ">
-                    <label for="jalur_pendaftaran" class="col-sm-4 col-form-label">Jalur Pendaftaran</label></label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="detailjalur_pendaftaran" name="jalur_pendaftaran"
-                            placeholder="Jalur Pendaftaran" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="nama_siswa" class="col-sm-4 col-form-label">Nama Siswa</label></label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="detailnama_siswa" name="nama_siswa"
-                            placeholder="Nama" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="kode_pendaftaran" class="col-sm-4 col-form-label">Kode Pendaftaran</label></label>
-                    <div class="col-sm-8">
-                        <!-- add button cliport -->
-                        <input type="text" class="form-control" id="detailkode_pendaftaran" name="kode_pendaftaran"
-                            placeholder="Kode Pendaftaran" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="nisn" class="col-sm-4 col-form-label">Nisn</label></label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="detailnisn" name="nisn" placeholder="NISN" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="jenis_kelamin" class="col-sm-4 col-form-label">Jenis Kelamin</label></label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="detailjenis_kelamin" name="jenis_kelamin"
-                            placeholder="Jenis Kelamin" readonly>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="asal_sekolah" class="col-sm-4 col-form-label">Asal Sekolah</label></label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="detailasal_sekolah" name="asal_sekolah"
-                            placeholder="Asal Sekolah" readonly>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="alamat" class="col-sm-4 col-form-label">alamat</label></label>
-                    <div class="col-sm-8">
-                        <textarea class="form-control" id="detailalamat" name="alamat" placeholder="Alamat"
-                            readonly></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="no_tlp" class="col-sm-4 col-form-label">No Tlp</label></label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="detailno_tlp" name="no_tlp" placeholder="No Tlp"
-                            readonly>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Tutup
-                </button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -210,8 +214,8 @@ function getSwall(status, message) {
 
 
 
-const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp', 'alamat',
-    'jalur_pendaftaran'
+const listFields = ['id_antrian', 'nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
+    'alamat', 'jalur_pendaftaran', 'tanggal_antrian'
 ];
 // get selected menu
 var selectedMenu = document.getElementById('menu').value;
@@ -234,8 +238,46 @@ function checkInAntrian(id) {
     });
 }
 
+// verifikasi berkas
+$("#formberkasAntrian").submit(function(e) {
+    e.preventDefault();
+    if ($("#chekList").prop('checked') == false) {
+        $('#chekList').addClass('form-control-danger');
+        $("#errorchekList").html('Checklist harus di centang');
+        $("#errorchekList").addClass('has-danger');
+    } else {
+        $("#btn_tambah_antiran").attr("disabled", "disabled");
+        $("#btn_tambah_antiran").html("Loading.....");
+        $.ajax({
+            url: '<?= base_url('Admin/Antrian/verifikasiBerkas') ?>',
+            method: 'post',
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: 'json',
+            success: function(response) {
+                if (response.status == '200') {
+                    getSwall(response.status, response.data);
+                    $('#berkassAntrian').modal('hide');
+                    $("#btn_tambah_antiran").removeAttr("disabled");
+                    $("#btn_tambah_antiran").html("Simpan");
+                    $(".form-control").removeClass('form-control-danger');
+                    $(".form-control-feedback").removeClass('has-danger');
+                    $(".form-control-feedback").html('');
+                    $("#formberkasAntrian")[0].reset();
+                } else {
+                    getSwall(response.status, response.data);
+                    $("#btn_tambah_antiran").removeAttr("disabled");
+                    $("#btn_tambah_antiran").html("Simpan");
+                }
+            }
+        });
+    }
+});
+
 // get data 
-function getDetailAntrian(id) {
+function getberkasAntrian(id) {
     $.ajax({
         url: '<?= base_url('Admin/Antrian/edit') ?>',
         method: 'post',
@@ -244,14 +286,44 @@ function getDetailAntrian(id) {
         },
         success: function(response) {
             if (response.status == '200') {
-                $('#detailsAntrian').modal('show');
+                $('#berkassAntrian').modal('show');
                 listFields.forEach(function(item) {
-                    $("#detail" + item).val(response.data[item]);
+                    $("#berkas" + item).val(response.data[item]);
                 });
-                $("#detailqr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
+                $("#berkasqr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
                     .qr_code);
-                $("#detailno_antrian").html(response.data.no_antrian);
-                $("#detailsesi_antrian").html(response.data.sesi_antrian);
+                $("#berkasno_antrian").html(response.data.no_antrian);
+                $("#berkassesi_antrian").html(response.data.sesi_antrian);
+                if (response.data.status_antrian == '1') {
+                    $("#chekList").prop('checked', false);
+                    $("#chekList").prop('disabled', false);
+                } else {
+                    $("#chekList").prop('checked', true);
+                    $("#chekList").prop('disabled', true);
+                    $("#btn_berkasAntrian").remove();
+                }
+                switch (response.data.status_antrian) {
+                    case '1':
+                        $("#berkasstatus_antrian").html(
+                            '<span class="badge badge-pill badge-primary">Check In</span>');
+                        break;
+                    case '2':
+                        $("#berkasstatus_antrian").html(
+                            '<span class="badge badge-pill badge-secondary">Pemberkasan</span>');
+                        break;
+                    case '3':
+                        $("#berkasstatus_antrian").html(
+                            '<span class="badge badge-pill badge-success">Selesai</span>');
+                        break;
+                    case '4':
+                        $("#berkasstatus_antrian").html(
+                            '<span class="badge badge-pill badge-warning">Bermasalah</span>');
+                        break;
+                    default:
+                        $("#berkasstatus_antrian").html(
+                            '<span class="badge badge-pill badge-danger">Tidak Aktif</span>');
+                        break;
+                }
             } else {
                 getSwall(response.status, response.data);
             }
@@ -286,9 +358,7 @@ domReady(function() {
         if (selectedMenu == '1') {
             checkInAntrian(id_barcode);
         } else if (selectedMenu == '2') {
-            getDetailAntrian(id_barcode);
-        } else if (selectedMenu == '3') {
-            getDetailAntrian(id_barcode);
+            getberkasAntrian(id_barcode);
         }
 
         // timer for next scan
@@ -323,9 +393,7 @@ function handleBarcodeInput(event) {
         if (selectedMenu == '1') {
             checkInAntrian(barcodeString);
         } else if (selectedMenu == '2') {
-            getDetailAntrian(barcodeString);
-        } else if (selectedMenu == '3') {
-            getDetailAntrian(barcodeString);
+            getberkasAntrian(barcodeString);
         }
 
         // Clear the input field

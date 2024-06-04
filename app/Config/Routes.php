@@ -5,10 +5,29 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', 'landingPageController::index');
 
-$routes->get('Antrian', 'landingPageController::Antrian');
+$routes->get('Antrean', 'landingPageController::Antrian');
 
+$routes->get('Cari', 'landingPageController::Cari');
+
+$routes->post('search', 'landingPageController::search');
+
+$routes->get('views', 'landingPageController::view');
+
+$routes->get('fetchAntrian', 'landingPageController::fetchAntrian');
+
+$routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
+
+$routes->post('updateNotifikasi', 'landingPageController::updateNotifikasi');
+
+// auth route
+$routes->group('Auth', function ($routes) {
+        $routes->get('/', 'Auth::index');
+        $routes->post('login', 'Auth::login');
+        $routes->get('logout', 'Auth::logout');
+    });
+    
 
 // group route admin
 $routes->group('Admin', function ($routes) {
@@ -53,5 +72,14 @@ $routes->group('Admin', function ($routes) {
         $routes->get('scan', 'antrianController::scan');
         $routes->post('changeStatus', 'antrianController::changeStatus');
         $routes->post('checkIn', 'antrianController::checkIn');
+        $routes->post('verifikasiBerkas', 'antrianController::verifikasiBerkas');
+        $routes->get('List', 'antrianController::listAntrian');
+        $routes->get('ListAntrian', 'antrianController::ajaxListAntrian');
+        $routes->get('nextAntrian', 'antrianController::nextAntrian');
+        $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
     });
+
 });
+
+
+    

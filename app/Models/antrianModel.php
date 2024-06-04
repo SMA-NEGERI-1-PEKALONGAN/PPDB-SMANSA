@@ -8,7 +8,7 @@ class antrianModel extends Model
 {
     protected $table = 'antrian';
     protected $primaryKey = 'id_antrian';
-    protected $allowedFields = ['id_antrian', 'kode_pendaftaran', 'nama_siswa', 'nisn', 'status_antrian', 'asal_sekolah', 'alamat', 'no_tlp', 'jenis_kelamin', 'jalur_pendaftaran','qr_code', 'tanggal_antrian','sesi_antrian', 'no_antrian', 'created_at', 'updated_at'];
+    protected $allowedFields = ['id_antrian', 'kode_pendaftaran', 'nama_siswa', 'nisn', 'status_antrian', 'asal_sekolah', 'alamat', 'no_tlp', 'jenis_kelamin', 'jalur_pendaftaran','qr_code', 'tanggal_antrian','sesi_antrian', 'no_antrian', 'created_at', 'updated_at', 'loket', 'ket_antrian' ];
 
     public function getAntrian($id = false)
     {
@@ -18,23 +18,27 @@ class antrianModel extends Model
         return $this->where(['id_antrian' => $id])->first();
     }
 
-    public function getActiveAntrian($tamggal)
+    public function getActiveAntrian($tanggal)
     {
         return $this
-        ->where('tanggal_antrian', $tamggal)
-        ->where('status_antrian', '3')
+        ->where('tanggal_antrian', $tanggal)
+        ->where('status_antrian', '1')
         ->orderBy('no_antrian', 'ASC')
         ->first();
     }
 
-    public function getLastAntrian($tamggal)
+    public function getLastAntrian($tanggal)
     {
         return $this
-       ->where('tanggal_antrian', $tamggal)
+       ->where('tanggal_antrian', $tanggal)
         ->orderBy('no_antrian', 'DESC')
         ->first();
     }
 
+    public function search($keyword)
+    {
+        return $this->table('antrian')->like('kode_pendaftaran', $keyword)->orLike('nisn', $keyword)->orLike('no_antrian', $keyword)->orderBy('created_at', 'DESC')->limit(1);
+    }
 
       
 }

@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use Hermawan\DataTables\DataTable;
 use App\Models\antrianModel;
+use App\Models\notifikasiModel;
 use App\Models\masterReferensiModel;   
 use Ramsey\Uuid\Uuid;
 use Endroid\QrCode\Writer\PngWriter;
@@ -46,10 +47,13 @@ class antrianController extends BaseController
                         return '<span class="badge badge-pill badge-primary">Check In</span>';
                         break;
                     case '2':
-                        return '<span class="badge badge-pill badge-seccondary">Pemberkasan</span>';
+                        return '<span class="badge badge-pill badge-secondary">Pemberkasan</span>';
                         break;
                     case '3':
-                        return '<span class="badge badge-pill badge-success">Verifikasi</span>';
+                        return '<s class="badge badge-pill badge-success">Selesai</span>';
+                        break;
+                    case '4':
+                        return '<span class="badge badge-pill badge-warning">Bermasalah</span>';
                         break;
                     default:
                         return '<span class="badge badge-pill badge-danger">Tidak aktif</span>';
@@ -82,10 +86,10 @@ class antrianController extends BaseController
             ],
             'nisn' => [
                 'label' => 'NISN',
-                'rules' => 'required|is_unique[antrian.nisn]',
+                'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi.',
-                    'is_unique' => '{field} sudah terdaftar.'
+                    // 'is_unique' => '{field} sudah terdaftar.'
                 ]
             ],
             'asal_sekolah' => [
@@ -125,10 +129,10 @@ class antrianController extends BaseController
             ],
             'kode_pendaftaran' => [
                 'label' => 'Kode Pendaftaran',
-                'rules' => 'required|is_unique[antrian.kode_pendaftaran]',
+                'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus diisi.',
-                    'is_unique' => '{field} sudah terdaftar.'
+                    // 'is_unique' => '{field} sudah terdaftar.'
                 ]
             ],
           ]);
@@ -223,7 +227,7 @@ class antrianController extends BaseController
                     'status_antrian' => '0',
                     'no_antrian' => $no_antrian,
                     'sesi_antrian' => $sesi_antrian,
-                    'tanggal_antrian' => $tanggal_antrian,
+                    'tanggal_antrian' => date('Y-m-d'),
                     'created_at' => date('Y-m-d H:i:s'),
                     
                 ];
@@ -325,5 +329,130 @@ class antrianController extends BaseController
         }
     }
 
+    public function verifikasiBerkas(){
+        $id = $this->request->getPost('id_antrian');
+        $data = $this->antrianModel->getAntrian($id);
+        if($data){
+            if ($data['status_antrian'] == '1') {
+            $this->antrianModel->update($id, ['status_antrian' => '2']);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Verifikasi berkas berhasil',
+                'status' => '200'
+            ]);
+            } else {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Anda sudah verifikasi berkas',
+                    'status' => '422'
+                ]);
+            }
+        }else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
+    }
+
+    public function listAntrian(){
+        $data = [
+            'title' => 'List Antrian',
+            'active' => 'List',
+        ];
+        return view('Admin/Antrian/list_antrian', $data);
+    }
+
+     public function ajaxListAntrian()
+     {
+    
+        $tanggal = date('Y-m-d');
+        $builder = $this->antrianModel->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at')
+            ->where('tanggal_antrian', $tanggal)->where('status_antrian', '1');
+        
+        // dd($builder);
+        return DataTable::of($builder)
+            ->add('status_antrian', function ($row) {
+                switch ($row->status_antrian) {
+                    case '1':
+                        return '<span class="badge badge-pill badge-primary">Check In</span>';
+                        break;
+                    case '2':
+                        return '<span class="badge badge-pill badge-secondary">Pemberkasan</span>';
+                        break;
+                    case '3':
+                        return '<s class="badge badge-pill badge-success">Selesai</span>';
+                        break;
+                    case '4':
+                        return '<span class="badge badge-pill badge-warning">Bermasalah</span>';
+                        break;
+                    default:
+                        return '<span class="badge badge-pill badge-danger">Tidak aktif</span>';
+                        break;
+                }
+            })
+            ->add('action', function ($row) {
+                return '
+                    <button class="btn btn-info mr-2 detailsAntrian" id="'.$row->id_antrian.'"><i class="dw dw-eye"></i> View</a>
+                    <button class="btn btn-warning mr-2 checkIn" id="'.$row->id_antrian.'"><i class="icon-copy bi bi-megaphone"></i></button>
+                ';
+            }, 'last')
+            ->toJson(true);
+    }
+
+    public function addNotifikasi(){
+        $id = $this->request->getPost('id');
+        $data = $this->antrianModel->getAntrian($id);
+        if($data){
+            $notifikasiModel = new notifikasiModel();
+            $data_notifikasi = [
+                'nama_notifikasi' => 'Pemberkasan Antrian',
+                'isi_notifikasi' => 'Silahkan menuju ke loket pemberkasan',
+                'status_notifikasi' => '1',
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $notifikasiModel->insert($data_notifikasi);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Notifikasi berhasil dikirim',
+                'status' => '200'
+            ]);
+        }else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
+    }
+
+    public function nextAntrian(){
+        $tanggal = date('Y-m-d');
+        $activeAntrian = $this->antrianModel->getActiveAntrian($tanggal);
+        if ($activeAntrian) {
+            $this->antrianModel->update($activeAntrian['id_antrian'], ['status_antrian' => '2']);
+            // add data notifikasi
+            $notifikasiModel = new notifikasiModel();
+            $data_notifikasi = [
+                'nama_notifikasi' => 'Antrean',
+                'isi_notifikasi' => 'Nomor antrian, ' . $activeAntrian['no_antrian'] . ', silahkan menuju ke,  loket 1',
+                'status_notifikasi' => '1',
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $notifikasiModel->insert($data_notifikasi);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Antrian berhasil dipanggil',
+                'status' => '200'
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Antrian habis',
+                'status' => '404'
+            ]);
+        }
+    }
 }
 ?>

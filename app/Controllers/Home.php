@@ -7,9 +7,9 @@ class Home extends BaseController
     public function index(): string
     {
         $data = [
-            'title' => 'Home',
-            'active' => 'Home',
+            'title' => 'Dashboard',
+            'active' => 'Dashboard',
         ];
-        return view('Templates/index', $data);
+        return view('Admin/Dashboard', $data);
     }
 }

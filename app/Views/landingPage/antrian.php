@@ -1,450 +1,446 @@
-<!DOCTYPE html>
-<html>
+<?= $this->extend('Templates/LandingPage') ?>
+<?= $this->section('content') ?>
+<div class="pd-20 card-box mb-30  mt-4" id="antrian">
+    <div class="clearfix">
+        <h4 class="text-black h4">
+            Form Antrean
+        </h4>
+        <p class="mb-30">
 
-<head>
-    <!-- Basic Page Info -->
-    <meta charset="utf-8" />
-    <title>
-        <?= $title; ?>
-    </title>
-
-    <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png" />
-
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-
-    <!-- dataTables -->
-    <link rel="stylesheet" type="text/css"
-        href="<?= base_url('Assets/'); ?>src/plugins/datatables/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="<?= base_url('Assets/'); ?>src/plugins/datatables/css/responsive.bootstrap4.min.css" />
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/core.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/icon-font.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/style.css" />
-
-    <link rel="stylesheet" type="text/css"
-        href="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.css" />
-
-    <style>
-    .navbar {
-        background-color: #007bff;
-        color: white;
-    }
-
-    .navbar .navbar-brand {
-        color: white;
-        padding: 0 20px;
-        font-weight: bold;
-        font-family: 'Inter', sans-serif;
-        height: 50px;
-        line-height: 50px;
-    }
-
-    .navbar .nav-link {
-        color: white;
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-    }
-
-
-    .rq {
-        color: red;
-    }
-    </style>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
-        crossorigin="anonymous"></script>
-
-
-    <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-GBZ3SGGX85");
-    </script>
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            "gtm.start": new Date().getTime(),
-            event: "gtm.js"
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
-    </script>
-    <!-- End Google Tag Manager -->
-
-</head>
-
-<body class="sidebar-shrink">
-    <!-- <div class="pre-loader">
-        <div class="pre-loader-box">
-            <div class="loader-logo">
-                <img src="vendors/images/deskapp-logo.svg" alt="" />
+        </p>
+    </div>
+    <form id="form_tambah_antrian" enctype="multipart/form-data">
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="nama_siswa">Nama Siswa<span class="rq">*</span></label>
+                        <input type="text" class="form-control required" id="nama_siswa" name="nama_siswa"
+                            placeholder="Masukan nama">
+                        <div class="form-control-feedback " id="errornama_siswa"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="nisn">NISN<span class="rq">*</span></label>
+                        <input type="text" class="form-control required" id="nisn" name="nisn"
+                            placeholder="Masukan NSIN">
+                        <div class="form-control-feedback" id="errornisn"></div>
+                    </div>
+                </div>
             </div>
-            <div class="loader-progress" id="progress_div">
-                <div class="bar" id="bar1"></div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="kode_pendaftaran">Kode
+                            Pendaftaran
+                            PPDB<span class="rq">*</span></label></label>
+                        <input type="text" class="form-control required" id="kode_pendaftaran" name="kode_pendaftaran"
+                            placeholder="Masukan kode pendaftaran PPDB">
+                        <div class="form-control-feedback " id="errorkode_pendaftaran"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="jenis_kelamin">Jenis
+                            Kelamin<span class="rq">*</span></label></label>
+                        <select class="form-control required" id="jenis_kelamin" name="jenis_kelamin">
+                            <option value="">Pilih Jenis Kelamin</option>
+                            <option value="L">Laki-laki</option>
+                            <option value="P">Perempuan</option>
+                        </select>
+                        <div class="form-control-feedback " id="errorjenis_kelamin"></div>
+                    </div>
+                </div>
             </div>
-            <div class="percent" id="percent1">0%</div>
-            <div class="loading-text">Loading...</div>
-        </div>
-    </div> -->
-    <!-- navbar -->
-    <div class="row">
-        <!-- list menu center -->
-        <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg fixed-top">
-                <a class="navbar-brand" href="#">
-                    <img src="<?= base_url('Assets/'); ?>vendors/images/logo.png" alt="" width="30" height="30"
-                        class="d-inline-block align-text-top" loading="lazy">
-                    PPDB SMANSA
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="asal_sekolah">Asal
+                            Sekolah<span class="rq">*</span></label></label>
+                        <input type="text" class="form-control required" id="asal_sekolah" name="asal_sekolah"
+                            placeholder="Masukan asal sekolah ">
+                        <div class="form-control-feedback " id="errorasal_sekolah"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="jalur_pendaftaran">Jalur
+                            Pendaftaran<span class="rq">*</span></label></label>
+                        <select class="form-control required" id="jalur_pendaftaran" name="jalur_pendaftaran">
+                            <option value="">Pilih Jalur Pendaftaran</option>
+                            <option value="Zonasi">Zonasi</option>
+                            <option value="Afirmasi">Afirmasi</option>
+                            <option value="Perpindahan Orang Tua">Perpindahan Orang Tua
+                            </option>
+                            <option value="Prestasi">Prestasi</option>
+                        </select>
+                        <div class="form-control-feedback " id="errorjalur_pendaftaran">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="alamat">Alamat<span class="rq">*</span></label></label>
+                        <textarea class="form-control required" id="alamat" name="alamat"
+                            placeholder="Masukan alamat "></textarea>
+                        <div class="form-control-feedback " id="erroralamat"></div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="no_tlp">No telpon<span class="rq">*</span></label></label>
+                        <input type="text" class="form-control required" id="no_tlp" name="no_tlp"
+                            placeholder="Masukan no telpon ">
+                        <div class="form-control-feedback " id="errorno_tlp"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btn_tambah_antiran">
+                    Simpan
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">
-                                Home
-                            </a>
+            </div>
+    </form>
+</div>
+
+<div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">
+                    Syarat & Ketentuan
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="tab">
+                    <ul class="nav nav-tabs customtab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#persyaratan" role="tab"
+                                aria-selected="true" id="tabPersyaratan">Persyaratan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Antrian</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cari</a>
+                            <a class="nav-link" data-toggle="tab" href="#berkas" role="tab" aria-selected="false"
+                                id="tabBerkas">Berkas</a>
                         </li>
                     </ul>
+                    <div class="tab-content">
 
-                </div>
-            </nav>
-        </div>
-    </div>
+                        <div class="tab-pane fade show active" id="persyaratan" role="tabpanel">
+                            <div class="pd-20">
+                                <p class="fw-bold">
+                                    Ketentuan ketika melakukan verifikasi berkas:
+                                </p>
+                                <ul class="ml-3">
+                                    <li class="pb-2">1. Membawa berkas pendaftaran
+                                    </li>
+                                    <li class="pb-2">
+                                        <p class="ml-3">
+                                            <a id="btnBerkas">
+                                                Lihat berkas</a>
+                                        </p>
+                                    </li class="pb-2">
+                                    <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
+                                    <li class="pb-2">3. Potongan ramput rapi (CPD Putra) </li>
+                                    <li class="pb-2">4. Mengenakan spatu & kaos kaki </li>
+                                    <li class="pb-2">5. Mengenakan masker </li>
+                                </ul>
+                            </div>
+                        </div>
 
-    <style>
-    /* show icon navbar */
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23000000' class='bi bi-list' viewBox='0 0 16 16'%3e%3cpath fill-rule='evenodd' d='M2.5 4.5A.5.5 0 0 1 3 4h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0 3A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z' /%3e%3c/svg%3e");
-    }
+                        <style>
+                        .ml-3 {
+                            margin-bottom: 0;
+                        }
 
-    /* /* pindah list */
-    </style>
-    <div class="main-container">
-        <div class="pd-ltr-20 xs-pd-20-10">
-            <div class="min-height-200px">
-                <div class="pd-20 card-box mb-30">
-                    <div class="clearfix">
-                        <h4 class="text-black h4">
-                            Form Antrian
-                        </h4>
-                        <p class="mb-30">
+                        .pb-2 {
+                            padding-bottom: 0.5rem;
+                        }
 
-                        </p>
-                    </div>
-                    <div class="wizard-content">
-                        <form class="tab-wizard wizard-circle wizard vertical">
-                            <h5>Data Diri</h5>
-                            <!-- data diri -->
-                            <section>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Nama <span class="rq">*</span></label>
-                                            <input type="text" class="form-control required" id="nama" name="nama"
-                                                placeholder="Masukkan Nama">
-                                            <div class="form-control-feedback " id="errornama"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>NISN
-                                                <span class="rq">*</span>
-                                            </label>
-                                            <input type="text" class="form-control required" id="nisn" name="nisn"
-                                                placeholder="Masukkan NISN">
-                                            <div class="form-control-feedback " id="errornisn"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Jenis Kelamin <span class="rq">*</span></label>
-                                            <select class="custom-select form-control required" id="jenis_kelamin"
-                                                name="jenis_kelamin">
-                                                <option value="">Pilih Jenis Kelamin</option>
-                                                <option value="L">Laki-laki</option>
-                                                <option value="P">Perempuan</option>
-                                            </select>
-                                            <div class="form-control-feedback " id="errorjenis_kelamin"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="no_tlp">No Telp <span class="rq">*</span></label>
-                                            <input type="text" class="form-control required" id="no_tlp" name="no_tlp"
-                                                placeholder="Masukkan No Telp">
-                                            <div class="form-control-feedback " id="errorno_tlp"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="asal_sekolah">Asal sekolah <span class="rq">*</span></label>
-                                            <input type="text" class="form-control required" id="asal_sekolah"
-                                                name="asal_sekolah" placeholder="Masukkan Asal Sekolah">
-                                            <div class="form-control-feedback " id="errorasal_sekolah"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="alamat">Alamat <span class="rq">*</span></label>
-                                            <textarea class="form-control required" id="alamat"
-                                                name="alamat"></textarea>
-                                            <div class="form-control-feedback " id="erroralamat"></div>
-                                        </div>
-                                    </div>
+                        .fw-bold {
+                            font-weight: bold;
+                        }
+                        </style>
 
-                                </div>
-                            </section>
-                            <!-- Pendaftaran -->
-                            <h5>Pendaftaran</h5>
-                            <section>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Kode Pendaftaran <span class="rq">*</span></label>
-                                            <input type="text" class="form-control required" id="kode_pendaftaran"
-                                                name="kode_pendaftaran"
-                                                placeholder="Masukkan kode pendaftaran dari PPDB">
-                                            <div class="form-control-feedback " id="errorkode_pendaftaran"></div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Jalur <span class="rq">*</span></label>
-                                            <select class="custom-select form-control required" id="jalur" name="jalur">
-                                                <option value="">Pilih Jalur</option>
-                                                <option value="1">Jalur Zonasi</option>
-                                                <option value="2">Jalur Prestasi</option>
-                                                <option value="3">Jalur Afirmasi</option>
-                                                <option value="4">Jalur Perpindahan Orang Tua</option>
-                                            </select>
-                                            <div class="form-control-feedback " id="errorjalur"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                            <!-- Step 4 -->
-                            <h5>Ketentuan</h5>
-                            <section>
-                                <!-- list ketentuan verifikasi berkas -->
-                                <div class="row">
-                                    <div class="tab">
-                                        <ul class="nav nav-tabs customtab" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" data-toggle="tab" href="#Dokumen" role="tab"
-                                                    aria-selected="true">Dokumen</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" data-toggle="tab" href="#verifikasi2" role="tab"
-                                                    aria-selected="false">Verifikasi</a>
-                                            </li>
-
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div class="tab-pane fade show active" id="Dokumen" role="tabpanel">
-                                                <div class="pd-20">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit, sed do eiusmod tempor incididunt ut labore et
-                                                    dolore magna aliqua. Ut enim ad minim veniam, quis
-                                                    nostrud exercitation ullamco laboris nisi ut aliquip ex
-                                                    ea commodo consequat. Duis aute irure dolor in
-                                                    reprehenderit in voluptate velit esse cillum dolore eu
-                                                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                                                    non proident, sunt in culpa qui officia deserunt mollit
-                                                    anim id est laborum.
+                        <div class="tab-pane fade" id="berkas" role="tabpanel">
+                            <div class="pd-10">
+                                <div class="faq-wrap">
+                                    <div id="accordion">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                    data-target="#zonasi">
+                                                    Zonasi
+                                                </button>
+                                            </div>
+                                            <div id="zonasi" class="collapse" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    Anim pariatur cliche reprehenderit, enim eiusmod
+                                                    high life
+                                                    accusamus terry richardson ad squid. 3 wolf moon
+                                                    officia
+                                                    aute, non cupidatat skateboard dolor brunch. Food
+                                                    truck
+                                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                                    tempor,
+                                                    sunt aliqua put a bird on it squid single-origin
+                                                    coffee
+                                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                                    helvetica, craft beer labore wes anderson cred
+                                                    nesciunt
+                                                    sapiente ea proident. Ad vegan excepteur butcher
+                                                    vice lomo.
+                                                    Leggings occaecat craft beer farm-to-table, raw
+                                                    denim
+                                                    aesthetic synth nesciunt you probably haven't heard
+                                                    of them
+                                                    accusamus labore sustainable VHS.
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade" id="verifikasi2" role="tabpanel">
-                                                <div class="pd-20">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
-                                                    magni, eaque suscipit ullam quae minus praesentium minima porro sunt
-                                                    ratione incidunt a vel dicta accusantium, doloremque at, consequatur
-                                                    error assumenda rem. Sit tenetur aliquid ex distinctio fuga possimus
-                                                    laborum, enim nam quis perspiciatis reprehenderit blanditiis soluta
-                                                    aperiam obcaecati provident saepe mollitia magnam, incidunt odit
-                                                    tempore, consequatur maxime minima velit sapiente? Ut commodi
-                                                    consequatur sint saepe fugit amet sunt ea est tenetur quisquam
-                                                    architecto at reiciendis, nam quidem harum enim, sapiente molestiae
-                                                    in quo voluptatem inventore. Beatae qui atque voluptatem dolores
-                                                    dolor sint, mollitia minima odio aut voluptas, totam debitis
-                                                    officia.
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                    data-target="#Afirmasi">
+                                                    Afirmasi
+                                                </button>
+                                            </div>
+                                            <div id="Afirmasi" class="collapse" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    Anim pariatur cliche reprehenderit, enim eiusmod
+                                                    high life
+                                                    accusamus terry richardson ad squid. 3 wolf moon
+                                                    officia
+                                                    aute, non cupidatat skateboard dolor brunch. Food
+                                                    truck
+                                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                                    tempor,
+                                                    sunt aliqua put a bird on it squid single-origin
+                                                    coffee
+                                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                                    helvetica, craft beer labore wes anderson cred
+                                                    nesciunt
+                                                    sapiente ea proident. Ad vegan excepteur butcher
+                                                    vice lomo.
+                                                    Leggings occaecat craft beer farm-to-table, raw
+                                                    denim
+                                                    aesthetic synth nesciunt you probably haven't heard
+                                                    of them
+                                                    accusamus labore sustainable VHS.
                                                 </div>
                                             </div>
-
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row hrs">
-                                    <!-- check setuju -->
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox mb-5">
-                                                <input type="checkbox" class="custom-control-input required"
-                                                    id="customCheck1" name="example1">
-                                                <label class="custom-control-label" for="customCheck1">Saya setuju
-                                                    dengan
-                                                    ketentuan yang berlaku</label>
-                                                </label>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                    data-target="#pto">
+                                                    Perpindahan Orang Tua
+                                                </button>
                                             </div>
-                                            <div class="form-control-feedback " id="errorcustomCheck1"></div>
+                                            <div id="pto" class="collapse" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <p>
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod
+                                                        high
+                                                        life
+                                                        accusamus terry richardson ad squid. 3 wolf moon
+                                                        officia
+                                                        aute, non cupidatat skateboard dolor brunch.
+                                                        Food truck
+                                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                                                        moon
+                                                        tempor, sunt aliqua put a bird on it squid
+                                                        single-origin
+                                                        coffee nulla assumenda shoreditch et. Nihil anim
+                                                        keffiyeh
+                                                        helvetica, craft beer labore wes anderson cred
+                                                        nesciunt
+                                                        sapiente ea proident. Ad vegan excepteur butcher
+                                                        vice
+                                                        lomo. Leggings occaecat craft beer
+                                                        farm-to-table, raw
+                                                        denim aesthetic synth nesciunt you probably
+                                                        haven't
+                                                        heard
+                                                        of them accusamus labore sustainable VHS.
+                                                    </p>
+                                                    <p class="mb-0">
+                                                        Anim pariatur cliche reprehenderit, enim eiusmod
+                                                        high
+                                                        life
+                                                        accusamus terry richardson ad squid. 3 wolf moon
+                                                        officia
+                                                        aute, non cupidatat skateboard dolor brunch.
+                                                        Food truck
+                                                        quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                                                        moon
+                                                        tempor, sunt aliqua put a bird on it squid
+                                                        single-origin
+                                                        coffee nulla assumenda shoreditch et. Nihil anim
+                                                        keffiyeh
+                                                        helvetica, craft beer labore wes anderson cred
+                                                        nesciunt
+                                                        sapiente ea proident. Ad vegan excepteur butcher
+                                                        vice
+                                                        lomo. Leggings occaecat craft beer
+                                                        farm-to-table, raw
+                                                        denim aesthetic synth nesciunt you probably
+                                                        haven't
+                                                        heard
+                                                        of them accusamus labore sustainable VHS.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                    data-target="#prestasi">
+                                                    Prestasi
+                                                </button>
+                                            </div>
+                                            <div id="prestasi" class="collapse" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    Anim pariatur cliche reprehenderit, enim eiusmod
+                                                    high life
+                                                    accusamus terry richardson ad squid. 3 wolf moon
+                                                    officia
+                                                    aute, non cupidatat skateboard dolor brunch. Food
+                                                    truck
+                                                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+                                                    tempor,
+                                                    sunt aliqua put a bird on it squid single-origin
+                                                    coffee
+                                                    nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                                    helvetica, craft beer labore wes anderson cred
+                                                    nesciunt
+                                                    sapiente ea proident. Ad vegan excepteur butcher
+                                                    vice lomo.
+                                                    Leggings occaecat craft beer farm-to-table, raw
+                                                    denim
+                                                    aesthetic synth nesciunt you probably haven't heard
+                                                    of them
+                                                    accusamus labore sustainable VHS.
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- end check setuju -->
                                 </div>
-                                <style>
-                                .hrs {
-                                    border-top: 1px solid #e0e0e0;
-                                    padding-top: 20px;
-                                }
-
-                                /* change color form wizard  to red
-                                */
-                                .wizard .nav-tabs .nav-link {
-                                    color: #000;
-                                }
-                                </style>
-                            </section>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- success Popup html Start -->
-                <div class="modal fade" id="success-modal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body text-center font-18">
-                                <h3 class="mb-20">
-                                    Konfirmasi
-                                </h3>
-                                <div class="mb-30 text center">
-                                    <p>Apakah anda yakin ingin menyimpan data ini?</p>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-primary btn-block"
-                                            data-dismiss="modal">Tidak</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button type="button" class="btn btn-danger btn-block"
-                                            data-dismiss="modal">Ya</button>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
-                    <!-- success Popup html End -->
                 </div>
-                <footer class="footer my-3">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <script>
-                            document.write(new Date().getFullYear())
-                            </script> © TIM IT SMANSA
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-md-right footer-links d-none d-md-block">
-                                <a href="javascript: void(0);">About Us</a>
-                                <a href="javascript: void(0);">Help</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
+                <hr>
+                <form id="form_syarat_ketentuan">
+                    <div class="form-group mt-3">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="syatKetentuan" name="syatKetentuan"
+                                required title="Syarat & Ketentuan harus di centang">
+                            <label class="custom-control-label" for="syatKetentuan">Saya setuju dengan
+                                syarat &
+                                ketentuan yang berlaku</label>
                         </div>
                     </div>
-                </footer>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="submit" class="btn btn-primary" id="btn_sk">
+                    Kirim
+                </button>
+            </div>
+            </form>
         </div>
-
     </div>
+</div>
+<?= $this->endSection('content') ?>
 
-
-    <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/core.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/script.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/process.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/layout-settings.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/dashboard3.js"></script>
-
-
-    <script src="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/steps-setting.js"></script>
-
-    <script src="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
-
-    <script type="text/javascript">
-    $(document).on('focusout', '.required', function() {
-        const id = $(this).attr('id');
-        if ($(this).val() == '') {
-            $(this).addClass('form-control-danger');
-            $(`#error${id}`).html('Field ini tidak boleh kosong');
-            $(`#error${id}`).addClass('has-danger');
+<?= $this->section('script') ?>
+<script>
+const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
+    'alamat', 'jalur_pendaftaran'
+];
+const dataAntrian = [];
+$('#btn_tambah_antiran').click(function(e) {
+    e.preventDefault();
+    let formData = new FormData();
+    let status = true;
+    listFields.forEach((field) => {
+        if ($(`#${field}`).val() == '') {
+            $(`#${field}`).addClass('form-control-danger');
+            $(`#error${field}`).html('Field ini tidak boleh kosong');
+            $(`#error${field}`).addClass('has-danger');
+            status = false;
         } else {
-            $(this).addClass('form-control-success');
-            $(this).removeClass('form-control-danger');
-            $(`#error${id}`).html('');
-            $(`#error${id}`).removeClass('has-danger');
+            $(`#${field}`).addClass('form-control-success');
+            $(`#${field}`).removeClass('form-control-danger');
+            $(`#error${field}`).html('');
+            $(`#error${field}`).removeClass('has-danger');
+            formData.append(field, $(`#${field}`).val());
         }
     });
 
-    // on keyup
-    $(document).on('keyup', '.required', function() {
-        const id = $(this).attr('id');
-        if ($(this).val() == '') {
-            $(this).addClass('form-control-danger');
-            $(`#error${id}`).html('Field ini tidak boleh kosong');
-            $(`#error${id}`).addClass('has-danger');
-        } else {
-            $(this).addClass('form-control-success');
-            $(this).removeClass('form-control-danger');
-            $(`#error${id}`).html('');
-            $(`#error${id}`).removeClass('has-danger');
-        }
-    });
-    </script>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
-            style="display: none; visibility: hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-</body>
+    if (status) {
+        $('#Medium-modal').modal('show');
+        dataAntrian.push(formData);
+    }
+});
 
-</html>
+$('#form_syarat_ketentuan').submit(function(e) {
+    e.preventDefault();
+    $("#btn_sk").attr("disabled", "disabled");
+    $("#btn_sk").html(
+        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+    ).attr('disabled', true);
+    $.ajax({
+        url: '<?= base_url('Admin/Antrian/save'); ?>',
+        type: 'POST',
+        data: dataAntrian[0],
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            if (response.error) {
+                $.each(response.data, function(key, value) {
+                    if (value != '') {
+                        $("#" + key).addClass('form-control-danger');
+                        $("#error" + key).addClass('has-danger');
+                        $("#error" + key).html(value);
+                    } else {
+                        $("#" + key).removeClass('form-control-danger');
+                        $("#" + key).addClass('form-control-success');
+                        $("#error" + key).html('');
+                        $("#error" + key).removeClass('has-danger');
+                    }
+                });
+                dataAntrian.pop();
+                $('#Medium-modal').modal('hide');
+                $("#btn_sk").removeAttr("disabled");
+                $("#btn_sk").html("Tambah");
+            } else {
+                getSwall(response.status, 'Antrian berhasil ditambahkan');
+                listFields.forEach(function(item) {
+                    $("#" + item).removeClass('form-control-danger');
+                    $("#" + item).removeClass('form-control-success');
+                    $("#error" + item).html('');
+                    $("#error" + item).removeClass('has-danger');
+                });
+                $('#syatKetentuan').prop('checked', false);
+                $("#form_tambah_antrian")[0].reset();
+                $('#Medium-modal').modal('hide');
+                $("#btn_sk").removeAttr("disabled");
+                $("#btn_sk").html("Kirim");
+            }
+        } //end success
+    }) //end ajax
+});
+</script>
+<?= $this->endSection('script') ?>
