@@ -11,9 +11,9 @@ $routes->get('Antrean', 'landingPageController::Antrian');
 
 $routes->get('Cari', 'landingPageController::Cari');
 
-$routes->post('search', 'landingPageController::search');
+$routes->post('search_antrian', 'landingPageController::search_antrian');
 
-$routes->get('Views', 'landingPageController::view');
+$routes->get('Views', 'landingPageController::Views');
 
 $routes->get('fetchAntrian', 'landingPageController::fetchAntrian');
 

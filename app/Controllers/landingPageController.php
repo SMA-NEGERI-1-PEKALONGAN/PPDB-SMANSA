@@ -35,7 +35,7 @@ class landingPageController extends BaseController
         return view('landingPage/cari', $data);
     }
 
-    public function search(){
+    public function search_antrian(){
         $keyword = $this->request->getVar('keyword');
         $antrianModel = new AntrianModel();
         $antrian = $antrianModel->search($keyword)->get()->getRow();
@@ -55,7 +55,7 @@ class landingPageController extends BaseController
         }
     }
 
-    public function view(){
+    public function Views(){
        
         $data = [
             'title' => 'Views - PPDB SMANSA',

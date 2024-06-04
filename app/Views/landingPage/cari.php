@@ -281,7 +281,7 @@ $('#form_search').submit(function(e) {
         '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
     ).attr('disabled', true);
     $.ajax({
-        url: '<?= base_url('search'); ?>',
+        url: '<?= base_url('search_antrian'); ?>',
         type: 'POST',
         data: {
             keyword: keyword
