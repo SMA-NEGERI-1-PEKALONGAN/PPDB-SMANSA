@@ -146,10 +146,8 @@ class antrianController extends BaseController
             } else {
                 $referensi = new masterReferensiModel();
                 $data_referensi = $referensi->getReferensiByKodeKategori('set_antrian');
+                $tanggal_antrian = date('Y-m-d');
                 foreach ($data_referensi as $row) {
-                    if ($row['nama_referensi'] == 'tanggal_antrian') {
-                        $tanggal_antrian = $row['kode_referensi'];
-                    }
                     if ($row['nama_referensi'] == 'max_antrian') {
                         $max_antrian = $row['kode_referensi'];
                     }

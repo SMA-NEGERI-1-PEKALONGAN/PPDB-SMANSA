@@ -5,23 +5,20 @@ namespace App\Filters;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use App\Models\usersModel;
 
-class Middleware implements FilterInterface
+class filterAdmin implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->get('logged_in')) {
-            return redirect()->to('/');
+        if (session()->get('role') == '') {
+            return redirect()->to('/Auth');
         }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        $model = new usersModel();
-        $user = $model->where('username', session()->get('username'))->first();
-        if ($user['role'] != 'Administrator') {
-            return redirect()->to('/forbidden/index');
+        if (session()->get('role') == 'Administrator') {
+            return redirect()->to('Admin/Dashboard');
         }
     }
 }

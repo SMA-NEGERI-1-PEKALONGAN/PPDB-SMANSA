@@ -13,7 +13,7 @@ $routes->get('Cari', 'landingPageController::Cari');
 
 $routes->post('search', 'landingPageController::search');
 
-$routes->get('views', 'landingPageController::view');
+$routes->get('Views', 'landingPageController::view');
 
 $routes->get('fetchAntrian', 'landingPageController::fetchAntrian');
 
