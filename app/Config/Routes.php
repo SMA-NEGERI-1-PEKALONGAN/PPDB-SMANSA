@@ -77,6 +77,7 @@ $routes->group('Admin', function ($routes) {
         $routes->get('ListAntrian', 'antrianController::ajaxListAntrian');
         $routes->get('nextAntrian', 'antrianController::nextAntrian');
         $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
+        $routes->get('AjaxAntrianNotActive', 'antrianController::AjaxAntrianNotActive');
     });
 
 });

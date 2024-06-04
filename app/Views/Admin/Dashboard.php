@@ -78,7 +78,7 @@
             <div class="pd-20">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h4 class="text-blue h4">List Antrian</h4>
+                        <h4 class="text-blue h4">List Antrian Bermasalah</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                     </div>
@@ -230,7 +230,7 @@ function dataTablesAntrian() {
             scrollCollapse: true,
             autoWidth: false,
             responsive: true,
-            ajax: "<?php echo base_url('Admin/Antrian/ListAntrian') ?>",
+            ajax: "<?php echo base_url('Admin/Antrian/AjaxAntrianNotActive') ?>",
             "lengthMenu": [
                 [5, 10, 25, 50, -1],
                 [5, 10, 25, 50, "All"]
@@ -293,10 +293,6 @@ function fetchAntrian() {
                 $('#antrian_active').html(response.data.antrianActive);
                 $('#antrian_now').html(response.data.antrianNow.no_antrian);
                 $('#sisa_antrian').html(response.data.sisa_antrian);
-                $('#loket1').html(response.data.loket1);
-                $('#loket2').html(response.data.loket2);
-                $('#loket3').html(response.data.loket3);
-                $('#loket4').html(response.data.loket4);
             }
         }
     });
