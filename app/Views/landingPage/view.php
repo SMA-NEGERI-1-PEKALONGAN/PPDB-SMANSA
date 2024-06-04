@@ -106,11 +106,8 @@
 </div>
 
 <!-- load file audio bell antrian -->
-<audio id="bel" src="<?= base_url('Assets/audio/bell.mp3'); ?>"></audio>
-
-<!-- btn play -->
-<button id="play" class="btn btn-primary">Play</button>
-
+<audio id="bel" src="<?= base_url('Assets/audio/bell.mp3'); ?>" type="audio/mpeg" preload="auto"></audio>
+</audio>
 
 <?= $this->endSection('content')?>
 
@@ -142,22 +139,62 @@ function fetchAntrian() {
     });
 }
 
+function fetchNotifikasi() {
+    $.ajax({
+        url: '<?= base_url('fetchNotifikasi') ?>',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if (response.status == '200') {
+                let msg = response.data.isi_notifikasi;
+                playAudio(msg);
+                fetchAntrian();
+                updateNotifikasi(response.data.id_notifikasi);
+            } else {
+                setTimeout(function() {
+                    fetchNotifikasi();
+                    fetchAntrian();
+                }, 1000);
+            }
+        }
+    });
+}
+
+
+function updateNotifikasi(id) {
+    $.ajax({
+        url: '<?= base_url('updateNotifikasi') ?>',
+        type: 'POST',
+        data: {
+            id: id
+        },
+        dataType: 'json',
+        success: function(response) {
+            if (response.status == '200') {
+                // alert('Data berhasil diupdate');s
+            }
+        }
+    });
+}
+
+setTimeout(function() {
+    fetchNotifikasi();
+    fetchAntrian();
+}, 1000);
 
 // when click next button play audio bell
 let play = document.getElementById('play');
 let bell = document.getElementById('bel');
 
-function playAudio($antri, $loket) {
+function playAudio(msg) {
+    // alert(msg);
     // bell.pause();
-    bell.currentTime = 0;
     bell.play();
 
-    // set delay antara suara bell dengan suara nomor antrian
-    durasi_bell = bell.duration * 1000;
+    durasi_bell = bell.duration * 700;
 
-    // mainkan suara nomor antrian
     setTimeout(function() {
-        responsiveVoice.speak("Nomor antrian " + $antri + " silahkan menuju loket " + $loket,
+        responsiveVoice.speak(msg,
             "Indonesian Male", {
                 rate: 0.9,
                 pitch: 1,
@@ -165,20 +202,11 @@ function playAudio($antri, $loket) {
             });
     }, durasi_bell);
 
-
+    setTimeout(function() {
+        fetchNotifikasi();
+    }, 10000);
 
 }
-
-play.addEventListener('click', playAudio);
-// jika play selesai maka play button akan muncul kembali
-bell.addEventListener('ended', function() {
-    // document.getElementById('play').classList.remove('hidden');
-    // document.getElementById('pause').classList.add('hidden');
-});
-// get data every 1 second
-setInterval(function() {
-    getData();
-}, 1000);
 </script>
 
 

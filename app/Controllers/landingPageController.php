@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\AntrianModel;
+use App\Models\notifikasiModel;
 use App\Models\masterReferensiModel;
 use CodeIgniter\HTTP\RequestInterface;
 
@@ -99,6 +100,38 @@ class landingPageController extends BaseController
         return $this->response->setJSON([
             'error' => false,
             'data' => $data,
+            'status' => '200'
+        ]);
+    }
+    
+    public function fetchNotifikasi(){
+        $notifikasiModel = new notifikasiModel();
+        $notifikasi = $notifikasiModel->getNotifikasiActive();
+        if($notifikasi){
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => $notifikasi,
+                'status' => '200'
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
+    }
+
+    public function updateNotifikasi(){
+        $notifikasiModel = new notifikasiModel();
+        $id = $this->request->getPost('id');
+        $data = [
+            'status_notifikasi' => '0'
+        ];
+        $notifikasiModel->update($id, $data);
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => 'Data berhasil diupdate',
             'status' => '200'
         ]);
     }

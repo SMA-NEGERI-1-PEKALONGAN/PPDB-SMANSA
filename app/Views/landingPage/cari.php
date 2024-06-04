@@ -140,11 +140,11 @@ h6 {
     }
 
     .font-15 {
-        font-size: 15px !important;
+        font-size: 30px !important;
     }
 
     .font-30 {
-        font-size: 30px !important;
+        font-size: 60px !important;
     }
 
     .weight-500 {
@@ -164,7 +164,7 @@ h6 {
 <div class="container mt-4 search">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center my-4">Cari Data</h1>
+            <h1 class="text-center my-4">Cari Antrean</h1>
             <form id="form_search">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control mx-2" placeholder="Masukkan nisn / kode pendaftaran"
@@ -251,7 +251,7 @@ h6 {
                     <div class="col-sm-2 text-center">
                         <img src="<?= base_url('Assets/qr_code/4c03177952d34abbb12d9e287275248e.png') ?>" alt="foto"
                             class="img-thumbnai border-0">
-                        <h6 class="text-black">No Antrian</h6>
+                        <h6 class="text-black">No Antrean</h6>
                         <h2 class="text-muted fw-700 header-antrean" id="no_antrian"></h2>
                     </div>
                 </div>

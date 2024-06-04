@@ -226,7 +226,7 @@ class antrianController extends BaseController
                     'status_antrian' => '0',
                     'no_antrian' => $no_antrian,
                     'sesi_antrian' => $sesi_antrian,
-                    'tanggal_antrian' => $tanggal_antrian,
+                    'tanggal_antrian' => date('Y-m-d'),
                     'created_at' => date('Y-m-d H:i:s'),
                     
                 ];

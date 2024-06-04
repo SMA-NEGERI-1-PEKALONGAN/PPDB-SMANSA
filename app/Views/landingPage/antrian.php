@@ -83,7 +83,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label for="alamat">alamat<span class="rq">*</span></label></label>
+                        <label for="alamat">Alamat<span class="rq">*</span></label></label>
                         <textarea class="form-control required" id="alamat" name="alamat"
                             placeholder="Masukan alamat "></textarea>
                         <div class="form-control-feedback " id="erroralamat"></div>

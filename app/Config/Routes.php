@@ -17,6 +17,10 @@ $routes->get('views', 'landingPageController::view');
 
 $routes->get('fetchAntrian', 'landingPageController::fetchAntrian');
 
+$routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
+
+$routes->post('updateNotifikasi', 'landingPageController::updateNotifikasi');
+
 // group route admin
 $routes->group('Admin', function ($routes) {
     $routes->get('Dashboard', 'Home::index');
