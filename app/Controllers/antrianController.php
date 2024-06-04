@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use Hermawan\DataTables\DataTable;
 use App\Models\antrianModel;
+use App\Models\notifikasiModel;
 use App\Models\masterReferensiModel;   
 use Ramsey\Uuid\Uuid;
 use Endroid\QrCode\Writer\PngWriter;
@@ -400,5 +401,58 @@ class antrianController extends BaseController
             ->toJson(true);
     }
 
+    public function addNotifikasi(){
+        $id = $this->request->getPost('id');
+        $data = $this->antrianModel->getAntrian($id);
+        if($data){
+            $notifikasiModel = new notifikasiModel();
+            $data_notifikasi = [
+                'nama_notifikasi' => 'Pemberkasan Antrian',
+                'isi_notifikasi' => 'Silahkan menuju ke loket pemberkasan',
+                'status_notifikasi' => '1',
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $notifikasiModel->insert($data_notifikasi);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Notifikasi berhasil dikirim',
+                'status' => '200'
+            ]);
+        }else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
+    }
+
+    public function nextAntrian(){
+        $tanggal = date('Y-m-d');
+        $activeAntrian = $this->antrianModel->getActiveAntrian($tanggal);
+        if ($activeAntrian) {
+            $this->antrianModel->update($activeAntrian['id_antrian'], ['status_antrian' => '2']);
+            // add data notifikasi
+            $notifikasiModel = new notifikasiModel();
+            $data_notifikasi = [
+                'nama_notifikasi' => 'Antrean',
+                'isi_notifikasi' => 'Nomor antrian, ' . $activeAntrian['no_antrian'] . ', silahkan menuju ke,  loket 1',
+                'status_notifikasi' => '1',
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $notifikasiModel->insert($data_notifikasi);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Antrian berhasil dipanggil',
+                'status' => '200'
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Antrian habis',
+                'status' => '404'
+            ]);
+        }
+    }
 }
 ?>

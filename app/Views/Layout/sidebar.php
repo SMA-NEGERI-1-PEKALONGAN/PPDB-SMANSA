@@ -29,6 +29,9 @@
                         <span class="micon bi bi-house"></span><span class="mtext">Dashboard</span>
                     </a>
                 </li>
+                <?php 
+                if(session()->get('role') == 'Administrator'):
+                ?>
                 <li class="dropdown <?= $active == 'Referensi' || $active == 'Users' ? 'show' : '' ?>">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon bi bi-gear"></span><span class="mtext">Administrator</span>
@@ -40,24 +43,34 @@
                                 class="<?= $active == 'Users'  ? 'active' : '' ?>">Users</a></li>
                     </ul>
                 </li>
+                <?php endif; ?>
+
                 <li class="dropdown <?= $active == 'Antrian' || $active == 'Scan' ? 'show' : '' ?>">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon bi bi-card-checklist"></span><span class="mtext">Antrian</span>
                     </a>
                     <ul class="submenu">
+                        <?php 
+                    if(session()->get('role') == 'Administrator'):
+                            ?>
                         <li>
                             <a href="<?= base_url('Admin/Antrian')?>"
                                 class="<?= $active == 'Antrian'  ? 'active' : '' ?>">Daftar Antrian</a>
                         </li>
+                        <?php endif; ?>
 
                         <li>
                             <a href="<?= base_url('Admin/Antrian/scan')?>"
                                 class="<?= $active == 'Scan'  ? 'active' : '' ?>">Scan QR Code</a>
                         </li>
+                        <?php 
+                             if(session()->get('role') == 'Verifikatora' || session()->get('role') == 'Administrator'):
+                        ?>
                         <li>
                             <a href="<?= base_url('Admin/Antrian/List')?>"
                                 class="<?= $active == 'List'  ? 'active' : '' ?>">List Antrian</a>
                         </li>
+                        <?php endif; ?>
                     </ul>
                 </li>
 
@@ -65,8 +78,7 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
-                    <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank"
-                        class="dropdown-toggle no-arrow">
+                    <a href="https://ppdb.sman1pekalongan.sch.id" target="_blank" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-layout-text-window-reverse"></span>
                         <span class="mtext">Landing Page
                             <img src="vendors/images/coming-soon.png" alt="" width="25" /></span>

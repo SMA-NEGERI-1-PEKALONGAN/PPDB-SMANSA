@@ -20,7 +20,7 @@
                 </div>
                 <div class="widget-icon">
                     <div class="icon" data-color="#00eccf">
-                        <i class="icon-copy ti-user"></i>
+                        <i class="icon-copy fa fa-users" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -35,9 +35,9 @@
                         Antrian Aktif
                     </div>
                 </div>
-                <div class="widget-icon">
-                    <div class="icon" data-color="#ff5b5b">
-                        <i class="icon-copy ti-user"></i>
+                <div class="widget-icon" data-color="#09cc06">
+                    <div class="icon">
+                        <i class="icon-copy fa fa-user-plus" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -51,8 +51,8 @@
                     <div class="font-15 text-secondary weight-500">Antrian tidak aktif</div>
                 </div>
                 <div class="widget-icon">
-                    <div class="icon" data-color="#09cc06">
-                        <i class="icon-copy ti-user"></i>
+                    <div class="icon" data-color="#ff5b5b">
+                        <i class="icon-copy fa fa-user-times" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="widget-icon">
                     <div class="icon">
-                        <i class="icon-copy ti-user"></i>
+                        <i class="icon-copy fa fa-user" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>

@@ -21,6 +21,14 @@ $routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
 
 $routes->post('updateNotifikasi', 'landingPageController::updateNotifikasi');
 
+// auth route
+$routes->group('Auth', function ($routes) {
+        $routes->get('/', 'Auth::index');
+        $routes->post('login', 'Auth::login');
+        $routes->get('logout', 'Auth::logout');
+    });
+    
+
 // group route admin
 $routes->group('Admin', function ($routes) {
     $routes->get('Dashboard', 'Home::index');
@@ -67,5 +75,11 @@ $routes->group('Admin', function ($routes) {
         $routes->post('verifikasiBerkas', 'antrianController::verifikasiBerkas');
         $routes->get('List', 'antrianController::listAntrian');
         $routes->get('ListAntrian', 'antrianController::ajaxListAntrian');
+        $routes->get('nextAntrian', 'antrianController::nextAntrian');
+        $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
     });
+
 });
+
+
+    

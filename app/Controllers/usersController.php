@@ -178,8 +178,9 @@ class usersController extends BaseController
 
     public function reset(){
         $id_user = $this->request->getPost('id_user');
+        $data = $this->userModel->find($id_user);
         $data = [
-            'password' => password_hash($this->request->getPost('username'), PASSWORD_DEFAULT),
+            'password' => password_hash($data['username'], PASSWORD_DEFAULT),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
         $this->userModel->update($id_user, $data);

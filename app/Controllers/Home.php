@@ -10,6 +10,6 @@ class Home extends BaseController
             'title' => 'Dashboard',
             'active' => 'Dashboard',
         ];
-        return view('Templates/index', $data);
+        return view('Admin/Dashboard', $data);
     }
 }

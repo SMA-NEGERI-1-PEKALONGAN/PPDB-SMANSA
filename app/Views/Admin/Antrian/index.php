@@ -274,11 +274,13 @@ function dataTablesAntrian() {
                 [5, 10, 25, 50, "All"]
             ],
             columns: [{
-                    data: 'nama_siswa',
+
+                    data: 'kode_pendaftaran',
                     class: 'table-plus'
                 },
                 {
-                    data: 'kode_pendaftaran'
+                    data: 'nama_siswa',
+
                 },
                 {
                     data: 'status_antrian',
