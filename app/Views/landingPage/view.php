@@ -121,19 +121,19 @@ $(document).ready(function() {
 
 function fetchAntrian() {
     $.ajax({
-        url: '<?= base_url('fetchAntrian') ?>',
+        url: '<?= base_url('getAllDataAntrian') ?>',
         type: 'GET',
         dataType: 'json',
         success: function(response) {
             if (response.error == false) {
                 $('#total_antrian').html(response.data.totalAntrian);
                 $('#antrian_active').html(response.data.antrianActive);
-                $('#antrian_now').html(response.data.antrianNow.no_antrian);
+                $('#antrian_now').html(response.data.antrianNow);
                 $('#sisa_antrian').html(response.data.sisa_antrian);
-                $('#loket1').html(response.data.loket1.no_antrian);
-                $('#loket2').html(response.data.loket2.no_antrian);
-                $('#loket3').html(response.data.loket3.no_antrian);
-                $('#loket4').html(response.data.loket4.no_antrian);
+                $('#loket1').html(response.data.loket1);
+                $('#loket2').html(response.data.loket2);
+                $('#loket3').html(response.data.loket3);
+                $('#loket4').html(response.data.loket4);
             }
         }
     });

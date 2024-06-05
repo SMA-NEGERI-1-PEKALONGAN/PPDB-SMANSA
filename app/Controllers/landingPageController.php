@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\AntrianModel;
+use App\Models\antrianModel;
 use App\Models\notifikasiModel;
 use App\Models\masterReferensiModel;
 use CodeIgniter\HTTP\RequestInterface;
@@ -37,7 +37,7 @@ class landingPageController extends BaseController
 
     public function search_antrian(){
         $keyword = $this->request->getVar('keyword');
-        $antrianModel = new AntrianModel();
+        $antrianModel = new antrianModel();
         $antrian = $antrianModel->search($keyword)->get()->getRow();
         // dd($antrian);
         if($antrian){
@@ -64,25 +64,56 @@ class landingPageController extends BaseController
         return view('landingPage/view', $data);
     }
 
-    public function fetchAntrian(){
-        $antrianModel = new AntrianModel();
+    public function getAllDataAntrian(){
+        $antrianModel = new antrianModel();
         $tanggal = date('Y-m-d');
-        //total antrian
-        $totalAntrian = $antrianModel->where('tanggal_antrian', $tanggal)->countAllResults();
-        // antrian aktif
-        $antrianActive = $antrianModel->where('status_antrian', '1')->where('tanggal_antrian', $tanggal)->countAllResults();
-        // antrian saat ini 
-        $antrianNow = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->first();
-        // sisa antrian
-        $sisa_antrian = $antrianModel->where('status_antrian', '0')->where('tanggal_antrian', $tanggal)->countAllResults();
-        // loket 1
-        $loket1 = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket1')->first();
-        // loket 2 
-        $loket2 = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket2')->first();
-        // loket 3
-        $loket3 = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket3')->first();
-        // loket 4
-        $loket4 = $antrianModel->select('no_antrian')->orderBy('no_antrian', 'DESC')->where('status_antrian', '2')->where('tanggal_antrian', $tanggal)->where('loket', 'loket4')->first();
+
+        $masterData = $antrianModel->getAntrianByDate($tanggal);
+
+        $totalAntrian = count($masterData);
+        $antrianActive = 0 ;
+        $sisa_antrian = 0;
+        $antrianNow  = 0;
+        $loket1 = 0;
+        $loket2 = 0;
+        $loket3 = 0;
+        $loket4 = 0;
+
+        foreach($masterData as $data){
+            if($data['status_antrian'] == '1'){
+                $antrianActive++;
+            }
+            if($data['status_antrian'] == '0'){
+                $sisa_antrian++;
+            }
+            if($antrianNow  == 0){
+                if($data['status_antrian'] == '2'){
+                    $antrianNow  = $data['no_antrian'];
+                }
+            }
+            if($loket1 == 0){
+                if($data['loket'] == 'loket1' && $data['status_antrian'] == '2'){
+                    $loket1 = $data['no_antrian'];
+                }
+            }
+            if($loket2 == 0){
+                if($data['loket'] == 'loket2' && $data['status_antrian'] == '2'){
+                    $loket2 = $data['no_antrian'];
+                }
+            }
+            if($loket3 == 0){
+                if($data['loket'] == 'loket3' && $data['status_antrian'] == '2'){
+                    $loket3 = $data['no_antrian'];
+                }
+            }
+            if($loket4 == 0){
+                if($data['loket'] == 'loket4' && $data['status_antrian'] == '2'){
+                    $loket4 = $data['no_antrian'];
+                }
+            }
+        }
+        
+        
 
         $data = [
             'totalAntrian' => $totalAntrian,

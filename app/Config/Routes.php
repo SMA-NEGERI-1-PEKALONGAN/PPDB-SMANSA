@@ -15,7 +15,7 @@ $routes->post('search_antrian', 'landingPageController::search_antrian');
 
 $routes->get('Views', 'landingPageController::Views');
 
-$routes->get('fetchAntrian', 'landingPageController::fetchAntrian');
+$routes->get('getAllDataAntrian', 'landingPageController::getAllDataAntrian');
 
 $routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
 
@@ -78,6 +78,7 @@ $routes->group('Admin', function ($routes) {
         $routes->get('nextAntrian', 'antrianController::nextAntrian');
         $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
         $routes->get('AjaxAntrianNotActive', 'antrianController::AjaxAntrianNotActive');
+        $routes->get('AjaxAntrianBermasalah', 'antrianController::AjaxAntrianBermasalah');
     });
 
 });

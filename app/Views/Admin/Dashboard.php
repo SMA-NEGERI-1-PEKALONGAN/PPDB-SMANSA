@@ -205,6 +205,13 @@
                             placeholder="Tanggal Lahir" readonly>
                     </div>
                 </div>
+                <div class="form-group row ">
+                    <label for="ket_antrian" class="col-sm-4 col-form-label">Ket Antrian</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="detailket_antrian" name="ket_antrian"
+                            placeholder="Tanggal Lahir" readonly>
+                    </div>
+                </div>
 
             </div>
             <div class="modal-footer">
@@ -278,13 +285,13 @@ function getSwall(status, message) {
 
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
     'alamat',
-    'jalur_pendaftaran', 'tanggal_antrian',
+    'jalur_pendaftaran', 'tanggal_antrian', 'ket_antrian'
 ];
 
 
 function fetchAntrian() {
     $.ajax({
-        url: '<?= base_url('fetchAntrian') ?>',
+        url: '<?= base_url('getAllDataAntrian') ?>',
         type: 'GET',
         dataType: 'json',
         success: function(response) {
