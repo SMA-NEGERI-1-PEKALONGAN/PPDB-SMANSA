@@ -60,6 +60,8 @@ $routes->group('Admin', function ($routes) {
         $routes->post('update', 'usersController::update');
         $routes->post('reset', 'usersController::reset');
         $routes->post('changeStatus', 'usersController::changeStatus');
+        $routes->post('fetchDataUser', 'usersController::fetchDataUser');
+        $routes->post('updatePass', 'usersController::updatePass');
     });
 
     $routes->group('Antrian', function ($routes) {
@@ -79,6 +81,11 @@ $routes->group('Admin', function ($routes) {
         $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
         $routes->get('AjaxAntrianNotActive', 'antrianController::AjaxAntrianNotActive');
         $routes->get('AjaxAntrianBermasalah', 'antrianController::AjaxAntrianBermasalah');
+    });
+
+    $routes->group('Setting', function ($routes) {
+        $routes->get('/', 'usersController::Setting');
+        $routes->post('update', 'usersController::update');
     });
 
 });
