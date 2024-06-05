@@ -298,7 +298,7 @@ function fetchAntrian() {
             if (response.error == false) {
                 $('#total_antrian').html(response.data.totalAntrian);
                 $('#antrian_active').html(response.data.antrianActive);
-                $('#antrian_now').html(response.data.antrianNow.no_antrian);
+                $('#antrian_now').html(response.data.antrianNow);
                 $('#sisa_antrian').html(response.data.sisa_antrian);
             }
         }
