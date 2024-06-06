@@ -161,24 +161,23 @@ video {
                                 placeholder="Tanggal Antrian" readonly>
                         </div>
                     </div>
-                    <div class="form-group row" id="check_verifikasi">
-                        <label for="checklist" class="col-sm-4 col-form-label">Checklist</label></label>
+                    <div class="form-group row">
+                        <label for="ket_antrian" class="col-sm-4 col-form-label">Keterangan Antrian</label></label>
                         <div class="col-sm-8">
-                            <div class="custom-control custom-checkbox mb-5">
-                                <input type="checkbox" class="custom-control-input required" id="chekList"
-                                    name="chekList" required>
-                                <label class="custom-control-label" for="chekList">
-                                    Berkas sudah lengkap
-                                </label>
-                                </label>
-                                <div class=" form-control-feedback " id="errorchekList"></div>
-                            </div>
+                            <input type="text" class="form-control" id="berkasket_antrian" name="ket_antrian"
+                                placeholder="Keterangan Antrian">
                         </div>
                     </div>
+
                     <div class="form-group row ">
                         <label for="status_antrian" class="col-sm-4 col-form-label">Status</label></label>
                         <div class="col-sm-8">
-                            <div id="berkasstatus_antrian"></div>
+                            <select class="form-control" id="berkasstatus_antrian" name="status_antrian">
+                                <option value="1" id="status1">Check In</option>
+                                <option value="2" id="status2">Pemberkasan</option>
+                                <option value="3" id="status3">Selesai</option>
+                                <option value="4" id="status4">Bermasalah</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -215,7 +214,7 @@ function getSwall(status, message) {
 
 
 const listFields = ['id_antrian', 'nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
-    'alamat', 'jalur_pendaftaran', 'tanggal_antrian'
+    'alamat', 'jalur_pendaftaran', 'tanggal_antrian', 'ket_antrian',
 ];
 // get selected menu
 var selectedMenu = document.getElementById('menu').value;
@@ -241,39 +240,33 @@ function checkInAntrian(id) {
 // verifikasi berkas
 $("#formberkasAntrian").submit(function(e) {
     e.preventDefault();
-    if ($("#chekList").prop('checked') == false) {
-        $('#chekList').addClass('form-control-danger');
-        $("#errorchekList").html('Checklist harus di centang');
-        $("#errorchekList").addClass('has-danger');
-    } else {
-        $("#btn_tambah_antiran").attr("disabled", "disabled");
-        $("#btn_tambah_antiran").html("Loading.....");
-        $.ajax({
-            url: '<?= base_url('Admin/Antrian/verifikasiBerkas') ?>',
-            method: 'post',
-            data: new FormData(this),
-            contentType: false,
-            cache: false,
-            processData: false,
-            dataType: 'json',
-            success: function(response) {
-                if (response.status == '200') {
-                    getSwall(response.status, response.data);
-                    $('#berkassAntrian').modal('hide');
-                    $("#btn_tambah_antiran").removeAttr("disabled");
-                    $("#btn_tambah_antiran").html("Simpan");
-                    $(".form-control").removeClass('form-control-danger');
-                    $(".form-control-feedback").removeClass('has-danger');
-                    $(".form-control-feedback").html('');
-                    $("#formberkasAntrian")[0].reset();
-                } else {
-                    getSwall(response.status, response.data);
-                    $("#btn_tambah_antiran").removeAttr("disabled");
-                    $("#btn_tambah_antiran").html("Simpan");
-                }
+    $("#btn_tambah_antiran").attr("disabled", "disabled");
+    $("#btn_tambah_antiran").html("Loading.....");
+    $.ajax({
+        url: '<?= base_url('Admin/Antrian/ubahAntrian') ?>',
+        method: 'post',
+        data: new FormData(this),
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType: 'json',
+        success: function(response) {
+            if (response.status == '200') {
+                getSwall(response.status, response.data);
+                $('#berkassAntrian').modal('hide');
+                $("#btn_tambah_antiran").removeAttr("disabled");
+                $("#btn_tambah_antiran").html("Simpan");
+                $(".form-control").removeClass('form-control-danger');
+                $(".form-control-feedback").removeClass('has-danger');
+                $(".form-control-feedback").html('');
+                $("#formberkasAntrian")[0].reset();
+            } else {
+                getSwall(response.status, response.data);
+                $("#btn_tambah_antiran").removeAttr("disabled");
+                $("#btn_tambah_antiran").html("Simpan");
             }
-        });
-    }
+        }
+    });
 });
 
 // get data 
@@ -293,41 +286,26 @@ function getberkasAntrian(id) {
                 $("#berkasqr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
                     .qr_code);
                 $("#berkasno_antrian").html(response.data.no_antrian);
+                $("#berkasket_antrian").val(response.data.ket_antrian);
                 $("#berkassesi_antrian").html(response.data.sesi_antrian);
-                if (response.data.status_antrian == '1') {
-                    $("#chekList").prop('checked', false);
-                    $("#chekList").prop('disabled', false);
-                } else {
-                    $("#chekList").prop('checked', true);
-                    $("#chekList").prop('disabled', true);
-                    $("#btn_berkasAntrian").remove();
-                }
+
                 switch (response.data.status_antrian) {
                     case '1':
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-primary">Check In</span>');
+                        $("#status1").attr('selected', 'selected');
                         break;
                     case '2':
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-secondary">Pemberkasan</span>');
+                        $("#status2").attr('selected', 'selected');
                         break;
                     case '3':
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-success">Selesai</span>');
+                        $("#status3").attr('selected', 'selected');
                         break;
                     case '4':
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-warning">Bermasalah</span>');
-                        break;
-                    default:
-                        $("#berkasstatus_antrian").html(
-                            '<span class="badge badge-pill badge-danger">Tidak Aktif</span>');
+                        $("#status4").attr('selected', 'selected');
                         break;
                 }
             } else {
                 getSwall(response.status, response.data);
             }
-
         },
     });
 }

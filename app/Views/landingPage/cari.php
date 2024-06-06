@@ -263,7 +263,7 @@ h6 {
                         <p class="text-muted ml-2">1. Kartu ini berlaku sebagai kartu antrian verifikasi berkas</p>
                         <p class="text-muted ml-2">2. Kartu ini tidak dapat dipindah tangankan</p>
                         <p class="text-muted ml-2">3. Kartu ini berlaku selama proses verifikasi berkas</p>
-                        <p class="text-muted ml-2">3. Kartu ini dapat dicetak / discreenshot pada bagian QrCode</p>
+                        <p class="text-muted ml-2">4. Kartu ini dapat dicetak / discreenshot pada bagian QrCode</p>
                     </div>
                 </div>
             </div>
@@ -281,7 +281,7 @@ $('#form_search').submit(function(e) {
         '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
     ).attr('disabled', true);
     $.ajax({
-        url: '<?= base_url('search'); ?>',
+        url: '<?= base_url('search_antrian'); ?>',
         type: 'POST',
         data: {
             keyword: keyword

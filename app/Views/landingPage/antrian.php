@@ -151,7 +151,7 @@
                                     <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
                                     <li class="pb-2">3. Potongan ramput rapi (CPD Putra) </li>
                                     <li class="pb-2">4. Mengenakan spatu & kaos kaki </li>
-                                    <li class="pb-2">5. Mengenakan masker </li>
+                                    <li class="pb-2">5. Orang tua/wali berpakaian rapi </li>
                                 </ul>
                             </div>
                         </div>

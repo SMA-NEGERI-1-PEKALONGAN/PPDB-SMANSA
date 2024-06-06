@@ -78,20 +78,17 @@
             <div class="pd-20">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h4 class="text-blue h4">List Antrian</h4>
+                        <h4 class="text-blue h4">List Antrian Bermasalah</h4>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <button class="btn btn-primary btn-sm" type="button" id="btnRefreshAntrian">
-                            <i class="fa fa-arrow-right"></i>
-                        </button>
                     </div>
                 </div>
                 <div class="pb-20 table-responsive">
                     <table class="table hover multiple-select-row nowrap" id="tableAntrian">
                         <thead>
                             <tr>
-                                <th class="table-plus">Kode Regristrasi</th>
-                                <th>Nama</th>
+                                <th class="table-plus">Nama</th>
+                                <th>Kode Regristrasi</th>
                                 <th>Jalur</th>
                                 <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
@@ -208,6 +205,13 @@
                             placeholder="Tanggal Lahir" readonly>
                     </div>
                 </div>
+                <div class="form-group row ">
+                    <label for="ket_antrian" class="col-sm-4 col-form-label">Ket Antrian</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="detailket_antrian" name="ket_antrian"
+                            placeholder="Tanggal Lahir" readonly>
+                    </div>
+                </div>
 
             </div>
             <div class="modal-footer">
@@ -233,7 +237,7 @@ function dataTablesAntrian() {
             scrollCollapse: true,
             autoWidth: false,
             responsive: true,
-            ajax: "<?php echo base_url('Admin/Antrian/ListAntrian') ?>",
+            ajax: "<?php echo base_url('Admin/Antrian/AjaxAntrianNotActive') ?>",
             "lengthMenu": [
                 [5, 10, 25, 50, -1],
                 [5, 10, 25, 50, "All"]
@@ -281,13 +285,13 @@ function getSwall(status, message) {
 
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
     'alamat',
-    'jalur_pendaftaran', 'tanggal_antrian',
+    'jalur_pendaftaran', 'tanggal_antrian', 'ket_antrian'
 ];
 
 
 function fetchAntrian() {
     $.ajax({
-        url: '<?= base_url('fetchAntrian') ?>',
+        url: '<?= base_url('getAllDataAntrian') ?>',
         type: 'GET',
         dataType: 'json',
         success: function(response) {
@@ -296,10 +300,6 @@ function fetchAntrian() {
                 $('#antrian_active').html(response.data.antrianActive);
                 $('#antrian_now').html(response.data.antrianNow);
                 $('#sisa_antrian').html(response.data.sisa_antrian);
-                $('#loket1').html(response.data.loket1);
-                $('#loket2').html(response.data.loket2);
-                $('#loket3').html(response.data.loket3);
-                $('#loket4').html(response.data.loket4);
             }
         }
     });

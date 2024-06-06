@@ -102,7 +102,7 @@
                         <div class="login-title">
                             <h2 class="text-center text-primary">Login</h2>
                         </div>
-                        <form id="" method="POST" action="<?= base_url('Auth/login') ?>">
+                        <form id="form_login">
                             <div class="input-group custom">
                                 <input type="text" class="form-control form-control-lg" placeholder="Username"
                                     name="username" id="username" required />

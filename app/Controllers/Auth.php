@@ -37,6 +37,7 @@ class Auth extends BaseController
                     'role' => $user['role'],
                     'logged_in' => TRUE,
                 ];
+                $model->update($user['id_user'], ['last_login' => date('Y-m-d H:i:s')]);
                 session()->set($ses_data);
                 return $this->response->setJSON([
                     'error' => false,

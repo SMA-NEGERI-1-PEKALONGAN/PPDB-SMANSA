@@ -12,6 +12,10 @@ use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\PageCache;
 use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
+use App\Filters\filterAdmin;
+use App\Filters\filterPetugas;
+use App\Filters\filterUser;
+use App\Filters\Middleware;
 
 class Filters extends BaseFilters
 {
@@ -34,6 +38,10 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+        'filterAdmin'   => filterAdmin::class,
+        'filterPetugas' => filterPetugas::class,
+        'filterUser'    => filterUser::class,
+        'Middleware'    => Middleware::class,
     ];
 
     /**
@@ -69,13 +77,18 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            // 'honeypot',
-            // 'csrf',
-            // 'invalidchars',
+            'Middleware' => ['except' => ['/','Auth','Auth/*', 'Antrean', 'Cari', 'search_antrian', 'Admin/Antrian/save', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian']],
         ],
         'after' => [
-            // 'honeypot',
-            // 'secureheaders',
+            'filterAdmin' => ['except' => [ 
+                '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard','Admin/Kategori', 'Admin/Kategori/*', 'Admin/Referensi', 'Admin/Referensi/*', 'Admin/User', 'Admin/User/*', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*'
+            ]],
+            'filterPetugas' => ['except' => [ 
+                '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 
+            ]],
+            'filterUser' => ['except' => [ 
+                '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser'
+            ]],
         ],
     ];
 

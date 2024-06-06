@@ -116,6 +116,16 @@ class usersController extends BaseController
         ]);
     }
 
+    public function fetchDataUser(){
+        $username = $this->request->getPost('username');
+        $data = $this->userModel->where('username', $username)->first();
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => $data,
+            'status' => '200'
+        ]);
+    }
+
     public function update(){
         $validation =  \Config\Services::validation();
         $id = $this->request->getPost('id_user');
@@ -206,5 +216,73 @@ class usersController extends BaseController
             'status' => '200'
         ]);
         
+    }
+
+    public function Setting()
+    {
+        $data = [
+            'title' => 'Setting',
+            'active' => 'Setting',
+        ];
+        return view('Admin/Setting/index', $data);
+    }
+
+    public function updatePass(){
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'last_pass' => [
+                'label' => 'Password Lama',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                ],
+            ],
+            'new_pass' => [
+                'label' => 'Password Baru',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong',
+                ],
+            ],
+        ]);
+        
+        if (!$validation->withRequest($this->request)->run()) {
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => $validation->getErrors(),
+                'status' => '422'
+            ]);
+        } else {
+            $newPass = $this->request->getPost('new_pass');
+            $reNewPass = $this->request->getPost('re_new_pass');
+            if ($newPass != $reNewPass) {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Password baru tidak sama',
+                    'status' => '422'
+                ]);
+            }else{
+                $id = $this->request->getPost('id_user');
+                $data = $this->userModel->find($id);
+                if (password_verify($this->request->getPost('last_pass'), $data['password'])) {
+                    $data = [
+                        'password' => password_hash($newPass, PASSWORD_DEFAULT),
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ];
+                    $this->userModel->update($id, $data);
+                    return $this->response->setJSON([
+                        'error' => false,
+                        'data' => 'Password berhasil diubah',
+                        'status' => '200'
+                    ]);
+                } else {
+                    return $this->response->setJSON([
+                        'error' => true,
+                        'data' => 'Password lama salah',
+                        'status' => '422'
+                    ]);
+                }
+            }
+        }
     }
 }

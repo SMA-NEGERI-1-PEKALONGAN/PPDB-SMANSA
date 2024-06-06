@@ -11,11 +11,11 @@ $routes->get('Antrean', 'landingPageController::Antrian');
 
 $routes->get('Cari', 'landingPageController::Cari');
 
-$routes->post('search', 'landingPageController::search');
+$routes->post('search_antrian', 'landingPageController::search_antrian');
 
-$routes->get('views', 'landingPageController::view');
+$routes->get('Views', 'landingPageController::Views');
 
-$routes->get('fetchAntrian', 'landingPageController::fetchAntrian');
+$routes->get('getAllDataAntrian', 'landingPageController::getAllDataAntrian');
 
 $routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
 
@@ -60,6 +60,8 @@ $routes->group('Admin', function ($routes) {
         $routes->post('update', 'usersController::update');
         $routes->post('reset', 'usersController::reset');
         $routes->post('changeStatus', 'usersController::changeStatus');
+        $routes->post('fetchDataUser', 'usersController::fetchDataUser');
+        $routes->post('updatePass', 'usersController::updatePass');
     });
 
     $routes->group('Antrian', function ($routes) {
@@ -72,11 +74,18 @@ $routes->group('Admin', function ($routes) {
         $routes->get('scan', 'antrianController::scan');
         $routes->post('changeStatus', 'antrianController::changeStatus');
         $routes->post('checkIn', 'antrianController::checkIn');
-        $routes->post('verifikasiBerkas', 'antrianController::verifikasiBerkas');
+        $routes->post('ubahAntrian', 'antrianController::ubahAntrian');
         $routes->get('List', 'antrianController::listAntrian');
         $routes->get('ListAntrian', 'antrianController::ajaxListAntrian');
         $routes->get('nextAntrian', 'antrianController::nextAntrian');
         $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
+        $routes->get('AjaxAntrianNotActive', 'antrianController::AjaxAntrianNotActive');
+        $routes->get('AjaxAntrianBermasalah', 'antrianController::AjaxAntrianBermasalah');
+    });
+
+    $routes->group('Setting', function ($routes) {
+        $routes->get('/', 'usersController::Setting');
+        $routes->post('update', 'usersController::update');
     });
 
 });
