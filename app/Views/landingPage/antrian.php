@@ -88,6 +88,16 @@ h6 {
     }
 }
 </style>
+
+<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading h4">Peringatan
+        <i class="fa fa-exclamation-triangle"></i>
+    </h4>
+    <p>
+        Pendaftaran Antrean dapat diakses mulai dari pukul 00.00 s.d 15.00
+    </p>
+</div>
+
 <!-- form -->
 <div class="pd-20 card-box mb-30  mt-4" id="antrian">
     <div class="clearfix">
@@ -194,10 +204,10 @@ h6 {
                     Simpan
                 </button>
                 <!-- button open modal-->
-                <button type="button" class="btn btn-primary" id="btnBerkas" data-toggle="modal"
+                <!-- <button type="button" class="btn btn-primary" id="btnBerkas" data-toggle="modal"
                     data-target="#Medium-modal">
                     Lihat Berkas
-                </button>
+                </button> -->
             </div>
     </form>
 </div>
@@ -436,7 +446,6 @@ h6 {
 </div>
 
 <!-- modal -->
-<a href="#" class="btn-block" data-toggle="modal" data-target="#bd-example-modal-lg" type="button">Large modal</a>
 <div class="modal fade bs-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -597,7 +606,9 @@ function getResultAntrean(key) {
         },
         success: function(response) {
             if (response.status == '200') {
-                $('#bd-example-modal-lg').modal('show');
+                setTimeout(() => {
+                    $('#bd-example-modal-lg').modal('show');
+                }, 1500);
                 $('#btn_print').attr('href', '<?= base_url('printAntrean/'); ?>' + response.data
                     .kode_pendaftaran);
                 $('#cetaknama_siswa').text(response.data.nama_siswa);

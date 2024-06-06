@@ -171,7 +171,8 @@ window.addEventListener('load', function() {
     window.print(); // Open the print dialog
     // when window print close
     window.onafterprint = function() {
-        window.location.href = "<?= base_url('Antrean'); ?>";
+        // window.location.href = "<?= base_url('Antrean'); ?>";
+        window.close();
     }
 });
 </script>
