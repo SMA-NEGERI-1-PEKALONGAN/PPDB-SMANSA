@@ -1,6 +1,6 @@
 <?= $this->extend('Templates/LandingPage') ?>
 <?= $this->section('content') ?>
-
+<link rel="stylesheet" href="<?= base_url('Assets/'); ?>css/style.css">
 <style type="text/css">
 p {
     margin-bottom: 0px;
@@ -97,17 +97,33 @@ h6 {
         Pendaftaran Antrean dapat diakses mulai dari pukul 00.00 s.d 15.00
     </p>
 </div>
+<div class="py-5" id="countdown" style="display: none;">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="rounded bg-gradient-4 text-white shadow py-5 text-center mb-5">
+                <p class="mb-0 font-weight-bold text-uppercase text-white"></p>
+                <div id="clock-c" class="countdown py-4 text-white"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- form -->
 <div class="pd-20 card-box mb-30  mt-4" id="antrian">
     <div class="clearfix">
-        <h4 class="text-black h4">
-            Form Antrean
-        </h4>
-        <p class="mb-30">
-
-        </p>
+        <!-- kiri kanan -->
+        <div class="pull-left">
+            <h4 class="text-black h4">
+                Form Pendaftaran Antrean
+            </h4>
+        </div>
+        <div class="pull-right">
+            <h4 class="text-black h4">
+                <i class="fa fa-user mr-2"></i> 105 / 105
+            </h4>
+        </div>
     </div>
+
     <form id="form_tambah_antrian" enctype="multipart/form-data">
         <div class="modal-body">
             <div class="row">
@@ -566,11 +582,48 @@ h6 {
 <?= $this->endSection('content') ?>
 
 <?= $this->section('script') ?>
+
+<script src="https://cdn.jsdelivr.net/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+
 <script>
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
     'alamat', 'jalur_pendaftaran'
 ];
 const dataAntrian = [];
+
+$(function() {
+    function DateRange() {
+        var date = "2024/06/09 16:00:00";
+
+        // var date = new Date();
+        // date.setDate(date.getDate() + 1);
+        // date.setHours(00, 02, 0, 0);
+        return date;
+    }
+
+    $("#clock-c").countdown(DateRange(), function(event) {
+        var $this = $(this).html(
+            event.strftime(
+                "" +
+                '<span class="h1 font-weight-bold">%D</span> Day%!d' +
+                '<span class="h1 font-weight-bold">%H</span> Hr' +
+                '<span class="h1 font-weight-bold">%M</span> Min' +
+                '<span class="h1 font-weight-bold">%S</span> Sec'
+            )
+        );
+        if (event.elapsed) {
+            $("#clock-c").hide();
+            $("#form-search").show();
+            $("#countdown").hide();
+            $("#title-head").hide();
+        } else {
+            $("#clock-c").show();
+            $("#countdown").show();
+            $("#title-head").show();
+            $("#form-search").hide();
+        }
+    });
+});
 
 $('#btn_tambah_antiran').click(function(e) {
     e.preventDefault();
