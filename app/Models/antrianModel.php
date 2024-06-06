@@ -37,7 +37,7 @@ class antrianModel extends Model
 
     public function search($keyword)
     {
-        return $this->table('antrian')->like('kode_pendaftaran', $keyword)->orLike('nisn', $keyword)->orLike('no_antrian', $keyword)->orderBy('created_at', 'DESC')->limit(1);
+        return $this->table('antrian')->where('kode_pendaftaran', $keyword)->orWhere('nisn', $keyword)->orderBy('created_at', 'DESC')->limit(1);
     }
 
     public function getAntrianByDate($tanggal)

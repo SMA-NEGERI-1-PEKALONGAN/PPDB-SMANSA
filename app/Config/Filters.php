@@ -81,10 +81,10 @@ class Filters extends BaseFilters
         ],
         'after' => [
             'filterAdmin' => ['except' => [ 
-                '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard','Admin/Kategori', 'Admin/Kategori/*', 'Admin/Referensi', 'Admin/Referensi/*', 'Admin/User', 'Admin/User/*', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*'
+                '/', 'Auth/logout','Auth/login', 'Views', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard','Admin/Kategori', 'Admin/Kategori/*', 'Admin/Referensi', 'Admin/Referensi/*', 'Admin/User', 'Admin/User/*', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*'
             ]],
             'filterPetugas' => ['except' => [ 
-                '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 
+                '/', 'Auth/logout','Auth/login', 'Views', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 
             ]],
             'filterUser' => ['except' => [ 
                 '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser'
