@@ -21,6 +21,8 @@ $routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
 
 $routes->post('updateNotifikasi', 'landingPageController::updateNotifikasi');
 
+$routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1');
+
 // auth route
 $routes->group('Auth', function ($routes) {
         $routes->get('/', 'Auth::index');
@@ -73,7 +75,7 @@ $routes->group('Admin', function ($routes) {
         $routes->post('update', 'antrianController::update');
         $routes->get('scan', 'antrianController::scan');
         $routes->post('changeStatus', 'antrianController::changeStatus');
-        $routes->get('checkIn', 'antrianController::checkIn');
+        $routes->post('checkIn', 'antrianController::checkIn');
         $routes->post('ubahAntrian', 'antrianController::ubahAntrian');
         $routes->get('List', 'antrianController::listAntrian');
         $routes->get('ListAntrian', 'antrianController::ajaxListAntrian');

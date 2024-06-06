@@ -77,17 +77,17 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            'Middleware' => ['except' => ['/','Auth','Auth/*', 'Antrean', 'Cari', 'search_antrian', 'Admin/Antrian/save', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian']],
+            'Middleware' => ['except' => ['/','Auth','Auth/*', 'Antrean', 'Cari', 'search_antrian', 'Admin/Antrian/save', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'printAntrean','printAntrean/*']],
         ],
         'after' => [
             'filterAdmin' => ['except' => [ 
-                '/', 'Auth/logout','Auth/login', 'Views', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard','Admin/Kategori', 'Admin/Kategori/*', 'Admin/Referensi', 'Admin/Referensi/*', 'Admin/User', 'Admin/User/*', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*'
+                '/', 'Auth/logout','Auth/login', 'Views', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard','Admin/Kategori', 'Admin/Kategori/*', 'Admin/Referensi', 'Admin/Referensi/*', 'Admin/User', 'Admin/User/*', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'printAntrean','printAntrean/*'
             ]],
             'filterPetugas' => ['except' => [ 
-                '/', 'Auth/logout','Auth/login', 'Views', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 
+                '/', 'Auth/logout','Auth/login', 'Views', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 'printAntrean','printAntrean/*'
             ]],
             'filterUser' => ['except' => [ 
-                '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser'
+                '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 'printAntrean','printAntrean/*'
             ]],
         ],
     ];

@@ -179,12 +179,12 @@
                 <div class="bar" id="bar1"></div>
             </div>
             <div class="percent" id="percent1">0%</div>
-            <div class="loading-text">Loading...</div>
+            <div class="loading-text">Loading...</div>  
         </div>
     </div> -->
     <!-- navbar -->
     <?php 
-    if($active != 'Views'):
+    if($active != 'Views'  && $active != 'printAntrean'):
         
     ?>
     <div class="row">
@@ -240,6 +240,9 @@
                 <?= $this->renderSection('content'); ?>
             </div>
         </div>
+        <?php 
+        if($active != 'printAntrean'):
+        ?>
         <footer class="footer my-3">
             <div class="row">
                 <div class="col-md-6">
@@ -256,6 +259,7 @@
                 </div>
             </div>
         </footer>
+        <?php endif; ?>
     </div>
 
     </div>

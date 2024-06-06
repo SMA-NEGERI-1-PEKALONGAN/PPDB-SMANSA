@@ -166,6 +166,19 @@ class landingPageController extends BaseController
             'status' => '200'
         ]);
     }
+
+    public function printAntrean($id){
+        // $kode_pendaftaran = $this->request->getPost('kode_pendaftaran');
+        $antrianModel = new antrianModel();
+        $antrian = $antrianModel->search($id)->get()->getRow();
+        // dd($antrian);
+        $data = [
+            'title' => 'Cetak Antrean',
+            'active' => 'printAntrean',
+            'data' => $antrian
+        ];
+        return view('landingPage/printAntrean', $data);
+    }
 }
 
 ?>
