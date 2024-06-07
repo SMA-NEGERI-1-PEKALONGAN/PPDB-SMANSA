@@ -241,7 +241,7 @@
             </div>
         </div>
         <?php 
-        if($active != 'printAntrean'):
+       if($active != 'Views'  && $active != 'printAntrean'):
         ?>
         <footer class="footer my-3">
             <div class="row">

@@ -89,24 +89,32 @@ h6 {
 }
 </style>
 
-<div class="alert alert-danger" role="alert" id="alert" style="display: none;">
-    <h4 class="alert-heading h4">Peringatan
-        <i class="fa fa-exclamation-triangle"></i>
-    </h4>
-    <p>
-        <span id="pesan"></span>
-    </p>
-</div>
-<div class="py-5" id="countdown" style="display: none;">
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <div class="rounded bg-gradient-4 text-white shadow py-5 text-center mb-5">
-                <p class="mb-0 font-weight-bold text-uppercase text-white"></p>
-                <div id="clock-c" class="countdown py-4 text-white"></div>
+
+<!-- add informatin -->
+<div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-black h4">
+                Informasi Pendaftaran Antrean
+            </h4>
+        </div>
+    </div>
+    <div class="alert alert-primary" role="alert" id="pesan"> </div>
+    <div class="py-5" id="countdown" style="display: none;">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="rounded bg-gradient-4 text-white shadow py-5 text-center mb-5">
+                    <p class="mb-0 font-weight-bold text-uppercase text-white"></p>
+                    <div id="clock-c" class="countdown py-4 text-white"></div>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
+
+
+
 
 <!-- form -->
 <div class="pd-20 card-box mb-30  mt-4" id="antrian" style="display: none;">
@@ -594,25 +602,31 @@ const dataAntrian = [];
 function set_clock(date_now) {
     function DateRange() {
         dateNow = new Date();
-        if (date_now <= dateNow) {
-            // form aktif dari jam 00.00 s.d 15.00
-            var date = new Date();
-            var pesan = 'Pendaftaran Online dapat dilakukan mulai pukul 00.00 WIB s.d 15.00 WIB';
-            date.setDate(date.getDate() + 1);
+        set_date = new Date(date_now);
+
+        if (set_date > dateNow) {
+            date = new Date(set_date);
             date.setHours(0, 0, 0, 0);
-            $('#pesan').text(pesan);
-        } else {
-            var date = new Date(date_now);
-            // format date now to DD MMMM YYYY
+
             var dates = date.toLocaleDateString('id-ID', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric'
             });
-            var pesan = 'Pendaftaran Online dapat dilakukan tanggal ' + dates +
-                ', pukul 00.00 WIB s.d 15.00 WIB';
-            date.setHours(17, 41, 0, 0);
-            $('#pesan').text(pesan);
+
+            $('#pesan').text('Pendaftaran antrean dapat dilakukan pada tanggal ' + dates +
+                ' ,pukul 00:00 WIB s.d 15:00 WIB');
+
+        } else {
+            date = new Date();
+            date.setHours(0, 0, 0, 0);
+
+            if (dateNow.getHours() >= 15) {
+                date.setDate(date.getDate() + 1);
+            }
+
+            $('#pesan').text(
+                'Pendaftaran antrean dapat dilakukan setiap senin s.d jumat pukul 00:00 WIB s.d 15:00 WIB');
         }
 
         return date;

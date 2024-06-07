@@ -699,14 +699,14 @@ $(function() {
                         // foeach error 
                         $.each(response.data, function(key, value) {
                             if (value != '') {
-                                $("#" + key).addClass('form-control-danger');
-                                $("#" + key).addClass('has-danger');
-                                $("#error" + key).html(value);
+                                $("#edit" + key).addClass('form-control-danger');
+                                $("#edit" + key).addClass('has-danger');
+                                $("#erroredit" + key).html(value);
                             } else {
-                                $("#" + key).removeClass('form-control-danger');
-                                $("#" + key).addClass('form-control-success');
-                                $("#error" + key).html('');
-                                $("#error" + key).removeClass('has-danger');
+                                $("#edit" + key).removeClass('form-control-danger');
+                                $("#edit" + key).addClass('form-control-success');
+                                $("#erroredit" + key).html('');
+                                $("#erroredit" + key).removeClass('has-danger');
                             }
                         });
                     } else {

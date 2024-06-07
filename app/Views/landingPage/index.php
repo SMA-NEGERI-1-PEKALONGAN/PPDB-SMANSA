@@ -83,7 +83,7 @@
                             Selamat Datang di Website PPDB SMA Negeri 1 Pekalongan
                         </h2>
                         <div class="text-center text-lg-start">
-                            <a href="#about" class="btn-get-started scrollto">Daftar Sekarang</a>
+                            <a href="#persyaratan" class="btn-get-started scrollto">Daftar Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -230,9 +230,11 @@
                         data-aos="fade">
                         <h3>Informasi</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt recusandae voluptate
-                            dolorum ullam
-                            labore deserunt vero reprehenderit. Asperiores, perspiciatis inventore.
+                            Berdasarkan Surat Keputusan Kepala Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah
+                            Nomor : 420 / 04794, Tentang Petunjuk Teknis Penyelenggaraan Penerimaan Peserta Didik Baru
+                            Pada Sekolah Menengah Atas (SMA) Negeri dan Sekolah Menengah Kejuruan (SMK) Negeri Provinsi
+                            Jawa Tengah Tahun Ajaran 2024/2025. Maka jalur penerimaan peserta didik baru di SMA Negeri 1
+                            Pekalongan Tahun Ajaran 2024/2025 adalah sebagai berikut :
                         </p>
 
                         <div class="icon-box" data-aos="fade" data-aos-delay="100">
@@ -243,35 +245,33 @@
                             </div>
                             <h4 class="title"><a href="">Zonasi</a></h4>
                             <p class="description">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla quibusdam dolorum maxime
-                                praesentium aut
-                                officiis hic optio, facere adipisci quod?
+                                Zonasi adalah jalur penerimaan peserta didik baru yang dilakukan berdasarkan wilayah
+                                tempat tinggal calon peserta didik baru.
+                            </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="300">
                             <div class="icon"><i class="bi bi-award"></i></div>
                             <h4 class="title"><a href="">Afirmasi</a></h4>
                             <p class="description">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente enim quis iste,
-                                accusamus quae rerum
-                                consectetur omnis deserunt est numquam.
+                                Afirmasi adalah jalur penerimaan peserta didik baru yang diperuntukan bagi calon peserta
+                                didik berasal dari keluarga kurang mampu, anak panti, dan anak tidak sekolah(ATS).
                             </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="200">
                             <div class="icon"><i class="bi bi-people"></i></div>
-                            <h4 class="title"><a href="">Perpindahan Orang Tua</a></h4>
+                            <h4 class="title"><a href="">Perpindahan Orang Tua / Wali</a></h4>
                             <p class="description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dignissimos aliquid esse
-                                hic placeat
-                                nemo ad, expedita fugiat voluptates! Cum.
+                                Perpindahan Orang Tua / Wali adalah jalur penerimaan peserta didik baru yang
+                                diperuntukan
+                                bagi calon peserta didik yang orang tua / wali pindah domisili kerja.
                             </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="200">
                             <div class="icon"><i class="bi bi-trophy"></i></div>
                             <h4 class="title"><a href="">Prestasi</a></h4>
                             <p class="description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam architecto velit
-                                eos sapiente,
-                                neque ducimus at harum voluptatibus? Natus.
+                                Prestasuuuui adalah jalur penerimaan peserta didik baru yang diperuntukan bagi calon
+                                peserta didik yang memiliki prestasi akademik maupun non akademik.
                             </p>
                         </div>
 
@@ -294,8 +294,8 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="count-box">
                             <i class="bi bi-geo-alt"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="55" data-purecounter-duration="1"
+                                class="purecounter" id="countPrestasi"></span>
                             <p>Zonasi</p>
                         </div>
                     </div>
@@ -303,8 +303,8 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                         <div class="count-box">
                             <i class="bi bi-award"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
+                                class="purecounter" id="countAfirmasi"></span>
                             <p>Afiramsi</p>
                         </div>
                     </div>
@@ -312,8 +312,8 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="bi bi-people"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="05" data-purecounter-duration="1"
+                                class="purecounter" id="countPTO"></span>
                             <p>Perpindahan Orang Tua</p>
                         </div>
                     </div>
@@ -321,13 +321,30 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="bi bi-trophy"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
+                                class="purecounter" id="countprestasi">
+                            </span>
                             <p>Prestasi</p>
                         </div>
                     </div>
 
+                    <!-- add present after number -->
+                    <script type="text/javascript">
+                    </script>
+
+
+                    <div class="col-lg-12 mt-5 text-center">
+
+                        <h5>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Data diatas merupakan presentase daya tampung yang ada di SMA Negeri 1 Pekalongan Tahun
+                            Ajaran
+                            2024/2025, Dengan total daya tampung sebanyak 324 calon peserta didik baru.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </h5>
+                    </div>
                 </div>
+            </div>
 
             </div>
         </section><!-- End Informasi Section -->
@@ -346,30 +363,27 @@
                     </div>
                     <div class="col-md-8 pt-4" data-aos="fade">
                         <h3>Persyaratan UMUM</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id assumenda ipsa veniam nemo
-                            deserunt
-                            cupiditate cum maiores commodi voluptates laudantium?
-                        </p>
+                        <!-- <p class="fst-italic">
+
+                        </p> -->
                         <ul>
-                            <li class="list-items"><i class="bi bi-check"></i> Lorem ipsum, dolor sit amet consectetur
-                                adipisicing
-                                elit. Quae suscipit ipsam necessitatibus aspernatur quaerat vel ipsa laboriosam
-                                accusamus laudantium
-                                illo.</li>
-                            <li class="list-items"><i class="bi bi-check"></i> Peserta didik baru adalah peserta didik
-                                yang telah
-                                lulus dari jenjang
-                                pendidikan sebelumnya.</li>
-                            <li class="list-items"><i class="bi bi-check"></i> Lorem ipsum dolor sit amet consectetur
-                                adipisicing
-                                elit. Explicabo, fugit?</li>
-                            <li class="list-items"><i class="bi bi-check"></i> Lorem ipsum dolor sit amet consectetur
-                                adipisicing
-                                elit. Quos, vero?</li>
-                            <li class="list-items"><i class="bi bi-check"></i> Lorem ipsum dolor, sit amet consectetur
-                                adipisicing
-                                elit. Nisi, ea!</li>
+                            <li class="list-items"><i class="bi bi-check"></i>
+                                Warga Negara Indonesia (WNI).
+                            </li>
+                            </li>
+                            <li class="list-items"><i class="bi bi-check"></i>
+                                Berasal dari SMP/MTS di wilayah Kota Pekalongan maupun luar Kota Pekalongan, kecuali
+                                untuk jalur zonasi.</li>
+                            </li>
+                            <li class="list-items"><i class="bi bi-check"></i> Calon Peserta didik telah menyelesaikan
+                                pendidikan SMP/MTS atau sederajat.</li>
+                            </li>
+                            <li class="list-items"><i class="bi bi-check"></i>
+                                Usia calon peserta didik maksimal 21 tahun pada tanggal 22 Juli 2024.</li>
+                            </li>
+                            <li class="list-items"><i class="bi bi-check"></i>
+                                Melakukan pendaftaran secara online dan mencetak bukti pendaftaran (Bukti pendaftaran
+                                yang sudah dicetak dibawa saat pengumpulan berkas).</li>
                         </ul>
                     </div>
                 </div>
@@ -420,10 +434,34 @@
                                         Zonasi
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan1" class="collapse" data-bs-parent=".umum-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+
+                                        <ul class="ml-3">
+                                            <li class="pb-2">1. Membawa berkas pendaftaran
+                                            </li>
+                                            <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
+                                            <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
+                                            <li class="pb-2">3. Potongan ramput rapi (CPD Putra) </li>
+                                            <li class="pb-2">4. Mengenakan spatu & kaos kaki </li>
+                                            <li class="pb-2">5. Orang tua/wali yg mengantar berpakaian rapi </li>
+                                        </ul>
+                                        <style>
+                                        .ml-3 {
+                                            margin-bottom: 0;
+                                        }
+
+                                        .pb-2 {
+                                            padding-bottom: 0.5rem;
+                                        }
+
+                                        .fw-bold {
+                                            font-weight: bold;
+                                        }
+
+
+                                        .sub-link {
+                                            cursor: pointer;
+                                        }
+                                        </style>
                                     </div>
                                 </li>
 
@@ -741,9 +779,7 @@
                         </div>
                         <div class="col-md-2 svg-line">
                             <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
-                                <path
-                                    d="M24-306C48.962-188.089 73-114.171 73 13.375c0 127.546-49.039 192.329-49 319.875.039 127.164 48.98 192.712 49 319.875C73.02 780.48 48.979 856.31 24 974"
-                                    stroke="#FFA62F" stroke-width="5" stroke-dasharray="8 12"></path>
+
                                 <rect x="49" width="48" height="48" rx="24" fill="#7D0A0A"></rect><text fill="#F2F2FA"
                                     font-family="AvertaStd" font-weight="600" font-size="24">
                                     <tspan x="66.5" y="30.792">6</tspan>
@@ -829,7 +865,7 @@
                                 </em>
                             </p>
                             <p>
-                                <strong>Phone:</strong> (022) 000 000 00 <br>
+                                <strong>Phone:</strong> (0285) 421190<br>
                                 <strong>Help Desk PPDB:</strong> (022) 000 000 00 <br>
                                 <strong>Email:</strong> info@sma1pekalongan.sch.id<br>
                             </p>
