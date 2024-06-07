@@ -94,7 +94,7 @@ video {
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Verifikasi Berkas
+                    Verifikasi
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
@@ -107,6 +107,7 @@ video {
                     <div class="form-group row m-0">
                         <div class="col-sm-12 text-center">
                             <h2><span id="berkasno_antrian" class="header_antrian"></span></h2><br>
+                            <h6><span id="sesi_antrian"></span></h6>
                         </div>
                         <style>
                         .header_antrian {
@@ -287,7 +288,7 @@ function getberkasAntrian(id) {
                     .qr_code);
                 $("#berkasno_antrian").html(response.data.no_antrian);
                 $("#berkasket_antrian").val(response.data.ket_antrian);
-                $("#berkassesi_antrian").html(response.data.sesi_antrian);
+                $("#sesi_antrian").html(response.data.sesi_antrian);
 
                 switch (response.data.status_antrian) {
                     case '1':

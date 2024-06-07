@@ -301,6 +301,7 @@ class antrianController extends BaseController
     }
 
     public function checkIn(){
+        // $id = '4501f05b71f8468385ef1c0e2d5205ea';
         $id = $this->request->getPost('id');
         // dd($id);
         $data = $this->antrianModel->getAntrian($id);

@@ -89,12 +89,12 @@ h6 {
 }
 </style>
 
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger" role="alert" id="alert" style="display: none;">
     <h4 class="alert-heading h4">Peringatan
         <i class="fa fa-exclamation-triangle"></i>
     </h4>
     <p>
-        Pendaftaran Antrean dapat diakses mulai dari pukul 00.00 s.d 15.00
+        <span id="pesan"></span>
     </p>
 </div>
 <div class="py-5" id="countdown" style="display: none;">
@@ -109,7 +109,7 @@ h6 {
 </div>
 
 <!-- form -->
-<div class="pd-20 card-box mb-30  mt-4" id="antrian">
+<div class="pd-20 card-box mb-30  mt-4" id="antrian" style="display: none;">
     <div class="clearfix">
         <!-- kiri kanan -->
         <div class="pull-left">
@@ -119,7 +119,7 @@ h6 {
         </div>
         <div class="pull-right">
             <h4 class="text-black h4">
-                <i class="fa fa-user mr-2"></i> 105 / 105
+                <i class="fa fa-user mr-2"></i><span id="total_antrian"></span> / <span id="max_antrian"></span>
             </h4>
         </div>
     </div>
@@ -591,13 +591,30 @@ const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', '
 ];
 const dataAntrian = [];
 
-$(function() {
+function set_clock(date_now) {
     function DateRange() {
-        var date = "2024/06/09 16:00:00";
+        dateNow = new Date();
+        if (date_now <= dateNow) {
+            // form aktif dari jam 00.00 s.d 15.00
+            var date = new Date();
+            var pesan = 'Pendaftaran Online dapat dilakukan mulai pukul 00.00 WIB s.d 15.00 WIB';
+            date.setDate(date.getDate() + 1);
+            date.setHours(0, 0, 0, 0);
+            $('#pesan').text(pesan);
+        } else {
+            var date = new Date(date_now);
+            // format date now to DD MMMM YYYY
+            var dates = date.toLocaleDateString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            var pesan = 'Pendaftaran Online dapat dilakukan tanggal ' + dates +
+                ', pukul 00.00 WIB s.d 15.00 WIB';
+            date.setHours(17, 41, 0, 0);
+            $('#pesan').text(pesan);
+        }
 
-        // var date = new Date();
-        // date.setDate(date.getDate() + 1);
-        // date.setHours(00, 02, 0, 0);
         return date;
     }
 
@@ -613,17 +630,36 @@ $(function() {
         );
         if (event.elapsed) {
             $("#clock-c").hide();
-            $("#form-search").show();
             $("#countdown").hide();
             $("#title-head").hide();
+            $("#antrian").show();
         } else {
             $("#clock-c").show();
             $("#countdown").show();
             $("#title-head").show();
             $("#form-search").hide();
+            $("#alert").show();
         }
     });
-});
+}
+
+function fetch_set_antrean() {
+    $.ajax({
+        url: '<?= base_url('fect_total_antrian'); ?>',
+        type: 'GET',
+        success: function(response) {
+            if (response.status == '200') {
+                $('#max_antrian').text(response.data.max_antrian);
+                $('#total_antrian').text(response.data.totalAntrian);
+                set_clock(response.data.tanggalActive);
+            } else {
+                getSwall(response.status, response.data);
+            }
+        }
+    }) //end ajax
+}
+
+fetch_set_antrean();
 
 $('#btn_tambah_antiran').click(function(e) {
     e.preventDefault();

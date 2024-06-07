@@ -91,6 +91,7 @@
                                 <th>Kode Regristrasi</th>
                                 <th>Jalur</th>
                                 <th>Status</th>
+                                <th>No antrean</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -254,6 +255,9 @@ function dataTablesAntrian() {
                 },
                 {
                     data: 'status_antrian',
+                },
+                {
+                    data: 'no_antrian',
                 },
                 {
                     data: 'action',
