@@ -94,6 +94,7 @@
                                 <th>Kode Regristrasi</th>
                                 <th>Jalur</th>
                                 <th>Status</th>
+                                <th>No antrian</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -127,6 +128,7 @@
                                 <th>Kode Regristrasi</th>
                                 <th>Jalur</th>
                                 <th>Status</th>
+                                <th>No antrean</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -146,7 +148,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Verifikasi verifikasi
+                    Verifikasi
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
@@ -226,6 +228,7 @@
                         <label for="status_antrian" class="col-sm-4 col-form-label">Status</label></label>
                         <div class="col-sm-8">
                             <select class="form-control" id="verifikasistatus_antrian" name="status_antrian">
+                                <option value="0">Tidak Aktif</option>
                                 <option value="1" id="status1">Check In</option>
                                 <option value="2" id="status2">Pemberkasan</option>
                                 <option value="3" id="status3">Selesai</option>
@@ -279,6 +282,9 @@ function dataTablesAntrian() {
                 data: 'status_antrian',
             },
             {
+                data: 'no_antrian',
+            },
+            {
                 data: 'action',
                 class: 'datatable-nosort'
             },
@@ -315,6 +321,10 @@ function dataTablesAntrianBermasalah() {
             },
             {
                 data: 'status_antrian',
+            },
+            {
+                data: 'no_antrian',
+                class: 'text-center'
             },
             {
                 data: 'action',
@@ -387,7 +397,7 @@ $(document).on('click', '.detailsAntrian', function() {
                 $("#verifikasi" + item).val(response.data[item]);
             });
             $("#detailno_antrian").html(response.data.no_antrian);
-            $("#verifikasiesi_antrian").html(response.data.sesi_antrian);
+            $('#detailsesi_antrian').html(response.data.sesi_antrian);
             switch (response.data.status_antrian) {
                 case '1':
                     $("#status1").attr('selected', 'selected');
@@ -401,6 +411,10 @@ $(document).on('click', '.detailsAntrian', function() {
                 case '4':
                     $("#status4").attr('selected', 'selected');
                     break;
+                default:
+                    $("#status1").attr('selected', 'selected');
+                    break;
+
             }
         }
     });

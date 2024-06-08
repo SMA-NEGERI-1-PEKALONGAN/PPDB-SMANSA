@@ -30,6 +30,51 @@
     <!-- Template Main CSS File -->
     <link href="<?= base_url('Assets/'); ?>LandingPage/css/style.css" rel="stylesheet">
 
+    <style>
+    .title-content {
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .content-text {
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 25px;
+    }
+
+    .icon-left {
+        display: flex;
+        justify-content: right;
+        align-items: start;
+    }
+
+    .icon-right {
+        display: flex;
+        justify-content: left;
+        align-items: start;
+    }
+
+    .btn_soft {
+        background-color: #FFA62F;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+
+    .btn_soft:hover {
+        background-color: #7D0A0A;
+        color: #fff;
+    }
+
+    .svg-line {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    </style>
+
     <!-- =======================================================
   * Template Name: Bootslander
   * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
@@ -83,7 +128,7 @@
                             Selamat Datang di Website PPDB SMA Negeri 1 Pekalongan
                         </h2>
                         <div class="text-center text-lg-start">
-                            <a href="#about" class="btn-get-started scrollto">Daftar Sekarang</a>
+                            <a href="#persyaratan" class="btn-get-started scrollto">Daftar Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -196,20 +241,14 @@
                                     class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                                     aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PPDB-2024.jpg"
                                         class="d-block w-100 rounded-3" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
-                                        class="d-block w-100 rounded-3" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/INFORMASI.jpg"
                                         class="d-block w-100 rounded-3" alt="...">
                                 </div>
                             </div>
@@ -230,9 +269,11 @@
                         data-aos="fade">
                         <h3>Informasi</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt recusandae voluptate
-                            dolorum ullam
-                            labore deserunt vero reprehenderit. Asperiores, perspiciatis inventore.
+                            Berdasarkan Surat Keputusan Kepala Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah
+                            Nomor : 420 / 04794, Tentang Petunjuk Teknis Penyelenggaraan Penerimaan Peserta Didik Baru
+                            Pada Sekolah Menengah Atas (SMA) Negeri dan Sekolah Menengah Kejuruan (SMK) Negeri Provinsi
+                            Jawa Tengah Tahun Ajaran 2024/2025. Maka jalur penerimaan peserta didik baru di SMA Negeri 1
+                            Pekalongan Tahun Ajaran 2024/2025 adalah sebagai berikut :
                         </p>
 
                         <div class="icon-box" data-aos="fade" data-aos-delay="100">
@@ -243,35 +284,33 @@
                             </div>
                             <h4 class="title"><a href="">Zonasi</a></h4>
                             <p class="description">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla quibusdam dolorum maxime
-                                praesentium aut
-                                officiis hic optio, facere adipisci quod?
+                                Zonasi adalah jalur penerimaan peserta didik baru yang dilakukan berdasarkan wilayah
+                                tempat tinggal calon peserta didik baru.
+                            </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="300">
                             <div class="icon"><i class="bi bi-award"></i></div>
                             <h4 class="title"><a href="">Afirmasi</a></h4>
                             <p class="description">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente enim quis iste,
-                                accusamus quae rerum
-                                consectetur omnis deserunt est numquam.
+                                Afirmasi adalah jalur penerimaan peserta didik baru yang diperuntukan bagi calon peserta
+                                didik berasal dari keluarga kurang mampu, anak panti, dan anak tidak sekolah(ATS).
                             </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="200">
                             <div class="icon"><i class="bi bi-people"></i></div>
-                            <h4 class="title"><a href="">Perpindahan Orang Tua</a></h4>
+                            <h4 class="title"><a href="">Perpindahan Orang Tua / Wali</a></h4>
                             <p class="description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dignissimos aliquid esse
-                                hic placeat
-                                nemo ad, expedita fugiat voluptates! Cum.
+                                Perpindahan Orang Tua / Wali adalah jalur penerimaan peserta didik baru yang
+                                diperuntukan
+                                bagi calon peserta didik yang orang tua / wali pindah domisili kerja sebelum 1 tahun.
                             </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="200">
                             <div class="icon"><i class="bi bi-trophy"></i></div>
                             <h4 class="title"><a href="">Prestasi</a></h4>
                             <p class="description">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic laboriosam architecto velit
-                                eos sapiente,
-                                neque ducimus at harum voluptatibus? Natus.
+                                Prestasi adalah jalur penerimaan peserta didik baru yang diperuntukan bagi calon
+                                peserta didik yang memiliki prestasi akademik maupun non akademik.
                             </p>
                         </div>
 
@@ -294,8 +333,8 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="count-box">
                             <i class="bi bi-geo-alt"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="55" data-purecounter-duration="1"
+                                class="purecounter" id="countPrestasi"></span>
                             <p>Zonasi</p>
                         </div>
                     </div>
@@ -303,8 +342,8 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                         <div class="count-box">
                             <i class="bi bi-award"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
+                                class="purecounter" id="countAfirmasi"></span>
                             <p>Afiramsi</p>
                         </div>
                     </div>
@@ -312,8 +351,8 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="bi bi-people"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="05" data-purecounter-duration="1"
+                                class="purecounter" id="countPTO"></span>
                             <p>Perpindahan Orang Tua</p>
                         </div>
                     </div>
@@ -321,13 +360,30 @@
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="bi bi-trophy"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                                class="purecounter"></span>
+                            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
+                                class="purecounter" id="countprestasi">
+                            </span>
                             <p>Prestasi</p>
                         </div>
                     </div>
 
+                    <!-- add present after number -->
+                    <script type="text/javascript">
+                    </script>
+
+
+                    <div class="col-lg-12 mt-5 text-center">
+
+                        <h5>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            Data diatas merupakan presentase daya tampung yang ada di SMA Negeri 1 Pekalongan Tahun
+                            Ajaran
+                            2024/2025, Dengan total daya tampung sebanyak 324 calon peserta didik baru.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </h5>
+                    </div>
                 </div>
+            </div>
 
             </div>
         </section><!-- End Informasi Section -->
@@ -341,35 +397,33 @@
                 </div>
                 <div class="row content">
                     <div class="col-md-4" data-aos="fade">
-                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
-                            class="img-fluid rounded-4" alt="" />
+                        <img src="<?= base_url('Assets/'); ?>Documents/images/PPDB-2024.jpg" class="img-fluid rounded-4"
+                            alt="" />
                     </div>
                     <div class="col-md-8 pt-4" data-aos="fade">
                         <h3>Persyaratan UMUM</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id assumenda ipsa veniam nemo
-                            deserunt
-                            cupiditate cum maiores commodi voluptates laudantium?
-                        </p>
+                        <!-- <p class="fst-italic">
+
+                        </p> -->
                         <ul>
-                            <li class="list-items"><i class="bi bi-check"></i> Lorem ipsum, dolor sit amet consectetur
-                                adipisicing
-                                elit. Quae suscipit ipsam necessitatibus aspernatur quaerat vel ipsa laboriosam
-                                accusamus laudantium
-                                illo.</li>
-                            <li class="list-items"><i class="bi bi-check"></i> Peserta didik baru adalah peserta didik
-                                yang telah
-                                lulus dari jenjang
-                                pendidikan sebelumnya.</li>
-                            <li class="list-items"><i class="bi bi-check"></i> Lorem ipsum dolor sit amet consectetur
-                                adipisicing
-                                elit. Explicabo, fugit?</li>
-                            <li class="list-items"><i class="bi bi-check"></i> Lorem ipsum dolor sit amet consectetur
-                                adipisicing
-                                elit. Quos, vero?</li>
-                            <li class="list-items"><i class="bi bi-check"></i> Lorem ipsum dolor, sit amet consectetur
-                                adipisicing
-                                elit. Nisi, ea!</li>
+                            <li class="list-items"><i class="bi bi-check"></i>
+                                Warga Negara Indonesia (WNI).
+                            </li>
+                            </li>
+                            <li class="list-items"><i class="bi bi-check"></i>
+                                Berasal dari SMP/MTS di wilayah Kota Pekalongan maupun luar Kota Pekalongan, kecuali
+                                untuk jalur zonasi.</li>
+                            </li>
+                            <li class="list-items"><i class="bi bi-check"></i> Calon Peserta didik telah menyelesaikan
+                                pendidikan SMP/MTS atau sederajat.</li>
+                            </li>
+                            <li class="list-items"><i class="bi bi-check"></i>
+                                Usia calon peserta didik maksimal 21 tahun per tanggal 22 Juni 2024.
+                            </li>
+                            <li class="list-items"><i class="bi bi-check"></i>
+                                Melakukan pendaftaran secara online dan mencetak bukti pendaftaran (Bukti
+                                pendaftaran
+                                yang sudah dicetak dibawa saat pengumpulan berkas).</li>
                         </ul>
                     </div>
                 </div>
@@ -384,18 +438,24 @@
                                     aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carousel_persyaratan" data-bs-slide-to="2"
                                     aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carousel_persyaratan" data-bs-slide-to="3"
+                                    aria-label="Slide 4"></button>
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ZONASI.jpg"
                                         class="d-block rounded-4 img-fluid" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/AFIRMASI.jpg"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PTO.jpg"
+                                        class="d-block img-fluid rounded-4" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PRESTASI.jpg"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                             </div>
@@ -420,10 +480,77 @@
                                         Zonasi
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan1" class="collapse" data-bs-parent=".umum-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
+                                            </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK).</br>
+                                                <span class="fw-bold">Ketentuan :</span>
+                                                <ol class="ml-2 sub_ol" type='a'>
+                                                    <li class="">KK yang diterbitkan paling singkat 1 tahun
+                                                        terhitung
+                                                        tanggal 27 Juni 2024(Tanpa adanya perubahan alamat domisili).
+                                                    </li>
+                                                    <li class="">Bagi KK yang mangalami perubahan
+                                                        alamat domisili, kepindahan alamat domisili harus seluruh
+                                                        keluarga yang ada
+                                                        pada KK tersebut.</li>
+                                                    <li>
+                                                        Bagi CPD yang tidak tinggal bersama keluarga inti, namun telah
+                                                        tinggal sesuai alamat domisili Kartu Keluarga tersebut paling
+                                                        singkat 3 (tiga) tahun terhitung sebelum tanggal pendaftaran
+                                                        PPDB, maka calon Peserta Didik dimaksud tetap dapat mengikuti
+                                                        PPDB melalui jalur zonasi(Harus melampirlan surat pertanggung
+                                                        jawaban mutlak). <a href="" class="sub-link btn_link"
+                                                            id="https://drive.google.com/file/d/1Ldoj-AzUe6fYzyCjacqkpUHaBk9UbCHT/view">Download
+                                                            Surat</a>
+                                                    </li>
+                                                    <li>
+                                                        Bagi CPD dari pondok pesantren harus menyertakan surat
+                                                        keterangan
+                                                        EMIS(Eduaction Management islamic).
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1LasHdk-MHgFiANMDrv7AfoBCL1XYhV2Z/view">Download
+                                                    Surat</a>
+                                            </li>
+
+                                        </ol>
+                                        <style>
+                                        .ml-3 {
+                                            margin-bottom: 0;
+                                        }
+
+                                        .pb-2 !important {
+                                            padding-bottom: 0 !important;
+                                        }
+
+                                        .fw-bold {
+                                            font-weight: bold;
+                                        }
+
+                                        .sub-link {
+                                            cursor: pointer;
+                                        }
+
+                                        .sub_ol {
+                                            list-style-type: lower-alpha;
+                                            margin-bottom: 0 !important;
+                                        }
+                                        </style>
                                     </div>
                                 </li>
 
@@ -432,10 +559,61 @@
                                         class="collapsed">Afirmasi
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan2" class="collapse" data-bs-parent=".umum-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
+                                            </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD yang bersal dari keluarga ekonomi kurang mampu dibuktikan dengan :
+                                                <br>
+                                                <span class="fw-bold">Ketentuan :</span>
+                                                <ol class="ml-2 sub_ol" type='a'>
+                                                    <li class="">Kepesertaan dalam Program Indonesia Pintar (PIP)
+                                                        berdasarkan Data Pokok Pendidikan; atau</li>
+                                                    <li class="">Terdatadalam Data Terpadu Kesejahteraan Sosial (DTKS)
+                                                        yang dikeluarkan oleh Kementerian Sosial(Screenshoot DTK). <br>
+                                                        <a href="" id="https://caribdt.dinsos.jatengprov.go.id/"
+                                                            class="sub-link btn_link">Link DTKS</a>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD yang bersal dari panti asuhan berdasarkan data yang
+                                                ditetapkan/dikelola oleh Dinas Sosial Provinsi Jawa Tengah.
+                                                <a href="" class="sub-link btn_file_pdf"
+                                                    id="JUKNIS-PPDB2024.pdf">Download
+                                                    surat keterangan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD ATS yang terdaftar dalam sistem informasi kesejahteraan sosial -
+                                                Dinsos Prov. Jateng (SIKS-DJ) dan ATS selain yang terdaftar dalam
+                                                SIKS-DJ yang dibuktikan dengan surat keterangan yang diterbitkan oleh
+                                                kepala desa/lurah dan diketahui oleh camat/kecamatan
+                                                setempat(dilampirkan ijazah SMP/Sederajat sebelum tahun kelulusan
+                                                2023/2024).
+                                                <br>
+
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1RIR1SXIJvtbiGBjSsyrHek0JoUGyLbTU/view?usp=sharing">Download
+                                                    surat keterangan</a>
+
+                                            </li>
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1LasHdk-MHgFiANMDrv7AfoBCL1XYhV2Z/view">Download
+                                                    Surat</a>
+                                            </li>
+                                        </ol>
                                     </div>
                                 </li>
 
@@ -444,10 +622,41 @@
                                         class="collapsed">Perpindahan Orang Tua
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan3" class="collapse" data-bs-parent=".umum-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
+                                            </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
+                                            <li class="pb-2">
+                                                Surat penugasan dari kantor/instansi yang bersangkutan.</br>
+                                                <span class="fw-bold">Ketentuan :</span>
+                                                <ol class="ml-2 sub_ol" type='a'>
+                                                    <li class="">
+                                                        Surat penugasan yang diterbitkan paling lama 1 tahun terhitung
+                                                        tanggal 27 Juni 2024(Tanpa adanya perubahan alamat domisili).
+                                                    </li>
+                                                    <li class=>
+                                                        Perpindahan penugasan harus antar kota/kabupaten.
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="pb-2">Surat keterangan alamat kantor/instansi yang bersangkutan.
+                                            </li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1LasHdk-MHgFiANMDrv7AfoBCL1XYhV2Z/view">Download
+                                                    Surat</a>
+                                            </li>
+                                        </ol>
                                     </div>
                                 </li>
 
@@ -456,10 +665,26 @@
                                         class="collapsed">Prestasi
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan4" class="collapse" data-bs-parent=".umum-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
+                                            </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1LasHdk-MHgFiANMDrv7AfoBCL1XYhV2Z/view">Download
+                                                    Surat</a>
+                                            </li>
+                                        </ol>
                                     </div>
                                 </li>
 
@@ -478,11 +703,43 @@
                     <p>Ketentuan Pendaftaran</p>
                 </div>
                 <div class="row content">
-                    <div class="col-md-4" data-aos="fade">
-                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
-                            class="img-fluid rounded-3" alt="" />
+                    <div class="col-md-5 order-1 order-md-2" data-aos="fade">
+                        <div id="carousel_ketentuan" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ALUR PEMBUATAN AKUN.jpg"
+                                        class="d-block rounded-4 img-fluid" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ALUR-BERKAS.jpg"
+                                        class="d-block img-fluid rounded-4" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/TATATERTIB.jpg"
+                                        class="d-block img-fluid rounded-4" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_ketentuan"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel_ketentuan"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-md-8 pt-4" data-aos="fade-up">
+                    <div class="col-md-7 pt-4" data-aos="fade-up">
                         <div class="faq-list">
                             <ul>
                                 <li data-aos="fade-up" data-aos-delay="100">
@@ -491,10 +748,37 @@
                                         Verifikasi Berkas
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran1" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                CPD melakukan pendaftaran akun pada laman PPDB Jateng PRov secara
+                                                mandiri
+                                                dirumah.
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD melakukan verifikasi berkas pada sekolah terdekat. <br>
+                                                <span class="fw-bold">Ketentuan verifikasi berkas di SMAN 1
+                                                    Pekalongan:</span>
+                                                <ol class="ml-2 sub_ol" type='a'>
+                                                    <li class="">Melakukan pendaftaran antrean <br>
+                                                        <a href="" class="sub-link btn_link"
+                                                            id="https://ppdb.sman1pekalongan.sch.id/Antrean">Link
+                                                            antrean</a>
+                                                    </li>
+                                                    <li class="pb-2">Membawa berkas pendaftaran. <br>
+                                                        <a href="#persyaratan" class="sub-link "
+                                                            id="JUKNIS-PPDB2024.pdf">Lihat persyartan</a>
+                                                    </li>
+                                                    <li class="pb-2">Mengenakan seragam sekolah asal </li>
+                                                    <li class="pb-2">Potongan ramput rapi (CPD Putra) </li>
+                                                    <li class="pb-2">Mengenakan spatu & kaos kaki </li>
+                                                    <li class="pb-2">Orang tua/wali yg mengantar berpakaian rapi
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+
                                     </div>
                                 </li>
 
@@ -503,9 +787,12 @@
                                         class="collapsed">Aktifasi Akun
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran3" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
+                                        <p class="pb-2 ml-3 ">
+                                            Setelah melakukan verifikasi berkas, CPD melakukan aktifasi akun secara
+                                            mandiri pada
+                                            mandiri pada laman PPDB Jateng Porv. <br>
+                                            <a href="" class="sub-link btn_link"
+                                                id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
                                         </p>
                                     </div>
                                 </li>
@@ -516,9 +803,23 @@
                                         Perubahan Pilihan
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran4" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
+                                        <p class="pb-2 ml-3">
+                                            CPD melakukan pendaftaran sekolah SMA/SMK secara mandiri pada laman PPDB
+                                            Jateng
+                                            Prov. <br>
+                                            <a href="" class="sub-link btn_link"
+                                                id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
+                                            <span class="fw-bold ml-3 mt-2">Ketentuan :</span>
+                                        <ol class="ml-3 sub_ol mt-2" type='a'>
+                                            <li class="pb-2">
+                                                CPD dapat meilih 1 jalur zonasi dan 1 jalur prestasi/afirmasi diluar
+                                                zona.
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD dapat mengubah pilihan sekolah baik dari SMA ke SMK atau sebaliknya
+                                                selama masa pendaftaran(melakukan pembatalan terlebih dahulu).
+                                            </li>
+                                        </ol>
                                         </p>
                                     </div>
                                 </li>
@@ -528,9 +829,11 @@
                                         Teanang
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran5" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
+                                        <p class="pb-2 ml-3 ">
+                                            CPD dapat memantau jurnal PPDB Jateng Prov, untuk
+                                            mengetahui masuk / tidaknya kedalam sekolah tujuan.<br>
+                                            <a href="" class="sub-link btn_link"
+                                                id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
                                         </p>
                                     </div>
                                 </li>
@@ -540,9 +843,11 @@
                                         class="collapsed">Pengumuman
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran6" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
+                                        <p class="pb-2 ml-3 ">
+                                            Pengumuman PPDB 2024 dapat dilihat pada laman PPDB
+                                            Jateng Prov. <br>
+                                            <a href="" class="sub-link btn_link"
+                                                id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
                                         </p>
                                     </div>
                                 </li>
@@ -569,7 +874,7 @@
                     <!-- 1 -->
                     <div class="row content" data-aos="fade">
                         <div class="col-md-5 icon-left">
-                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/TOA.png"
+                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/toa.png"
                                 class="img-fluid rounded-3" alt="" data-aos="fade" />
                         </div>
                         <div class="col-md-2 svg-line">
@@ -588,9 +893,27 @@
                                 <div class="card-body">
                                     <h5 class="title-content">Pengumuman PPDB 2024</h5>
                                     <p class="content-text">
-                                        Pengumuman PPDB 2024 tanggal 5 juni 2024
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">06 Juni 2024</span>
+
+                                        <style>
+                                        .icon-calenders {
+                                            font-size: 1.5rem;
+                                            color: #343a40;
+                                        }
+
+                                        .text-detail {
+                                            font-size: 1rem;
+                                            font-weight: 600;
+                                            margin-left: 10px;
+                                            color: #343a40;
+                                            margin-top: 0px;
+
+                                        }
+                                        </style>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Baca
+                                        ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -605,9 +928,10 @@
                                         Pendaftaran Akun & Verifikasi Berkas
                                     </h5>
                                     <p class="content-text">
-                                        Pendaftaran akun dan verifikasi berkas tanggal 5 juni 2024
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">11 s.d 24 Juni 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -652,9 +976,10 @@
                                         Aktifasi Akun
                                     </h5>
                                     <p class="content-text">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, explicabo?
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">11 s.d 24 Juni 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -669,9 +994,10 @@
                                         Pendaftaran dan Perubahan Pilihan
                                     </h5>
                                     <p class="content-text">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, sit?
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">24 s.d 27 Juni 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -716,9 +1042,10 @@
                                         Masa tenang
                                     </h5>
                                     <p class="content-text">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, obcaecati!
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">28 s.d 30 Juni 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -733,17 +1060,16 @@
                                         Pengumuman
                                     </h5>
                                     <p class="content-text">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, obcaecati!
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">01 Juli 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-2 svg-line">
                             <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
-                                <path
-                                    d="M24-306C48.962-188.089 73-114.171 73 13.375c0 127.546-49.039 192.329-49 319.875.039 127.164 48.98 192.712 49 319.875C73.02 780.48 48.979 856.31 24 974"
-                                    stroke="#FFA62F" stroke-width="5" stroke-dasharray="8 12"></path>
+
                                 <rect x="49" width="48" height="48" rx="24" fill="#7D0A0A"></rect><text fill="#F2F2FA"
                                     font-family="AvertaStd" font-weight="600" font-size="24">
                                     <tspan x="66.5" y="30.792">6</tspan>
@@ -757,57 +1083,222 @@
                     </div>
                 </div>
 
-                <!-- alur mobile -->
+                <!-- mobile -->
                 <div class="alur-mobile">
-                    <div class="row content" data-aos="fade">
-                        <!-- card -->
+                    <div class="row content mx-2" data-aos="fade">
+                        <div class="card border-0 shadow-lg" data-aos="fade">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-10 mt-2">
+                                        <h5 class="title-content">Pengumuman PPDB 2024</h5>
+                                    </div>
+                                    <div class="col-2">
+                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class=" text-end">
+                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
+                                                font-size="24">
+                                                <tspan x="17" y="30.792">1</tspan>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-8">
+                                        <p class="content-text">
+                                            <i class="bi bi-calendar2-week icon-calenders"></i>
+                                            <span class="text-detail">06 Juni 2024</span>
+                                        </p>
+                                        <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Baca
+                                            ketentuan</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/toa.png"
+                                            class="img-fluid rounded-3" alt="" data-aos="fade" />
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <style>
-                    .title-content {
-                        font-size: 20px;
-                        font-weight: 700;
-                        color: #000;
-                    }
+                    <div class="row content mx-2 mt-4" data-aos="fade">
+                        <div class="card border-0 shadow-lg" data-aos="fade">
+                            <div class="card-body">
+                                <div class="row mb-3">
 
-                    .content-text {
-                        font-size: 16px;
-                        color: #000;
-                    }
+                                    <div class="col-2">
+                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class=" text-end">
+                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
+                                                font-size="24">
+                                                <tspan x="17" y="30.792">2</tspan>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                    <div class="col-10 mt-2">
+                                        <h5 class="title-content">Pendaftaran Akun & Verifikasi Berkas</h5>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-4">
+                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/daftar.png"
+                                            class="img-fluid rounded-3" alt="" />
+                                    </div>
+                                    <div class="col-8">
+                                        <p class="content-text">
+                                            <i class="bi bi-calendar2-week icon-calenders"></i>
+                                            <span class="text-detail">11 s.d 24 Juni 2024</span>
+                                        </p>
+                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    .icon-left {
-                        display: flex;
-                        justify-content: right;
-                        align-items: start;
-                    }
+                    <div class="row content mx-2 mt-4" data-aos="fade">
+                        <div class="card border-0 shadow-lg" data-aos="fade">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-10 mt-2">
+                                        <h5 class="title-content">Aktifasi Akun</h5>
+                                    </div>
+                                    <div class="col-2">
+                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class=" text-end">
+                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
+                                                font-size="24">
+                                                <tspan x="17" y="30.792">3</tspan>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-8 mt-2">
+                                        <p class="content-text">
+                                            <i class="bi bi-calendar2-week icon-calenders"></i>
+                                            <span class="text-detail">11 s.d 24 Juni 2024</span>
+                                        </p>
+                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/gembok.png"
+                                            class="img-fluid rounded-3" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    .icon-right {
-                        display: flex;
-                        justify-content: left;
-                        align-items: start;
-                    }
+                    <div class="row content mx-2 mt-4" data-aos="fade">
+                        <div class="card border-0 shadow-lg" data-aos="fade">
+                            <div class="card-body">
+                                <div class="row mb-3">
 
-                    .btn_soft {
-                        background-color: #FFA62F;
-                        color: #fff;
-                        padding: 10px 20px;
-                        border-radius: 10px;
-                        text-decoration: none;
-                    }
+                                    <div class="col-2">
+                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class=" text-end">
+                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
+                                                font-size="24">
+                                                <tspan x="17" y="30.792">4</tspan>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                    <div class="col-10 mt-2">
+                                        <h5 class="title-content">Pendaftaran dan Perubahan Pilihan</h5>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-4">
+                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/pilihan.png"
+                                            class="img-fluid rounded-3" alt="" />
+                                    </div>
+                                    <div class="col-8 ">
+                                        <p class="content-text">
+                                            <i class="bi bi-calendar2-week icon-calenders"></i>
+                                            <span class="text-detail">24 s.d 27 Juni 2024</span>
+                                        </p>
+                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    .btn_soft:hover {
-                        background-color: #7D0A0A;
-                        color: #fff;
-                    }
+                    <div class="row content mx-2 mt-4" data-aos="fade">
+                        <div class="card border-0 shadow-lg" data-aos="fade">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-10 mt-2">
+                                        <h5 class="title-content">Masa tenang</h5>
+                                    </div>
+                                    <div class="col-2">
+                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class=" text-end">
+                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
+                                                font-size="24">
+                                                <tspan x="17" y="30.792">5</tspan>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-8 mt-4">
+                                        <p class="content-text">
+                                            <i class="bi bi-calendar2-week icon-calenders"></i>
+                                            <span class="text-detail">28 s.d 30 Juni 2024</span>
+                                        </p>
+                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/timeglass.png"
+                                            class="img-fluid rounded-3" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    .svg-line {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                    </style>
+                    <div class="row content mx-2 mt-4" data-aos="fade">
+                        <div class="card border-0 shadow-lg" data-aos="fade">
+                            <div class="card-body">
+                                <div class="row mb-3">
 
+                                    <div class="col-2">
+                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            class=" text-end">
+                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
+                                                font-size="24">
+                                                <tspan x="17" y="30.792">6</tspan>
+                                            </text>
+                                        </svg>
+                                    </div>
+                                    <div class="col-10 mt-2">
+                                        <h5 class="title-content">Pengumuman</h5>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-4">
+                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/pengumuman.png"
+                                            class="img-fluid rounded-3" alt="" />
+                                    </div>
+                                    <div class="col-8   ">
+                                        <p class="content-text ">
+                                            <i class="bi bi-calendar2-week icon-calenders"></i>
+                                            <span class="text-detail">01 Juli 2024</span>
+                                        </p>
+                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
         </section>
 
@@ -829,17 +1320,27 @@
                                 </em>
                             </p>
                             <p>
-                                <strong>Phone:</strong> (022) 000 000 00 <br>
-                                <strong>Help Desk PPDB:</strong> (022) 000 000 00 <br>
-                                <strong>Email:</strong> info@sma1pekalongan.sch.id<br>
+                                <strong>Phone:</strong> (0285) 421190<br>
+                                <strong>Help Desk PPDB:</strong> 0857-1214-8357 <br>
+                                <strong>Email:</strong> surat@sma1pekalongan.sch.id<br>
                             </p>
                             <div class="social-links mt-3">
-                                <a href="#" class="twitter"><i class="bx bi-globe"></i></a>
-                                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                <a href="#" class="google-plus"><i class="bx bxl-telegram"></i></a>
-                                <a href="#" class="linkedin"><i class="bx bxl-youtube"></i></a>
+                                <a href="#" class="twitter btn_link" id="https://www.sman1pekalongan.sch.id/v2/"><i
+                                        class="bx bi-globe"></i></a>
+                                <a href="#" class="facebook btn_link" id="https://www.facebook.com/sman1pekalongan/"><i
+                                        class="bx bxl-facebook"></i></a>
+                                <a href="#" class="instagram btn_link" id="https://www.instagram.com/sma1pekalongan/"><i
+                                        class="bx bxl-instagram"></i></a>
+                                <a href="#" class="google-plus btn_link" id="https://t.me/+CsDFxjN0OO5kM2I1"><i
+                                        class="bx bxl-telegram"></i></a>
+                                <a href="#" class="linkedin btn_link" id="http://www.youtube.com/@sman1pekalongan"><i
+                                        class="bx bxl-youtube"></i></a>
                             </div>
+
+                            <!-- btn to linkt informasi -->
+                            <a href="#" class="btn btn_soft mt-3 btn_link"
+                                id="https://s.id/ppdbsman1pekalongan">Informasi
+                                PPDB</a>
 
                         </div>
                     </div>
@@ -867,12 +1368,41 @@
             </div>
 
         </div>
-    </footer><!-- End Footer -->
+    </footer>
+
+    <!-- End Footer -->
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalPDF" tabindex="-1" aria-labelledby="modalPDFLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalPDFLabel">Informasi PPDB 2024</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="pdfFiles" width="100%" height="500px" frameborder="0"></iframe>
+                    <style>
+                    #pdfFiles {
+                        border: none;
+                    }
+                    </style>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
     <div id="preloader"></div>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Vendors JS Files -->
     <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/purecounter/purecounter_vanilla.js"></script>
     <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/aos/aos.js"></script>
@@ -887,7 +1417,22 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
+    // open modal .btn_file_pdf
+    $(document).on('click', '.btn_file_pdf', function(e) {
+        e.preventDefault();
+        let file = $(this).attr('id');
+        $('#pdfFiles').attr('src', '<?= base_url('Assets/'); ?>Documents/files/' + file);
+        $('#modalPDF').modal('show');
+    });
 
+    // open new tabs
+    $(document).on('click', '.btn_link', function(e) {
+        e.preventDefault();
+        let link = $(this).attr('id');
+        window.open(link, '_blank');
+    });
+
+    // when clict the images zon
     </script>
 </body>
 

@@ -1535,13 +1535,13 @@ section {
 }
 
 .list-items {
-  border-bottom: 1px solid #f8f9fa;
+  border-bottom: 1px solid #f8f9fad7;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .list-items:hover {
-  background-color: #f8f9fa;
+  background-color: #f8f9fad7;
   border-radius: 5px;
 }
 

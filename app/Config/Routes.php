@@ -21,6 +21,10 @@ $routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
 
 $routes->post('updateNotifikasi', 'landingPageController::updateNotifikasi');
 
+$routes->get('fect_total_antrian', 'landingPageController::fect_total_antrian');
+
+$routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1');
+
 // auth route
 $routes->group('Auth', function ($routes) {
         $routes->get('/', 'Auth::index');

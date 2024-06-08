@@ -152,13 +152,13 @@ class antrianController extends BaseController
                         $max_antrian = $row['kode_referensi'];
                     }
                     if ($row['nama_referensi'] == 'Sesi 1') {
-                        $sesi1 = $row['kode_referensi'];
+                        $sesi1 = "Sesi 1 (" . $row['kode_referensi'] . ")";
                     }
                     if ($row['nama_referensi'] == 'Sesi 2') {
-                        $sesi2 = $row['kode_referensi'];
+                        $sesi2 = "Sesi 2 (" . $row['kode_referensi'] . ")";;
                     }
                     if ($row['nama_referensi'] == 'Sesi 3') {
-                        $sesi3 = $row['kode_referensi'];
+                        $sesi3 = "Sesi 3 (" . $row['kode_referensi'] . ")";;
                     }
                 }
                 // $max_antrian = 105;
@@ -171,18 +171,18 @@ class antrianController extends BaseController
                     if ($no_antrian > $max_antrian) {
                         return $this->response->setJSON([
                             'error' => true,
-                            'data' => 'Antrian sudah penuh',
-                            'status' => '422'
+                            'data' => 'Antrean sudah penuh',
+                            'status' => '406'
                         ]);
                     }
                 } else {
                     $no_antrian = 1;
                 }
                 
-                // max antrian  dibagi 3 sesi
-                if ($no_antrian <= $max_antrian / 3) {
+                
+                if ($no_antrian <= 30 ) {
                     $sesi_antrian = $sesi1;
-                } elseif ($no_antrian <= ($max_antrian / 3) * 2) {
+                } elseif ($no_antrian <= 60 ) {
                     $sesi_antrian = $sesi2;
                 } else {
                     $sesi_antrian = $sesi3;
@@ -301,16 +301,67 @@ class antrianController extends BaseController
     }
 
     public function checkIn(){
+        // $id = '4501f05b71f8468385ef1c0e2d5205ea';
         $id = $this->request->getPost('id');
+        // dd($id);
         $data = $this->antrianModel->getAntrian($id);
+        $referensi = new masterReferensiModel();
+        $timeNow = date('H:i:s');
+        $data_referensi = $referensi->getReferensiByKodeKategori('set_antrian');
+        $active = '';
+        
+    
         if($data){
+            if($data_referensi){
+                foreach ($data_referensi as $row) {
+                    if ($row['nama_referensi'] == 'Sesi 1') {
+                        $sesi1 = explode(' - ', $row['kode_referensi']);
+                        $sesi1[0] = str_replace('-', ':', $sesi1[0]) . ':00';
+                        $sesi1[1] = str_replace('-', ':', $sesi1[1]) . ':00';
+                        if ($timeNow >= $sesi1[0] && $timeNow <= $sesi1[1]) {
+                            $active =  "Sesi 1 (" . $row['kode_referensi'] . ")";
+                        }
+                    }
+                    if ($row['nama_referensi'] == 'Sesi 2') {
+                        $sesi2 = explode(' - ', $row['kode_referensi']);
+                        $sesi2[0] = str_replace('-', ':', $sesi2[0]) . ':00';
+                        $sesi2[1] = str_replace('-', ':', $sesi2[1]) . ':00';
+                        if ($timeNow >= $sesi2[0] && $timeNow <= $sesi2[1]) {
+                            $active = "Sesi 2 (" . $row['kode_referensi'] . ")";
+                        }
+                    }
+                    if ($row['nama_referensi'] == 'Sesi 3') {
+                        $sesi3 = explode(' - ', $row['kode_referensi']);
+                        $sesi3[0] = str_replace('-', ':', $sesi3[0]) . ':00';
+                        $sesi3[1] = str_replace('-', ':', $sesi3[1]) . ':00';
+                        if ($timeNow >= $sesi3[0] && $timeNow <= $sesi3[1]) {
+                            $active = "Sesi 3 (" . $row['kode_referensi'] . ")";
+                        }
+                    }
+                }
+            } else {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Data referensi tidak ditemukan',
+                    'status' => '404'
+                ]);
+            }
             if ($data['status_antrian'] == '0') {
-            $this->antrianModel->update($id, ['status_antrian' => '1']);
-            return $this->response->setJSON([
-                'error' => false,
-                'data' => 'Check in berhasil',
-                'status' => '200'
-            ]);
+                // dd($active, $data['sesi_antrian']);
+                if($active == $data['sesi_antrian']){
+                    $this->antrianModel->update($id, ['status_antrian' => '1']);
+                    return $this->response->setJSON([
+                        'error' => false,
+                        'data' => 'Check in berhasil',
+                        'status' => '200'
+                    ]);
+                } else {
+                    return $this->response->setJSON([
+                        'error' => true,
+                        'data' => 'Check in diluar jadwal sesi',    
+                        'status' => '422'
+                    ]);
+                }
             } else {
                 return $this->response->setJSON([
                     'error' => true,

@@ -21,7 +21,7 @@ class landingPageController extends BaseController
 
     public function Antrian(){
         $data = [
-            'title' => 'Antrian - PPDB SMANSA',
+            'title' => 'Antrean - PPDB SMANSA',
             'active' => 'Antrian',
         ];
         return view('landingPage/antrian', $data);
@@ -134,6 +134,40 @@ class landingPageController extends BaseController
             'status' => '200'
         ]);
     }
+
+    public function fect_total_antrian(){
+        $antrianModel = new antrianModel();
+        $masterReferensiModel = new masterReferensiModel();
+        $tanggal = date('Y-m-d');
+
+        $masterData = $antrianModel->getAntrianByDate($tanggal);
+
+        $masterReferensi = $masterReferensiModel->getReferensiByKodeKategori('set_antrian');
+
+        foreach($masterReferensi as $row){
+             if ($row['nama_referensi'] == 'max_antrian') {
+                $max_antrian = $row['kode_referensi'];
+             }
+             if ($row['nama_referensi'] == 'status_antrian') {
+                $status_antrian = $row['kode_referensi'];
+             }
+             if($row['nama_referensi'] == 'tanggal_antrian'){
+                $tanggalActive = $row['kode_referensi'];
+             }
+        }
+        $data =[
+            'totalAntrian' => count($masterData),
+            'tanggalActive' => $tanggalActive,
+            'max_antrian' => $max_antrian,
+            'status_antrian' => $status_antrian,
+        ];
+        
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => $data,
+            'status' => '200'
+        ]);
+    }
     
     public function fetchNotifikasi(){
         $notifikasiModel = new notifikasiModel();
@@ -165,6 +199,19 @@ class landingPageController extends BaseController
             'data' => 'Data berhasil diupdate',
             'status' => '200'
         ]);
+    }
+
+    public function printAntrean($id){
+        // $kode_pendaftaran = $this->request->getPost('kode_pendaftaran');
+        $antrianModel = new antrianModel();
+        $antrian = $antrianModel->search($id)->get()->getRow();
+        // dd($antrian);
+        $data = [
+            'title' => 'Cetak Antrean',
+            'active' => 'printAntrean',
+            'data' => $antrian
+        ];
+        return view('landingPage/printAntrean', $data);
     }
 }
 

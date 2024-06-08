@@ -107,6 +107,7 @@ video {
                     <div class="form-group row m-0">
                         <div class="col-sm-12 text-center">
                             <h2><span id="berkasno_antrian" class="header_antrian"></span></h2><br>
+                            <h6><span id="sesi_antrian"></span></h6>
                         </div>
                         <style>
                         .header_antrian {

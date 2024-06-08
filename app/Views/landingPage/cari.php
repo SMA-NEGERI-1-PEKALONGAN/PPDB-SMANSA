@@ -67,6 +67,10 @@ h6 {
     .header-antrean {
         font-size: 2rem;
     }
+
+    .tgl_cetak {
+        display: none;
+    }
 }
 
 /* @media print */
@@ -167,7 +171,7 @@ h6 {
             <h1 class="text-center my-4">Cari Antrean</h1>
             <form id="form_search">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control mx-2" placeholder="Masukkan nisn / kode pendaftaran"
+                    <input type="text" class="form-control mx-2" placeholder="Masukan nisn / kode pendaftaran"
                         name="keyword" required>
                     <button class="btn btn-outline-secondary" type="submit" id="btn_search">
                         <i class="bi bi-search"></i>
@@ -249,8 +253,7 @@ h6 {
                     </div>
 
                     <div class="col-sm-2 text-center">
-                        <img src="<?= base_url('Assets/qr_code/4c03177952d34abbb12d9e287275248e.png') ?>" alt="foto"
-                            class="img-thumbnai border-0">
+                        <img src="" alt="foto" class="img-thumbnai border-0" id="qr_code">
                         <h6 class="text-black">No Antrean</h6>
                         <h2 class="text-muted fw-700 header-antrean" id="no_antrian"></h2>
                     </div>
@@ -260,11 +263,21 @@ h6 {
                 <div class="row">
                     <div class="col-sm-12">
                         <h6 class="text-black">Ketentuan :</h6>
-                        <p class="text-muted ml-2">1. Kartu ini berlaku sebagai kartu antrian verifikasi berkas</p>
+                        <p class="text-muted ml-2">1. Kartu ini berlaku sebagai kartu antrean verifikasi berkas</p>
                         <p class="text-muted ml-2">2. Kartu ini tidak dapat dipindah tangankan</p>
                         <p class="text-muted ml-2">3. Kartu ini berlaku selama proses verifikasi berkas</p>
                         <p class="text-muted ml-2">4. Kartu ini dapat dicetak / discreenshot pada bagian QrCode</p>
                     </div>
+                </div>
+                <hr>
+                <!-- link web and date search -->
+                <div class="row">
+                    <div class="col-12 align-self-end">
+                        <p class="text-black text-right"><span class="tgl_cetak">Tanggal cetak
+                                : <span id="created_at"></span></span>
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -295,10 +308,20 @@ $('#form_search').submit(function(e) {
                 $('#asal_sekolah').text(response.data.asal_sekolah);
                 $('#jalur_pendaftaran').text(response.data.jalur_pendaftaran);
                 $('#alamat').text(response.data.alamat);
-                $('#tanggal_antrian').text(response.data.tanggal_antrian);
+                let date = new Date(response.data.tanggal_antrian);
+                let options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
+                $('#tanggal_antrian').text(date.toLocaleDateString('id-ID', options));
                 $('#sesi_antrian').text(response.data.sesi_antrian);
                 $('#no_antrian').text(response.data.no_antrian);
                 $('#btn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
+                $("#qr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
+                    .qr_code);
+                $('#created_at').text(response.data.created_at);
             } else {
                 $('#btn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
                 getSwall(response.status, response.data);
