@@ -90,7 +90,6 @@ h6 {
 </style>
 
 
-<!-- add informatin -->
 <div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
     <div class="clearfix">
         <div class="pull-left">
@@ -119,10 +118,9 @@ h6 {
 <!-- form -->
 <div class="pd-20 card-box mb-30  mt-4" id="antrian" style="display: none;">
     <div class="clearfix">
-        <!-- kiri kanan -->
         <div class="pull-left">
             <h4 class="text-black h4">
-                Form Pendaftaran Antrean
+                Form Antrean
             </h4>
         </div>
         <div class="pull-right">
@@ -134,6 +132,18 @@ h6 {
 
     <form id="form_tambah_antrian" enctype="multipart/form-data">
         <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="alert alert-warning" role="alert">
+                        <h4 class="alert-heading">Perhatian!</h4>
+                        <p class="mb-2">
+                            Kartu atrean ini hanya berlaku dihari pendaftaran antrean, pastikan anda mendafatar
+                            ketika ingin melakukan verifikasi berkas dihari itu juga.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
@@ -330,8 +340,9 @@ h6 {
                                                         <li class="pb-2">7. Surat pernyataan kebenaran dokumen</li>
                                                         <hr>
                                                         <li class="pb-2">
-                                                            <a class="sub-link" id="cekPersyaratan">Lihat detail
-                                                                persayaratan</a>
+                                                            <a class="sub-link btn_link"
+                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
+
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -361,8 +372,8 @@ h6 {
                                                         <li class="pb-2">8. Surat pernyataan kebenaran dokumen</li>
                                                         <hr>
                                                         <li class="pb-2">
-                                                            <a class="sub-link" id="cekPersyaratan">Lihat detail
-                                                                persayaratan</a>
+                                                            <a class="sub-link btn_link"
+                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -397,8 +408,8 @@ h6 {
                                                         <li class="pb-2">10. Surat pernyataan kebenaran dokumen</li>
                                                         <hr>
                                                         <li class="pb-2">
-                                                            <a class="sub-link" id="cekPersyaratan">Lihat detail
-                                                                persayaratan</a>
+                                                            <a class="sub-link btn_link"
+                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -429,8 +440,8 @@ h6 {
                                                         <li class="pb-2">8. Surat pernyataan kebenaran dokumen</li>
                                                         <hr>
                                                         <li class="pb-2">
-                                                            <a class="sub-link" id="cekPersyaratan">Lihat detail
-                                                                persayaratan</a>
+                                                            <a class="sub-link btn_link"
+                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
                                                         </li>
                                                     </ul>
                                                     </ul>
@@ -561,7 +572,7 @@ h6 {
                     <div class="row">
                         <div class="col-sm-12">
                             <h6 class="text-black">Ketentuan :</h6>
-                            <p class="text-muted ml-2">1. Kartu ini berlaku sebagai kartu antrian
+                            <p class="text-muted ml-2">1. Kartu ini berlaku sebagai kartu antrean
                                 verifikasi berkas
                             </p>
                             <p class="text-muted ml-2">2. Kartu ini tidak dapat dipindah tangankan</p>
@@ -615,13 +626,13 @@ function set_clock(date_now) {
             });
 
             $('#pesan').text('Pendaftaran antrean dapat dilakukan pada tanggal ' + dates +
-                ' ,pukul 00:00 WIB s.d 15:00 WIB');
+                '   , pukul 00:00 WIB s.d 15:00 WIB');
 
         } else {
             date = new Date();
             date.setHours(0, 0, 0, 0);
 
-            if (dateNow.getHours() >= 15) {
+            if (dateNow.getHours() >= 23) {
                 date.setDate(date.getDate() + 1);
             }
 
@@ -720,7 +731,14 @@ function getResultAntrean(key) {
                 $('#cetakasal_sekolah').text(response.data.asal_sekolah);
                 $('#cetakjalur_pendaftaran').text(response.data.jalur_pendaftaran);
                 $('#cetakalamat').text(response.data.alamat);
-                $('#cetaktanggal_antrian').text(response.data.tanggal_antrian);
+                let date = new Date(response.data.tanggal_antrian);
+                let options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
+                $('#cetaktanggal_antrian').text(date.toLocaleDateString('id-ID', options));
                 $('#cetaksesi_antrian').text(response.data.sesi_antrian);
                 $('#cetakno_antrian').text(response.data.no_antrian);
                 $('#cetakbtn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
@@ -792,6 +810,14 @@ $('#form_syarat_ketentuan').submit(function(e) {
             }
         } //end success
     }) //end ajax
+});
+
+// btn link
+// open new tabs
+$(document).on('click', '.btn_link', function(e) {
+    e.preventDefault();
+    let link = $(this).attr('id');
+    window.open(link, '_blank');
 });
 </script>
 <?= $this->endSection('script') ?>

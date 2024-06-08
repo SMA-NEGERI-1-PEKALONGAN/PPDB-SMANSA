@@ -250,7 +250,11 @@ window.addEventListener('load', function() {
                             <div class="col-sm-4">
                                 <h6 class="text-black">Tanggal Antrean</h6>
                                 <p class="text-muted" id="tanggal_antrian">
-                                    <?= $data->tanggal_antrian; ?>
+                                    <?php 
+                                    $date = new DateTime($data->tanggal_antrian);
+                                    echo $date->format('d F Y');
+                                    
+                                    ?>
                                 </p>
                             </div>
                             <div class="col-sm-4">

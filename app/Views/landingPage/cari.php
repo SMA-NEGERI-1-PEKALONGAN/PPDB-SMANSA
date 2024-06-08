@@ -263,7 +263,7 @@ h6 {
                 <div class="row">
                     <div class="col-sm-12">
                         <h6 class="text-black">Ketentuan :</h6>
-                        <p class="text-muted ml-2">1. Kartu ini berlaku sebagai kartu antrian verifikasi berkas</p>
+                        <p class="text-muted ml-2">1. Kartu ini berlaku sebagai kartu antrean verifikasi berkas</p>
                         <p class="text-muted ml-2">2. Kartu ini tidak dapat dipindah tangankan</p>
                         <p class="text-muted ml-2">3. Kartu ini berlaku selama proses verifikasi berkas</p>
                         <p class="text-muted ml-2">4. Kartu ini dapat dicetak / discreenshot pada bagian QrCode</p>
@@ -308,7 +308,14 @@ $('#form_search').submit(function(e) {
                 $('#asal_sekolah').text(response.data.asal_sekolah);
                 $('#jalur_pendaftaran').text(response.data.jalur_pendaftaran);
                 $('#alamat').text(response.data.alamat);
-                $('#tanggal_antrian').text(response.data.tanggal_antrian);
+                let date = new Date(response.data.tanggal_antrian);
+                let options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
+                $('#tanggal_antrian').text(date.toLocaleDateString('id-ID', options));
                 $('#sesi_antrian').text(response.data.sesi_antrian);
                 $('#no_antrian').text(response.data.no_antrian);
                 $('#btn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
