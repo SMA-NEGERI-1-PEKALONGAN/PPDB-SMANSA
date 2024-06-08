@@ -30,6 +30,51 @@
     <!-- Template Main CSS File -->
     <link href="<?= base_url('Assets/'); ?>LandingPage/css/style.css" rel="stylesheet">
 
+    <style>
+    .title-content {
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    .content-text {
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 25px;
+    }
+
+    .icon-left {
+        display: flex;
+        justify-content: right;
+        align-items: start;
+    }
+
+    .icon-right {
+        display: flex;
+        justify-content: left;
+        align-items: start;
+    }
+
+    .btn_soft {
+        background-color: #FFA62F;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+
+    .btn_soft:hover {
+        background-color: #7D0A0A;
+        color: #fff;
+    }
+
+    .svg-line {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    </style>
+
     <!-- =======================================================
   * Template Name: Bootslander
   * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
@@ -196,20 +241,14 @@
                                     class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                                     aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PPDB-2024.jpg"
                                         class="d-block w-100 rounded-3" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
-                                        class="d-block w-100 rounded-3" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/INFORMASI.jpg"
                                         class="d-block w-100 rounded-3" alt="...">
                                 </div>
                             </div>
@@ -358,8 +397,8 @@
                 </div>
                 <div class="row content">
                     <div class="col-md-4" data-aos="fade">
-                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
-                            class="img-fluid rounded-4" alt="" />
+                        <img src="<?= base_url('Assets/'); ?>Documents/images/PPDB-2024.jpg" class="img-fluid rounded-4"
+                            alt="" />
                     </div>
                     <div class="col-md-8 pt-4" data-aos="fade">
                         <h3>Persyaratan UMUM</h3>
@@ -399,18 +438,24 @@
                                     aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carousel_persyaratan" data-bs-slide-to="2"
                                     aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carousel_persyaratan" data-bs-slide-to="3"
+                                    aria-label="Slide 4"></button>
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ZONASI.jpg"
                                         class="d-block rounded-4 img-fluid" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/AFIRMASI.jpg"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PTO.jpg"
+                                        class="d-block img-fluid rounded-4" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PRESTASI.jpg"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                             </div>
@@ -652,11 +697,43 @@
                     <p>Ketentuan Pendaftaran</p>
                 </div>
                 <div class="row content">
-                    <div class="col-md-4" data-aos="fade">
-                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/jalur/PPDB 2024.jpeg"
-                            class="img-fluid rounded-3" alt="" />
+                    <div class="col-md-5 order-1 order-md-2" data-aos="fade">
+                        <div id="carousel_ketentuan" class="carousel slide">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ALUR PEMBUATAN AKUN.jpg"
+                                        class="d-block rounded-4 img-fluid" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ALUR-BERKAS.jpg"
+                                        class="d-block img-fluid rounded-4" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/TATATERTIB.jpg"
+                                        class="d-block img-fluid rounded-4" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_ketentuan"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel_ketentuan"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-md-8 pt-4" data-aos="fade-up">
+                    <div class="col-md-7 pt-4" data-aos="fade-up">
                         <div class="faq-list">
                             <ul>
                                 <li data-aos="fade-up" data-aos-delay="100">
@@ -810,9 +887,26 @@
                                 <div class="card-body">
                                     <h5 class="title-content">Pengumuman PPDB 2024</h5>
                                     <p class="content-text">
-                                        Pengumuman PPDB 2024 tanggal 5 juni 2024
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">06 Juni 2024</span>
+
+                                        <style>
+                                        .icon-calenders {
+                                            font-size: 1.5rem;
+                                            color: #343a40;
+                                        }
+
+                                        .text-detail {
+                                            font-size: 1rem;
+                                            font-weight: 600;
+                                            margin-left: 10px;
+                                            color: #343a40;
+                                            margin-top: 0px;
+
+                                        }
+                                        </style>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#" class="btn_soft btn_file_pdf" id="sosialisasi.pdf">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -827,9 +921,10 @@
                                         Pendaftaran Akun & Verifikasi Berkas
                                     </h5>
                                     <p class="content-text">
-                                        Pendaftaran akun dan verifikasi berkas tanggal 5 juni 2024
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">11 s.d 24 Juni 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -874,9 +969,10 @@
                                         Aktifasi Akun
                                     </h5>
                                     <p class="content-text">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, explicabo?
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">11 s.d 24 Juni 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -891,9 +987,10 @@
                                         Pendaftaran dan Perubahan Pilihan
                                     </h5>
                                     <p class="content-text">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, sit?
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">24 s.d 27 Juni 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -938,9 +1035,10 @@
                                         Masa tenang
                                     </h5>
                                     <p class="content-text">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, obcaecati!
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">28 s.d 30 Juni 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -955,9 +1053,10 @@
                                         Pengumuman
                                     </h5>
                                     <p class="content-text">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, obcaecati!
+                                        <i class="bi bi-calendar2-week icon-calenders"></i>
+                                        <span class="text-detail">01 Juli 2024</span>
                                     </p>
-                                    <a href="#" class="btn_soft">Baca ketentuan</a>
+                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
                             </div>
                         </div>
@@ -984,49 +1083,7 @@
 
                     </div>
 
-                    <style>
-                    .title-content {
-                        font-size: 20px;
-                        font-weight: 700;
-                        color: #000;
-                    }
 
-                    .content-text {
-                        font-size: 16px;
-                        color: #000;
-                    }
-
-                    .icon-left {
-                        display: flex;
-                        justify-content: right;
-                        align-items: start;
-                    }
-
-                    .icon-right {
-                        display: flex;
-                        justify-content: left;
-                        align-items: start;
-                    }
-
-                    .btn_soft {
-                        background-color: #FFA62F;
-                        color: #fff;
-                        padding: 10px 20px;
-                        border-radius: 10px;
-                        text-decoration: none;
-                    }
-
-                    .btn_soft:hover {
-                        background-color: #7D0A0A;
-                        color: #fff;
-                    }
-
-                    .svg-line {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                    </style>
 
                 </div>
         </section>
@@ -1150,6 +1207,8 @@
         let link = $(this).attr('id');
         window.open(link, '_blank');
     });
+
+    // when clict the images zon
     </script>
 </body>
 
