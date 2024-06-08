@@ -21,7 +21,7 @@ class landingPageController extends BaseController
 
     public function Antrian(){
         $data = [
-            'title' => 'Antrian - PPDB SMANSA',
+            'title' => 'Antrean - PPDB SMANSA',
             'active' => 'Antrian',
         ];
         return view('landingPage/antrian', $data);

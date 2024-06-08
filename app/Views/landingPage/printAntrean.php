@@ -286,8 +286,9 @@ window.addEventListener('load', function() {
                 <!-- link web and date search -->
                 <div class="row">
                     <div class="col-12 align-self-end">
-                        <p class="text-black text-right"><span class="tgl_cetak">Tanggal cetak :</span>
-                            <?= date('Y-m-d H:i:s'); ?></p>
+                        <p class="text-black text-right"><span class="tgl_cetak">Tanggal cetak
+                                : <span id="created_at"> <?= $data->created_at; ?></span></span>
+                        </p>
                     </div>
 
                 </div>

@@ -577,8 +577,8 @@ h6 {
                     <div class="row">
                         <div class="col-12 align-self-end">
                             <p class="text-black text-right"><span class="tgl_cetak">Tanggal cetak
-                                    :</span>
-                                <?= date('Y-m-d H:i:s'); ?></p>
+                                    : <span id="created_at"></span></span>
+                            </p>
                         </div>
 
                     </div>
@@ -726,6 +726,7 @@ function getResultAntrean(key) {
                 $('#cetakbtn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
                 $("#cetakqr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
                     .qr_code);
+                $('#created_at').text(response.data.created_at);
             } else {
                 $('#btn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
                 getSwall(response.status, response.data);
@@ -748,19 +749,26 @@ $('#form_syarat_ketentuan').submit(function(e) {
         processData: false,
         success: function(response) {
             if (response.error) {
-                $.each(response.data, function(key, value) {
-                    if (value != '') {
-                        $("#" + key).addClass('form-control-danger');
-                        $("#error" + key).addClass('has-danger');
-                        $("#error" + key).html(value);
-                    } else {
-                        $("#" + key).removeClass('form-control-danger');
-                        $("#" + key).addClass('form-control-success');
-                        $("#error" + key).html('');
-                        $("#error" + key).removeClass('has-danger');
-                    }
-                });
+                if (response.status != '406') {
+                    $.each(response.data, function(key, value) {
+                        if (value != '') {
+                            $("#" + key).addClass('form-control-danger');
+                            $("#error" + key).addClass('has-danger');
+                            $("#error" + key).html(value);
+                        } else {
+                            $("#" + key).removeClass('form-control-danger');
+                            $("#" + key).addClass('form-control-success');
+                            $("#error" + key).html('');
+                            $("#error" + key).removeClass('has-danger');
+                        }
+                    });
+                } else {
+                    getSwall(response.status, response.data);
+                    $("#btn_sk").removeAttr("disabled");
+                    $("#btn_sk").html("Kirim");
+                }
                 dataAntrian.pop();
+                fetch_set_antrean();
                 $('#Medium-modal').modal('hide');
                 $("#btn_sk").removeAttr("disabled");
                 $("#btn_sk").html("Tambah");
@@ -773,6 +781,7 @@ $('#form_syarat_ketentuan').submit(function(e) {
                     $("#error" + item).html('');
                     $("#error" + item).removeClass('has-danger');
                 });
+                fetch_set_antrean();
                 $('#syatKetentuan').prop('checked', false);
                 $("#form_tambah_antrian")[0].reset();
                 $('#Medium-modal').modal('hide');

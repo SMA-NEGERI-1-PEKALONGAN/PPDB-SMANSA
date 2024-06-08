@@ -263,7 +263,7 @@
                             <p class="description">
                                 Perpindahan Orang Tua / Wali adalah jalur penerimaan peserta didik baru yang
                                 diperuntukan
-                                bagi calon peserta didik yang orang tua / wali pindah domisili kerja.
+                                bagi calon peserta didik yang orang tua / wali pindah domisili kerja sebelum 1 tahun.
                             </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="200">
@@ -379,10 +379,11 @@
                                 pendidikan SMP/MTS atau sederajat.</li>
                             </li>
                             <li class="list-items"><i class="bi bi-check"></i>
-                                Usia calon peserta didik maksimal 21 tahun pada tanggal 22 Juli 2024.</li>
+                                Usia calon peserta didik maksimal 21 tahun per tanggal 22 Juni 2024.
                             </li>
                             <li class="list-items"><i class="bi bi-check"></i>
-                                Melakukan pendaftaran secara online dan mencetak bukti pendaftaran (Bukti pendaftaran
+                                Melakukan pendaftaran secara online dan mencetak bukti pendaftaran (Bukti
+                                pendaftaran
                                 yang sudah dicetak dibawa saat pengumpulan berkas).</li>
                         </ul>
                     </div>
@@ -435,31 +436,73 @@
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan1" class="collapse" data-bs-parent=".umum-list">
 
-                                        <ul class="ml-3">
-                                            <li class="pb-2">1. Membawa berkas pendaftaran
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
                                             </li>
-                                            <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
-                                            <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
-                                            <li class="pb-2">3. Potongan ramput rapi (CPD Putra) </li>
-                                            <li class="pb-2">4. Mengenakan spatu & kaos kaki </li>
-                                            <li class="pb-2">5. Orang tua/wali yg mengantar berpakaian rapi </li>
-                                        </ul>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK).</br>
+                                                <span class="fw-bold">Ketentuan :</span>
+                                                <ol class="ml-2 sub_ol" type='a'>
+                                                    <li class="">KK yang diterbitkan paling singkat 1 tahun
+                                                        terhitung
+                                                        tanggal 27 Juni 2024(Tanpa adanya perubahan alamat domisili).
+                                                    </li>
+                                                    <li class="">Bagi KK yang mangalami perubahan
+                                                        alamat domisili, kepindahan alamat domisili harus seluruh
+                                                        keluarga yang ada
+                                                        pada KK tersebut.</li>
+                                                    <li>
+                                                        Bagi CPD yang tidak tinggal bersama keluarga inti, namun telah
+                                                        tinggal sesuai alamat domisili Kartu Keluarga tersebut paling
+                                                        singkat 3 (tiga) tahun terhitung sebelum tanggal pendaftaran
+                                                        PPDB, maka calon Peserta Didik dimaksud tetap dapat mengikuti
+                                                        PPDB melalui jalur zonasi(Harus melampirlan surat pertanggung
+                                                        jawaban mutlak). <a href="" class="sub-link btn_file_pdf"
+                                                            id="sosialisasi.pdf">Download
+                                                            Surat</a>
+                                                    </li>
+                                                    <li>
+                                                        Bagi CPD dari pondok pesantren harus menyertakan surat
+                                                        keterangan
+                                                        EMIS(Eduaction Management islamic).
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Download
+                                                    Surat</a>
+                                            </li>
+
+                                        </ol>
                                         <style>
                                         .ml-3 {
                                             margin-bottom: 0;
                                         }
 
-                                        .pb-2 {
-                                            padding-bottom: 0.5rem;
+                                        .pb-2 !important {
+                                            padding-bottom: 0 !important;
                                         }
 
                                         .fw-bold {
                                             font-weight: bold;
                                         }
 
-
                                         .sub-link {
                                             cursor: pointer;
+                                        }
+
+                                        .sub_ol {
+                                            list-style-type: lower-alpha;
+                                            margin-bottom: 0 !important;
                                         }
                                         </style>
                                     </div>
@@ -470,10 +513,58 @@
                                         class="collapsed">Afirmasi
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan2" class="collapse" data-bs-parent=".umum-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
+                                            </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD yang bersal dari keluarga ekonomi kurang mampu dibuktikan dengan :
+                                                <br>
+                                                <span class="fw-bold">Ketentuan :</span>
+                                                <ol class="ml-2 sub_ol" type='a'>
+                                                    <li class="">Kepesertaan dalam Program Indonesia Pintar (PIP)
+                                                        berdasarkan Data Pokok Pendidikan; atau</li>
+                                                    <li class="">Terdatadalam Data Terpadu Kesejahteraan Sosial (DTKS)
+                                                        yang dikeluarkan oleh Kementerian Sosial(Screenshoot DTK). <br>
+                                                        <a href="" id="https://caribdt.dinsos.jatengprov.go.id/"
+                                                            class="sub-link btn_link">Link DTKS</a>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD yang bersal dari panti asuhan berdasarkan data yang
+                                                ditetapkan/dikelola oleh Dinas Sosial Provinsi Jawa Tengah.
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Download
+                                                    surat keterangan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD ATS yang terdaftar dalam sistem informasi kesejahteraan sosial -
+                                                Dinsos Prov. Jateng (SIKS-DJ) dan ATS selain yang terdaftar dalam
+                                                SIKS-DJ yang dibuktikan dengan surat keterangan yang diterbitkan oleh
+                                                kepala desa/lurah dan diketahui oleh camat/kecamatan
+                                                setempat(dilampirkan ijazah SMP/Sederajat sebelum tahun kelulusan
+                                                2023/2024).
+                                                <br>
+
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Download
+                                                    surat keterangan</a>
+
+                                            </li>
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Download
+                                                    Surat</a>
+                                            </li>
+                                        </ol>
                                     </div>
                                 </li>
 
@@ -482,10 +573,40 @@
                                         class="collapsed">Perpindahan Orang Tua
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan3" class="collapse" data-bs-parent=".umum-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
+                                            </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
+                                            <li class="pb-2">
+                                                Surat penugasan dari kantor/instansi yang bersangkutan.</br>
+                                                <span class="fw-bold">Ketentuan :</span>
+                                                <ol class="ml-2 sub_ol" type='a'>
+                                                    <li class="">
+                                                        Surat penugasan yang diterbitkan paling lama 1 tahun terhitung
+                                                        tanggal 27 Juni 2024(Tanpa adanya perubahan alamat domisili).
+                                                    </li>
+                                                    <li class=>
+                                                        Perpindahan penugasan harus antar kota/kabupaten.
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li class="pb-2">Surat keterangan alamat kantor/instansi yang bersangkutan.
+                                            </li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Download
+                                                    Surat</a>
+                                            </li>
+                                        </ol>
                                     </div>
                                 </li>
 
@@ -494,10 +615,25 @@
                                         class="collapsed">Prestasi
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan4" class="collapse" data-bs-parent=".umum-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
+                                            </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="sosialisasi.pdf">Download
+                                                    Surat</a>
+                                            </li>
+                                        </ol>
                                     </div>
                                 </li>
 
@@ -529,10 +665,37 @@
                                         Verifikasi Berkas
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran1" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
-                                        </p>
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                CPD melakukan pendaftaran akun pada laman PPDB Jateng PRov secara
+                                                mandiri
+                                                dirumah.
+                                                <a href="https://ppdb.jatengprov.go.id/" class="sub-link btn_link"
+                                                    id="sosialisasi.pdf">Link PPDB</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD melakukan verifikasi berkas pada sekolah terdekat. <br>
+                                                <span class="fw-bold">Ketentuan verifikasi berkas di SMAN 1
+                                                    Pekalongan:</span>
+                                                <ol class="ml-2 sub_ol" type='a'>
+                                                    <li class="">Melakukan pendaftaran antrean <br>
+                                                        <a href="" class="sub-link btn_link"
+                                                            id="https://ppdb.sman1pekalongan.sch.id/Antrean">Link
+                                                            antrean</a>
+                                                    </li>
+                                                    <li class="pb-2">Membawa berkas pendaftaran. <br>
+                                                        <a href="#persyaratan" class="sub-link "
+                                                            id="sosialisasi.pdf">Lihat persyartan</a>
+                                                    </li>
+                                                    <li class="pb-2">Mengenakan seragam sekolah asal </li>
+                                                    <li class="pb-2">Potongan ramput rapi (CPD Putra) </li>
+                                                    <li class="pb-2">Mengenakan spatu & kaos kaki </li>
+                                                    <li class="pb-2">Orang tua/wali yg mengantar berpakaian rapi
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+
                                     </div>
                                 </li>
 
@@ -541,9 +704,12 @@
                                         class="collapsed">Aktifasi Akun
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran3" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
+                                        <p class="pb-2 ml-3 ">
+                                            Setelah melakukan verifikasi berkas, CPD melakukan aktifasi akun secara
+                                            mandiri pada
+                                            mandiri pada laman PPDB Jateng Porv. <br>
+                                            <a href="https://ppdb.jatengprov.go.id/" class="sub-link btn_link"
+                                                id="sosialisasi.pdf">Link PPDB</a>
                                         </p>
                                     </div>
                                 </li>
@@ -554,9 +720,23 @@
                                         Perubahan Pilihan
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran4" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
+                                        <p class="pb-2 ml-3">
+                                            CPD melakukan pendaftaran sekolah SMA/SMK secara mandiri pada laman PPDB
+                                            Jateng
+                                            Prov. <br>
+                                            <a href="https://ppdb.jatengprov.go.id/" class="sub-link btn_link"
+                                                id="sosialisasi.pdf">Link PPDB</a>
+                                            <span class="fw-bold ml-3 mt-2">Ketentuan :</span>
+                                        <ol class="ml-3 sub_ol mt-2" type='a'>
+                                            <li class="pb-2">
+                                                CPD dapat meilih 1 jalur zonasi dan 1 jalur prestasi/afirmasi diluar
+                                                zona.
+                                            </li>
+                                            <li class="pb-2">
+                                                CPD dapat mengubah pilihan sekolah baik dari SMA ke SMK atau sebaliknya
+                                                selama masa pendaftaran(melakukan pembatalan terlebih dahulu).
+                                            </li>
+                                        </ol>
                                         </p>
                                     </div>
                                 </li>
@@ -566,9 +746,11 @@
                                         Teanang
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran5" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
+                                        <p class="pb-2 ml-3 ">
+                                            CPD dapat memantau jurnal PPDB Jateng Prov, untuk
+                                            mengetahui masuk / tidaknya kedalam sekolah tujuan.<br>
+                                            <a href="https://ppdb.jatengprov.go.id/" class="sub-link btn_link"
+                                                id="sosialisasi.pdf">Link PPDB</a>
                                         </p>
                                     </div>
                                 </li>
@@ -578,9 +760,11 @@
                                         class="collapsed">Pengumuman
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran6" class="collapse" data-bs-parent=".faq-list">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet,
-                                            reiciendis!
+                                        <p class="pb-2 ml-3 ">
+                                            Pengumuman PPDB 2024 dapat dilihat pada laman PPDB
+                                            Jateng Prov. <br>
+                                            <a href="https://ppdb.jatengprov.go.id/" class="sub-link btn_link"
+                                                id="sosialisasi.pdf">Link PPDB</a>
                                         </p>
                                     </div>
                                 </li>
@@ -867,7 +1051,7 @@
                             <p>
                                 <strong>Phone:</strong> (0285) 421190<br>
                                 <strong>Help Desk PPDB:</strong> (022) 000 000 00 <br>
-                                <strong>Email:</strong> info@sma1pekalongan.sch.id<br>
+                                <strong>Email:</strong> surat@sma1pekalongan.sch.id<br>
                             </p>
                             <div class="social-links mt-3">
                                 <a href="#" class="twitter"><i class="bx bi-globe"></i></a>
@@ -903,12 +1087,41 @@
             </div>
 
         </div>
-    </footer><!-- End Footer -->
+    </footer>
+
+    <!-- End Footer -->
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalPDF" tabindex="-1" aria-labelledby="modalPDFLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalPDFLabel">Informasi PPDB 2024</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="pdfFiles" width="100%" height="500px" frameborder="0"></iframe>
+                    <style>
+                    #pdfFiles {
+                        border: none;
+                    }
+                    </style>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
     <div id="preloader"></div>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Vendors JS Files -->
     <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/purecounter/purecounter_vanilla.js"></script>
     <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/aos/aos.js"></script>
@@ -923,7 +1136,20 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
+    // open modal .btn_file_pdf
+    $(document).on('click', '.btn_file_pdf', function(e) {
+        e.preventDefault();
+        let file = $(this).attr('id');
+        $('#pdfFiles').attr('src', '<?= base_url('Assets/'); ?>Documents/files/' + file);
+        $('#modalPDF').modal('show');
+    });
 
+    // open new tabs
+    $(document).on('click', '.btn_link', function(e) {
+        e.preventDefault();
+        let link = $(this).attr('id');
+        window.open(link, '_blank');
+    });
     </script>
 </body>
 

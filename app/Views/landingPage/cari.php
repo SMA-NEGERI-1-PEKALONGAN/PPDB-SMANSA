@@ -273,8 +273,9 @@ h6 {
                 <!-- link web and date search -->
                 <div class="row">
                     <div class="col-12 align-self-end">
-                        <p class="text-black text-right"><span class="tgl_cetak">Tanggal cetak :</span>
-                            <?= date('Y-m-d H:i:s'); ?></p>
+                        <p class="text-black text-right"><span class="tgl_cetak">Tanggal cetak
+                                : <span id="created_at"></span></span>
+                        </p>
                     </div>
 
                 </div>
@@ -313,6 +314,7 @@ $('#form_search').submit(function(e) {
                 $('#btn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
                 $("#qr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
                     .qr_code);
+                $('#created_at').text(response.data.created_at);
             } else {
                 $('#btn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
                 getSwall(response.status, response.data);

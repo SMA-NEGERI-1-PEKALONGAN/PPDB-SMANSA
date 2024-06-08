@@ -171,8 +171,8 @@ class antrianController extends BaseController
                     if ($no_antrian > $max_antrian) {
                         return $this->response->setJSON([
                             'error' => true,
-                            'data' => 'Antrian sudah penuh',
-                            'status' => '422'
+                            'data' => 'Antrean sudah penuh',
+                            'status' => '406'
                         ]);
                     }
                 } else {
