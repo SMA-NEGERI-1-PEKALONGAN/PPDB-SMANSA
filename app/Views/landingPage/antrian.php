@@ -49,6 +49,12 @@ h6 {
     .tgl_cetak {
         display: none;
     }
+
+    #btnBerkas:hover {
+        cursor: pointer;
+    }
+
+
 }
 
 
@@ -124,9 +130,9 @@ h6 {
             </h4>
         </div>
         <div class="pull-right">
-            <h4 class="text-black h4">
+            <!-- <h4 class="text-black h4">
                 <i class="fa fa-user mr-2"></i><span id="total_antrian"></span> / <span id="max_antrian"></span>
-            </h4>
+            </h4> -->
         </div>
     </div>
 
@@ -157,7 +163,7 @@ h6 {
                     <div class="form-group">
                         <label for="nisn">NISN<span class="rq">*</span></label>
                         <input type="text" class="form-control required" id="nisn" name="nisn"
-                            placeholder="Masukan NSIN">
+                            placeholder="Masukan NISN">
                         <div class="form-control-feedback" id="errornisn"></div>
                     </div>
                 </div>
@@ -626,13 +632,13 @@ function set_clock(date_now) {
             });
 
             $('#pesan').text('Pendaftaran antrean dapat dilakukan pada tanggal ' + dates +
-                '   , pukul 00:00 WIB s.d 15:00 WIB');
+                ' pukul 00:00 WIB s.d 15:00 WIB');
 
         } else {
             date = new Date();
             date.setHours(0, 0, 0, 0);
 
-            if (dateNow.getHours() >= 23) {
+            if (dateNow.getHours() >= 15) {
                 date.setDate(date.getDate() + 1);
             }
 
@@ -674,14 +680,14 @@ function fetch_set_antrean() {
         type: 'GET',
         success: function(response) {
             if (response.status == '200') {
-                $('#max_antrian').text(response.data.max_antrian);
-                $('#total_antrian').text(response.data.totalAntrian);
+                // $('#max_antrian').text(response.data.max_antrian);
+                // $('#total_antrian').text(response.data.totalAntrian);
                 set_clock(response.data.tanggalActive);
             } else {
                 getSwall(response.status, response.data);
             }
         }
-    }) //end ajax
+    })
 }
 
 fetch_set_antrean();
@@ -791,7 +797,7 @@ $('#form_syarat_ketentuan').submit(function(e) {
                 $("#btn_sk").removeAttr("disabled");
                 $("#btn_sk").html("Tambah");
             } else {
-                getSwall(response.status, 'Antrian berhasil ditambahkan');
+                getSwall(response.status, 'Antrean berhasil ditambahkan');
                 // alert(dataAntrian[0].get('kode_pendaftaran'));
                 listFields.forEach(function(item) {
                     $("#" + item).removeClass('form-control-danger');

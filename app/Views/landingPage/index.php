@@ -826,7 +826,7 @@
 
                                 <li data-aos="fade-up" data-aos-delay="200">
                                     <a data-bs-toggle="collapse" data-bs-target="#pendaftaran5" class="collapsed">Masa
-                                        Teanang
+                                        Tenang
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran5" class="collapse" data-bs-parent=".faq-list">
                                         <p class="pb-2 ml-3 ">

@@ -152,13 +152,18 @@ class antrianController extends BaseController
                         $max_antrian = $row['kode_referensi'];
                     }
                     if ($row['nama_referensi'] == 'Sesi 1') {
-                        $sesi1 = "Sesi 1 (" . $row['kode_referensi'] . ")";
+                        // $sesi1 = "Sesi 1 (" . $row['kode_referensi'] . ")";
+                        // explode data kode_referensi 07.00 - 09.00 menjadi 07.00
+                        $dataSesi1 = explode(' - ', $row['kode_referensi']);
+                        $sesi1 = "Sesi 1 (" . $dataSesi1[0] . " WIB)";
                     }
                     if ($row['nama_referensi'] == 'Sesi 2') {
-                        $sesi2 = "Sesi 2 (" . $row['kode_referensi'] . ")";;
+                        $dataSesi2 = explode(' - ', $row['kode_referensi']);
+                        $sesi2 = "Sesi 2 (" . $dataSesi2[0] . " WIB)";
                     }
                     if ($row['nama_referensi'] == 'Sesi 3') {
-                        $sesi3 = "Sesi 3 (" . $row['kode_referensi'] . ")";;
+                        $dataSesi3 = explode(' - ', $row['kode_referensi']);
+                        $sesi3 = "Sesi 3 (" . $dataSesi3[0] . " WIB)";
                     }
                 }
                 // $max_antrian = 105;
@@ -301,7 +306,7 @@ class antrianController extends BaseController
     }
 
     public function checkIn(){
-        // $id = '4501f05b71f8468385ef1c0e2d5205ea';
+        // $id = '62d8c586b3cf4231855c6bd37b57cff4';
         $id = $this->request->getPost('id');
         // dd($id);
         $data = $this->antrianModel->getAntrian($id);
@@ -316,29 +321,38 @@ class antrianController extends BaseController
                 foreach ($data_referensi as $row) {
                     if ($row['nama_referensi'] == 'Sesi 1') {
                         $sesi1 = explode(' - ', $row['kode_referensi']);
-                        $sesi1[0] = str_replace('-', ':', $sesi1[0]) . ':00';
-                        $sesi1[1] = str_replace('-', ':', $sesi1[1]) . ':00';
+                        $detail = $sesi1[0];
+                        $sesi1[0] = str_replace('.', ':', $sesi1[0]) . ':00';
+                        $sesi1[1] = str_replace('.', ':', $sesi1[1]) . ':00';
+
                         if ($timeNow >= $sesi1[0] && $timeNow <= $sesi1[1]) {
-                            $active =  "Sesi 1 (" . $row['kode_referensi'] . ")";
+                            $active =  "Sesi 1 (" . $detail . " WIB)";
+                            
                         }
                     }
                     if ($row['nama_referensi'] == 'Sesi 2') {
                         $sesi2 = explode(' - ', $row['kode_referensi']);
-                        $sesi2[0] = str_replace('-', ':', $sesi2[0]) . ':00';
-                        $sesi2[1] = str_replace('-', ':', $sesi2[1]) . ':00';
+                        $detail = $sesi2[0];
+                        $sesi2[0] = str_replace('.', ':', $sesi2[0]) . ':00';
+                        $sesi2[1] = str_replace('.', ':', $sesi2[1]) . ':00';
                         if ($timeNow >= $sesi2[0] && $timeNow <= $sesi2[1]) {
-                            $active = "Sesi 2 (" . $row['kode_referensi'] . ")";
+                            $active = "Sesi 2 (" . $detail . " WIB)";
+                            
                         }
                     }
                     if ($row['nama_referensi'] == 'Sesi 3') {
                         $sesi3 = explode(' - ', $row['kode_referensi']);
-                        $sesi3[0] = str_replace('-', ':', $sesi3[0]) . ':00';
-                        $sesi3[1] = str_replace('-', ':', $sesi3[1]) . ':00';
+                        $detail = $sesi3[0];
+                        $sesi3[0] = str_replace('.', ':', $sesi3[0]) . ':00';
+                        $sesi3[1] = str_replace('.', ':', $sesi3[1]) . ':00';
                         if ($timeNow >= $sesi3[0] && $timeNow <= $sesi3[1]) {
-                            $active = "Sesi 3 (" . $row['kode_referensi'] . ")";
+                            $active = "Sesi 3 (" . $detail . " WIB)";
+                            
                         }
                     }
                 }
+                // dd($active);
+                
             } else {
                 return $this->response->setJSON([
                     'error' => true,
