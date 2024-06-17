@@ -75,151 +75,6 @@ class antrianController extends BaseController
             ->toJson(true);
     }
 
-    public function saveAntrian(){
-         $validation =  \Config\Services::validation();
-          $validation->setRules([
-            'nama_siswa' => [
-                'label' => 'Nama Siswa',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.',
-                ]
-            ],
-            'nisn' => [
-                'label' => 'NISN',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.',
-                    // 'is_unique' => '{field} sudah terdaftar.'
-                ]
-            ],
-            'asal_sekolah' => [
-                'label' => 'Asal Sekolah',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.'
-                ]
-            ],
-            'alamat' => [
-                'label' => 'Alamat',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.'
-                ]
-            ],
-            'no_tlp' => [
-                'label' => 'No. Telepon',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.'
-                ]
-            ],
-            'jenis_kelamin' => [
-                'label' => 'Jenis Kelamin',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.'
-                ]
-            ],
-            'jalur_pendaftaran' => [
-                'label' => 'Jalur Pendaftaran',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.'
-                ]
-            ],
-            'kode_pendaftaran' => [
-                'label' => 'Kode Pendaftaran',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => '{field} harus diisi.',
-                    // 'is_unique' => '{field} sudah terdaftar.'
-                ]
-            ],
-            'sesi_antrian' => [
-                'label' => 'Sesi Antrian',
-                'rules' => 'required',
-                'errors' => [
-                'required' => '{field} harus diisi.'
-                ]
-            ],
-            'tanggal_antrian' => [
-                'label' => 'Tanggal Antrian',
-                'rules' => 'required',
-                'errors' => [
-                'required' => '{field} harus diisi.'
-                ]
-            ],
-            'no_antrian' => [
-                'label' => 'No Antrian',
-                'rules' => 'required',
-                'errors' => [
-                'required' => '{field} harus diisi.'
-                ]
-            ],
-             
-          ]);
-          
-            if (!$validation->withRequest($this->request)->run()) {
-                return $this->response->setJSON([
-                    'error' => true,
-                    'data' => $validation->getErrors(),
-                    'status' => '422'
-                ]);
-            } else {
-                // dd($sesi);  
-                $uuid = Uuid::uuid4();
-                $id_antrian = str_replace('-', '', $uuid->toString());
-
-                $result = Builder::create()
-                    ->writer(new PngWriter())
-                    ->writerOptions([])
-                    ->data($id_antrian)
-                    ->encoding(new Encoding('UTF-8'))
-                    ->errorCorrectionLevel(ErrorCorrectionLevel::High)
-                    ->size(300)
-                    ->margin(10)
-                    ->roundBlockSizeMode(RoundBlockSizeMode::Margin)
-                    ->logoPath('Assets/LOGO SMANSA.png')
-                    ->logoResizeToWidth(50)
-                    ->logoPunchoutBackground(true)
-                    // ->labelText('This is the label')
-                    // ->labelFont(new NotoSans(20))
-                    // ->labelAlignment(LabelAlignment::Center)
-                    ->validateResult(false)
-                    ->build();
-                    
-                $result->saveToFile('Assets/qr_code/' . $id_antrian . '.png');
-                
-
-                $data = [
-                    'id_antrian' => $id_antrian,
-                    'nama_siswa' => $this->request->getPost('nama_siswa'),
-                    'nisn' => $this->request->getPost('nisn'),
-                    'asal_sekolah' => $this->request->getPost('asal_sekolah'),
-                    'alamat' => $this->request->getPost('alamat'),
-                    'no_tlp' => $this->request->getPost('no_tlp'),
-                    'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
-                    'jalur_pendaftaran' => $this->request->getPost('jalur_pendaftaran'),
-                    'kode_pendaftaran' => $this->request->getPost('kode_pendaftaran'),
-                    'qr_code' => $id_antrian . '.png',
-                    'status_antrian' => '0',
-                    'no_antrian' => $this->request->getPost('no_antrian'),
-                    'sesi_antrian' => $this->request->getPost('sesi_antrian'),
-                    'tanggal_antrian' => $this->request->getPost('tanggal_antrian'),
-                    'created_at' => date('Y-m-d H:i:s'),
-                    
-                ];
-                // dd($data);
-                $this->antrianModel->insert($data);
-                return $this->response->setJSON([
-                    'error' => false,
-                    'data' => 'Data berhasil disimpan',
-                    'status' => '200'
-                ]);
-        }
-    }
-
     public function store(){
          $validation =  \Config\Services::validation();
           $validation->setRules([
@@ -281,7 +136,6 @@ class antrianController extends BaseController
                     // 'is_unique' => '{field} sudah terdaftar.'
                 ]
             ],
-            
           ]);
           
             if (!$validation->withRequest($this->request)->run()) {
@@ -294,41 +148,30 @@ class antrianController extends BaseController
                 $tanggal_antrian = date('Y-m-d');
                 $referensi = new masterReferensiModel();
                 $data_referensi = $referensi->getReferensiByKodeKategori('set_antrian');
-                // dd($data_referensi);
-                
                 foreach ($data_referensi as $row) {
-                    
                     if ($row['nama_referensi'] == 'max_antrian') {
                         $max_antrian = $row['kode_referensi'];
                     }
-
-                    if ($row['nama_referensi'] == 'total_sesi') {
-                        $total_sesi = $row['kode_referensi'];
-                    }   
-                    
-                    if ($row['nama_referensi'] == 'start_antrian') {
-                        $start_antrian = str_replace('.', ':', $row['kode_referensi']) . ':00';
+                    if ($row['nama_referensi'] == 'Sesi 1') {
+                        // $sesi1 = "Sesi 1 (" . $row['kode_referensi'] . ")";
+                        // explode data kode_referensi 07.00 - 09.00 menjadi 07.00
+                        $dataSesi1 = explode(' - ', $row['kode_referensi']);
+                        $sesi1 = "Sesi 1 (" . $dataSesi1[0] . " WIB)";
                     }
-                    
-                    if ($row['nama_referensi'] == 'close_antrian') {
-                        $close_antrian = str_replace('.', ':', $row['kode_referensi']) . ':00';
-                    } 
-
-                }
-
-                $timeNow = date('H:i:s');
-
-                if($timeNow >= $start_antrian && $timeNow <= $close_antrian){
-                    for ($i=1; $i <= $total_sesi; $i++) { 
-                    foreach ($data_referensi as $data) {
-                        if ($data['nama_referensi'] == 'Sesi ' . $i) {
-                            $dataSesi = explode(' - ', $data['kode_referensi']);
-                            $sesi[$i] = "Sesi " . $i . " (" . $dataSesi[0] . " WIB)";
-                        }
+                    if ($row['nama_referensi'] == 'Sesi 2') {
+                        $dataSesi2 = explode(' - ', $row['kode_referensi']);
+                        $sesi2 = "Sesi 2 (" . $dataSesi2[0] . " WIB)";
+                    }
+                    if ($row['nama_referensi'] == 'Sesi 3') {
+                        $dataSesi3 = explode(' - ', $row['kode_referensi']);
+                        $sesi3 = "Sesi 3 (" . $dataSesi3[0] . " WIB)";
                     }
                 }
-                // dd($sesi);  
-
+                // $max_antrian = 105;
+                // $sesi1 = 'Sesi 1 (07.00 - 09.00)';
+                // $sesi2 = 'Sesi 2 (09.00 - 11.00)';
+                // $sesi3 = 'Sesi 3 (13.00 - 15.00)';
+                
                 $uuid = Uuid::uuid4();
                 $id_antrian = str_replace('-', '', $uuid->toString());
 
@@ -366,16 +209,25 @@ class antrianController extends BaseController
                 } else {
                     $no_antrian = 1;
                 }
-            
-                $sesi_antrian = $sesi[1];
-                for ($i=1; $i <= $total_sesi; $i++) { 
-                    if ($no_antrian > ($max_antrian / $total_sesi) * $i) {
-                        $sesi_antrian = $sesi[$i + 1];
-                    }
+
+                // if ($no_antrian <= 30 ) {
+                //     $sesi_antrian = $sesi1;
+                // } elseif ($no_antrian <= 60 ) {
+                //     $sesi_antrian = $sesi2;
+                // } else {
+                //     $sesi_antrian = $sesi3;
+                // }
+
+                // max antrian di bagi 3 sesi
+                $max_sesi = $max_antrian / 3;
+                if ($no_antrian <= $max_sesi ) {
+                    $sesi_antrian = $sesi1;
+                } elseif ($no_antrian <= $max_sesi * 2 ) {
+                    $sesi_antrian = $sesi2;
+                } else {
+                    $sesi_antrian = $sesi3;
                 }
-
-                // dd($sesi_antrian);
-
+                
                 $data = [
                     'id_antrian' => $id_antrian,
                     'nama_siswa' => $this->request->getPost('nama_siswa'),
@@ -400,14 +252,7 @@ class antrianController extends BaseController
                     'data' => 'Data berhasil disimpan',
                     'status' => '200'
                 ]);
-            } else {
-                return $this->response->setJSON([
-                    'error' => true,
-                    'data' => 'Antrean belum dibuka',
-                    'status' => '406'
-                ]);
             }
-        }
     }
 
     public function edit(){
@@ -492,28 +337,6 @@ class antrianController extends BaseController
                         // 'is_unique' => '{field} sudah terdaftar.'
                     ]
                 ],
-                'sesi_antrian' => [
-                    'label' => 'Sesi Antrian',
-                    'rules' => 'required',
-                    'errors' => [
-                    'required' => '{field} harus diisi.'
-                    ]
-                ],
-                'tanggal_antrian' => [
-                    'label' => 'Tanggal Antrian',
-                    'rules' => 'required',
-                    'errors' => [
-                    'required' => '{field} harus diisi.'
-                    ]
-                ],
-                'no_antrian' => [
-                    'label' => 'No Antrian',
-                    'rules' => 'required',
-                    'errors' => [
-                    'required' => '{field} harus diisi.'
-                    ]
-                ],
-                
             ]);
             
             if (!$validation->withRequest($this->request)->run()) {
@@ -532,10 +355,6 @@ class antrianController extends BaseController
                     'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
                     'jalur_pendaftaran' => $this->request->getPost('jalur_pendaftaran'),
                     'kode_pendaftaran' => $this->request->getPost('kode_pendaftaran'),
-                    'sesi_antrian' => $this->request->getPost('sesi_antrian'),
-                    'tanggal_antrian' => $this->request->getPost('tanggal_antrian'),
-                    'no_antrian' => $this->request->getPost('no_antrian'),
-                    'status_antrian' => $this->request->getPost('status_antrian'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ];
                 $this->antrianModel->update($id, $data);
@@ -597,7 +416,7 @@ class antrianController extends BaseController
             ]);
         }
     }
-    
+
     public function checkIn(){
         // $id = '62d8c586b3cf4231855c6bd37b57cff4';
         $id = $this->request->getPost('id');
@@ -751,8 +570,8 @@ class antrianController extends BaseController
             ->toJson(true);
     }
     
-    public function AjaxAntrianNotActive()
-    {
+     public function AjaxAntrianNotActive()
+     {
         $tanggal = date('Y-m-d');
          $builder = $this->antrianModel->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at')->where('tanggal_antrian', $tanggal)->whereIn('status_antrian', ['0', '4']);
         
@@ -785,9 +604,8 @@ class antrianController extends BaseController
             }, 'last')
             ->toJson(true);
     }
-
-    public function AjaxAntrianBermasalah()
-    {
+     public function AjaxAntrianBermasalah()
+     {
         $tanggal = date('Y-m-d');
          $builder = $this->antrianModel->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at')->where('tanggal_antrian', $tanggal)->whereIn('status_antrian', ['0', '4']);
         

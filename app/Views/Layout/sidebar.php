@@ -70,6 +70,11 @@
                             <a href="<?= base_url('Admin/Antrian/List')?>"
                                 class="<?= $active == 'List'  ? 'active' : '' ?>">List Antrian</a>
                         </li>
+                        <li>
+                            <a href="<?= base_url('Admin/Antrian/Laporan')?>"
+                                class="<?= $active == 'laporan-antrean'  ? 'active' : '' ?>">Laporan Antrian</a>
+                        </li>
+
                         <?php endif; ?>
                     </ul>
                 </li>

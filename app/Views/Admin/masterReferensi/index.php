@@ -715,10 +715,10 @@ $(function() {
                         $('#tableReferensi').DataTable().ajax.reload();
                         getSwall(response.status, response.data);
                         Referensi.forEach(function(item) {
-                            $("#" + item).removeClass('form-control-danger');
-                            $("#" + item).removeClass('form-control-success');
-                            $("#error" + item).html('');
-                            $("#error" + item).removeClass('has-danger');
+                            $("#edit" + item).removeClass('form-control-danger');
+                            $("#edit" + item).removeClass('form-control-success');
+                            $("#erroredit" + item).html('');
+                            $("#erroredit" + item).removeClass('has-danger');
                         });
                     }
                     $("#btn_edit_referensi").removeAttr("disabled");

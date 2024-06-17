@@ -42,6 +42,43 @@ class masterReferensiController extends BaseController
 
     }
 
+    public function fetchActiveSesi(){
+        $tanggal_antrian = date('Y-m-d');
+        $referensi = new masterReferensiModel();
+        $data_referensi = $referensi->getReferensiByKodeKategori('set_antrian');
+        // dd($data_referensi);
+        
+        foreach ($data_referensi as $row) {
+            if ($row['nama_referensi'] == 'total_sesi') {
+                    $total_sesi = $row['kode_referensi'];
+            }  
+        }
+        $timeNow = date('H:i:s');
+        
+        for ($i=1; $i <= $total_sesi; $i++) { 
+            foreach ($data_referensi as $data) {
+                if ($data['nama_referensi'] == 'Sesi ' . $i) {
+                    $dataSesi = explode(' - ', $data['kode_referensi']);
+                    $sesi[$i] = "Sesi " . $i . " (" . $dataSesi[0] . " WIB)";
+                }
+            }
+        }
+
+        if($sesi){
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => $sesi,
+                'status' => '200'
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Data tidak ditemukan',
+                'status' => '404'
+            ]);
+        }
+    }
+
     public function ajaxDataTables()
     {
         $builder = $this->masterReferensiModel->getReferensi();
@@ -192,6 +229,7 @@ class masterReferensiController extends BaseController
             'status' => '200'
         ]);
     }
+    
     
 }
 ?>

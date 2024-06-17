@@ -412,7 +412,7 @@ $(document).on('click', '.detailsAntrian', function() {
                     $("#status4").attr('selected', 'selected');
                     break;
                 default:
-                    $("#status1").attr('selected', 'selected');
+                    $("#status0").attr('selected', 'selected');
                     break;
 
             }

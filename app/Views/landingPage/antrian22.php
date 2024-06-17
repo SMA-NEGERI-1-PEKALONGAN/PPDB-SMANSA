@@ -169,10 +169,11 @@ h6 {
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label for="kode_pendaftaran">Nomor peserta
+                        <label for="kode_pendaftaran">Kode
+                            Pendaftaran
                             PPDB<span class="rq">*</span></label></label>
                         <input type="text" class="form-control required" id="kode_pendaftaran" name="kode_pendaftaran"
-                            placeholder="Masukan nomor peserta PPDB">
+                            placeholder="Masukan kode pendaftaran PPDB">
                         <div class="form-control-feedback " id="errorkode_pendaftaran"></div>
                     </div>
                 </div>
@@ -398,7 +399,7 @@ h6 {
                                                         </li>
                                                         <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
                                                         <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
+                                                        <li class="mb-2">5. Kartu Keluarga (KK).
                                                         </li>
                                                         <li class="pb-2">6. Surat penugasan dari instansi/kantor
                                                         </li>
@@ -433,6 +434,8 @@ h6 {
                                                         <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
                                                         <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
                                                         <li class="mb-2">5. Kartu Keluarga (KK)
+                                                            diwilayah
+                                                            kota/kab satpen yang dipilih.
                                                         </li>
                                                         <li class="pb-2">6. Surat keterangan prestasi</li>
                                                         <li class="pb-2">7. Piagam prestasi(jika ada)</li>
@@ -597,7 +600,6 @@ h6 {
         </div>
     </div>
 </div>
-
 <?= $this->endSection('content') ?>
 
 <?= $this->section('script') ?>
@@ -610,16 +612,46 @@ const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', '
 ];
 const dataAntrian = [];
 
-function set_clock(date_now, set_date, pesan) {
+function set_clock(date_now) {
+    function convertTZ(date, tzString) {
+        return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {
+            timeZone: tzString
+        }));
+    }
 
     function DateRange() {
+        let dateNow = convertTZ(new Date(), "Asia/Jakarta");
+        let set_date = convertTZ(date_now, "Asia/Jakarta");
+        // alert(dateNow);
+        let date;
+        if (set_date > dateNow) {
+            date = set_date;
+            date.setHours(0, 5, 0, 0); // Set time to 00:05:00.000
 
-        const date = set_date;
+            var dates = date.toLocaleDateString('id-ID', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
 
-        $('#pesan').text(pesan);
+            $('#pesan').text('Pendaftaran antrean dapat dilakukan pada tanggal ' + dates +
+                ' pukul 00:00 WIB s.d 15:00 WIB');
+
+        } else {
+            date = convertTZ(new Date(), "Asia/Jakarta");
+            date.setHours(5, 0, 0, 0); // Set time to 00:05:00.000
+
+            if (dateNow.getHours() >= 15) {
+                date.setDate(date.getDate() + 1);
+                // hide form
+                $("#form_tambah_antrian").hide();
+            }
+
+            $('#pesan').text(
+                'Pendaftaran antrean dapat dilakukan setiap senin s.d jumat pukul 00:00 WIB s.d 15:00 WIB');
+        }
 
         return date;
-
     }
 
     $("#clock-c").countdown(DateRange(), function(event) {
@@ -647,16 +679,15 @@ function set_clock(date_now, set_date, pesan) {
     });
 }
 
-
 function fetch_set_antrean() {
     $.ajax({
-        url: '<?= base_url('fetchFilterAntrean'); ?>',
+        url: '<?= base_url('fect_total_antrian'); ?>',
         type: 'GET',
         success: function(response) {
             if (response.status == '200') {
-                set_clock(response.data.dateTimeNow, response.data.dateTime, response.data.pesan);
-                // $('#total_antrian').text(response.data.total_antrian);
                 // $('#max_antrian').text(response.data.max_antrian);
+                // $('#total_antrian').text(response.data.totalAntrian);
+                set_clock(response.data.tanggalActive);
             } else {
                 getSwall(response.status, response.data);
             }
@@ -793,6 +824,7 @@ $('#form_syarat_ketentuan').submit(function(e) {
 });
 
 // btn link
+// open new tabs
 $(document).on('click', '.btn_link', function(e) {
     e.preventDefault();
     let link = $(this).attr('id');

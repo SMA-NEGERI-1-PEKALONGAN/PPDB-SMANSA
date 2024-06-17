@@ -10,7 +10,8 @@
                         <h4 class="text-blue h4">Data Antrian</h4>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addAntrian" type="button">
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addAntrian" type="button"
+                            id="btn_tambah_antrian">
                             <i class="icon-copy fa fa-plus" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -33,6 +34,7 @@
     </div>
 </div>
 
+<!-- tambah -->
 <div class="modal fade" id="addAntrian" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -45,7 +47,7 @@
                     ×
                 </button>
             </div>
-            <form id="form_tambah_antrian" enctype="multipart/form-data">
+            <form id="form_tambah_antrian" enctype="multipart/form-data" method="post">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="nama_siswa" class="col-sm-4 col-form-label">Nama Siswa<span
@@ -128,7 +130,35 @@
                             <div class="form-control-feedback " id="errorjalur_pendaftaran"></div>
                         </div>
                     </div>
+                    <div class="form-group row ">
+                        <label for="tanggal_antrian" class="col-sm-4 col-form-label">Tanggal Antrian<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control required" id="tanggal_antrian" name="tanggal_antrian"
+                                placeholder="Tanggal Antrian ">
+                            <div class="form-control-feedback " id="errortanggal_antrian"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="sesi_antrian" class="col-sm-4 col-form-label">Sesi Antrian<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <select class="form-control required" id="sesi_antrian" name="sesi_antrian">
+                                <option value="">Pilih Sesi Antrian</option>
+                            </select>
+                            <div class="form-control-feedback " id="errorsesi_antrian"></div>
+                        </div>
+                    </div>
 
+                    <div class="form-group row">
+                        <label for="no_antrian" class="col-sm-4 col-form-label">No Antrean<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control required" id="no_antrian" name="no_antrian"
+                                placeholder="Masukan no antrean ">
+                            <div class="form-control-feedback " id="errorno_antrian"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -243,13 +273,182 @@
                             placeholder="Tanggal Lahir" readonly>
                     </div>
                 </div>
-
+                <div class="form-group row">
+                    <label for="created_at" class="col-sm-4 col-form-label">Dibuat</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="detailcreated_at" name="created_at"
+                            placeholder="Dibuat" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="updated_at" class="col-sm-4 col-form-label">Diubah</label></label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="detailupdated_at" name="updated_at"
+                            placeholder="Diubah" readonly>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                     Tutup
                 </button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- edit antrian -->
+<div class="modal fade" id="editAntrian" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">
+                    Edit Antrian
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+            </div>
+            <form id="form_edit_antrian" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="nama_siswa" class="col-sm-4 col-form-label">Nama Siswa<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control required" id="editnama_siswa" name="nama_siswa"
+                                placeholder="Masukan nama">
+                            <div class="form-control-feedback " id="erroreditnama_siswa"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nisn" class="col-sm-4 col-form-label">Nisn<span class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control required" id="editnisn" name="nisn"
+                                placeholder="Masukan NSIN">
+                            <div class="form-control-feedback" id="erroreditnisn"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="jenis_kelamin" class="col-sm-4 col-form-label">Jenis Kelamin<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <select class="form-control required" id="editjenis_kelamin" name="jenis_kelamin">
+                                <option value="">Pilih Jenis Kelamin</option>
+                                <option value="L">Laki-laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
+                            <div class="form-control-feedback " id="erroreditjenis_kelamin"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="kode_pendaftaran" class="col-sm-4 col-form-label">Kode Pendaftaran<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control required" id="editkode_pendaftaran"
+                                name="kode_pendaftaran" placeholder="Masukan kode pendaftaran ">
+                            <div class="form-control-feedback " id="erroreditkode_pendaftaran"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="asal_sekolah" class="col-sm-4 col-form-label">Asal Sekolah<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control required" id="editasal_sekolah" name="asal_sekolah"
+                                placeholder="Masukan asal sekolah ">
+                            <div class="form-control-feedback " id="erroreditasal_sekolah"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="no_tlp" class="col-sm-4 col-form-label">No telpon<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control required" id="editno_tlp" name="no_tlp"
+                                placeholder="Masukan no telpom ">
+                            <div class="form-control-feedback " id="erroreditno_tlp"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="alamat" class="col-sm-4 col-form-label">Alamat<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control required" id="editalamat" name="alamat"
+                                placeholder="Masukan alamat "></textarea>
+                            <div class="form-control-feedback " id="erroreditalamat"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row ">
+                        <label for="jalur_pendaftaran" class="col-sm-4 col-form-label">Jalur Pendaftaran<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <select class="form-control required" id="editjalur_pendaftaran" name="jalur_pendaftaran">
+                                <option value="">Pilih Jalur Pendaftaran</option>
+                                <option value="Zonasi">Zonasi</option>
+                                <option value="Afirmasi">Afirmasi</option>
+                                <option value="Perpindahan Orang Tua">Perpindahan Orang Tua</option>
+                                <option value="Prestasi">Prestasi</option>
+                            </select>
+                            <div class="form-control-feedback " id="erroreditjalur_pendaftaran"></div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="editid" name="id">
+                    <div class="form-group row ">
+                        <label for="tanggal_antrian" class="col-sm-4 col-form-label">Tanggal Antrian<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control required" id="edittanggal_antrian"
+                                name="tanggal_antrian" placeholder="Tanggal Antrian ">
+                            <div class="form-control-feedback " id="erroredittanggal_antrian"></div>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="sesi_antrian" class="col-sm-4 col-form-label">Sesi Antrian<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <select class="form-control required" id="editsesi_antrian" name="sesi_antrian">
+                            </select>
+                            <div class="form-control-feedback " id="erroreditsesi_antrian"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="no_antrian" class="col-sm-4 col-form-label">No Antrean<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control required" id="editno_antrian" name="no_antrian"
+                                placeholder="Masukan no antrean ">
+                            <div class="form-control-feedback " id="erroreditno_antrian"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="status_antrian" class="col-sm-4 col-form-label">Status<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-8">
+                            <select class="form-control required" id="editstatus_antrian" name="status_antrian">
+                                <option value="">Pilih Status Antrian</option>
+                                <option value="0" id="status0">Tidak Aktif</option>
+                                <option value="1" id="status1">Check In</option>
+                                <option value="2" id="status2">Pemberkasan</option>
+                                <option value="3" id="status3">Selesai</option>
+                                <option value="4" id="status4">Bermasalah</option>
+                            </select>
+                            <div class="form-control-feedback " id="erroreditstatus_antrian"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Batal
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="btn_edit_antiran">
+                        Edit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -313,8 +512,33 @@ function getSwall(status, message) {
 }
 
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp', 'alamat',
-    'jalur_pendaftaran', 'tanggal_antrian',
+    'jalur_pendaftaran', 'tanggal_antrian', 'sesi_antrian', 'no_antrian'
 ];
+
+let sesi_antrian = [];
+
+// fetch active sesi
+function fetchActiveSesi() {
+    $.ajax({
+        url: '<?= base_url('Admin/Referensi/fetchActiveSesi') ?>',
+        method: 'get',
+        dataType: 'json',
+        success: function(response) {
+            sesi_antrian = response.data;
+        }
+    });
+}
+
+fetchActiveSesi();
+
+// click the button add
+$(document).on('click', '#btn_tambah_antrian', function() {
+    $('#sesi_antrian').html('');
+    $('#sesi_antrian').append('<option value="">Pilih Sesi Antrian</option>');
+    for (let i = 1; i <= Object.keys(sesi_antrian).length; i++) {
+        $('#sesi_antrian').append('<option value="' + sesi_antrian[i] + '">' + sesi_antrian[i] + '</option>');
+    }
+});
 
 // tambah user
 $("#form_tambah_antrian").submit(function(e) {
@@ -327,7 +551,7 @@ $("#form_tambah_antrian").submit(function(e) {
         $("#btn_tambah_antiran").attr("disabled", "disabled");
         $("#btn_tambah_antiran").html("Loading.....");
         $.ajax({
-            url: '<?= base_url('Admin/Antrian/save') ?>',
+            url: '<?= base_url('Admin/Antrian/saveAntrian') ?>',
             method: 'post',
             data: formData,
             contentType: false,
@@ -389,11 +613,14 @@ $(document).on('click', '.detailsAntrian', function() {
                 .qr_code);
             $("#detailno_antrian").html(response.data.no_antrian);
             $("#detailsesi_antrian").html(response.data.sesi_antrian);
+            $("#detailstatus_antrian").html(response.data.status_antrian);
+            $("#detailcreated_at").val(response.data.created_at);
+            $("#detailupdated_at").val(response.data.updated_at);
         }
     });
 });
 
-// hapus user
+// hapus antrian
 $(document).on('click', '.delete_antrian', function() {
     var id = $(this).attr('id');
     swal({
@@ -423,34 +650,129 @@ $(document).on('click', '.delete_antrian', function() {
             }
         });
 });
+
 // copy clipboard
+$(document).on('click', '.copy_clipboard', function() {
+    var id = $(this).attr('id');
+    var copyText = document.getElementById("kode_pendaftaran" + id);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    swal({
+        title: "Berhasil",
+        text: "Kode pendaftaran berhasil di copy",
+        type: "success",
+        showCancelButton: false,
+        showConfirmButton: true,
+        timer: 1500
+    })
+});
 
-// Function to handle barcode input
-function handleBarcodeInput(event) {
-    // Check if "Enter" key is pressed
-    if (event.keyCode === 13) {
-        // Get the value from the input field
-        var barcode = document.getElementById("barcodeInput").value;
+// edit antrian
+$(document).on('click', '.edit_antrian', function() {
+    var id = $(this).attr('id');
+    $.ajax({
+        url: '<?= base_url('Admin/Antrian/edit') ?>',
+        method: 'post',
+        data: {
+            id: id
+        },
+        dataType: 'json',
+        success: function(response) {
+            $('#editAntrian').modal('show');
+            listFields.forEach(function(item) {
+                $("#edit" + item).val(response.data[item]);
+            });
+            $("#editid").val(response.data.id_antrian);
+            $("#edittanggal_antrian").val(response.data.tanggal_antrian);
+            $("#editsesi_antrian").html('');
+            $("#editsesi_antrian").append('<option value="">Pilih Sesi Antrian</option>');
+            for (let i = 1; i <= Object.keys(sesi_antrian).length; i++) {
+                if (sesi_antrian[i] == response.data.sesi_antrian) {
+                    $("#editsesi_antrian").append('<option value="' + sesi_antrian[i] +
+                        '" selected>' +
+                        sesi_antrian[i] + '</option>');
+                } else {
+                    $("#editsesi_antrian").append('<option value="' + sesi_antrian[i] + '">' +
+                        sesi_antrian[
+                            i] + '</option>');
+                }
+            }
+            switch (response.data.status_antrian) {
+                case '1':
+                    $("#status1").attr('selected', 'selected');
+                    break;
+                case '2':
+                    $("#status2").attr('selected', 'selected');
+                    break;
+                case '3':
+                    $("#status3").attr('selected', 'selected');
+                    break;
+                case '4':
+                    $("#status4").attr('selected', 'selected');
+                    break;
+                default:
+                    $("#status0").attr('selected', 'selected');
+                    break;
 
-        // Do something with the barcode data, like sending it to the server or displaying it
-        console.log("Barcode scanned:", barcode);
+            }
+        }
+    });
+});
 
-        // Clear the input field for the next scan
-        document.getElementById("barcodeInput").value = "";
+// edit user submit
+$("#form_edit_antrian").submit(function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    if (!this.checkValidity()) {
+        e.preventDefault();
+        $(this).addClass('form-control-success');
+    } else {
+        $("#btn_edit_antiran").attr("disabled", "disabled");
+        $("#btn_edit_antiran").html("Loading.....");
+        $.ajax({
+            url: '<?= base_url('Admin/Antrian/update') ?>',
+            method: 'post',
+            data: formData,
+            contentType: false,
+            cache: false,
+            processData: false,
+            dataType: 'json',
+            success: function(response) {
+                if (response.error) {
+                    $.each(response.data, function(key, value) {
+                        if (value != '') {
+                            $("#" + key).addClass('form-control-danger');
+                            $("#error" + key).addClass('has-danger');
+                            $("#error" + key).html(value);
+                        } else {
+                            $("#" + key).removeClass('form-control-danger');
+                            $("#" + key).addClass('form-control-success');
+                            $("#error" + key).html('');
+                            $("#error" + key).removeClass('has-danger');
+                        }
+                    });
+                    $("#btn_edit_antiran").removeAttr("disabled");
+                    $("#btn_edit_antiran").html("Edit");
+                } else {
+                    $("#form_edit_antrian")[0].reset();
+                    $("#editAntrian").modal('hide');
+                    $('#tableAntrian').DataTable().ajax.reload();
+                    getSwall(response.status, response.data);
+                    listFields.forEach(function(item) {
+                        $("#" + item).removeClass('form-control-danger');
+                        $("#" + item).removeClass('form-control-success');
+                        $("#error" + item).html('');
+                        $("#error" + item).removeClass('has-danger');
+                    });
+
+                    $("#btn_edit_antiran").removeAttr("disabled");
+                    $("#btn_edit_antiran").html("Edit");
+                }
+            }
+        });
     }
-}
-
-// Attach event listener to input field
-document.getElementById("barcodeInput").addEventListener("keypress", handleBarcodeInput);
-
-
-// Get the value from the input field
-var barcode = document.getElementById("barcodeInput").value;
-
-// Do something with the barcode data, like sending it to the server or displaying it
-console.log("Barcode scanned:", barcode);
-
-document.getElementById("barcodeInput").value = "";
+});
 </script>
 
 <?= $this->endSection('dataTables');?>s

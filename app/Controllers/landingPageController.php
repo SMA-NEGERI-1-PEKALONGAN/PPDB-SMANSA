@@ -213,6 +213,64 @@ class landingPageController extends BaseController
         ];
         return view('landingPage/printAntrean', $data);
     }
+
+    public function getDataFormAntrean(){
+        $masterReferensiModel = new masterReferensiModel();
+        $masterReferensi = $masterReferensiModel->getReferensiByKodeKategori('set_antrian');
+
+        foreach($masterReferensi as $row){
+            if ($row['nama_referensi'] == 'start_antrian') {
+                $start_antrian = str_replace('.', ':', $row['kode_referensi']) . ':00';
+            }
+            if ($row['nama_referensi'] == 'close_antrian') {
+                $close_antrian = str_replace('.', ':', $row['kode_referensi']) . ':00';
+            }
+            if ($row['nama_referensi'] == 'status_antrian') {
+                $status_antrian = $row['kode_referensi'];
+            }
+            if($row['nama_referensi'] == 'tanggal_antrian'){
+                $tanggal_antrian = $row['kode_referensi'];
+            }
+        }
+
+        $dateNow = date('Y-m-d');
+        $timeNow = date('H:i:s');
+        $pesan = '';
+        $dateTimeNow  = $dateNow . ' ' . $timeNow;
+         
+        if(strtotime($dateNow) < strtotime($tanggal_antrian)){
+            $dateTime = $tanggal_antrian . ' ' . $start_antrian;
+            
+            $pesan = 'Pendaftaran antrean dapat dilakukan pada tanggal ' . date('d F Y', strtotime($tanggal_antrian)) . ' pukul ' . $start_antrian . ' WIB s.d. ' . $close_antrian . ' WIB';
+            
+        }else{
+            // + 1 hari
+            if(strtotime($timeNow) > strtotime($close_antrian)){
+                $dateTime = date('Y-m-d', strtotime($dateNow . ' +1 day')) . ' ' . $start_antrian;
+            }else{
+                $dateTime = $dateNow . ' ' . $start_antrian;
+            }
+
+            $pesan = 'Pendaftaran antrean dapat dilakukan pada tanggal setiap hari senin s.d. jumat pukul ' . $start_antrian . ' WIB s.d ' . $close_antrian . ' WIB';
+        }
+        
+
+        $data =[
+            'start_antrian' => $start_antrian, 
+            'close_antrian' => $close_antrian,
+            'status_antrian' => $status_antrian,
+            'tanggal_antrian' => $tanggal_antrian,
+            'dateTime' => $dateTime,
+            'dateTimeNow' => $dateTimeNow,
+            'pesan' => $pesan
+        ];
+        
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => $data,
+            'status' => '200'
+        ]);
+    }
 }
 
 ?>
