@@ -698,6 +698,7 @@ $(document).on('click', '.edit_antrian', function() {
                             i] + '</option>');
                 }
             }
+
             switch (response.data.status_antrian) {
                 case '1':
                     $("#status1").attr('selected', 'selected');

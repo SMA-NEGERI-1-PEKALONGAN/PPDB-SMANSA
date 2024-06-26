@@ -95,7 +95,13 @@ h6 {
 }
 </style>
 
+<?php 
+    $macAddrs =  exec('getmac');
+    $macAddrs = substr($macAddrs, 0, 17);
+    $macAddrs = str_replace(' ', '', $macAddrs);
 
+    // echo $macAddrs;
+ ?>
 <div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
     <div class="clearfix">
         <div class="pull-left">
@@ -235,6 +241,9 @@ h6 {
                     </div>
                 </div>
             </div>
+            <input type="hidden" class="form-control required" id="macAddress" name="macAddress"
+                placeholder="Masukan MC Address " value="<?= $macAddrs; ?>">
+
 
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" id="btn_tambah_antiran">
@@ -608,6 +617,7 @@ h6 {
 const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
     'alamat', 'jalur_pendaftaran'
 ];
+
 const dataAntrian = [];
 
 function set_clock(date_now, set_date, pesan) {
@@ -663,6 +673,8 @@ function fetch_set_antrean() {
         }
     })
 }
+
+
 
 fetch_set_antrean();
 
