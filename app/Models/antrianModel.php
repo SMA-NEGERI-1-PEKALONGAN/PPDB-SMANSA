@@ -9,6 +9,8 @@ class antrianModel extends Model
     protected $table = 'antrian';
     protected $primaryKey = 'id_antrian';
     protected $allowedFields = ['id_antrian', 'kode_pendaftaran', 'nama_siswa', 'nisn', 'status_antrian', 'asal_sekolah', 'alamat', 'no_tlp', 'jenis_kelamin', 'jalur_pendaftaran','qr_code', 'tanggal_antrian','sesi_antrian', 'no_antrian', 'created_at', 'updated_at', 'loket', 'ket_antrian' ];
+    protected $useTimestamps = true;
+    // protected $updatedField = 'updated_at';
 
     public function getAntrian($id = false)
     {

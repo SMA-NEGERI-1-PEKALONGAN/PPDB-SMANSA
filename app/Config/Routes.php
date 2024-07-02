@@ -21,7 +21,9 @@ $routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
 
 $routes->post('updateNotifikasi', 'landingPageController::updateNotifikasi');
 
-$routes->get('fect_total_antrian', 'landingPageController::fect_total_antrian');
+$routes->get('fect_total_antrian', 'landingPageController::fect_total_antrian');    
+
+$routes->get('fetchFilterAntrean', 'landingPageController::getDataFormAntrean');
 
 $routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1');
 
@@ -53,7 +55,8 @@ $routes->group('Admin', function ($routes) {
         $routes->post('edit', 'masterReferensiController::edit');
         $routes->post('update', 'masterReferensiController::update');
         $routes->get('fetchKodeKategori/(:segment)', 'masterReferensiController::fetchKodeKategori/$1');
-    });
+        $routes->get('fetchActiveSesi', 'masterReferensiController::fetchActiveSesi');
+        });
 
     $routes->group('User', function ($routes) {
         $routes->get('/', 'usersController::index');
@@ -72,6 +75,7 @@ $routes->group('Admin', function ($routes) {
         $routes->get('/', 'antrianController::index');
         $routes->get('DataTables', 'antrianController::ajaxDataTables');
         $routes->post('save', 'antrianController::store');
+        $routes->post('saveAntrian', 'antrianController::saveAntrian');
         $routes->post('delete', 'antrianController::destroy');
         $routes->post('edit', 'antrianController::edit');
         $routes->post('update', 'antrianController::update');
@@ -85,6 +89,8 @@ $routes->group('Admin', function ($routes) {
         $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
         $routes->get('AjaxAntrianNotActive', 'antrianController::AjaxAntrianNotActive');
         $routes->get('AjaxAntrianBermasalah', 'antrianController::AjaxAntrianBermasalah');
+        $routes->get('Laporan', 'antrianController::Laporan');
+        $routes->get('ajaxLaporan', 'antrianController::ajaxajaxLaporan');
     });
 
     $routes->group('Setting', function ($routes) {

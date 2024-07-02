@@ -147,14 +147,14 @@ function fetchNotifikasi() {
         success: function(response) {
             if (response.status == '200') {
                 let msg = response.data.isi_notifikasi;
-                playAudio(msg);
-                fetchAntrian();
                 updateNotifikasi(response.data.id_notifikasi);
+                fetchAntrian();
+                playAudio(msg);
             } else {
                 setTimeout(function() {
                     fetchNotifikasi();
                     fetchAntrian();
-                }, 1000);
+                }, 3000);
             }
         }
     });
@@ -180,7 +180,7 @@ function updateNotifikasi(id) {
 setTimeout(function() {
     fetchNotifikasi();
     fetchAntrian();
-}, 1000);
+}, 3000);
 
 // when click next button play audio bell
 let play = document.getElementById('play');

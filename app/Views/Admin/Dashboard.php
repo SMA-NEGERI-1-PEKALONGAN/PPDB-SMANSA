@@ -210,7 +210,7 @@
                     <label for="ket_antrian" class="col-sm-4 col-form-label">Ket Antrian</label></label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="detailket_antrian" name="ket_antrian"
-                            placeholder="Tanggal Lahir" readonly>
+                            placeholder="Ket Antrian" readonly>
                     </div>
                 </div>
 

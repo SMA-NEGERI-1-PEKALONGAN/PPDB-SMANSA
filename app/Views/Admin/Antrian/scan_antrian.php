@@ -174,6 +174,7 @@ video {
                         <label for="status_antrian" class="col-sm-4 col-form-label">Status</label></label>
                         <div class="col-sm-8">
                             <select class="form-control" id="berkasstatus_antrian" name="status_antrian">
+                                <option value="0" id="status0">Tidak Aktif</option>
                                 <option value="1" id="status1">Check In</option>
                                 <option value="2" id="status2">Pemberkasan</option>
                                 <option value="3" id="status3">Selesai</option>
@@ -303,6 +304,10 @@ function getberkasAntrian(id) {
                     case '4':
                         $("#status4").attr('selected', 'selected');
                         break;
+                    default:
+                        $("#status0").attr('selected', 'selected');
+                        break;
+
                 }
             } else {
                 getSwall(response.status, response.data);
