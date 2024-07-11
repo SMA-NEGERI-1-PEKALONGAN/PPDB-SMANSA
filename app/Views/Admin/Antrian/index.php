@@ -7,7 +7,7 @@
             <div class="pd-20">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h4 class="text-blue h4">Data Antrian</h4>
+                        <h4 class="text-blue h4">Data Antrean</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addAntrian" type="button"
@@ -41,7 +41,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Tambah Antrian
+                    Tambah Antrean
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×

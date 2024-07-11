@@ -7,6 +7,10 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'landingPageController::index');
 
+$routes->get('Pengumuman', 'landingPageController::Pengumuman');
+
+$routes->get('FORM-DU', 'landingPageController::Form');
+
 $routes->get('Antrean', 'landingPageController::Antrian');
 
 $routes->get('Cari', 'landingPageController::Cari');
@@ -25,7 +29,11 @@ $routes->get('fect_total_antrian', 'landingPageController::fect_total_antrian');
 
 $routes->get('fetchFilterAntrean', 'landingPageController::getDataFormAntrean');
 
+$routes->get('fetchFilterPengumuman', 'landingPageController::getDataPengumuman');
+
 $routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1');
+
+$routes->get('DataTablesDataSiswa', 'dataSiswaController::ajaxDataTables');
 
 // auth route
 $routes->group('Auth', function ($routes) {
@@ -91,6 +99,22 @@ $routes->group('Admin', function ($routes) {
         $routes->get('AjaxAntrianBermasalah', 'antrianController::AjaxAntrianBermasalah');
         $routes->get('Laporan', 'antrianController::Laporan');
         $routes->get('ajaxLaporan', 'antrianController::ajaxajaxLaporan');
+    });
+
+    $routes->group('DataSiswa', function ($routes) {
+        $routes->get('/', 'dataSiswaController::index');
+        $routes->get('DataTables', 'dataSiswaController::ajaxDataTables');
+        $routes->post('Import', 'dataSiswaController::importSiswa');
+        $routes->post('deleteAll', 'dataSiswaController::deleteAll');
+    });
+
+    $routes->group('waGateway', function ($routes) {
+        $routes->get('/', 'waGatewayController::index');
+        $routes->post('startWaGateway', 'waGatewayController::startWaGateway');
+        $routes->post('sendMessage', 'waGatewayController::sendMessage');
+        $routes->get('getStatus', 'waGatewayController::getStatus');
+        $routes->get('getBarCode', 'waGatewayController::getBarCode');
+        $routes->post('stopWaGateway', 'waGatewayController::stopWaGateway');
     });
 
     $routes->group('Setting', function ($routes) {

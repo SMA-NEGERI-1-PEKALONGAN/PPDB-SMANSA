@@ -108,7 +108,8 @@
                     <li><a class="nav-link scrollto" href="#ketentuan">Ketentuan</a></li>
                     <li><a class="nav-link scrollto" href="#alur">Alur</a></li>
                     <li><a class="nav-link scrollto" href="#kontak">Kontak</a></li>
-                    <li><a class="nav-link scrollto" href="<?= base_url('Antrean')?>">Antrean</a></li>
+                    <!-- <li><a class="nav-link scrollto" href="<?= base_url('Antrean')?>">Antrean</a></li> -->
+                    <li><a class="nav-link scrollto" href="<?= base_url('Pengumuman')?>">Pengumuman</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->

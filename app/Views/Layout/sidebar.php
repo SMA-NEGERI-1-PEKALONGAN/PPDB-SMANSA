@@ -41,13 +41,32 @@
                                 class="<?= $active == 'Referensi'  ? 'active' : '' ?>">Master Referensi</a></li>
                         <li><a href="<?= base_url('Admin/User')?>"
                                 class="<?= $active == 'Users'  ? 'active' : '' ?>">Users</a></li>
+                        <!-- <li><a href="<?= base_url('Admin/waGateway')?>"
+                                class="<?= $active == 'waGateway'  ? 'active' : '' ?>">WA Gateway</a></li> -->
                     </ul>
+                </li>
+                <li class="dropdown <?= $active == 'waGateway' || $active == 'sendWa' ? 'show' : '' ?>">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-whatsapp"></span><span class="mtext">WA Gateway</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="<?= base_url('Admin/waGateway')?>"
+                                class="<?= $active == 'waGateway'  ? 'active' : '' ?>">Setting</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="<?= base_url('Admin/DataSiswa')?>"
+                        class="dropdown-toggle no-arrow <?= $active == 'data_siswa'  ? 'active' : '' ?>">
+                        <span class="micon bi bi-people"></span>
+                        <span class="mtext">Data Siswa
+                            <img src="vendors/images/coming-soon.png" alt="" width="25" /></span>
+                    </a>
                 </li>
                 <?php endif; ?>
 
                 <li class="dropdown <?= $active == 'Antrian' || $active == 'Scan' ? 'show' : '' ?>">
                     <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon bi bi-card-checklist"></span><span class="mtext">Antrian</span>
+                        <span class="micon bi bi-card-checklist"></span><span class="mtext">Antrean</span>
                     </a>
                     <ul class="submenu">
                         <?php 
@@ -55,7 +74,7 @@
                             ?>
                         <li>
                             <a href="<?= base_url('Admin/Antrian')?>"
-                                class="<?= $active == 'Antrian'  ? 'active' : '' ?>">Daftar Antrian</a>
+                                class="<?= $active == 'Antrian'  ? 'active' : '' ?>">Daftar Antrean</a>
                         </li>
                         <?php endif; ?>
 
@@ -68,14 +87,26 @@
                         ?>
                         <li>
                             <a href="<?= base_url('Admin/Antrian/List')?>"
-                                class="<?= $active == 'List'  ? 'active' : '' ?>">List Antrian</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('Admin/Antrian/Laporan')?>"
-                                class="<?= $active == 'laporan-antrean'  ? 'active' : '' ?>">Laporan Antrian</a>
+                                class="<?= $active == 'List'  ? 'active' : '' ?>">List Antrean</a>
                         </li>
 
                         <?php endif; ?>
+                    </ul>
+                </li>
+
+
+                <li
+                    class="dropdown <?= $active == 'laporan_antrean' || $active == 'laporan_data_siswa' ? 'show' : '' ?>">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-file-earmark-text">
+
+                        </span><span class="mtext">Laporan</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="<?= base_url('Admin/laporan_antrean')?>"
+                                class="<?= $active == 'laporan_antrean '  ? 'active' : '' ?>">Laporan Antrean</a></li>
+                        <li><a href="<?= base_url('Admin/laporan_siswa')?>"
+                                class="<?= $active == 'laporan_siswa'  ? 'active' : '' ?>">Laporan Siswa</a></li>
                     </ul>
                 </li>
 

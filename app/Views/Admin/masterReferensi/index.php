@@ -21,7 +21,6 @@
                             <tr>
                                 <th class="table-plus">Nama</th>
                                 <th>Kode</th>
-                                <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -305,9 +304,6 @@ function dataTablesKategori() {
                 },
                 {
                     data: 'kode_kategori'
-                },
-                {
-                    data: 'status_kategori',
                 },
                 {
                     data: 'action',

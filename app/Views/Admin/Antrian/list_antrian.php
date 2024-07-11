@@ -9,7 +9,7 @@
                 <div class="widget-data">
                     <div class="weight-700 font-30 text-dark" id="total_antrian"></div>
                     <div class="font-15 text-secondary weight-500">
-                        Total Antrian
+                        Total Antrean
                     </div>
                 </div>
                 <div class="widget-icon">
@@ -26,7 +26,7 @@
                 <div class="widget-data">
                     <div class="weight-700 font-30 text-dark" id="antrian_active"></div>
                     <div class="font-15 text-secondary weight-500">
-                        Antrian Aktif
+                        Antrean Aktif
                     </div>
                 </div>
                 <div class="widget-icon" data-color="#09cc06">
@@ -42,7 +42,7 @@
             <div class="d-flex flex-wrap">
                 <div class="widget-data">
                     <div class="weight-700 font-30 text-dark" id="sisa_antrian"></div>
-                    <div class="font-15 text-secondary weight-500">Antrian tidak aktif</div>
+                    <div class="font-15 text-secondary weight-500">Antrean tidak aktif</div>
                 </div>
                 <div class="widget-icon">
                     <div class="icon" data-color="#ff5b5b">
@@ -58,7 +58,7 @@
                 <div class="widget-data">
                     <div class="weight-700 font-30 text-dark" id="antrian_now"></div>
                     <div class="font-15  text-secondary weight-500">
-                        Antrian saat ini
+                        Antrean saat ini
                     </div>
                 </div>
                 <div class="widget-icon">
@@ -78,7 +78,7 @@
             <div class="pd-20">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h4 class="text-blue h4">List Antrian</h4>
+                        <h4 class="text-blue h4">List Antrean</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <button class="btn btn-primary btn-sm" type="button" id="btn_next_antrian">
@@ -113,7 +113,7 @@
             <div class="pd-20">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h4 class="text-blue h4">List Antrian Bermasalah</h4>
+                        <h4 class="text-blue h4">List Antrean Bermasalah</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <button class="btn btn-primary btn-sm" type="button" id="btn_refresh_antrian">

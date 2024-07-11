@@ -144,7 +144,6 @@
         </div>
     </div>
 </div>
-
 <!-- modal view -->
 <div class="modal fade" id="viewuser" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">

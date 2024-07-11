@@ -222,7 +222,7 @@ class usersController extends BaseController
     {
         $data = [
             'title' => 'Setting',
-            'active' => 'Setting',
+            'active' => 'Dashboard',
         ];
         return view('Admin/Setting/index', $data);
     }

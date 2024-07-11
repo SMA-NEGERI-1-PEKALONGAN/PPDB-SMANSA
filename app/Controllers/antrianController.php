@@ -29,7 +29,7 @@ class antrianController extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Antrian',
+            'title' => 'Antrean',
             'active' => 'Antrian',
         ];
         return view('Admin/Antrian/index', $data);
@@ -572,7 +572,7 @@ class antrianController extends BaseController
 
     public function scan(){
         $data = [
-            'title' => 'Scan Antrian',
+            'title' => 'Scan Antrean',
             'active' => 'Scan',
         ];
         return view('Admin/Antrian/scan_antrian', $data);
@@ -708,7 +708,7 @@ class antrianController extends BaseController
 
     public function listAntrian(){
         $data = [
-            'title' => 'List Antrian',
+            'title' => 'List Antrean',
             'active' => 'List',
         ];
         return view('Admin/Antrian/list_antrian', $data);
@@ -879,28 +879,6 @@ class antrianController extends BaseController
         }
     }
 
-
-    // laporan
-    public function Laporan(){
-        $data = [
-            'title' => 'Laporan Antrian',
-            'active' => 'laporan-antrean',
-        ];
-        return view('Admin/Antrian/laporan', $data);
-    }
-
-    public function ajaxLaporan()
-    {    $db = db_connect();
-        $builder = $db->table('antrian')->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at');
-         return DataTable::of($builder)
-        ->filter(function ($builder, $request) {
-            
-            if ($request->tanggal_antrian)
-                $builder->where('tanggal_antrian', $request->tanggal_antrian);
-        
-        })
-        ->toJson();
-    }
     
 }
 ?>

@@ -1,20 +1,12 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <!-- Basic Page Info -->
-    <meta charset="utf-8" />
-    <title>
-        <?= $title; ?>
-    </title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>PPDB 2024/2025 (DAFTAR ULANG)</title>
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
-
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -28,14 +20,29 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/core.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/icon-font.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.css" />
     <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/style.css" />
 
     <link rel="stylesheet" type="text/css"
         href="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.css" />
 
-    <style>
-    .navbar {
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <style type="text/css">
+    html {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: 0;
+    }
+
+    <style>.navbar {
         background-color: ;
         color: black;
     }
@@ -121,6 +128,10 @@
         .main-container {
             margin-top: 50px;
         }
+
+        iframe {
+            top: 20px;
+        }
     }
 
     @media (max-width: 767px) {
@@ -147,50 +158,13 @@
         color: black;
     }
     </style>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
-        crossorigin="anonymous"></script>
-
-    <script>
-    window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-        if (currentScrollPos > 0) {
-            document.querySelector('.navbar').classList.add('navbar-shrink');
-        } else {
-            document.querySelector('.navbar').classList.remove('navbar-shrink');
-        }
-    }
-
-    // change icons navbar to close
-    </script>
-
-
 </head>
 
-<body class="sidebar-shrink">
-    <!-- <div class="pre-loader">
-        <div class="pre-loader-box">
-            <div class="loader-logo">
-                <img src="vendors/images/deskapp-logo.svg" alt="" />
-            </div>
-            <div class="loader-progress" id="progress_div">
-                <div class="bar" id="bar1"></div>
-            </div>
-            <div class="percent" id="percent1">0%</div>
-            <div class="loading-text">Loading...</div>  
-        </div>
-    </div> -->
-    <!-- navbar -->
-    <?php 
-    if($active != 'Views'  && $active != 'printAntrean'):
-        
-    ?>
+<body>
     <div class="row">
         <!-- list menu center -->
         <div class="col-md-12 mx-2">
-            <nav class="navbar navbar-expand-lg fixed-top">
+            <nav class="navbar navbar-expand-lg fixed-top navbar-shrink">
                 <a class="navbar-brand" href="#">
                     <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="" width="40" height="40" class=""
                         loading="lazy">
@@ -238,30 +212,17 @@
             </nav>
         </div>
     </div>
-    <?php endif; ?>
+    <!-- icon back -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+            d="M11.354 4.354a.5.5 0 0 1 0 .708L7.707 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0z" />
+        <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5z" />
+    </svg>
+    </a>
 
-    <div class="main-container" id="container-footer">
-        <div class="pd-ltr-20 xs-pd-20-10">
-            <div class="min-height-200px">
-                <!-- section -->
-                <?= $this->renderSection('content'); ?>
-            </div>
-        </div>
-        <?php 
-       if($active != 'Views'  && $active != 'printAntrean'):
-        ?>
-        <footer class="footer my-3">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    &copy; 2024 <strong><span>PPDB SMANSA</span></strong>. All Rights Reserved
-                </div>
-            </div>
-        </footer>
-        <?php endif; ?>
-    </div>
-
-    </div>
-
+    <iframe data-tally-src="https://tally.so/r/wbkGa1" width="100%" height="100%" frameborder="0" marginheight="0"
+        marginwidth="0" title="PPDB 2024/2025 (DAFTAR ULANG)"></iframe>
 
 
     <!-- js -->
@@ -271,82 +232,15 @@
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/layout-settings.js"></script>
     <script src="<?= base_url('Assets/'); ?>vendors/scripts/dashboard3.js"></script>
 
-
-    <script src="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/steps-setting.js"></script>
-
-    <script src="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
-
-
-    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-
-    <!-- Datatable Setting js -->
-    <?= $this->renderSection('dataTables');?>
-
-    <script type="text/javascript">
-    $('.navbar-toggler').click(function() {
-        if ($('#iconNavBar').hasClass('navbar-toggler-icon')) {
-            $('#iconNavBar').removeClass('navbar-toggler-icon');
-            $('#iconNavBar').addClass('bi bi-x');
-        } else {
-            $('#iconNavBar').removeClass('bi bi-x');
-            $('#iconNavBar').addClass('navbar-toggler-icon');
-        }
-    });
-
-    $('#btnBerkas').click(function() {
-        $('#tabBerkas').click();
-    });
-
-    $(document).on('focusout', '.required', function() {
-        const id = $(this).attr('id');
-        if ($(this).val() == '') {
-            $(this).addClass('form-control-danger');
-            $(`#error${id}`).html('Field ini tidak boleh kosong');
-            $(`#error${id}`).addClass('has-danger');
-        } else {
-            $(this).addClass('form-control-success');
-            $(this).removeClass('form-control-danger');
-            $(`#error${id}`).html('');
-            $(`#error${id}`).removeClass('has-danger');
-        }
-    });
-
-    // on keyup
-    $(document).on('keyup', '.required', function() {
-        const id = $(this).attr('id');
-        if ($(this).val() == '') {
-            $(this).addClass('form-control-danger');
-            $(`#error${id}`).html('Field ini tidak boleh kosong');
-            $(`#error${id}`).addClass('has-danger');
-        } else {
-            $(this).addClass('form-control-success');
-            $(this).removeClass('form-control-danger');
-            $(`#error${id}`).html('');
-            $(`#error${id}`).removeClass('has-danger');
-        }
-    });
-
-
-    function getSwall(status, message) {
-        swal({
-            title: message,
-            type: status == '200' ? 'success' : 'error',
-            showCancelButton: false,
-            showConfirmButton: true,
-            timer: 1500
-        })
-    }
+    <script script type="text/javascript">
+    // if ($('#iconNavBar').hasClass('navbar-toggler-icon')) {
+    //     $('#iconNavBar').removeClass('navbar-toggler-icon');
+    //     $('#iconNavBar').addClass('bi bi-x');
+    // } else {
+    //     $('#iconNavBar').removeClass('bi bi-x');
+    //     $('#iconNavBar').addClass('navbar-toggler-icon');
+    // }
     </script>
-
-    <?= $this->renderSection('script'); ?>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
-            style="display: none; visibility: hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 </body>
 
 </html>
