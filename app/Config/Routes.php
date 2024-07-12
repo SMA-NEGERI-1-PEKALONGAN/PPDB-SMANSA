@@ -107,6 +107,18 @@ $routes->group('Admin', function ($routes) {
         $routes->post('Import', 'dataSiswaController::importSiswa');
         $routes->post('deleteAll', 'dataSiswaController::deleteAll');
     });
+    $routes->group('chatBot', function ($routes) {
+        $routes->get('/', 'chatBotController::index');
+        $routes->get('DataTables', 'chatBotController::ajaxDataTables');
+        $routes->post('Import', 'chatBotController::importSiswa');
+        $routes->post('deleteAll', 'chatBotController::deleteAll');
+    });
+    $routes->group('DataSiswa', function ($routes) {
+        $routes->get('/', 'dataSiswaController::index');
+        $routes->get('DataTables', 'dataSiswaController::ajaxDataTables');
+        $routes->post('Import', 'dataSiswaController::importSiswa');
+        $routes->post('deleteAll', 'dataSiswaController::deleteAll');
+    });
 
     $routes->group('waGateway', function ($routes) {
         $routes->get('/', 'waGatewayController::index');

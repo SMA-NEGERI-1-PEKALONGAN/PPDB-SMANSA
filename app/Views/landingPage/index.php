@@ -18,6 +18,8 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <!-- Vendors CSS Files -->
     <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/aos/aos.css" rel="stylesheet">
     <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -1414,7 +1416,7 @@
                 <i class="bi bi-x-lg "></i>
             </button>
         </div>
-        <div class="chat_bot_body">
+        <div class="chat_bot_body" id="chat_bot_body">
 
             <div class="content_start" id="content_start">
                 <div class="chat_bot_body_content">
@@ -1457,7 +1459,7 @@
                     <div class="input-group-message">
                         <input type="text" class="" placeholder="Tulis pesan disini..." name="message" id="message"
                             required>
-                        <button class="send_message" type="button" id="send_message">
+                        <button class="send_message" type="button" id="send_message" disabled>
                             <i class="bi bi-telegram"></i>
                         </button>
                     </div>
@@ -1786,6 +1788,7 @@
 
     <!-- Vendor JS Files -->
     <div id="preloader"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Vendors JS Files -->
@@ -1807,6 +1810,7 @@
         $('#chat_bot').toggle();
         $('#btn_chat_bot').addClass('d-none');
         $('#time_now').text(timeNow());
+        $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
     });
 
     // close chat bot
@@ -1825,6 +1829,25 @@
         e.stopPropagation();
     });
 
+    // disable button when input empty
+    $(document).on('keyup', '#name_user', function() {
+        let name = $(this).val();
+        if (name === '') {
+            $('#start_message').prop('disabled', true);
+        } else {
+            $('#start_message').prop('disabled', false);
+        }
+    });
+
+    // disable button when input empty
+    $(document).on('keyup', '#message', function() {
+        let message = $(this).val();
+        if (message === '') {
+            $('#send_message').prop('disabled', true);
+        } else {
+            $('#send_message').prop('disabled', false);
+        }
+    });
 
     // time now
     function timeNow() {
@@ -1867,6 +1890,7 @@
         return true;
     }
 
+    // animate typing
     function animateTyping(text, element) {
         element.innerHTML = "";
         let index = 0;
@@ -1932,8 +1956,8 @@
             $('#content_start').addClass('d-none');
             $('#chat_bot_body_content').removeClass('d-none');
             $('#chat').html(chat);
-            let chatContainer = document.getElementById('chat_bot_body_content');
-            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
 
             // Animate typing for each message
             // data.forEach(element => {
@@ -1955,7 +1979,7 @@
     $(document).on('click', '#start_message', function() {
         let user = $('#name_user').val();
         localStorage.setItem('user', user);
-        let chat = 'Halo, ' + user + ' saya adalah mimin PPDB SMANSA. Ada yang bisa saya bantu?';
+        let chat = 'Halo, ' + user + ' ada yang bisa mimin bantu?';
         let time = timeNow();
 
         // push to local storage
@@ -1985,11 +2009,28 @@
 
         loadChatFromLocalStorage();
 
-        // clear input
+        let chatBot = '';
+
+        chatBot += '<div class="chat_body_content_admin">';
+        chatBot += '<div class="chat_logo_admin">';
+        chatBot +=
+            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
+        chatBot += '</div>';
+        chatBot += '<div class="chat_body_admin" id="typing_' + time + '">';
+        chatBot += '<p class="" id=""><i class="fa fa-spin fa-spinner"></i></p>';
+        chatBot += '</div>';
+        chatBot += '</div>';
+
+        $('#chat').append(chatBot);
+
         $('#message').val('');
 
-        let chatContainer = document.getElementById('chat_bot_body_content');
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        // scroll to bottom
+        $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
+
+        // disable button
+        $('#send_message').prop('disabled', true);
+
     });
 
 

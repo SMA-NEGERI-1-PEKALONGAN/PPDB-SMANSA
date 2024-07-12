@@ -54,6 +54,16 @@
                                 class="<?= $active == 'waGateway'  ? 'active' : '' ?>">Setting</a></li>
                     </ul>
                 </li>
+                <li class="dropdown <?= $active == 'chatBot' || $active == 'chatBot' ? 'show' : '' ?>">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon bi bi-chat-dots">
+                        </span><span class="mtext">Chat Bot</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="<?= base_url('Admin/chatBot')?>"
+                                class="<?= $active == 'chatBot'  ? 'active' : '' ?>">Lis Pertanyaan</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="<?= base_url('Admin/DataSiswa')?>"
                         class="dropdown-toggle no-arrow <?= $active == 'data_siswa'  ? 'active' : '' ?>">
