@@ -1417,6 +1417,7 @@
         <div class="chat_bot_body">
 
             <div class="content_start" id="content_start">
+                <!-- input name and button start -->
                 <div class="chat_bot_body_content">
                     <div class="chat">
                         <div class="chat_body_content_user">
@@ -1429,34 +1430,98 @@
                         </div>
                         <div class="chat_footer_user">
                             <p>
-                                <i class="bi bi-person-circle"></i> Mimin | <span id="time_now"></span>
+                                <i class="bi bi-person-circle"></i> Mimin 10:00 AM
+
                             </p>
                         </div>
-                        <div class="footer-chatbot">
-                            <div class="input-group-message">
-                                <input type="text" class="" placeholder="Tulis nama disini..." name="name_user"
-                                    id="name_user" required>
-                                <button class="send_message" type="button" id="start_message">
-                                    <i class="bi bi-telegram"></i>
-                                </button>
-                            </div>
+                    </div>
+                    <div class="footer-chatbot">
+                        <div class="input-group-message">
+                            <input type="text" class="" placeholder="Tulis nama disini...">
+                            <button class="send_message" type="button" id="start_message">
+                                <i class="bi bi-telegram"></i>
+                            </button>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- body chat bot -->
+            <!--  -->
             <div class="chat_bot_body_content d-none" id="chat_bot_body_content">
                 <!-- chat -->
-                <div class="chat" id="chat">
+                <div class="chat">
+                    <!-- admin -->
+                    <div class="chat_body_content_admin">
+                        <div class="chat_logo_admin">
+                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="">
+                        </div>
+                        <div class="chat_body_admin">
+                            <p>Hai, ada yang bisa saya bantu?</p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium impedit dicta
+                                natus
+                                consequuntur voluptates veritatis facilis libero placeat odio totam culpa tempora ex,
+                                nihil
+                                ipsum incidunt amet, eaque ab maxime. Itaque debitis maxime magni id vitae dolore
+                                molestiae
+                                nemo voluptate. Iure deleniti, sunt possimus aliquam ipsum, distinctio dolore amet sint
+                                facere saepe quasi perferendis. Commodi aliquam laborum debitis beatae magnam adipisci
+                                sit
+                                blanditiis, quia, exercitationem unde repudiandae officia consequuntur non molestiae
+                                est?
+                                Reprehenderit iure distinctio eius veritatis vel nam, porro ipsum reiciendis at autem
+                                quis
+                                itaque, sequi quas labore quam quaerat inventore tenetur ipsa sint sed error aliquam!
+                                Nesciunt, obcaecati.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="chat_footer_admin">
+                        <p>
+                            <i class="bi bi-person-circle"></i> Mimin 10:00 AM
 
+                        </p>
+                    </div>
+
+                    <!-- user -->
+                    <div class="chat_body_content_user">
+                        <div class="chat_body_user">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium impedit dicta
+                                natus
+                                consequuntur voluptates veritatis facilis libero placeat odio totam culpa tempora
+                                ex,
+                                nihil
+                                ipsum incidunt amet, eaque ab maxime. Itaque debitis maxime magni id vitae dolore
+                                molestiae
+                                nemo voluptate. Iure deleniti, sunt possimus aliquam ipsum, distinctio dolore amet
+                                sint
+                                facere saepe quasi perferendis. Commodi aliquam laborum debitis beatae magnam
+                                adipisci
+                                sit
+                                blanditiis, quia, exercitationem unde repudiandae officia consequuntur non molestiae
+                                est?
+                                Reprehenderit iure distinctio eius veritatis vel nam, porro ipsum reiciendis at
+                                autem
+                                quis
+                                itaque, sequi quas labore quam quaerat inventore tenetur ipsa sint sed error
+                                aliquam!
+                                Nesciunt, obcaecati.</p>
+                        </div>
+                        <div class="chat_logo_user">
+                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="">
+                        </div>
+                    </div>
+                    <div class="chat_footer_user">
+                        <p>
+                            <i class="bi bi-person-circle"></i> User 10:00 AM
+
+                        </p>
+                    </div>
                 </div>
 
                 <div class="footer-chatbot">
                     <div class="input-group-message">
-                        <input type="text" class="" placeholder="Tulis pesan disini..." name="message" id="message"
-                            required>
+                        <input type="text" class="" placeholder="Tulis pesan disini...">
                         <button class="send_message" type="button" id="send_message">
                             <i class="bi bi-telegram"></i>
                         </button>
@@ -1606,21 +1671,17 @@
         margin-bottom: 0;
     }
 
-    /* footer sesuai dengan p */
     .chat_footer_admin {
         display: flex;
         justify-content: flex-end;
-        margin-right: 5px;
-        margin-bottom: 10px;
+        maarign-right: 5px;
     }
-
-
 
 
     /* user chat right */
     .chat_body_content_user {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         margin-bottom: 10px;
         margin-top: 10px;
         margin-left: 5px;
@@ -1642,9 +1703,7 @@
         padding: 10px;
         border-radius: 10px;
         margin: 0;
-
     }
-
 
     .chat_body_user p:last-child {
         margin-top: 10px;
@@ -1666,7 +1725,6 @@
         display: flex;
         justify-content: flex-start;
         margin-left: 5px;
-        margin-bottom: 10px;
     }
 
     @media screen and (max-width: 600px) {
@@ -1753,37 +1811,8 @@
         .input-group-message input:valid {
             border: 1px solid #7D0A0A;
         }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 100%;
-            }
-        }
-
-        .typing {
-            display: inline-block;
-            width: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid;
-            animation: typing 2s steps(20) forwards, blink 1s step-end infinite alternate;
-        }
-
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
-
-
     }
     </style>
-
-
     <!-- Vendor JS Files -->
     <div id="preloader"></div>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -1806,7 +1835,6 @@
     $(document).on('click', '#btn_chat_bot', function() {
         $('#chat_bot').toggle();
         $('#btn_chat_bot').addClass('d-none');
-        $('#time_now').text(timeNow());
     });
 
     // close chat bot
@@ -1825,172 +1853,9 @@
         e.stopPropagation();
     });
 
-
-    // time now
-    function timeNow() {
-        var d = new Date();
-        var n = d.toLocaleTimeString();
-        var time = n.split(':');
-        var hours = time[0];
-        var minutes = time[1];
-
-        return hours + ':' + minutes;
-    }
-
-    // push chat to local storage
-    function pushChatToLocalStorage(data) {
-        let dataChat = localStorage.getItem('dataChat');
-
-        // Check if 'dataChat' exists in localStorage
-        if (dataChat === null) {
-            // If 'dataChat' does not exist, initialize it with the new data
-            dataChat = [];
-        } else {
-            // If 'dataChat' exists, parse the existing data
-            try {
-                dataChat = JSON.parse(dataChat);
-                if (!Array.isArray(dataChat)) {
-                    // If the parsed data is not an array, initialize it as an empty array
-                    dataChat = [];
-                }
-            } catch (error) {
-                // If parsing fails, initialize it as an empty array
-                dataChat = [];
-            }
-        }
-
-        // Push the new data to the array
-        dataChat.push(data);
-        // Save the updated array back to localStorage
-        localStorage.setItem('dataChat', JSON.stringify(dataChat));
-
-        return true;
-    }
-
-    function animateTyping(text, element) {
-        element.innerHTML = "";
-        let index = 0;
-
-        function type() {
-            if (index < text.length) {
-                element.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(type, 50);
-            }
-        }
-
-        type();
-    }
-
-    // get chat from local storage
-    function getChatFromLocalStorage() {
-        const dataChat = localStorage.getItem('dataChat');
-        return dataChat ? JSON.parse(dataChat) : [];
-    }
-
-
-    // load chat from local storage
-    function loadChatFromLocalStorage() {
-        let data = getChatFromLocalStorage();
-
-        if (data.length > 0) {
-            let chat = '';
-            data.forEach(element => {
-                if (element.user === 'Mimin') {
-                    chat += '<div class="chat_body_content_admin">';
-                    chat += '<div class="chat_logo_admin">';
-                    chat +=
-                        '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
-                    chat += '</div>';
-                    chat += '<div class="chat_body_admin" id="' + element.time + '">';
-                    chat += '<p>' + element.chat + '</p>';
-                    chat += '</div>';
-                    chat += '</div>';
-                    // chat += '<div class="chat_footer_admin">';
-                    // chat += '<p>';
-                    // chat += '<i class="bi bi-person-circle"></i> ' + element.user + ' | ' + element.time;
-                    // chat += '</p>';
-                    // chat += '</div>';
-                } else {
-                    chat += '<div class="chat_body_content_user">';
-                    chat += '<div class="chat_body_user "' + element.time + '">';
-                    chat += '<p>' + element.chat + '</p>';
-                    chat += '</div>';
-                    chat += '<div class="chat_logo_user">';
-                    chat +=
-                        '<img src="<?= base_url('Assets/'); ?>LandingPage/img/users.jpg" alt="User Logo">';
-                    chat += '</div>';
-                    chat += '</div>';
-                    // chat += '<div class="chat_footer_user">';
-                    // chat += '<p>';
-                    // chat += '<i class="bi bi-person-circle"></i> ' + element.user + ' | ' + element.time;
-                    // chat += '</p>';
-                    // chat += '</div>';
-                }
-            });
-
-            $('#content_start').addClass('d-none');
-            $('#chat_bot_body_content').removeClass('d-none');
-            $('#chat').html(chat);
-            let chatContainer = document.getElementById('chat_bot_body_content');
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-
-            // Animate typing for each message
-            // data.forEach(element => {
-            //     let typingElement = document.getElementById('typing_' + element.time).querySelector('p');
-            //     animateTyping(element.chat, typingElement);
-            // });
-
-        } else {
-            $('#content_start').removeClass('d-none');
-            $('#chat_bot_body_content').addClass('d-none');
-        }
-    }
-
-
-    // load chat from local storage
-    loadChatFromLocalStorage();
-
-    // start chat
-    $(document).on('click', '#start_message', function() {
-        let user = $('#name_user').val();
-        localStorage.setItem('user', user);
-        let chat = 'Halo, ' + user + ' saya adalah mimin PPDB SMANSA. Ada yang bisa saya bantu?';
-        let time = timeNow();
-
-        // push to local storage
-        let data = {
-            user: 'Mimin',
-            chat: chat,
-            time: time
-        };
-        pushChatToLocalStorage(data);
-
-        loadChatFromLocalStorage();
-    });
-
     // send message
-    $(document).on('click', '#send_message', function() {
-        let chat = $('#message').val();
-        let time = timeNow();
-        let user = localStorage.getItem('user');
 
-        // push to local storage
-        let data = {
-            user: user,
-            chat: chat,
-            time: time
-        };
-        pushChatToLocalStorage(data);
 
-        loadChatFromLocalStorage();
-
-        // clear input
-        $('#message').val('');
-
-        let chatContainer = document.getElementById('chat_bot_body_content');
-        chatContainer.scrollTop = chatContainer.scrollHeight;
-    });
 
 
     // open modal .btn_file_pdf
@@ -2007,6 +1872,8 @@
         let link = $(this).attr('id');
         window.open(link, '_blank');
     });
+
+    // when clict the images zon
     </script>
 </body>
 

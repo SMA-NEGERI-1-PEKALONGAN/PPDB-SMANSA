@@ -53,14 +53,13 @@
         f.parentNode.insertBefore(j, f);
     })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
     </script>
-    <!-- End Google Tag Manager -->
 </head>
 
 <body class="login-page">
     <div class="login-header box-shadow">
         <div class="d-flex justify-content-between align-items-center">
             <div class="brand-logo">
-                <a href="login.html" class="">
+                <a href="<?= base_url('/'); ?>" class="">
                     <img src="<?= base_url('Assets/')?>LOGO SMANSA.png" alt="" class="img-navbar" /> <span
                         class="text-black header-navbar">PPDB SMANSA</span>
                     <style>
@@ -117,13 +116,14 @@
                                     <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
                                 </div>
                             </div>
+                            <input type="hidden" id="recaptcha_response" name="recaptcha_response" value="">
                             <div class="row pb-30">
-                                <div class="col-6">
+                                <!-- <div class="col-6">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1" />
                                         <label class="custom-control-label" for="customCheck1">Remember</label>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
                             <div class="row">
@@ -169,6 +169,40 @@
             timer: 1500
         })
     }
+
+    // when type the password add icon on the right side input
+    $("#password").on("keyup", function() {
+        var value = $(this).val();
+        if (value.length > 0) {
+            $(this).next().find("i").removeClass("dw dw-padlock1").addClass("dw dw-eye");
+        } else if (value.length == 0) {
+            if ($(this).attr("type") == "password") {
+                $(this).next().find("i").removeClass("dw dw-eye").addClass("dw dw-padlock1");
+            } else {
+                $(this).next().find("i").removeClass("icon-copy fa fa-eye-slash").addClass("dw dw-padlock1");
+                $(this).attr("type", "password");
+            }
+        }
+    });
+
+    // when click the icon change the type of input
+    $("#password").next().on("click", function() {
+        var input = $(this).prev();
+        var icon = $(this).find("i");
+        // when class is dw dw dw-pdlock1
+        if (icon.hasClass("dw dw-padlock1")) {
+            $(this).attr("disabled", "disabled");
+        } else {
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+                icon.removeClass("dw dw-eye").addClass("icon-copy fa fa-eye-slash");
+            } else {
+                input.attr("type", "password");
+                icon.removeClass("icon-copy fa fa-eye-slash").addClass("dw dw-eye");
+            }
+        }
+    });
+
     $(document).ready(function() {
         $("#form_login").submit(function(e) {
             e.preventDefault();
@@ -176,6 +210,7 @@
             $("#btn_login").html(
                 '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
             ).attr('disabled', true);
+
             var username = $("#username").val();
             var password = $("#password").val();
             $.ajax({
