@@ -1,16 +1,16 @@
 <?= $this->extend('Templates/index'); ?>
 <?= $this->section('content'); ?>
-
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <div class="row">
     <div class="col-md-12">
         <div class="card-box mb-30">
             <div class="pd-20">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h4 class="text-blue h4">Master User</h4>
+                        <h4 class="text-blue h4">Master Chat Bot</h4>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addUser" type="button">
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addChatBot" type="button">
                             <i class="icon-copy fa fa-plus" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -34,53 +34,56 @@
     </div>
 </div>
 
-<!-- ======================================== users ======================================== -->
-<!-- modal addUser -->
-<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+<!-- ======================================== chat ======================================== -->
+<!-- modal addChatBot -->
+<div class="modal fade" id="addChatBot" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Tambah User
+                    Tambah Chat Bot
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
                 </button>
             </div>
-            <form id="form_tambah_user">
+            <form id="form_tambah_chat_bot">
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="nama_user" class="col-sm-4 col-form-label">Nama User<span
+                        <label for="judul" class="col-sm-2 col-form-label">Judul<span
                                 class="rq">*</span></label></label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control required" id="nama_user" name="nama_user">
-                            <div class="form-control-feedback " id="errornama_user"></div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control required" id="judul" name="judul"
+                                placeholder="Masukan judul chat bot">
+                            <div class="form-control-feedback " id="errorjudul"></div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="username" class="col-sm-4 col-form-label">Username<span
+                        <label for="pertanyaan" class="col-sm-2 col-form-label">Pertanyaan<span
                                 class="rq">*</span></label></label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control required" id="username" name="username">
-                            <div class="form-control-feedback " id="errorusername"></div>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control required" id="pertanyaan" name="pertanyaan"
+                                placeholder="Masukan pertanyaan chat bot" rows="3"></textarea>
+                            <div class="form-control-feedback " id="errorpertanyaan"></div>
                         </div>
                     </div>
-                    <!-- select -->
                     <div class="form-group row">
-                        <label for="role" class="col-sm-4 col-form-label">Role<span class="rq">*</span></label></label>
-                        <div class="col-sm-8">
-                            <select class="form-control required" id="role" name="role">
+                        <label for="jawaban" class="col-sm-2 col-form-label">Jawaban<span
+                                class="rq">*</span></label></label>
+                        <div class="col-sm-10">
+                            <div id="jawaban" style="min-height: 160px; max-height: 180px;"></div>
+                            <div class="form-control-feedback " id="errorjawaban"></div>
+                        </div>
 
-                            </select>
-                            <div class="form-control-feedback " id="errorrole"></div>
-                        </div>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Batal
                     </button>
-                    <button type="submit" class="btn btn-primary" id="btn_tambah_user">
+                    <button type="submit" class="btn btn-primary" id="btn_tambah_chat_bot">
                         Tambah
                     </button>
                 </div>
@@ -102,26 +105,25 @@
                     ×
                 </button>
             </div>
-            <form id="form_edit_user">
+            <form id="form_edit_chat_bot">
                 <div class="modal-body">
                     <input type="hidden" id="editid_user" name="id_user">
                     <div class="form-group row">
-                        <label for="editnama_user" class="col-sm-4 col-form-label">Nama User<span
+                        <label for="editjudul" class="col-sm-4 col-form-label">Nama User<span
                                 class="rq">*</span></label></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control required" id="editnama_user" name="nama_user">
-                            <div class="form-control-feedback " id="erroreditnama_user"></div>
+                            <input type="text" class="form-control required" id="editjudul" name="judul">
+                            <div class="form-control-feedback " id="erroreditjudul"></div>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="editusername" class="col-sm-4 col-form-label">Username<span
+                        <label for="editpertanyaan" class="col-sm-4 col-form-label">pertanyaan<span
                                 class="rq">*</span></label></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control required" id="editusername" name="username">
-                            <div class="form-control-feedback " id="erroreditusername"></div>
+                            <input type="text" class="form-control required" id="editpertanyaan" name="pertanyaan">
+                            <div class="form-control-feedback " id="erroreditpertanyaan"></div>
                         </div>
                     </div>
-                    <!-- select -->
                     <div class="form-group row">
                         <label for="editrole" class="col-sm-4 col-form-label">Role<span
                                 class="rq">*</span></label></label>
@@ -137,7 +139,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Batal
                     </button>
-                    <button type="submit" class="btn btn-primary" id="btn_edit_users">
+                    <button type="submit" class="btn btn-primary" id="btn_edit_chat">
                         Edit
                     </button>
                 </div>
@@ -145,6 +147,7 @@
         </div>
     </div>
 </div>
+
 <!-- modal view -->
 <div class="modal fade" id="viewuser" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
@@ -160,15 +163,15 @@
             </div>
             <div class="modal-body">
                 <div class="form-group row">
-                    <label for="viewnama_user" class="col-sm-4 col-form-label">Nama User</label></label>
+                    <label for="viewjudul" class="col-sm-4 col-form-label">Nama User</label></label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="viewnama_user" name="nama_user" readonly>
+                        <input type="text" class="form-control" id="viewjudul" name="judul" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="viewusername" class="col-sm-4 col-form-label">Username</label></label>
+                    <label for="viewpertanyaan" class="col-sm-4 col-form-label">pertanyaan</label></label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="viewusername" name="username" readonly>
+                        <input type="text" class="form-control" id="viewpertanyaan" name="pertanyaan" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -206,16 +209,14 @@
 </div>
 
 
-<!-- ======================================== END users ======================================== -->
-
-
 <?= $this->endSection('content');?>
 
 <?= $this->section('dataTables');?>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <script text="text/javascript">
-// dataTables users
-function dataTablesUsers() {
+// dataTables chat
+function dataTableschat() {
     $(document).ready(function() {
         $('#tableChatBot').DataTable({
             processing: true,
@@ -256,7 +257,7 @@ function dataTablesUsers() {
 }
 
 $(document).ready(function() {
-    dataTablesUsers();
+    dataTableschat();
 });
 
 function getSwall(status, message) {
@@ -270,47 +271,73 @@ function getSwall(status, message) {
     })
 }
 
-// ======================================== users ========================================
+
+
+// ======================================== chat ========================================
+
+
+// quill
+var addJawaban = new Quill('#jawaban', {
+    theme: 'snow',
+    modules: {
+        toolbar: [
+            [{
+                header: [1, 2, 3, 4, 5, 6, false]
+            }],
+            [{
+                font: []
+            }],
+            ["bold", "italic"],
+            ["link", "blockquote", "code-block", "image"],
+            [{
+                list: "ordered"
+            }, {
+                list: "bullet"
+            }],
+            [{
+                script: "sub"
+            }, {
+                script: "super"
+            }],
+            [{
+                color: []
+            }, {
+                background: []
+            }],
+        ]
+    },
+});
+addJawaban.on('text-change', function(delta, oldDelta, source) {
+    document.querySelector("input[name='content']").value = addJawaban.root.innerHTML;
+});
+
 
 // DATA
-const users = [
-    'nama_user',
-    'username',
-    'role',
-    'id_user'
+const chat = [
+    'judul',
+    'pertanyaan',
+    'jawaban'
 ];
 
-// whe add user modal show
-$('#addUser').on('show.bs.modal', function() {
-    $.ajax({
-        url: '<?= base_url('Admin/Referensi/fetchKodeKategori/ROLE') ?>',
-        method: 'get',
-        dataType: 'json',
-        success: function(response) {
-            $('#role').html('');
-            $('#role').append('<option value="">Pilih Role</option>');
-            $.each(response.data, function(key, value) {
-                $('#role').append('<option value="' + value.nama_referensi + '">' + value
-                    .nama_referensi +
-                    '</option>');
-            });
-        }
-    });
-});
 
 // tambah 
 $(function() {
-    $("#form_tambah_user").submit(function(e) {
+    $("#form_tambah_chat_bot").submit(function(e) {
         e.preventDefault();
         const formData = new FormData(this);
         if (!this.checkValidity()) {
             e.preventDefault();
             $(this).addClass('form-control-success');
         } else {
-            $("#btn_tambah_user").attr("disabled", "disabled");
-            $("#btn_tambah_user").html("Loading.....");
+            $("#btn_tambah_chat_bot").attr("disabled", "disabled");
+            $("#btn_tambah_chat_bot").html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+            );
+            let jawaban = addJawaban.root.innerHTML;
+            formData.append('jawaban', jawaban);
+
             $.ajax({
-                url: '<?= base_url('Admin/User/save') ?>',
+                url: '<?= base_url('Admin/chatBot/save') ?>',
                 method: 'post',
                 data: formData,
                 contentType: false,
@@ -333,19 +360,20 @@ $(function() {
                             }
                         });
                     } else {
-                        $("#form_tambah_user")[0].reset();
-                        $("#addUser").modal('hide');
+                        $("#form_tambah_chat_bot")[0].reset();
+                        $("#addChatBot").modal('hide');
                         $('#tableChatBot').DataTable().ajax.reload();
                         getSwall(response.status, response.data);
-                        users.forEach(function(item) {
+                        chat.forEach(function(item) {
                             $("#" + item).removeClass('form-control-danger');
                             $("#" + item).removeClass('form-control-success');
                             $("#error" + item).html('');
                             $("#error" + item).removeClass('has-danger');
                         });
+                        addJawaban.root.innerHTML = '';
                     }
-                    $("#btn_tambah_user").removeAttr("disabled");
-                    $("#btn_tambah_user").html("Tambah");
+                    $("#btn_tambah_chat_bot").removeAttr("disabled");
+                    $("#btn_tambah_chat_bot").html("Tambah");
                 }
             });
         }
@@ -388,9 +416,9 @@ $(document).on('click', '.edit_user', function() {
     });
 });
 
-// update user
+// update chat bot
 $(function() {
-    $("#form_edit_user").submit(function(e) {
+    $("#form_edit_chat_bot").submit(function(e) {
         e.preventDefault();
         const formData = new FormData(this);
         if (!this.checkValidity()) {
@@ -398,7 +426,9 @@ $(function() {
             $(this).addClass('form-control-success');
         } else {
             $("#btn_edit_user").attr("disabled", "disabled");
-            $("#btn_edit_user").html("Loading.....");
+            $("#btn_edit_user").html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+            );
             $.ajax({
                 url: '<?= base_url('Admin/User/update') ?>',
                 method: 'post',
@@ -423,11 +453,11 @@ $(function() {
                             }
                         });
                     } else {
-                        $("#form_edit_user")[0].reset();
+                        $("#form_edit_chat_bot")[0].reset();
                         $("#edituser").modal('hide');
                         $('#tableChatBot').DataTable().ajax.reload();
                         getSwall(response.status, response.data);
-                        users.forEach(function(item) {
+                        chat.forEach(function(item) {
                             $("#edit" + item).removeClass('form-control-danger');
                             $("#edit" + item).removeClass('form-control-success');
                             $("#erroredit" + item).html('');
@@ -442,8 +472,8 @@ $(function() {
     });
 });
 
-// delete user
-$(document).on('click', '.delete_user', function() {
+// delete chat bot
+$(document).on('click', '.delete_chat_bot', function() {
     const id = $(this).attr('id');
     swal({
             title: "Apakah anda yakin?",
@@ -458,10 +488,10 @@ $(document).on('click', '.delete_user', function() {
         .then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: '<?= base_url('Admin/User/delete') ?>',
+                    url: '<?= base_url('Admin/chatBot/delete') ?>',
                     method: 'post',
                     data: {
-                        id_user: id
+                        id_chat_bot: id
                     },
                     dataType: 'json',
                     success: function(response) {
@@ -473,7 +503,7 @@ $(document).on('click', '.delete_user', function() {
         });
 });
 
-// view user
+// view chat bot
 $(document).on('click', '.view_user', function() {
     const id = $(this).attr('id');
     $.ajax({
@@ -492,50 +522,50 @@ $(document).on('click', '.view_user', function() {
     });
 });
 
-// reset password
-$(document).on('click', '.reset_pass', function() {
-    const id = $(this).attr('id');
-    swal({
-            title: "Apakah anda yakin?",
-            text: "Password akan direset menjadi default!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Ya, Reset!",
-            confirmButtonClass: "btn btn-success margin-5",
-            cancelButtonText: "Batal",
-        })
-        .then((result) => {
-            if (result.value) {
-                $.ajax({
-                    url: '<?= base_url('Admin/User/reset') ?>',
-                    method: 'post',
-                    data: {
-                        id_user: id
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        getSwall(response.status, response.data);
-                    }
-                });
-            }
-        });
-});
-
 // change status
-$(document).on('click', '.change_status_user', function() {
+$(document).on('click', '.change_status_chat_bot', function() {
     const id = $(this).attr('id');
     // alert(id);
     $.ajax({
-        url: '<?= base_url('Admin/User/changeStatus') ?>',
+        url: '<?= base_url('Admin/chatBot/changeStatus') ?>',
         method: 'post',
         data: {
-            id_user: id
+            id_chat_bot: id
         },
         dataType: 'json',
         success: function(response) {
             // $('#tableChatBot').DataTable().ajax.reload();
-            getSwall(response.status, response.data);
+            // getSwall(response.status, response.data);
+            // getNotification(response.data, response.status);
+        }
+    });
+});
+
+// change star
+$(document).on('click', '.change_star_chat_bot', function() {
+    const id = $(this).attr('id');
+    const id_chat = id.replace('star', '');
+    // alert(id_chat);
+    $.ajax({
+        url: '<?= base_url('Admin/chatBot/changeStar') ?>',
+        method: 'post',
+        data: {
+            id_chat_bot: id_chat
+        },
+        dataType: 'json',
+        success: function(response) {
+            $('#tableChatBot').DataTable().ajax.reload();
+            // getSwall(response.status, response.data);
+            // replace the star
+            // if (response.data.star_chat_bot == '1') {
+            //     $('#' + id).html('<i class="icon-copy fi-star text-yellow"></i>');
+            // } else {
+            //     $('#' + id).html('<i class="dw dw-star text-warning"></i>');
+            // }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
         }
     });
 });

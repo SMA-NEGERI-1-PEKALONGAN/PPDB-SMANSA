@@ -549,7 +549,8 @@ $("#form_tambah_antrian").submit(function(e) {
         $(this).addClass('form-control-success');
     } else {
         $("#btn_tambah_antiran").attr("disabled", "disabled");
-        $("#btn_tambah_antiran").html("Loading.....");
+        $("#btn_tambah_antiran").html(
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         $.ajax({
             url: '<?= base_url('Admin/Antrian/saveAntrian') ?>',
             method: 'post',
@@ -730,7 +731,8 @@ $("#form_edit_antrian").submit(function(e) {
         $(this).addClass('form-control-success');
     } else {
         $("#btn_edit_antiran").attr("disabled", "disabled");
-        $("#btn_edit_antiran").html("Loading.....");
+        $("#btn_edit_antiran").html(
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         $.ajax({
             url: '<?= base_url('Admin/Antrian/update') ?>',
             method: 'post',

@@ -35,6 +35,8 @@ $routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1'
 
 $routes->get('DataTablesDataSiswa', 'dataSiswaController::ajaxDataTables');
 
+$routes->post('fetchChatResponse', 'chatBotController::fetchResponse');
+
 // auth route
 $routes->group('Auth', function ($routes) {
         $routes->get('/', 'Auth::index');
@@ -110,8 +112,13 @@ $routes->group('Admin', function ($routes) {
     $routes->group('chatBot', function ($routes) {
         $routes->get('/', 'chatBotController::index');
         $routes->get('DataTables', 'chatBotController::ajaxDataTables');
-        $routes->post('Import', 'chatBotController::importSiswa');
-        $routes->post('deleteAll', 'chatBotController::deleteAll');
+        $routes->post('save', 'chatBotController::store');
+        $routes->post('delete', 'chatBotController::destroy');
+        $routes->post('edit', 'chatBotController::edit');
+        $routes->post('update', 'chatBotController::update');
+        $routes->post('changeStatus', 'chatBotController::changeStatus');
+        $routes->post('changeStar', 'chatBotController::changeStar');
+        $routes->post('fetchResponse', 'chatBotController::fetchResponse');
     });
     $routes->group('DataSiswa', function ($routes) {
         $routes->get('/', 'dataSiswaController::index');

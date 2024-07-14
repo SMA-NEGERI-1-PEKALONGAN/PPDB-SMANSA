@@ -424,7 +424,8 @@ $(document).on('click', '.detailsAntrian', function() {
 $("#formverifikasiAntrian").submit(function(e) {
     e.preventDefault();
     $("#btn_tambah_antiran").attr("disabled", "disabled");
-    $("#btn_tambah_antiran").html("Loading.....");
+    $("#btn_tambah_antiran").html(
+        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
     $.ajax({
         url: '<?= base_url('Admin/Antrian/ubahAntrian') ?>',
         method: 'post',

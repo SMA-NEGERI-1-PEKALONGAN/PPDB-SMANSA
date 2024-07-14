@@ -77,7 +77,7 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            'Middleware' => ['except' => ['/','Auth','Auth/*', 'Antrean', 'Cari','Pengumuman', 'search_antrian', 'Admin/Antrian/save', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'printAntrean','printAntrean/*', 'fect_total_antrian','fetchFilterAntrean', 'DataTablesDataSiswa', 'fetchFilterPengumuman','FORM-DU']],
+            'Middleware' => ['except' => ['/','Auth','Auth/*', 'Antrean', 'Cari','Pengumuman', 'search_antrian', 'Admin/Antrian/save', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'printAntrean','printAntrean/*', 'fect_total_antrian','fetchFilterAntrean', 'DataTablesDataSiswa', 'fetchFilterPengumuman','FORM-DU', 'fetchChatResponse']],
         ],
         'after' => [
             'filterAdmin' => ['except' => [ 

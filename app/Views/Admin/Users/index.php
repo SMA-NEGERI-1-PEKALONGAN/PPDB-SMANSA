@@ -304,7 +304,9 @@ $(function() {
             $(this).addClass('form-control-success');
         } else {
             $("#btn_tambah_user").attr("disabled", "disabled");
-            $("#btn_tambah_user").html("Loading.....");
+            $("#btn_tambah_user").html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+                );
             $.ajax({
                 url: '<?= base_url('Admin/User/save') ?>',
                 method: 'post',
@@ -394,7 +396,9 @@ $(function() {
             $(this).addClass('form-control-success');
         } else {
             $("#btn_edit_user").attr("disabled", "disabled");
-            $("#btn_edit_user").html("Loading.....");
+            $("#btn_edit_user").html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+                );
             $.ajax({
                 url: '<?= base_url('Admin/User/update') ?>',
                 method: 'post',

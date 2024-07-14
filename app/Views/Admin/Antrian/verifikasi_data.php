@@ -248,7 +248,8 @@ $("#formberkasAntrian").submit(function(e) {
         $("#errorchekList").addClass('has-danger');
     } else {
         $("#btn_tambah_antiran").attr("disabled", "disabled");
-        $("#btn_tambah_antiran").html("Loading.....");
+        $("#btn_tambah_antiran").html(
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         $.ajax({
             url: '<?= base_url('Admin/Antrian/verifikasiBerkas') ?>',
             method: 'post',
