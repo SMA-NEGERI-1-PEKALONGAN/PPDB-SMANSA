@@ -1423,7 +1423,7 @@
                     <div class="chat">
                         <div class="chat_body_content_user">
                             <div class="chat_body_user">
-                                <p>Halo, saya adalah mimin PPDB SMANSA. Siapa nama kamu?</p>
+                                <div class="container-chat">Halo, saya adalah mimin PPDB SMANSA. Siapa nama kamu?</div>
                             </div>
                             <div class="chat_logo_user">
                                 <img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="">
@@ -1582,7 +1582,7 @@
         margin-left: 10px;
     }
 
-    .chat_body_admin p {
+    .chat_body_admin .container-chat {
         background-color: #f1f1f1;
         padding: 10px;
         border-radius: 10px;
@@ -1590,21 +1590,21 @@
     }
 
 
-    .chat_body_admin p:last-child {
+    .chat_body_admin .container-chat:last-child {
         margin-top: 10px;
     }
 
 
-    .chat_body_admin p:last-child {
+    .chat_body_admin .container-chat:last-child {
         margin-bottom: 0;
     }
 
 
-    .chat_body_admin p:last-child {
+    .chat_body_admin .container-chat:last-child {
         margin-bottom: 0;
     }
 
-    .chat_body_admin p:last-child {
+    .chat_body_admin .container-chat:last-child {
         margin-bottom: 0;
     }
 
@@ -1638,7 +1638,7 @@
         margin-right: 10px;
     }
 
-    .chat_body_user p {
+    .chat_body_user .container-chat {
         background-color: #7D0A0A;
         color: #fff;
         padding: 10px;
@@ -1648,19 +1648,19 @@
     }
 
 
-    .chat_body_user p:last-child {
+    .chat_body_user .container-chat:last-child {
         margin-top: 10px;
     }
 
-    .chat_body_user p:last-child {
+    .chat_body_user .container-chat:last-child {
         margin-bottom: 0;
     }
 
-    .chat_body_user p:last-child {
+    .chat_body_user .container-chat:last-child {
         margin-bottom: 0;
     }
 
-    .chat_body_user p:last-child {
+    .chat_body_user .container-chat:last-child {
         margin-bottom: 0;
     }
 
@@ -1921,24 +1921,35 @@
             let chat = '';
             data.forEach(element => {
                 if (element.user === 'Mimin') {
-                    chat += '<div class="chat_body_content_admin">';
-                    chat += '<div class="chat_logo_admin">';
-                    chat +=
-                        '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
-                    chat += '</div>';
-                    chat += '<div class="chat_body_admin" id="' + element.time + '">';
-                    chat += '<p>' + element.chat + '</p>';
-                    chat += '</div>';
-                    chat += '</div>';
-                    // chat += '<div class="chat_footer_admin">';
-                    // chat += '<p>';
-                    // chat += '<i class="bi bi-person-circle"></i> ' + element.user + ' | ' + element.time;
-                    // chat += '</p>';
-                    // chat += '</div>';
+                    // jika chat > 1
+                    if (Array.isArray(element.chat) > 1) {
+                        chat += '<div class="chat_body_content_admin">';
+                        chat += '<div class="chat_logo_admin">';
+                        chat +=
+                            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
+                        chat += '</div>';
+                        chat += '<div class="chat_body_admin" id="' + element.time + '">';
+                        chat += '<div class="container-chat">' + element.chat[0] + '</div>';
+                        for (let i = 1; i < element.chat.length; i++) {
+                            chat += element.chat[i];
+                        }
+                        chat += '</div>';
+                        chat += '</div>';
+                    } else {
+                        chat += '<div class="chat_body_content_admin">';
+                        chat += '<div class="chat_logo_admin">';
+                        chat +=
+                            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
+                        chat += '</div>';
+                        chat += '<div class="chat_body_admin" id="' + element.time + '">';
+                        chat += '<div class="container-chat">' + element.chat + '</div>';
+                        chat += '</div>';
+                        chat += '</div>';
+                    }
                 } else {
                     chat += '<div class="chat_body_content_user">';
                     chat += '<div class="chat_body_user "' + element.time + '">';
-                    chat += '<p>' + element.chat + '</p>';
+                    chat += '<div class="container-chat">' + element.chat + '</div>';
                     chat += '</div>';
                     chat += '<div class="chat_logo_user">';
                     chat +=
@@ -1946,7 +1957,7 @@
                     chat += '</div>';
                     chat += '</div>';
                     // chat += '<div class="chat_footer_user">';
-                    // chat += '<p>';
+                    // chat += '<p class="container-chat">';
                     // chat += '<i class="bi bi-person-circle"></i> ' + element.user + ' | ' + element.time;
                     // chat += '</p>';
                     // chat += '</div>';
@@ -2011,13 +2022,13 @@
 
         let chatBot = '';
 
-        chatBot += '<div class="chat_body_content_admin">';
+        chatBot += '<div class="chat_body_content_admin loadding_chat">';
         chatBot += '<div class="chat_logo_admin">';
         chatBot +=
             '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
         chatBot += '</div>';
         chatBot += '<div class="chat_body_admin" id="typing_' + time + '">';
-        chatBot += '<p class="" id=""><i class="fa fa-spin fa-spinner"></i></p>';
+        chatBot += '<div class="container-chat" id=""><i class="fa fa-spin fa-spinner"></i></div>';
         chatBot += '</div>';
         chatBot += '</div>';
 
@@ -2031,8 +2042,110 @@
         // disable button
         $('#send_message').prop('disabled', true);
 
+        // get responseChat
+        responseChat(chat);
     });
 
+    // get responseChat
+    function responseChat(chat) {
+        $.ajax({
+            url: '<?= base_url('fetchChatResponse') ?>',
+            method: 'post',
+            data: {
+                pertanyaan: chat
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.status == '200') {
+                    let time = timeNow();
+                    let user = 'Mimin';
+                    let resChat = [];
+                    $('.loadding_chat').remove();
+                    if (response.data.message) {
+                        resChat.push(response.data.message);
+                        // profile and chat > 1
+                        let chatBot = '';
+                        chatBot += '<div class="chat_body_content_admin">';
+                        chatBot += '<div class="chat_logo_admin">';
+                        chatBot +=
+                            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
+                        chatBot += '</div>';
+                        chatBot += '<div class="chat_body_admin" id="' + time + '">';
+                        chatBot += '<div class="container-chat">';
+                        chatBot += response.data.message;
+                        if (response.data.star_message.length > 1) {
+                            for (let i = 0; i < response.data.star_message.length; i++) {
+                                chatBot += response.data.star_message[i].jawaban;
+                                resChat.push(response.data.star_message[i].jawaban);
+                            }
+                        } else {
+                            chatBot += response.data.star_message.jawaban;
+                            resChat.push(response.data.star_message.jawaban);
+                        }
+                        chatBot += '</div>';
+                        chatBot += '</div>';
+                        chatBot += '</div>';
+
+
+                        // animate typing
+                        // let typingElement = document.getElementById('typing_' + time).querySelector('p');
+                        // animateTyping(response.data.message, typingElement);
+
+                        $('#chat').append(chatBot);
+
+                        $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
+
+
+                        // push to local storage
+                        let data = {
+                            user: user,
+                            chat: resChat,
+                            time: time
+                        };
+
+                        // alert(data);
+                        pushChatToLocalStorage(data);
+
+                    } else {
+                        resChat = response.data;
+                        // remove loadding
+                        $('.loadding_chat').remove();
+                        let chatBot = '';
+                        chatBot += '<div class="chat_body_content_admin">';
+                        chatBot += '<div class="chat_logo_admin">';
+                        chatBot +=
+                            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
+                        chatBot += '</div>';
+                        chatBot += '<div class="chat_body_admin" id="' + time + '">';
+                        chatBot += '<div class="container-chat">' + response.data + '</div>';
+                        chatBot += '</div>';
+                        chatBot += '</div>';
+
+                        $('#chat').append(chatBot);
+
+                        $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
+
+
+                        // push to local storage
+                        let data = {
+                            user: user,
+                            chat: resChat,
+                            time: time
+                        };
+
+                        pushChatToLocalStorage(data);
+                    }
+                } else {
+                    alert('error');
+                }
+
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                // alert(xhr.status);
+                // alert(thrownError);
+            }
+        });
+    }
 
     // open modal .btn_file_pdf
     $(document).on('click', '.btn_file_pdf', function(e) {

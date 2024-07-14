@@ -190,7 +190,7 @@ class chatBotController extends BaseController
         } else {
             $getStar = $this->chatBotModel->getStarChatBot();
             if($getStar){
-                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu. <br> Berikut pertanyaan yang sering ditanyakan :';
+                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu. Berikut pertanyaan yang sering ditanyakan :';
                 return $this->response->setJSON([
                     'error' => false,
                     'data' => [
