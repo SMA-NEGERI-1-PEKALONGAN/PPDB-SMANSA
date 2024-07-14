@@ -44,7 +44,6 @@ class chatBotController extends BaseController
                 <div class="dropdown">
 					<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"> <i class="dw dw-more"></i></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <button class="dropdown-item view_chat_bot" id="'.$row->id_chat_bot.'"><i class="dw dw-eye"></i> View</button>
                             <button class="dropdown-item edit_chat_bot" id="'.$row->id_chat_bot.'"><i class="dw dw-edit2"></i> Edit</button>
 							<button class="dropdown-item delete_chat_bot" id="'.$row->id_chat_bot.'"><i class="dw dw-delete-3"></i> Delete</button>
 						</div>
@@ -95,7 +94,8 @@ class chatBotController extends BaseController
         ]);
     }
 
-    public function edit($id){
+    public function edit(){
+        $id = $this->request->getPost('id_chat_bot');
         $data = $this->chatBotModel->find($id);
         return $this->response->setJSON([
             'error' => false,
@@ -104,7 +104,7 @@ class chatBotController extends BaseController
         ]);
     }
 
-    public function update($id){
+    public function update(){
         $validation =  \Config\Services::validation();
         $validation->setRules([
             'judul' => [
@@ -129,6 +129,7 @@ class chatBotController extends BaseController
                 'status' => '400'
             ]);
         }
+        $id = $this->request->getPost('id_chat_bot');
         $data = [
             'pertanyaan' => $this->request->getPost('pertanyaan'),
             'jawaban' => $this->request->getPost('jawaban'),
