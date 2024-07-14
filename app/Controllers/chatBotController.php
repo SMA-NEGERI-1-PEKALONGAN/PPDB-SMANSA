@@ -177,67 +177,94 @@ class chatBotController extends BaseController
 
 
     public function fetchResponse(){
-        $pertanyaan = $this->request->getPost('pertanyaan');
-        $data = $this->chatBotModel->getResponse($pertanyaan);
+    $pertanyaan = $this->request->getPost('pertanyaan');
+    $data = $this->chatBotModel->getResponse($pertanyaan);
 
-        if($data){
-            if($data['status_chat_bot'] == 1){
-                return $this->response->setJSON([
-                    'error' => false,
-                    'data' => $data['jawaban'],
-                    'status' => '200'
-                ]);
-            }else{
-                $getStar = $this->chatBotModel->getStarChatBot();
-                if($getStar){
-                    $message = 'Maaf, saya tidak mengerti pertanyaan anda';
-                    foreach($getStar as $star){
-                        $message = $star['jawaban'];
-                    }
-                    return $this->response->setJSON([
-                        'error' => false,
-                        'data' => $message,
-                        'status' => '200'
-                    ]);
-                }else{
-                    return $this->response->setJSON([
-                        'error' => false,
-                        'data' => 'Maaf, saya tidak mengerti pertanyaan anda',
-                        'status' => '200'
-                    ]);
-                }
-            } 
-        }else{
-            // $data = [
-            //     'id_chat_bot' => Uuid::uuid4()->toString(),
-            //     'judul' => 'Pertanyaan',
-            //     'pertanyaan' => $pertanyaan,
-            //     'jawaban' => '',
-            //     'star_chat_bot' => 0,
-            //     'status_chat_bot' => 0,
-            // ];
-            // $this->chatBotModel->insert($data);
-           $getStar = $this->chatBotModel->getStarChatBot();
+    if($data){
+        if($data['status_chat_bot'] == 1){
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => $data['jawaban'],
+                'status' => '200'
+            ]);
+        } else {
+            $getStar = $this->chatBotModel->getStarChatBot();
             if($getStar){
-                $message = 'Maaf, saya tidak mengerti pertanyaan anda';
-                foreach($getStar as $star){
-                    $message = $star['jawaban'];
-                }
+                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu. <br> Berikut pertanyaan yang sering ditanyakan :';
                 return $this->response->setJSON([
                     'error' => false,
-                    'data' => $message,
+                    'data' => [
+                        'message' => $message,
+                        'star_message' => $getStar
+                    ],
                     'status' => '200'
                 ]);
-            }else{
+            } else {
                 return $this->response->setJSON([
                     'error' => false,
-                    'data' => 'Maaf, saya tidak mengerti pertanyaan anda',
+                    'data' => 'Maaf, mimin tidak mengerti pertanyaan kamu.',
                     'status' => '200'
                 ]);
             }
+        } 
+    } else {    
+        // Cari pertanyaan yang hampir sama di database
+        $allQuestions = $this->chatBotModel->findAll(); 
+        $closestMatch = $this->findClosestQuestion($pertanyaan, $allQuestions);
 
+        if($closestMatch){
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => [
+                    'message' => "Apakah yang kamu maksud ini ?",
+                    'star_message' => $closestMatch
+                ],
+                'status' => '200'
+            ]);
+        } else {
+            $getStar = $this->chatBotModel->getStarChatBot();
+            if($getStar){
+                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu. <br> Berikut pertanyaan yang sering ditanyakan :';
+                return $this->response->setJSON([
+                    'error' => false,
+                    'data' => [
+                        'message' => $message,
+                        'star_message' => $getStar
+                    ],
+                    'status' => '200'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'error' => false,
+                    'data' => 'Maaf, mimin tidak mengerti pertanyaan kamu.',
+                    'status' => '200'
+                ]);
+            }
         }
     }
+}
+
+
+private function findClosestQuestion($inputQuestion, $allQuestions) {
+    // Inisialisasi variabel
+    $closest = null;
+    // Inisialisasi variabel untuk menyimpan persentase kemiripan tertinggi
+    $highestSimilarity = 0;
+
+    foreach ($allQuestions as $question) {
+        // hitung persentase kemiripan pertanyaan
+        similar_text($inputQuestion, $question['pertanyaan'], $percent);
+
+        // Jika persentase kemiripan lebih besar dari persentase kemiripan tertinggi
+        if ($percent > $highestSimilarity) {
+            $closest = $question;
+            $highestSimilarity = $percent;
+        }
+    }
+
+    return $closest;
+}
+
 
     
 }

@@ -25,24 +25,12 @@ class chatBotModel extends Model
     // get star chat bot
     public function getStarChatBot()
     {
-        return $this->where(['star_chat_bot' => 1])->findAll();
+        return $this->where(['star_chat_bot' => '1'])->findAll();
     }
 
     public function getResponse($pertanyaan)
     {
-        // pecah pertanyaan per kata
-        $kata = explode(' ', $pertanyaan);
-        $data = $this->where('pertanyaan', $pertanyaan)->first();
-        if($data){
-            return $data;
-        }else{
-            $data = $this->like('pertanyaan', $kata[0])->first();
-            if($data){
-                return $data;
-            }else{
-                return false;
-            }
-        }
+        $data = $this->like('pertanyaan', $pertanyaan)->first();
     }
 }
 
