@@ -216,8 +216,7 @@ class chatBotController extends BaseController
             return $this->response->setJSON([
                 'error' => false,
                 'data' => [
-                    'message' => "Apakah yang kamu maksud ini ?",
-                    'star_message' => $closestMatch
+                    'message' => $closestMatch
                 ],
                 'status' => '200'
             ]);

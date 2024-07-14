@@ -1513,6 +1513,7 @@
 
     .chat_bot_body_content {
         padding: 5px;
+        padding-bottom: 30px;
     }
 
     .chat {
@@ -1569,7 +1570,6 @@
     /* admin */
     .chat_body_content_admin {
         display: flex;
-        margin-bottom: 10px;
     }
 
     .chat_logo_admin img {
@@ -1696,6 +1696,7 @@
 
         .chat_bot_body_content {
             padding: 5px;
+            padding-bottom: 30px;
         }
 
         .chat {
@@ -1930,9 +1931,11 @@
                         chat += '</div>';
                         chat += '<div class="chat_body_admin" id="' + element.time + '">';
                         chat += '<div class="container-chat">' + element.chat[0] + '</div>';
+                        chat += '<div class="container-chat" >';
                         for (let i = 1; i < element.chat.length; i++) {
                             chat += element.chat[i];
                         }
+                        chat += '</div>';
                         chat += '</div>';
                         chat += '</div>';
                     } else {
@@ -2062,8 +2065,6 @@
                     let resChat = [];
                     $('.loadding_chat').remove();
                     if (response.data.message) {
-                        resChat.push(response.data.message);
-                        // profile and chat > 1
                         let chatBot = '';
                         chatBot += '<div class="chat_body_content_admin">';
                         chatBot += '<div class="chat_logo_admin">';
@@ -2072,15 +2073,19 @@
                         chatBot += '</div>';
                         chatBot += '<div class="chat_body_admin" id="' + time + '">';
                         chatBot += '<div class="container-chat">';
-                        chatBot += response.data.message;
-                        if (response.data.star_message.length > 1) {
-                            for (let i = 0; i < response.data.star_message.length; i++) {
-                                chatBot += response.data.star_message[i].jawaban;
-                                resChat.push(response.data.star_message[i].jawaban);
+                        if (response.data.star_message) {
+                            if (response.data.star_message.length > 1) {
+                                for (let i = 0; i < response.data.star_message.length; i++) {
+                                    chatBot += response.data.star_message[i].jawaban;
+                                    resChat.push(response.data.star_message[i].jawaban);
+                                }
+                            } else {
+                                chatBot += response.data.star_message.jawaban;
+                                resChat.push(response.data.star_message.jawaban);
                             }
                         } else {
-                            chatBot += response.data.star_message.jawaban;
-                            resChat.push(response.data.star_message.jawaban);
+                            chatBot += response.data.message.jawaban;
+                            resChat.push(response.data.message.jawaban);
                         }
                         chatBot += '</div>';
                         chatBot += '</div>';
