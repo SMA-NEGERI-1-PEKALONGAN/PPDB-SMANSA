@@ -1424,6 +1424,7 @@
                         <div class="chat_body_content_user">
                             <div class="chat_body_user">
                                 <div class="container-chat">Halo, saya adalah mimin PPDB SMANSA. Siapa nama kamu?</div>
+
                             </div>
                             <div class="chat_logo_user">
                                 <img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="">
@@ -1608,7 +1609,7 @@
         margin-bottom: 0;
     }
 
-    /* footer sesuai dengan p */
+    /* footer sesuai dengan */
     .chat_footer_admin {
         display: flex;
         justify-content: flex-end;
@@ -1616,16 +1617,14 @@
         margin-bottom: 10px;
     }
 
-
-
-
     /* user chat right */
     .chat_body_content_user {
         display: flex;
         justify-content: flex-end;
         margin-bottom: 10px;
-        margin-top: 10px;
+        margin-top: 20px;
         margin-left: 5px;
+        margin-right: 10px;
     }
 
     .chat_logo_user img {
@@ -1647,22 +1646,11 @@
 
     }
 
-
     .chat_body_user .container-chat:last-child {
         margin-top: 10px;
+        margin-bottom: 10px;
     }
 
-    .chat_body_user .container-chat:last-child {
-        margin-bottom: 0;
-    }
-
-    .chat_body_user .container-chat:last-child {
-        margin-bottom: 0;
-    }
-
-    .chat_body_user .container-chat:last-child {
-        margin-bottom: 0;
-    }
 
     .chat_footer_user {
         display: flex;
@@ -1670,6 +1658,21 @@
         margin-left: 5px;
         margin-bottom: 10px;
     }
+
+    .btn_opsi {
+        background-color: #f1f1f1;
+        border: none;
+        border-radius: 40px;
+        padding: 10px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .btn_opsi:hover {
+        background-color: #7D0A0A;
+        color: #fff;
+    }
+
 
     @media screen and (max-width: 600px) {
         .chat_bot {
@@ -1907,12 +1910,30 @@
         type();
     }
 
+    // start chat
+    $(document).on('click', '#start_message', function() {
+        let user = $('#name_user').val();
+        localStorage.setItem('user', user);
+        let chat = 'Halo, ' + user + ' ada yang bisa mimin bantu?';
+        let time = timeNow();
+
+        // push to local storage
+        let data = {
+            user: 'Mimin',
+            chat: chat,
+            time: time
+        };
+        pushChatToLocalStorage(data);
+
+        loadChatFromLocalStorage();
+    });
+
+
     // get chat from local storage
     function getChatFromLocalStorage() {
         const dataChat = localStorage.getItem('dataChat');
         return dataChat ? JSON.parse(dataChat) : [];
     }
-
 
     // load chat from local storage
     function loadChatFromLocalStorage() {
@@ -1922,8 +1943,7 @@
             let chat = '';
             data.forEach(element => {
                 if (element.user === 'Mimin') {
-                    // jika chat > 1
-                    if (Array.isArray(element.chat) > 1) {
+                    if (Array.isArray(element.chat)) {
                         chat += '<div class="chat_body_content_admin">';
                         chat += '<div class="chat_logo_admin">';
                         chat +=
@@ -1931,11 +1951,16 @@
                         chat += '</div>';
                         chat += '<div class="chat_body_admin" id="' + element.time + '">';
                         chat += '<div class="container-chat">' + element.chat[0] + '</div>';
-                        chat += '<div class="container-chat" >';
-                        for (let i = 1; i < element.chat.length; i++) {
-                            chat += element.chat[i];
+                        // jika chat > 1
+                        if (element.chat.length > 1) {
+                            chat += '<div class="container-chat mt-2">' + element.chat[1] + '</div>';
+                            for (let i = 2; i < element.chat.length; i++) {
+                                chat += '<button class="btn_opsi mt-2" id="' + element.chat[i] + '">' + element
+                                    .chat[
+                                        i] +
+                                    '</button>';
+                            }
                         }
-                        chat += '</div>';
                         chat += '</div>';
                         chat += '</div>';
                     } else {
@@ -1973,43 +1998,14 @@
 
             $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
 
-            // Animate typing for each message
-            // data.forEach(element => {
-            //     let typingElement = document.getElementById('typing_' + element.time).querySelector('p');
-            //     animateTyping(element.chat, typingElement);
-            // });
-
         } else {
             $('#content_start').removeClass('d-none');
             $('#chat_bot_body_content').addClass('d-none');
         }
     }
 
-
-    // load chat from local storage
-    loadChatFromLocalStorage();
-
-    // start chat
-    $(document).on('click', '#start_message', function() {
-        let user = $('#name_user').val();
-        localStorage.setItem('user', user);
-        let chat = 'Halo, ' + user + ' ada yang bisa mimin bantu?';
-        let time = timeNow();
-
-        // push to local storage
-        let data = {
-            user: 'Mimin',
-            chat: chat,
-            time: time
-        };
-        pushChatToLocalStorage(data);
-
-        loadChatFromLocalStorage();
-    });
-
-    // send message
-    $(document).on('click', '#send_message', function() {
-        let chat = $('#message').val();
+    // function to request chat 
+    function requestChat(chat) {
         let time = timeNow();
         let user = localStorage.getItem('user');
 
@@ -2035,9 +2031,11 @@
         chatBot += '</div>';
         chatBot += '</div>';
 
-        $('#chat').append(chatBot);
-
+        // clear input
         $('#message').val('');
+
+        // append chat
+        $('#chat').append(chatBot);
 
         // scroll to bottom
         $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
@@ -2047,6 +2045,16 @@
 
         // get responseChat
         responseChat(chat);
+    }
+
+
+    // load chat from local storage
+    loadChatFromLocalStorage();
+
+    // send message
+    $(document).on('click', '#send_message', function() {
+        let chat = $('#message').val();
+        requestChat(chat);
     });
 
     // get responseChat
@@ -2072,29 +2080,35 @@
                             '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
                         chatBot += '</div>';
                         chatBot += '<div class="chat_body_admin" id="' + time + '">';
-                        chatBot += '<div class="container-chat">';
+
                         if (response.data.star_message) {
-                            if (response.data.star_message.length > 1) {
-                                for (let i = 0; i < response.data.star_message.length; i++) {
-                                    chatBot += response.data.star_message[i].jawaban;
-                                    resChat.push(response.data.star_message[i].jawaban);
-                                }
-                            } else {
-                                chatBot += response.data.star_message.jawaban;
-                                resChat.push(response.data.star_message.jawaban);
+                            chatBot += '<div class="container-chat">' + response.data.message + '</div>';
+                            resChat.push(response.data.message);
+                            chatBot +=
+                                '<div class="container-chat mt-2"> Berikut pertanyaan yang sering diajukan :</div>';
+                            resChat.push('Berikut pertanyaan yang sering diajukan :');
+
+                            for (let i = 0; i < response.data.star_message.length; i++) {
+                                chatBot += '<button class="btn_opsi mt-2" id="' + response.data
+                                    .star_message[i]
+                                    .judul + '">' +
+                                    response.data.star_message[i].judul + '</button>';
+                                resChat.push(response.data.star_message[i].judul);
                             }
+
                         } else {
-                            chatBot += response.data.message.jawaban;
-                            resChat.push(response.data.message.jawaban);
+                            chatBot += '<div class="container-chat">';
+                            if (response.data.message.jawaban) {
+                                chatBot += response.data.message.jawaban;
+                                resChat.push(response.data.message.jawaban);
+                            } else {
+                                chatBot += response.data.message;
+                                resChat.push(response.data.message);
+                            }
                         }
                         chatBot += '</div>';
                         chatBot += '</div>';
                         chatBot += '</div>';
-
-
-                        // animate typing
-                        // let typingElement = document.getElementById('typing_' + time).querySelector('p');
-                        // animateTyping(response.data.message, typingElement);
 
                         $('#chat').append(chatBot);
 
@@ -2151,6 +2165,13 @@
             }
         });
     }
+
+    // click the button option
+    $(document).on('click', '.btn_opsi', function() {
+        let chat = $(this).attr('id');
+        // alert(chat); 
+        requestChat(chat);
+    });
 
     // open modal .btn_file_pdf
     $(document).on('click', '.btn_file_pdf', function(e) {

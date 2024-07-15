@@ -25,7 +25,9 @@ class chatBotModel extends Model
     // get star chat bot
     public function getStarChatBot()
     {
-        return $this->where(['star_chat_bot' => '1'])->findAll();
+        return $this
+        ->where(['star_chat_bot' => '1', 'status_chat_bot' => '1'])
+        ->findAll();
     }
 
     public function getResponse($pertanyaan)

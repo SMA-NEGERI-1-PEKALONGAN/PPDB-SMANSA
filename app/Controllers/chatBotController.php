@@ -191,7 +191,7 @@ class chatBotController extends BaseController
         } else {
             $getStar = $this->chatBotModel->getStarChatBot();
             if($getStar){
-                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu. Berikut pertanyaan yang sering ditanyakan :';
+                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu.';
                 return $this->response->setJSON([
                     'error' => false,
                     'data' => [
@@ -203,17 +203,19 @@ class chatBotController extends BaseController
             } else {
                 return $this->response->setJSON([
                     'error' => false,
-                    'data' => 'Maaf, mimin tidak mengerti pertanyaan kamu.',
+                    'data' => [
+                        'message' => 'Maaf, mimin tidak mengerti pertanyaan kamu.'
+                    ],
                     'status' => '200'
                 ]);
             }
         } 
     } else {    
         // Cari pertanyaan yang hampir sama di database
-        $allQuestions = $this->chatBotModel->findAll(); 
+        $allQuestions = $this->chatBotModel->where('status_chat_bot', 1)->findAll();
         $closestMatch = $this->findClosestQuestion($pertanyaan, $allQuestions);
 
-        if($closestMatch){
+        if($closestMatch != null){
             return $this->response->setJSON([
                 'error' => false,
                 'data' => [
@@ -224,7 +226,7 @@ class chatBotController extends BaseController
         } else {
             $getStar = $this->chatBotModel->getStarChatBot();
             if($getStar){
-                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu. <br> Berikut pertanyaan yang sering ditanyakan :';
+                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu.';
                 return $this->response->setJSON([
                     'error' => false,
                     'data' => [
@@ -236,7 +238,9 @@ class chatBotController extends BaseController
             } else {
                 return $this->response->setJSON([
                     'error' => false,
-                    'data' => 'Maaf, mimin tidak mengerti pertanyaan kamu.',
+                    'data' => [
+                        'message' => 'Maaf, mimin tidak mengerti pertanyaan kamu.'
+                    ],
                     'status' => '200'
                 ]);
             }
@@ -252,17 +256,30 @@ private function findClosestQuestion($inputQuestion, $allQuestions) {
     $highestSimilarity = 0;
 
     foreach ($allQuestions as $question) {
-        // hitung persentase kemiripan pertanyaan
-        similar_text($inputQuestion, $question['pertanyaan'], $percent);
-
-        // Jika persentase kemiripan lebih besar dari persentase kemiripan tertinggi
-        if ($percent > $highestSimilarity) {
-            $closest = $question;
-            $highestSimilarity = $percent;
+        // split $question['pertanyaan'] dengan | sebagai delimiter
+        $questionParts = explode('|', $question['pertanyaan']);
+        
+        foreach ($questionParts as $questionPart) {
+            // Menghitung persentase kemiripan
+            similar_text($inputQuestion, $questionPart, $similarity);
+            
+            // Jika persentase kemiripan lebih besar dari $highestSimilarity
+            if ($similarity > $highestSimilarity) {
+                // Set $highestSimilarity dengan $similarity
+                $highestSimilarity = $similarity;
+                // Set $closest dengan $question['pertanyaan']
+                $closest = $question['jawaban'];
+            }
         }
     }
 
-    return $closest;
+
+    // jika $highestSimilarity lebih besar dari 25
+    if ($highestSimilarity > 25) {
+        return $closest;
+    } else {
+        return null;
+    }
 }
 
 
