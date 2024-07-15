@@ -20,9 +20,8 @@
                         <thead>
                             <tr>
                                 <th class="table-plus">Judul</th>
-                                <th>Pertanyaan</th>
-                                <th>Star</th>
-                                <th>Status</th>
+                                <th class="datatable-nosort text-center">Star</th>
+                                <th class="text-center">Status</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -172,13 +171,12 @@ function dataTableschat() {
                     class: 'table-plus'
                 },
                 {
-                    data: 'pertanyaan'
-                },
-                {
                     data: 'star',
+                    class: 'text-center'
                 },
                 {
                     data: 'status_chat_bot',
+                    class: 'text-center'
                 },
                 {
                     data: 'action',
@@ -190,6 +188,9 @@ function dataTableschat() {
                 targets: "datatable-nosort",
                 orderable: false,
             }],
+            order: [
+                [2, 'desc']
+            ],
         });
     });
 }
@@ -208,7 +209,6 @@ function getSwall(status, message) {
 
     })
 }
-
 
 
 // ======================================== chat ========================================
@@ -285,7 +285,6 @@ var editJawaban = new Quill('#editjawaban', {
             [{
                 align: []
             }],
-
         ]
     },
 });

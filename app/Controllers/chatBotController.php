@@ -274,8 +274,8 @@ private function findClosestQuestion($inputQuestion, $allQuestions) {
     }
 
 
-    // jika $highestSimilarity lebih besar dari 25
-    if ($highestSimilarity > 25) {
+    // jika $highestSimilarity lebih besar dari 60
+    if ($highestSimilarity > 50) {
         return $closest;
     } else {
         return null;

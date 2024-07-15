@@ -1560,7 +1560,7 @@
     }
 
     .input-group-message input:invalid {
-        border: 1px solid red;
+        border: 1px solid #7D0A0A;
     }
 
     .input-group-message input:valid {
