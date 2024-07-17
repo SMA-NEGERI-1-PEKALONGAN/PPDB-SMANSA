@@ -27,15 +27,15 @@ class laporanController extends BaseController
     }
 
      // laporan Antrean
-    public function Laporan(){
+    public function LaporanAntrean(){
         $data = [
             'title' => 'Laporan Antrean',
             'active' => 'laporan-antrean',
         ];
-        return view('Admin/Antrian/laporan', $data);
+        return view('Admin/laporan/Antrean', $data);
     }
 
-    public function ajaxLaporan()
+    public function ajaxLaporanAntrean()
     {    $db = db_connect();
         $builder = $db->table('antrian')->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at');
          return DataTable::of($builder)

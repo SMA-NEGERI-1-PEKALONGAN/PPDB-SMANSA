@@ -99,8 +99,6 @@ $routes->group('Admin', function ($routes) {
         $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
         $routes->get('AjaxAntrianNotActive', 'antrianController::AjaxAntrianNotActive');
         $routes->get('AjaxAntrianBermasalah', 'antrianController::AjaxAntrianBermasalah');
-        $routes->get('Laporan', 'antrianController::Laporan');
-        $routes->get('ajaxLaporan', 'antrianController::ajaxajaxLaporan');
     });
 
     $routes->group('DataSiswa', function ($routes) {
@@ -139,6 +137,11 @@ $routes->group('Admin', function ($routes) {
     $routes->group('Setting', function ($routes) {
         $routes->get('/', 'usersController::Setting');
         $routes->post('update', 'usersController::update');
+    });
+
+    $routes->group('Laporan', function ($routes) {
+        $routes->get('Antrean', 'laporanController::LaporanAntrean');
+        $routes->get('ajaxLaporanAntrean', 'laporanController::ajaxLaporanAntrean');
     });
 
 });

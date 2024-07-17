@@ -65,7 +65,7 @@
                             <div class="form-control-feedback mb-4" id="errorfile"></div>
 
                             <small class="text-danger">* File Excel harus sesuai dengan template yang telah disediakan
-                                <a href="#" data-toggle="modal" data-target="#templateDataSiswa">Download Template</a>
+                                <a href="#" id="downloadTemplate">Download Template</a>
                             </small>
                         </div>
                     </div>
@@ -263,6 +263,11 @@ $('#hapusDataSiswa').click(function() {
             }
 
         });
+});
+
+// download template
+$('#downloadTemplate').click(function() {
+    window.location.href = '<?= base_url('Assets/Template/TEMPLATE IMPORT DITRIMA.xlsx') ?>';
 });
 </script>
 

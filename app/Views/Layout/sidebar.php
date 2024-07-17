@@ -113,8 +113,8 @@
                         </span><span class="mtext">Laporan</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="<?= base_url('Admin/laporan_antrean')?>"
-                                class="<?= $active == 'laporan_antrean '  ? 'active' : '' ?>">Laporan Antrean</a></li>
+                        <li><a href="<?= base_url('Admin/Laporan/Antrean')?>"
+                                class="<?= $active == 'laporan-antrean '  ? 'active' : '' ?>">Laporan Antrean</a></li>
                         <li><a href="<?= base_url('Admin/laporan_siswa')?>"
                                 class="<?= $active == 'laporan_siswa'  ? 'active' : '' ?>">Laporan Siswa</a></li>
                     </ul>
