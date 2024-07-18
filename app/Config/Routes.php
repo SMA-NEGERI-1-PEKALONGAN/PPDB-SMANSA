@@ -36,6 +36,7 @@ $routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1'
 $routes->get('DataTablesDataSiswa', 'dataSiswaController::ajaxDataTables');
 
 $routes->post('fetchChatResponse', 'chatBotController::fetchResponse');
+    
 
 // auth route
 $routes->group('Auth', function ($routes) {
@@ -141,7 +142,7 @@ $routes->group('Admin', function ($routes) {
 
     $routes->group('Laporan', function ($routes) {
         $routes->get('Antrean', 'laporanController::LaporanAntrean');
-        $routes->get('ajaxLaporanAntrean', 'laporanController::ajaxLaporanAntrean');
+        $routes->post('ajaxLaporanAntrean', 'laporanController::ajaxLaporanAntrean');
     });
 
 });

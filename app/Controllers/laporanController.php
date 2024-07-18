@@ -36,15 +36,16 @@ class laporanController extends BaseController
     }
 
     public function ajaxLaporanAntrean()
-    {    $db = db_connect();
+    {   $db = db_connect();
+        $status_antrian = $this->request->getPost('status_antrian');
         $builder = $db->table('antrian')->select('antrian.id_antrian, antrian.nama_siswa, antrian.nisn, antrian.asal_sekolah, antrian.alamat, antrian.no_tlp, antrian.jenis_kelamin, antrian.jalur_pendaftaran, antrian.kode_pendaftaran, antrian.qr_code, antrian.status_antrian, antrian.no_antrian, antrian.sesi_antrian, antrian.tanggal_antrian, antrian.created_at');
-         return DataTable::of($builder)
-        ->filter(function ($builder, $request) {
-            
-            if ($request->tanggal_antrian)
-                $builder->where('tanggal_antrian', $request->tanggal_antrian);
+        if ($status_antrian != '') {
+            $builder->where('status_antrian', '4');
+        }
+        // dd($builder);
+
+        return DataTable::of($builder)
         
-        })
-        ->toJson();
+        ->toJson(true);
     }
 }

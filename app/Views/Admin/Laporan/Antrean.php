@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label class="col-sm-12 col-md-12 col-form-label">Tanggal Awal</label>
                                 <div class="col-sm-12 col-md-12">
-                                    <input class="form-control" type="date" id="tgl_awal">
+                                    <input class="form-control" type="date" id="tgl_awal" name="tgl_awal">
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 <label class="col-sm-12 col-md-12 col-form-label">Tanggal Akhir</label>
                                 <div class="col-sm-12 col-md-12">
-                                    <input class="form-control" type="date" id="tgl_akhir">
+                                    <input class="form-control" type="date" id="tgl_akhir" name="tgl_akhir">
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <div class="form-group">
                                 <label class="col-sm-12 col-md-12 col-form-label">Status</label>
                                 <div class="col-sm-12 col-md-12">
-                                    <select class="custom-select col-12" id="status">
+                                    <select class="custom-select col-12" id="status" name="status">
                                         <option value="">Semua Antrean</option>
                                         <option value="0">Tidak aktif</option>
                                         <option value="2">Pemberkasan</option>
@@ -50,8 +50,8 @@
                             </div>
                         </div>
 
-                        <div class="col-md-1">
-                            <div class="form-group mt-4">
+                        <div class="col-md-2">
+                            <div class="form-group mt-4 text-center">
                                 <button class="btn btn-primary" id="btn-filter" type="button">
                                     <i class="icon-copy fa fa-search" aria-hidden="true"></i>
                                 </button>
@@ -66,12 +66,9 @@
                 <div class="pb-20 table-responsive">
                     <table class="table hover multiple-select-row nowrap" id="laporanAntrian">
                         <thead>
-                            <tr>
-                                <th class="table-plus">Kode Regristrasi</th>
-                                <th>Nama</th>
-                                <th>Status</th>
-                                <th class="datatable-nosort">Action</th>
-                            </tr>
+                            <th class="table-plus">Kode Pendafatran</th>
+                            <th>Nama</th>
+                            <th>Status</th>
                         </thead>
                         <tbody></tbody>
                     </table>
@@ -86,39 +83,115 @@
 <?= $this->endSection('content');?>
 
 <?= $this->section('dataTables');?>
-<!-- buttons for Export datatable -->
-<!-- <script src="src/plugins/datatables/js/dataTables.buttons.min.js"></script>
-<script src="src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
-<script src="src/plugins/datatables/js/buttons.print.min.js"></script>
-<script src="src/plugins/datatables/js/buttons.html5.min.js"></script>
-<script src="src/plugins/datatables/js/buttons.flash.min.js"></script>
-<script src="src/plugins/datatables/js/pdfmake.min.js"></script>
-<script src="src/plugins/datatables/js/vfs_fonts.js"></script> -->
 
-<!-- dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ], -->
+
 <script text="text/javascript">
-// dataTables users
+// dataTables Laporan Antrean
+function laporanAntrean() {
+    $(document).ready(function() {
+        $('#laporanAntrian').DataTable({
+            processing: true,
+            serverSide: true,
+            // responsive: true,
+            ajax: {
+                url: '<?= base_url('Admin/Laporan/ajaxLaporanAntrean') ?>',
+                type: 'POST',
+                data: function(data) {
+                    // data.tanggal_antrian = $('#tgl_awal').val();
+                    // data.tanggal_antrian = $('#tgl_akhir').val();
+                    data.status_antrian = $('#status_antrian').val();
+                }
+            },
+            columns: [{
+                    data: 'nisn'
+                },
+                {
+                    data: 'nama_siswa'
+                },
+                {
+                    data: 'status_antrian'
+                },
+            ],
+            columnDefs: [{
+                    targets: 0,
+                    className: 'table-plus'
+                },
+                {
+                    targets: 2,
+                    render: function(data, type, row) {
+                        if (data == 0) {
+                            return '<span class="badge badge-danger">Tidak Aktif</span>';
+                        } else if (data == 1) {
+                            return '<span class="badge badge-warning">Aktif</span>';
+                        } else if (data == 2) {
+                            return '<span class="badge badge-info">Pemberkasan</span>';
+                        } else if (data == 3) {
+                            return '<span class="badge badge-success">Selesai</span>';
+                        } else {
+                            return '<span class="badge badge-danger">Bermasalah</span>';
+                        }
+                    }
+                }
+            ],
+            dom: 'Bfrtip',
+            buttons: [{
+                    extend: 'print',
+                    title: 'Data Antrian',
+                    className: 'btn btn-primary',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+                {
+                    extend: 'excel',
+                    title: 'Data Antrian',
+                    className: 'btn btn-primary',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    title: 'Data Antrian',
+                    className: 'btn btn-primary',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                },
+                {
+                    extend: 'csv',
+                    title: 'Data Antrian',
+                    className: 'btn btn-primary',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                }
+            ]
+        });
 
+    });
+}
+
+laporanAntrean();
+
+$('#btn-reset').on('click', function() {
+    $('#tgl_awal').val('');
+    $('#tgl_akhir').val('');
+    $('#status').val('');
+});
+
+$('#btn-filter').on('click', function() {
+    // $('#btn-filter').html(
+    //     '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
+    // );
+    $('#laporanAntrian').DataTable().ajax.reload();
+});
 
 $('#btn-filter').on('click', function() {
     $('#btn-filter').html(
         '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
-        );
+    );
 });
-
-function getSwall(status, message) {
-    swal({
-        title: message,
-        type: status == '200' ? 'success' : 'error',
-        showCancelButton: false,
-        showConfirmButton: true,
-        timer: 1500
-
-    })
-}
-
+</script>
 
 <?= $this->endSection('dataTables');?>s
