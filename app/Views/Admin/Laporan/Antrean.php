@@ -39,12 +39,13 @@
                             <div class="form-group">
                                 <label class="col-sm-12 col-md-12 col-form-label">Status</label>
                                 <div class="col-sm-12 col-md-12">
-                                    <select class="custom-select col-12" id="status" name="status">
+                                    <select class="custom-select col-12" id="status_antrian" name="status_antrian">
                                         <option value="">Semua Antrean</option>
-                                        <option value="0">Tidak aktif</option>
-                                        <option value="2">Pemberkasan</option>
-                                        <option value="3">Selesai</option>
-                                        <option value="4">Bermasalah</option>
+                                        <option value="0" id="status0">Tidak Aktif</option>
+                                        <option value="1" id="status1">Check In</option>
+                                        <option value="2" id="status2">Pemberkasan</option>
+                                        <option value="3" id="status3">Selesai</option>
+                                        <option value="4" id="status4">Bermasalah</option>
                                     </select>
                                 </div>
                             </div>
@@ -89,6 +90,7 @@
 // dataTables Laporan Antrean
 function laporanAntrean() {
     $(document).ready(function() {
+
         $('#laporanAntrian').DataTable({
             processing: true,
             serverSide: true,
@@ -97,8 +99,8 @@ function laporanAntrean() {
                 url: '<?= base_url('Admin/Laporan/ajaxLaporanAntrean') ?>',
                 type: 'POST',
                 data: function(data) {
-                    // data.tanggal_antrian = $('#tgl_awal').val();
-                    // data.tanggal_antrian = $('#tgl_akhir').val();
+                    data.tgl_awal = $('#tgl_awal').val();
+                    data.tgl_akhir = $('#tgl_akhir').val();
                     data.status_antrian = $('#status_antrian').val();
                 }
             },
@@ -120,14 +122,14 @@ function laporanAntrean() {
                     targets: 2,
                     render: function(data, type, row) {
                         if (data == 0) {
-                            return '<span class="badge badge-danger">Tidak Aktif</span>';
+                            return '<span class="badge badge-secondary">Tidak Aktif</span>';
                         } else if (data == 1) {
-                            return '<span class="badge badge-warning">Aktif</span>';
+                            return '<span class="badge badge-primary">Check In</span>';
                         } else if (data == 2) {
-                            return '<span class="badge badge-info">Pemberkasan</span>';
+                            return '<span class="badge badge-warning">Pemberkasan</span>';
                         } else if (data == 3) {
                             return '<span class="badge badge-success">Selesai</span>';
-                        } else {
+                        } else if (data == 4) {
                             return '<span class="badge badge-danger">Bermasalah</span>';
                         }
                     }
@@ -177,20 +179,15 @@ laporanAntrean();
 $('#btn-reset').on('click', function() {
     $('#tgl_awal').val('');
     $('#tgl_akhir').val('');
-    $('#status').val('');
-});
-
-$('#btn-filter').on('click', function() {
-    // $('#btn-filter').html(
-    //     '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
-    // );
+    $('#status_antrian').val('');
     $('#laporanAntrian').DataTable().ajax.reload();
 });
 
 $('#btn-filter').on('click', function() {
-    $('#btn-filter').html(
-        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
-    );
+    // $('#btn-filter').html(
+    //     '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+    // );
+    $('#laporanAntrian').DataTable().ajax.reload();
 });
 </script>
 
