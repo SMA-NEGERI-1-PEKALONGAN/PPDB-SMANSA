@@ -29,6 +29,7 @@ class laporanController extends BaseController
      // laporan Antrean
     public function LaporanAntrean(){
         $data = [
+            'main_menu' => 'Laporan',
             'title' => 'Laporan Antrean',
             'active' => 'laporan-antrean',
         ];

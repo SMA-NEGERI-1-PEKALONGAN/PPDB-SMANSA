@@ -20,6 +20,7 @@ class dataSiswaController extends BaseController
     public function index()
     {
         $data = [
+            'main_menu' => 'Siswa',
             'title' => 'Data Siswa',
             'active' => 'data_siswa',
         ];

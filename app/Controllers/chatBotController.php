@@ -19,7 +19,8 @@ class chatBotController extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Chat Bot',
+            'main_menu' => 'Chat Bot',
+            'title' => 'List pertanyaan',
             'active' => 'chatBot',
         ];
         return view('Admin/Chat/index', $data);

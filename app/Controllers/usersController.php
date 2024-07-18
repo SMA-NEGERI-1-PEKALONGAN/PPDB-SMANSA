@@ -19,6 +19,7 @@ class usersController extends BaseController
     public function index()
     {
         $data = [
+            'main_menu' => 'Administator',
             'title' => 'Users',
             'active' => 'Users',
         ];

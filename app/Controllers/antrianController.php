@@ -29,7 +29,8 @@ class antrianController extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Antrean',
+            'main_menu' => 'Antrean',
+            'title' => 'Data Antrean',
             'active' => 'Antrian',
         ];
         return view('Admin/Antrian/index', $data);
@@ -572,6 +573,7 @@ class antrianController extends BaseController
 
     public function scan(){
         $data = [
+            'main_menu' => 'Antrean',
             'title' => 'Scan Antrean',
             'active' => 'Scan',
         ];
@@ -708,6 +710,7 @@ class antrianController extends BaseController
 
     public function listAntrian(){
         $data = [
+            'main_menu' => 'Antrean',
             'title' => 'List Antrean',
             'active' => 'List',
         ];

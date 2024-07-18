@@ -69,6 +69,7 @@
                         <thead>
                             <th class="table-plus">Kode Pendafatran</th>
                             <th>Nama</th>
+                            <th>Tanggal</th>
                             <th>Status</th>
                         </thead>
                         <tbody></tbody>
@@ -111,18 +112,22 @@ function laporanAntrean() {
                     data: 'nama_siswa'
                 },
                 {
+                    data: 'tanggal_antrian'
+                },
+                {
                     data: 'status_antrian'
                 },
+
             ],
             columnDefs: [{
                     targets: 0,
                     className: 'table-plus'
                 },
                 {
-                    targets: 2,
+                    targets: 3,
                     render: function(data, type, row) {
                         if (data == 0) {
-                            return '<span class="badge badge-secondary">Tidak Aktif</span>';
+                            return '<span class="badge badge-danger">Tidak Aktif</span>';
                         } else if (data == 1) {
                             return '<span class="badge badge-primary">Check In</span>';
                         } else if (data == 2) {
@@ -141,7 +146,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2]
+                        columns: [0, 1, 2, 3]
                     }
                 },
                 {
@@ -149,7 +154,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2]
+                        columns: [0, 1, 2, 3]
                     }
                 },
                 {
@@ -157,7 +162,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2]
+                        columns: [0, 1, 2, 3]
                     }
                 },
                 {
@@ -165,7 +170,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2]
+                        columns: [0, 1, 2, 3]
                     }
                 }
             ]

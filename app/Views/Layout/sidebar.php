@@ -68,7 +68,7 @@
                     <a href="<?= base_url('Admin/DataSiswa')?>"
                         class="dropdown-toggle no-arrow <?= $active == 'data_siswa'  ? 'active' : '' ?>">
                         <span class="micon bi bi-people"></span>
-                        <span class="mtext">Data Siswa
+                        <span class="mtext">Siswa
                             <img src="vendors/images/coming-soon.png" alt="" width="25" /></span>
                     </a>
                 </li>

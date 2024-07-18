@@ -20,8 +20,9 @@ class waGatewayController extends BaseController
     public function index()
     {
         $data = [
+            'main_menu' => 'WA Gateway',
+            'title' => 'Setting',
             'active' => 'waGateway',
-            'title' => 'WA Gateway',
         ];
         return view('Admin/waGateway/index', $data);
     }

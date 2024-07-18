@@ -7,7 +7,7 @@
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="<?= base_url('Admin/Dashboard'); ?>">Dashboard</a>
+                        <?= $main_menu; ?>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
                         <?= $title;?>
