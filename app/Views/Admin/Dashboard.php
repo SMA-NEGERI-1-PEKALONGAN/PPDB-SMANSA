@@ -69,7 +69,17 @@
             </div>
         </div>
     </div>
+</div>
 
+<div class="row">
+    <div class="col-md-12">
+        <div class="bg-white pd-20 card-box mb-30">
+            <h4 class="h4 text-blue">
+                Grafik Antrean
+            </h4>
+            <div id="chart1"></div>
+        </div>
+    </div>
 </div>
 
 <div class="row">
@@ -295,15 +305,15 @@ const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', '
 
 function fetchAntrian() {
     $.ajax({
-        url: '<?= base_url('getAllDataAntrian') ?>',
+        url: '<?= base_url('Admin/Antrian/getResultAntrean') ?>',
         type: 'GET',
         dataType: 'json',
         success: function(response) {
             if (response.error == false) {
-                $('#total_antrian').html(response.data.totalAntrian);
-                $('#antrian_active').html(response.data.antrianActive);
-                $('#antrian_now').html(response.data.antrianNow);
-                $('#sisa_antrian').html(response.data.sisa_antrian);
+                $('#total_antrian').html(response.data.total_antrean);
+                $('#antrian_active').html(response.data.total_antrean);
+                $('#antrian_now').html(response.data.total_antrean);
+                $('#sisa_antrian').html(response.data.total_antrean);
             }
         }
     });
@@ -336,7 +346,92 @@ $(document).on('click', '.detailsAntrian', function() {
         }
     });
 });;
-// copy clipboard
+
+// chart
+function getChartAntrean() {
+    let data = [];
+    let tanggal = [];
+    $.ajax({
+        url: '<?= base_url('Admin/Antrian/getStatistic') ?>',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if (response.error == false) {
+                // alert(response.data);
+                for (let i = 0; i < response.data.length; i++) {
+                    dataArray = [
+                        response.data[i].total,
+                        response.data[i].gagal,
+                        response.data[i].sukses
+                    ];
+                    // console.log(dataArray);
+                    data.push(dataArray);
+                    tanggal.push(response.data[i].tanggal);
+                }
+            }
+            console.log(data);
+            console.log(tanggal);
+        }
+    });
+
+    var options3 = {
+        series: [{
+            name: 'Net Profit',
+            data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 80, 89, 90, 100, 20]
+        }, {
+            name: 'Revenue',
+            data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 80, 89, 90, 100, 20]
+        }, {
+            name: 'Free Cash Flow',
+            data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 80, 89, 90, 100, 20]
+        }],
+        chart: {
+            type: 'bar',
+            height: 350,
+            toolbar: {
+                show: false,
+            }
+        },
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '25%',
+                endingShape: 'rounded'
+            },
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+        },
+        xaxis: {
+            categories: ['11 Jun', '12 Jun', '13 Jun', '14 Jun', '15 Jun', '16 Jun', '17 Jun', '18 Jun', '19 Jun',
+                '20 Jun', '21 Jun', '22 Jun', '23 Jun', '24 Jun'
+            ],
+        },
+        yaxis: {
+            title: {
+                text: '$(thousands)'
+            }
+        },
+        fill: {
+            opacity: 1
+        },
+        tooltip: {
+            y: {
+                formatter: function(val) {
+                    return "$" + val + "thousands"
+                }
+            }
+        }
+    };
+    var chart = new ApexCharts(document.querySelector("#chart1"), options3);
+    chart.render();
+}
+getChartAntrean();
 </script>
 
 <?= $this->endSection('dataTables');?>s

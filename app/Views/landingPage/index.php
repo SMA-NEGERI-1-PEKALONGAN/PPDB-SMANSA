@@ -1344,6 +1344,8 @@
                             <a href="#" class="btn btn_soft mt-3 btn_link"
                                 id="https://s.id/ppdbsman1pekalongan">Informasi
                                 PPDB</a>
+                            <a href="#" class="btn btn_soft mt-3 btn_link mx-2" id="<?= base_url('Auth'); ?>">Login
+                                portal admin</a>
 
                         </div>
                     </div>

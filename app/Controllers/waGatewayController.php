@@ -30,15 +30,15 @@ class waGatewayController extends BaseController
     public function startWaGateway()
     {
         $client = \Config\Services::curlrequest();
-        $response = $client->request('POST', 'http://localhost:3000/startClient');
+        $response = $client->request('POST', 'http://wagateway.sman1pekalongan.sch.id/startClient');
         $response = json_decode($response->getBody());
         return $this->response->setJSON($response);
     }
     public function getStatus()
     {
-        // get data from http://localhost:3000/getStatus
+        // get data from http://wagateway.sman1pekalongan.sch.id/getStatus
         $client = \Config\Services::curlrequest();
-        $response = $client->request('GET', 'http://localhost:3000/getStatus');
+        $response = $client->request('GET', 'http://wagateway.sman1pekalongan.sch.id/getStatus');
         $response = json_decode($response->getBody());
         return $this->response->setJSON($response); 
     }
@@ -46,7 +46,7 @@ class waGatewayController extends BaseController
     public function getBarCode()
     {
         $client = \Config\Services::curlrequest();
-        $response = $client->request('GET', 'http://localhost:3000/getQrCode');
+        $response = $client->request('GET', 'http://wagateway.sman1pekalongan.sch.id/getQrCode');
         $response = json_decode($response->getBody());
         return $this->response->setJSON($response);
     }
@@ -54,7 +54,7 @@ class waGatewayController extends BaseController
     public function stopWaGateway()
     {
         $client = \Config\Services::curlrequest();
-        $response = $client->request('POST', 'http://localhost:3000/stopClient');
+        $response = $client->request('POST', 'http://wagateway.sman1pekalongan.sch.id/stopClient');
         $response = json_decode($response->getBody());
         return $this->response->setJSON($response);
     }
@@ -64,7 +64,7 @@ class waGatewayController extends BaseController
         $client = \Config\Services::curlrequest();
 
         // get token
-        $responseApi = $client->request('GET', 'http://localhost:3000/getStatus');  
+        $responseApi = $client->request('GET', 'http://wagateway.sman1pekalongan.sch.id/getStatus');  
         $responseApi = json_decode($responseApi->getBody());
         $token = $responseApi->data->apiKey;
         
@@ -75,7 +75,7 @@ class waGatewayController extends BaseController
         ];
 
 
-         $response = $client->request('POST', 'http://localhost:3000/sendMessage', [
+         $response = $client->request('POST', 'http://wagateway.sman1pekalongan.sch.id/sendMessage', [
             'headers' => [
                 'Content-Type' => 'application/json'
             ],

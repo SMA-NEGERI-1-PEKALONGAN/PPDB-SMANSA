@@ -100,6 +100,8 @@ $routes->group('Admin', function ($routes) {
         $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
         $routes->get('AjaxAntrianNotActive', 'antrianController::AjaxAntrianNotActive');
         $routes->get('AjaxAntrianBermasalah', 'antrianController::AjaxAntrianBermasalah');
+        $routes->get('getResultAntrean', 'antrianController::getResultAntrean');
+        $routes->get('getStatistic', 'antrianController::getStatistic');
     });
 
     $routes->group('DataSiswa', function ($routes) {

@@ -36,6 +36,52 @@ class antrianController extends BaseController
         return view('Admin/Antrian/index', $data);
     }
 
+    public function getResultAntrean(){
+        $total_antrean = $this->antrianModel->findAll();
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => [
+                'total_antrean' => count($total_antrean),
+            ],
+            'status' => '200'
+        ]);
+    }
+
+    public function getStatistic(){
+        $tanggalAwal = '2024-06-11';
+        $tanggalAkhir = '2024-06-24';
+        $tanggal_range = [];
+        
+        $data = $this->antrianModel->where('tanggal_antrian >=', $tanggalAwal)->where('tanggal_antrian <=', $tanggalAkhir)->orderBy('tanggal_antrian', 'ASC')->findAll();
+       
+        foreach ($data as $row) {
+            if (!in_array($row['tanggal_antrian'], $tanggal_range)) {
+                $tanggal_range[] = $row['tanggal_antrian'];
+            }
+        }
+        
+        $total = [];
+        $gagal = [];
+        $sukses = [];
+    
+        foreach ($tanggal_range as $tanggal) {
+            $total[] = count($this->antrianModel->where('tanggal_antrian', $tanggal)->findAll());
+            $gagal[] = count($this->antrianModel->where('tanggal_antrian', $tanggal)->where('status_antrian !=', '3')->findAll());
+            $sukses[] = count($this->antrianModel->where('tanggal_antrian', $tanggal)->where('status_antrian', '3')->findAll());
+        }
+
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => [
+                'tanggal' => $tanggal_range,
+                'total' => $total,
+                'gagal' => $gagal,
+                'sukses' => $sukses,
+            ],
+            'status' => '200'
+        ]);
+    }
+
     public function ajaxDataTables(){
     
         $builder = $this->antrianModel->getAntrian();
