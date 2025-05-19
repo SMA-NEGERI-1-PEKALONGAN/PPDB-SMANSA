@@ -1315,7 +1315,7 @@
 
                     <div class="col-lg-6 col-md-6">
                         <div class="footer-info">
-                            <h3>PPDB SMANSA</h3>
+                            <h3>SPMB SMANSA</h3>
                             <p class="pb-3"><em>
                                     Jl. Ra. Kartini No. 39, Kel. Kauman, Kec. Pekalongan Timur, Kota Pekalongan, Jawa
                                     Tengah 51118
