@@ -504,8 +504,8 @@
                                                         Bagi CMB yang tidak tinggal bersama keluarga inti, namun telah
                                                         tinggal sesuai alamat domisili Kartu Keluarga tersebut paling
                                                         singkat 3 (tiga) tahun terhitung sebelum tanggal pendaftaran
-                                                        PPDB, maka calon murid dimaksud tetap dapat mengikuti
-                                                        PPDB melalui jalur zonasi(Harus melampirlan surat pertanggung
+                                                        SPMB, maka calon murid dimaksud tetap dapat mengikuti
+                                                        SPMB melalui jalur zonasi(Harus melampirlan surat pertanggung
                                                         jawaban mutlak). <a href="" class="sub-link btn_link"
                                                             id="https://drive.google.com/file/d/1Ldoj-AzUe6fYzyCjacqkpUHaBk9UbCHT/view">Download
                                                             Surat</a>
@@ -1341,7 +1341,7 @@
                             <!-- btn to linkt informasi -->
                             <a href="#" class="btn btn_soft mt-3 btn_link"
                                 id="https://s.id/ppdbsman1pekalongan">Informasi
-                                PPDB</a>
+                                SPMB</a>
                             <a href="#" class="btn btn_soft mt-3 btn_link mx-2" id="<?= base_url('Auth'); ?>">Login
                                 portal admin</a>
 
@@ -1423,7 +1423,7 @@
                     <div class="chat">
                         <div class="chat_body_content_user">
                             <div class="chat_body_user">
-                                <div class="container-chat">Halo, saya adalah mimin PPDB SMANSA. Siapa nama kamu?</div>
+                                <div class="container-chat">Halo, saya adalah mimin SPMB SMANSA. Siapa nama kamu?</div>
 
                             </div>
                             <div class="chat_logo_user">
