@@ -519,7 +519,7 @@
                                             </li>
                                             <li class="pb-2">
                                                 Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Lihat
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
                                                     Ketentuan</a>
                                             </li>
                                             <li class="pb-2">
@@ -570,7 +570,7 @@
                                             <li class="pb-2">Kartu keluarga(KK). <br></li>
                                             <li class="pb-2">
                                                 Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Lihat
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
                                                     Ketentuan</a>
                                             </li>
                                             <li class="pb-2">
@@ -591,7 +591,7 @@
                                                 CMB yang bersal dari panti asuhan berdasarkan data yang
                                                 ditetapkan/dikelola oleh Dinas Sosial Provinsi Jawa Tengah.
                                                 <a href="" class="sub-link btn_file_pdf"
-                                                    id="JUKNIS-PPDB2024.pdf">Download
+                                                    id="JUKNIS-SPMB025.pdf">Download
                                                     surat keterangan</a>
                                             </li>
                                             <li class="pb-2">
@@ -648,7 +648,7 @@
                                             </li>
                                             <li class="pb-2">
                                                 Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Lihat
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
                                                     Ketentuan</a>
                                             </li>
                                             <li class="pb-2">
@@ -676,7 +676,7 @@
                                             <li class="pb-2">Kartu keluarga(KK). <br></li>
                                             <li class="pb-2">
                                                 Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Lihat
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
                                                     Ketentuan</a>
                                             </li>
                                             <li class="pb-2">
@@ -755,7 +755,7 @@
                                                 mandiri
                                                 dirumah.
                                                 <a href="" class="sub-link btn_link"
-                                                    id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
+                                                    id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
                                             </li>
                                             <li class="pb-2">
                                                 CMB melakukan verifikasi berkas pada sekolah terdekat. <br>
@@ -769,7 +769,7 @@
                                                     </li>
                                                     <li class="pb-2">Membawa berkas pendaftaran. <br>
                                                         <a href="#persyaratan" class="sub-link "
-                                                            id="JUKNIS-PPDB2024.pdf">Lihat persyartan</a>
+                                                            id="JUKNIS-SPMB025.pdf">Lihat persyartan</a>
                                                     </li>
                                                     <li class="pb-2">Mengenakan seragam sekolah asal </li>
                                                     <li class="pb-2">Potongan ramput rapi (CMB Putra) </li>
@@ -793,7 +793,7 @@
                                             mandiri pada
                                             mandiri pada laman SPMB Jateng Porv. <br>
                                             <a href="" class="sub-link btn_link"
-                                                id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
+                                                id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
                                         </p>
                                     </div>
                                 </li>
@@ -809,7 +809,7 @@
                                             Jateng
                                             Prov. <br>
                                             <a href="" class="sub-link btn_link"
-                                                id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
+                                                id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
                                             <span class="fw-bold ml-3 mt-2">Ketentuan :</span>
                                         <ol class="ml-3 sub_ol mt-2" type='a'>
                                             <li class="pb-2">
@@ -834,7 +834,7 @@
                                             CMB dapat memantau jurnal SPMB Jateng Prov, untuk
                                             mengetahui masuk / tidaknya kedalam sekolah tujuan.<br>
                                             <a href="" class="sub-link btn_link"
-                                                id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
+                                                id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
                                         </p>
                                     </div>
                                 </li>
@@ -848,7 +848,7 @@
                                             Pengumuman SPMB 2025 dapat dilihat pada laman SPMB
                                             Jateng Prov. <br>
                                             <a href="" class="sub-link btn_link"
-                                                id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
+                                                id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
                                         </p>
                                     </div>
                                 </li>
@@ -913,7 +913,7 @@
                                         }
                                         </style>
                                     </p>
-                                    <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Baca
+                                    <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-SPMB025.pdf">Baca
                                         ketentuan</a>
                                 </div>
                             </div>
@@ -1110,7 +1110,7 @@
                                             <i class="bi bi-calendar2-week icon-calenders"></i>
                                             <span class="text-detail">15 Mei 2025</span>
                                         </p>
-                                        <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Baca
+                                        <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-SPMB025.pdf">Baca
                                             ketentuan</a>
                                     </div>
                                     <div class="col-4">
@@ -1323,7 +1323,7 @@
                             </p>
                             <p>
                                 <strong>Phone:</strong> (0285) 421190<br>
-                                <strong>Help Desk PPDB:</strong> 0857-1214-8357 <br>
+                                <strong>Help Desk SPMB:</strong> 0857-1214-8357 <br>
                                 <strong>Email:</strong> info@sma1pekalongan.sch.id<br>
                             </p>
                             <div class="social-links mt-3">
