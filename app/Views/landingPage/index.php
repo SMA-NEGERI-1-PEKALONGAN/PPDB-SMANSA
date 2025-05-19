@@ -379,7 +379,8 @@
 
                         <h5>
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Data diatas merupakan presentase daya tampung yang ada di SMA Negeri 1 Pekalongan Tahun
+                            Data diatas merupakan presentase daya tampung tiap jalur yang ada di SMA Negeri 1 Pekalongan
+                            Tahun
                             Ajaran
                             2025/2026, Dengan total daya tampung sebanyak 324 calon murid baru.
                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
@@ -412,21 +413,17 @@
                             <li class="list-items"><i class="bi bi-check"></i>
                                 Warga Negara Indonesia (WNI).
                             </li>
-                            </li>
-                            <li class="list-items"><i class="bi bi-check"></i>
-                                Berasal dari SMP/MTS di wilayah Kota Pekalongan maupun luar Kota Pekalongan, kecuali
-                                untuk jalur zonasi.</li>
-                            </li>
-                            <li class="list-items"><i class="bi bi-check"></i> Calon Peserta didik telah menyelesaikan
+                            <li class="list-items"><i class="bi bi-check"></i> Calon murid telah menyelesaikan
                                 pendidikan SMP/MTS atau sederajat.</li>
                             </li>
                             <li class="list-items"><i class="bi bi-check"></i>
-                                Usia calon peserta didik maksimal 21 tahun per tanggal 22 Juni 2025.
+                                Usia calon murid maksimal 21 tahun pada tanggal 1 Juli tahun berjalan,
+                                dan belum menikah.
                             </li>
                             <li class="list-items"><i class="bi bi-check"></i>
                                 Melakukan pendaftaran secara online dan mencetak bukti pendaftaran (Bukti
                                 pendaftaran
-                                yang sudah dicetak dibawa saat pengumpulan berkas).</li>
+                                yang sudah dicetak dan dibawa saat pengumpulan berkas).</li>
                         </ul>
                     </div>
                 </div>
@@ -480,7 +477,7 @@
                             <ul>
                                 <li data-aos="fade-up" data-aos-delay="100">
                                     <a data-bs-toggle="collapse" data-bs-target="#persyaratan1" class="collapsed">
-                                        Zonasi
+                                        Domisili
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan1" class="collapse" data-bs-parent=".umum-list">
 
@@ -494,9 +491,10 @@
                                             <li class="pb-2">Kartu keluarga(KK).</br>
                                                 <span class="fw-bold">Ketentuan :</span>
                                                 <ol class="ml-2 sub_ol" type='a'>
-                                                    <li class="">KK yang diterbitkan paling singkat 1 tahun
-                                                        terhitung
-                                                        tanggal 27 Juni 2024(Tanpa adanya perubahan alamat domisili).
+                                                    <li class="">Kartu
+                                                        keluarga yang diterbitkan paling singkat 1 tahun
+                                                        sebelum tanggal pendaftaran penerimaan Murid
+                                                        baru.
                                                     </li>
                                                     <li class="">Bagi KK yang mangalami perubahan
                                                         alamat domisili, kepindahan alamat domisili harus seluruh
@@ -506,17 +504,17 @@
                                                         Bagi CMB yang tidak tinggal bersama keluarga inti, namun telah
                                                         tinggal sesuai alamat domisili Kartu Keluarga tersebut paling
                                                         singkat 3 (tiga) tahun terhitung sebelum tanggal pendaftaran
-                                                        PPDB, maka calon Peserta Didik dimaksud tetap dapat mengikuti
+                                                        PPDB, maka calon murid dimaksud tetap dapat mengikuti
                                                         PPDB melalui jalur zonasi(Harus melampirlan surat pertanggung
                                                         jawaban mutlak). <a href="" class="sub-link btn_link"
                                                             id="https://drive.google.com/file/d/1Ldoj-AzUe6fYzyCjacqkpUHaBk9UbCHT/view">Download
                                                             Surat</a>
                                                     </li>
-                                                    <li>
+                                                    <!-- <li>
                                                         Bagi CMB dari pondok pesantren harus menyertakan surat
                                                         keterangan
                                                         EMIS(Eduaction Management islamic).
-                                                    </li>
+                                                    </li> -->
                                                 </ol>
                                             </li>
                                             <li class="pb-2">
@@ -932,7 +930,7 @@
                                     </h5>
                                     <p class="content-text">
                                         <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">11 s.d 24 Juni 2024</span>
+                                        <span class="text-detail">26 Mei s.d 10 Juni 2025</span>
                                     </p>
                                     <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
@@ -980,7 +978,7 @@
                                     </h5>
                                     <p class="content-text">
                                         <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">11 s.d 24 Juni 2024</span>
+                                        <span class="text-detail">03 s.d 10 Juni 2025</span>
                                     </p>
                                     <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
@@ -998,7 +996,7 @@
                                     </h5>
                                     <p class="content-text">
                                         <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">24 s.d 27 Juni 2024</span>
+                                        <span class="text-detail">12 s.d 17 Juni 2025</span>
                                     </p>
                                     <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
@@ -1042,11 +1040,11 @@
                             <div class="card border-0" data-aos="fade">
                                 <div class="card-body">
                                     <h5 class="title-content">
-                                        Masa tenang
+                                        Evaluasi dan masa tenang
                                     </h5>
                                     <p class="content-text">
                                         <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">28 s.d 30 Juni 2024</span>
+                                        <span class="text-detail">18 s.d 19 Juni 2025</span>
                                     </p>
                                     <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
@@ -1064,7 +1062,7 @@
                                     </h5>
                                     <p class="content-text">
                                         <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">01 Juli 2024</span>
+                                        <span class="text-detail">20 Juni 2025</span>
                                     </p>
                                     <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
@@ -1093,7 +1091,7 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-10 mt-2">
-                                        <h5 class="title-content">Pengumuman PPDB 2024</h5>
+                                        <h5 class="title-content">Pengumuman SPMB 2025</h5>
                                     </div>
                                     <div class="col-2">
                                         <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -1110,7 +1108,7 @@
                                     <div class="col-8">
                                         <p class="content-text">
                                             <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">06 Juni 2024</span>
+                                            <span class="text-detail">15 Mei 2025</span>
                                         </p>
                                         <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-PPDB2024.pdf">Baca
                                             ketentuan</a>
@@ -1152,7 +1150,7 @@
                                     <div class="col-8">
                                         <p class="content-text">
                                             <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">11 s.d 24 Juni 2024</span>
+                                            <span class="text-detail">26 Mei s.d 10 Juni 2025</span>
                                         </p>
                                         <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                     </div>
@@ -1183,7 +1181,7 @@
                                     <div class="col-8 mt-2">
                                         <p class="content-text">
                                             <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">11 s.d 24 Juni 2024</span>
+                                            <span class="text-detail">03 s.d 10 Juni 2025</span>
                                         </p>
                                         <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                     </div>
@@ -1223,7 +1221,7 @@
                                     <div class="col-8 ">
                                         <p class="content-text">
                                             <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">24 s.d 27 Juni 2024</span>
+                                            <span class="text-detail">12 s.d 17 Juni 2025</span>
                                         </p>
                                         <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                     </div>
@@ -1237,7 +1235,7 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-10 mt-2">
-                                        <h5 class="title-content">Masa tenang</h5>
+                                        <h5 class="title-content">Evaluasi dan masa tenang</h5>
                                     </div>
                                     <div class="col-2">
                                         <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -1254,7 +1252,7 @@
                                     <div class="col-8 mt-4">
                                         <p class="content-text">
                                             <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">28 s.d 30 Juni 2024</span>
+                                            <span class="text-detail">18 s.d 19 Juni 2025</span>
                                         </p>
                                         <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                     </div>
@@ -1294,7 +1292,7 @@
                                     <div class="col-8   ">
                                         <p class="content-text ">
                                             <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">01 Juli 2024</span>
+                                            <span class="text-detail">20 Juni 2025</span>
                                         </p>
                                         <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                     </div>
@@ -1325,7 +1323,7 @@
                             <p>
                                 <strong>Phone:</strong> (0285) 421190<br>
                                 <strong>Help Desk PPDB:</strong> 0857-1214-8357 <br>
-                                <strong>Email:</strong> surat@sma1pekalongan.sch.id<br>
+                                <strong>Email:</strong> info@sma1pekalongan.sch.id<br>
                             </p>
                             <div class="social-links mt-3">
                                 <a href="#" class="twitter btn_link" id="https://www.sman1pekalongan.sch.id/v2/"><i
@@ -1369,7 +1367,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; 2024 <strong><span>PPDB SMANSA</span></strong>. All Rights Reserved
+                &copy; 2024 <strong><span>SPMB SMANSA</span></strong>. All Rights Reserved
             </div>
 
         </div>
