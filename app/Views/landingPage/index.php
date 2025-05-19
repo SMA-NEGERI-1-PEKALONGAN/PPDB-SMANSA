@@ -97,7 +97,7 @@
                     <a href="index.html"><img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt=""
                             class="img-fluid"> </a>
                     <h1 class="mx-2">
-                        <a href="index.html">PPDB SMANSA</a>
+                        <a href="index.html">SPMB SMANSA</a>
                     </h1>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                     <li><a class="nav-link scrollto" href="#alur">Alur</a></li>
                     <li><a class="nav-link scrollto" href="#kontak">Kontak</a></li>
                     <!-- <li><a class="nav-link scrollto" href="<?= base_url('Antrean')?>">Antrean</a></li> -->
-                    <li><a class="nav-link scrollto" href="<?= base_url('Pengumuman')?>">Pengumuman</a></li>
+                    <!-- <li><a class="nav-link scrollto" href="<?= base_url('Pengumuman')?>">Pengumuman</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -126,9 +126,9 @@
             <div class="row justify-content-between">
                 <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
                     <div data-aos="zoom-out">
-                        <h1>PPDB <span>2024/2025</span></h1>
+                        <h1>SPMB <span>2025/2026</span></h1>
                         <h2>
-                            Selamat Datang di Website PPDB SMA Negeri 1 Pekalongan
+                            Selamat Datang di Website Informasi SPMB(Sistem Penerimaan Murid Baru) SMAN 1 Pekalongan
                         </h2>
                         <div class="text-center text-lg-start">
                             <a href="#persyaratan" class="btn-get-started scrollto">Daftar Sekarang</a>
@@ -273,10 +273,11 @@
                         <h3>Informasi</h3>
                         <p>
                             Berdasarkan Surat Keputusan Kepala Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah
-                            Nomor : 420 / 04794, Tentang Petunjuk Teknis Penyelenggaraan Penerimaan Peserta Didik Baru
-                            Pada Sekolah Menengah Atas (SMA) Negeri dan Sekolah Menengah Kejuruan (SMK) Negeri Provinsi
-                            Jawa Tengah Tahun Ajaran 2024/2025. Maka jalur penerimaan peserta didik baru di SMA Negeri 1
-                            Pekalongan Tahun Ajaran 2024/2025 adalah sebagai berikut :
+                            Nomor : 400.3 / 06498, Tentang PETUNJUK OPERASIONAL PENYELENGGARAAN SISTEM PENERIMAAN MURID
+                            BARU PADA SEKOLAH MENENGAH ATAS (SMA) NEGERI DAN SEKOLAH MENENGAH KEJURUAN (SMK) NEGERI
+                            PROVINSI JAWA TENGAH TAHUN AJARAN 2025/2026. Maka jalur penerimaan murid baru di SMA Negeri
+                            1
+                            Pekalongan Tahun Ajaran 2025/2026 adalah sebagai berikut :
                         </p>
 
                         <div class="icon-box" data-aos="fade" data-aos-delay="100">
@@ -285,38 +286,39 @@
                                 <i class="bi bi-geo-alt"></i>
                                 </i>
                             </div>
-                            <h4 class="title"><a href="">Zonasi</a></h4>
+                            <h4 class="title"><a href="">Jalur Domisili</a></h4>
                             <p class="description">
-                                Zonasi adalah jalur penerimaan peserta didik baru yang dilakukan berdasarkan wilayah
-                                tempat tinggal calon peserta didik baru.
+                                Jalur Domisili adalah jalur dalam penerimaan Murid baru yang diperuntukkan bagi calon
+                                Murid yang berdomisili di dalam wilayah penerimaan Murid baru yang ditetapkan oleh
+                                Pemerintah Daerah.
                             </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="300">
                             <div class="icon"><i class="bi bi-award"></i></div>
-                            <h4 class="title"><a href="">Afirmasi</a></h4>
+                            <h4 class="title"><a href="">Jalur Afirmasi</a></h4>
                             <p class="description">
-                                Afirmasi adalah jalur penerimaan peserta didik baru yang diperuntukan bagi calon peserta
-                                didik berasal dari keluarga kurang mampu, anak panti, dan anak tidak sekolah(ATS).
-                            </p>
-                        </div>
-                        <div class="icon-box" data-aos="fade" data-aos-delay="200">
-                            <div class="icon"><i class="bi bi-people"></i></div>
-                            <h4 class="title"><a href="">Perpindahan Orang Tua / Wali</a></h4>
-                            <p class="description">
-                                Perpindahan Orang Tua / Wali adalah jalur penerimaan peserta didik baru yang
-                                diperuntukan
-                                bagi calon peserta didik yang orang tua / wali pindah domisili kerja sebelum 1 tahun.
+                                jalur Afirmasi adalah jalur dalam penerimaan Murid baru yang diperuntukkan bagi calon
+                                Murid
+                                yang berasal dari keluarga ekonomi tidak mampu dan calon murid penyandang disabilitas.
                             </p>
                         </div>
                         <div class="icon-box" data-aos="fade" data-aos-delay="200">
                             <div class="icon"><i class="bi bi-trophy"></i></div>
-                            <h4 class="title"><a href="">Prestasi</a></h4>
+                            <h4 class="title"><a href="">Jalur Prestasi</a></h4>
                             <p class="description">
-                                Prestasi adalah jalur penerimaan peserta didik baru yang diperuntukan bagi calon
-                                peserta didik yang memiliki prestasi akademik maupun non akademik.
+                                Jalur Prestasi adalah jalur dalam penerimaan Murid baru yang diperuntukkan bagi calon
+                                Murid yang memiliki prestasi di bidang akademik dan/atau nonakademik.
                             </p>
                         </div>
-
+                        <div class="icon-box" data-aos="fade" data-aos-delay="200">
+                            <div class="icon"><i class="bi bi-people"></i></div>
+                            <h4 class="title"><a href="">Jalur Mutasi</a></h4>
+                            <p class="description">
+                                Jalur Mutasi adalah jalur dalam penerimaan Murid baru yang diperuntukkan bagi calon
+                                Murid yang berpindah domisili karena perpindahan tugas dari orang tua/wali dan bagi anak
+                                guru yang mendaftar di satuan pendidikan tempat orang tua mengajar.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -336,37 +338,35 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="count-box">
                             <i class="bi bi-geo-alt"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="55" data-purecounter-duration="1"
-                                class="purecounter" id="countPrestasi"></span>
-                            <p>Zonasi</p>
+                            <span class="persen">33%</span>
+                            <p>Jalur Domisili</p>
                         </div>
                     </div>
+
 
                     <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                         <div class="count-box">
                             <i class="bi bi-award"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
-                                class="purecounter" id="countAfirmasi"></span>
-                            <p>Afiramsi</p>
+                            <span class="persen">32%</span>
+                            <p>Jalur Afiramsi</p>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                        <div class="count-box">
+                            <i class="bi bi-trophy"></i>
+                            <span> 30%
+                            </span>
+                            <p>Jalur Prestasi</p>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="bi bi-people"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="05" data-purecounter-duration="1"
-                                class="purecounter" id="countPTO"></span>
-                            <p>Perpindahan Orang Tua</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                        <div class="count-box">
-                            <i class="bi bi-trophy"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
-                                class="purecounter" id="countprestasi">
-                            </span>
-                            <p>Prestasi</p>
+                            <span>5%</span>
+                            <p>Jalur Mutasi</p>
                         </div>
                     </div>
 
@@ -381,7 +381,7 @@
                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                             Data diatas merupakan presentase daya tampung yang ada di SMA Negeri 1 Pekalongan Tahun
                             Ajaran
-                            2024/2025, Dengan total daya tampung sebanyak 324 calon peserta didik baru.
+                            2025/2026, Dengan total daya tampung sebanyak 324 calon murid baru.
                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                         </h5>
                     </div>
@@ -421,7 +421,7 @@
                                 pendidikan SMP/MTS atau sederajat.</li>
                             </li>
                             <li class="list-items"><i class="bi bi-check"></i>
-                                Usia calon peserta didik maksimal 21 tahun per tanggal 22 Juni 2024.
+                                Usia calon peserta didik maksimal 21 tahun per tanggal 22 Juni 2025.
                             </li>
                             <li class="list-items"><i class="bi bi-check"></i>
                                 Melakukan pendaftaran secara online dan mencetak bukti pendaftaran (Bukti
@@ -503,7 +503,7 @@
                                                         keluarga yang ada
                                                         pada KK tersebut.</li>
                                                     <li>
-                                                        Bagi CPD yang tidak tinggal bersama keluarga inti, namun telah
+                                                        Bagi CMB yang tidak tinggal bersama keluarga inti, namun telah
                                                         tinggal sesuai alamat domisili Kartu Keluarga tersebut paling
                                                         singkat 3 (tiga) tahun terhitung sebelum tanggal pendaftaran
                                                         PPDB, maka calon Peserta Didik dimaksud tetap dapat mengikuti
@@ -513,7 +513,7 @@
                                                             Surat</a>
                                                     </li>
                                                     <li>
-                                                        Bagi CPD dari pondok pesantren harus menyertakan surat
+                                                        Bagi CMB dari pondok pesantren harus menyertakan surat
                                                         keterangan
                                                         EMIS(Eduaction Management islamic).
                                                     </li>
@@ -576,7 +576,7 @@
                                                     Ketentuan</a>
                                             </li>
                                             <li class="pb-2">
-                                                CPD yang bersal dari keluarga ekonomi kurang mampu dibuktikan dengan :
+                                                CMB yang bersal dari keluarga ekonomi kurang mampu dibuktikan dengan :
                                                 <br>
                                                 <span class="fw-bold">Ketentuan :</span>
                                                 <ol class="ml-2 sub_ol" type='a'>
@@ -590,14 +590,14 @@
                                                 </ol>
                                             </li>
                                             <li class="pb-2">
-                                                CPD yang bersal dari panti asuhan berdasarkan data yang
+                                                CMB yang bersal dari panti asuhan berdasarkan data yang
                                                 ditetapkan/dikelola oleh Dinas Sosial Provinsi Jawa Tengah.
                                                 <a href="" class="sub-link btn_file_pdf"
                                                     id="JUKNIS-PPDB2024.pdf">Download
                                                     surat keterangan</a>
                                             </li>
                                             <li class="pb-2">
-                                                CPD ATS yang terdaftar dalam sistem informasi kesejahteraan sosial -
+                                                CMB ATS yang terdaftar dalam sistem informasi kesejahteraan sosial -
                                                 Dinsos Prov. Jateng (SIKS-DJ) dan ATS selain yang terdaftar dalam
                                                 SIKS-DJ yang dibuktikan dengan surat keterangan yang diterbitkan oleh
                                                 kepala desa/lurah dan diketahui oleh camat/kecamatan
@@ -753,14 +753,14 @@
                                     <div id="pendaftaran1" class="collapse" data-bs-parent=".faq-list">
                                         <ol class="ml-2">
                                             <li class="pb-2">
-                                                CPD melakukan pendaftaran akun pada laman PPDB Jateng PRov secara
+                                                CMB melakukan pendaftaran akun pada laman SPMB Jateng PRov secara
                                                 mandiri
                                                 dirumah.
                                                 <a href="" class="sub-link btn_link"
-                                                    id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
+                                                    id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
                                             </li>
                                             <li class="pb-2">
-                                                CPD melakukan verifikasi berkas pada sekolah terdekat. <br>
+                                                CMB melakukan verifikasi berkas pada sekolah terdekat. <br>
                                                 <span class="fw-bold">Ketentuan verifikasi berkas di SMAN 1
                                                     Pekalongan:</span>
                                                 <ol class="ml-2 sub_ol" type='a'>
@@ -774,7 +774,7 @@
                                                             id="JUKNIS-PPDB2024.pdf">Lihat persyartan</a>
                                                     </li>
                                                     <li class="pb-2">Mengenakan seragam sekolah asal </li>
-                                                    <li class="pb-2">Potongan ramput rapi (CPD Putra) </li>
+                                                    <li class="pb-2">Potongan ramput rapi (CMB Putra) </li>
                                                     <li class="pb-2">Mengenakan spatu & kaos kaki </li>
                                                     <li class="pb-2">Orang tua/wali yg mengantar berpakaian rapi
                                                     </li>
@@ -791,11 +791,11 @@
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran3" class="collapse" data-bs-parent=".faq-list">
                                         <p class="pb-2 ml-3 ">
-                                            Setelah melakukan verifikasi berkas, CPD melakukan aktifasi akun secara
+                                            Setelah melakukan verifikasi berkas, CMB melakukan aktifasi akun secara
                                             mandiri pada
-                                            mandiri pada laman PPDB Jateng Porv. <br>
+                                            mandiri pada laman SPMB Jateng Porv. <br>
                                             <a href="" class="sub-link btn_link"
-                                                id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
+                                                id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
                                         </p>
                                     </div>
                                 </li>
@@ -807,19 +807,19 @@
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran4" class="collapse" data-bs-parent=".faq-list">
                                         <p class="pb-2 ml-3">
-                                            CPD melakukan pendaftaran sekolah SMA/SMK secara mandiri pada laman PPDB
+                                            CMB melakukan pendaftaran sekolah SMA/SMK secara mandiri pada laman SPMB
                                             Jateng
                                             Prov. <br>
                                             <a href="" class="sub-link btn_link"
-                                                id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
+                                                id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
                                             <span class="fw-bold ml-3 mt-2">Ketentuan :</span>
                                         <ol class="ml-3 sub_ol mt-2" type='a'>
                                             <li class="pb-2">
-                                                CPD dapat meilih 1 jalur zonasi dan 1 jalur prestasi/afirmasi diluar
+                                                CMB dapat meilih 1 jalur zonasi dan 1 jalur prestasi/afirmasi diluar
                                                 zona.
                                             </li>
                                             <li class="pb-2">
-                                                CPD dapat mengubah pilihan sekolah baik dari SMA ke SMK atau sebaliknya
+                                                CMB dapat mengubah pilihan sekolah baik dari SMA ke SMK atau sebaliknya
                                                 selama masa pendaftaran(melakukan pembatalan terlebih dahulu).
                                             </li>
                                         </ol>
@@ -833,10 +833,10 @@
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran5" class="collapse" data-bs-parent=".faq-list">
                                         <p class="pb-2 ml-3 ">
-                                            CPD dapat memantau jurnal PPDB Jateng Prov, untuk
+                                            CMB dapat memantau jurnal SPMB Jateng Prov, untuk
                                             mengetahui masuk / tidaknya kedalam sekolah tujuan.<br>
                                             <a href="" class="sub-link btn_link"
-                                                id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
+                                                id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
                                         </p>
                                     </div>
                                 </li>
@@ -847,10 +847,10 @@
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="pendaftaran6" class="collapse" data-bs-parent=".faq-list">
                                         <p class="pb-2 ml-3 ">
-                                            Pengumuman PPDB 2024 dapat dilihat pada laman PPDB
+                                            Pengumuman SPMB 2025 dapat dilihat pada laman SPMB
                                             Jateng Prov. <br>
                                             <a href="" class="sub-link btn_link"
-                                                id="https://ppdb.jatengprov.go.id/">Link PPDB</a>
+                                                id="https://ppdb.jatengprov.go.id/">Link SPMB Jateng</a>
                                         </p>
                                     </div>
                                 </li>
@@ -894,10 +894,10 @@
                         <div class="col-md-5 icon-right">
                             <div class="card border-0" data-aos="fade">
                                 <div class="card-body">
-                                    <h5 class="title-content">Pengumuman PPDB 2024</h5>
+                                    <h5 class="title-content">Pengumuman SPMB 2025</h5>
                                     <p class="content-text">
                                         <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">06 Juni 2024</span>
+                                        <span class="text-detail">15 Juni 2025</span>
 
                                         <style>
                                         .icon-calenders {

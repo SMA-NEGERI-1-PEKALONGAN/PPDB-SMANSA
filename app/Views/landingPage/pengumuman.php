@@ -457,7 +457,7 @@ function set_clock(date_now, set_date, pesan) {
             $('#Medium-modal').modal('show');
             // btn play music
             $('#btnPlay').removeClass('d-none');
-            1
+
             $('#background_content').addClass('content');
             $('#formDu').removeClass('d-none');
 

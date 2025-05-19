@@ -13,7 +13,7 @@ class landingPageController extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'PPDB SMANSA',
+            'title' => 'SPMB SMANSA',
             'active' => 'Landing Page',
         ];
         return view('landingPage/index', $data);
@@ -21,7 +21,7 @@ class landingPageController extends BaseController
 
     public function Antrian(){
         $data = [
-            'title' => 'Antrean - PPDB SMANSA',
+            'title' => 'Antrean - SPMB SMANSA',
             'active' => 'Antrian',
         ];
         return view('landingPage/antrian', $data);
@@ -29,7 +29,7 @@ class landingPageController extends BaseController
 
     public function Cari(){
         $data = [
-            'title' => 'Cari - PPDB SMANSA',
+            'title' => 'Cari - SPMB SMANSA',
             'active' => 'Cari',
         ];
         return view('landingPage/cari', $data);
@@ -37,7 +37,7 @@ class landingPageController extends BaseController
 
     public function Pengumuman(){
         $data = [
-            'title' => 'Pengumuman - PPDB SMANSA',
+            'title' => 'Pengumuman - SPMB SMANSA',
             'active' => 'Pengumuman',
         ];
         return view('landingPage/pengumuman', $data);
@@ -45,7 +45,7 @@ class landingPageController extends BaseController
     
     public function Form(){
         $data = [
-            'title' => 'FORM DU - PPDB SMANSA',
+            'title' => 'FORM DU - SPMB SMANSA',
             'active' => 'Form-DU',
         ];
         return view('landingPage/FORM', $data);
@@ -75,7 +75,7 @@ class landingPageController extends BaseController
     public function Views(){
        
         $data = [
-            'title' => 'Views - PPDB SMANSA',
+            'title' => 'Views - SPMB SMANSA',
             'active' => 'Views',
         ];
         return view('landingPage/view', $data);

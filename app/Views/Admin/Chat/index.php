@@ -249,6 +249,7 @@ var addJawaban = new Quill('#jawaban', {
             }],
         ]
     },
+
 });
 addJawaban.on('text-change', function(delta, oldDelta, source) {
     document.querySelector("input[name='content']").value = addJawaban.root.innerHTML;
