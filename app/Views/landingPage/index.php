@@ -483,6 +483,12 @@
 
                                         <ol class="ml-2">
                                             <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
+                                                    Surat</a>
+                                            </li>
+                                            <li class="pb-2">
                                                 Buku rapor SMP/Sederajat
                                             </li>
                                             <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
@@ -496,13 +502,6 @@
                                                 <ol class="ml-2 sub_ol" type='a'>
                                                     <li class="">Kartu Keluarga (paling singkat 1 tahun yang dihitung
                                                         sampai dengan tanggal akhir pendaftaran SMPB 17 Juni 2025)</li>
-
-
-                                                    <!-- <li>
-                                                        Bagi CMB dari pondok pesantren harus menyertakan surat
-                                                        keterangan
-                                                        EMIS(Eduaction Management islamic).
-                                                    </li> -->
                                                 </ol>
                                             </li>
                                             <li class="pb-2">
@@ -510,13 +509,6 @@
                                                 <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
                                                     Ketentuan</a>
                                             </li>
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran dokumen. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
-                                                    Surat</a>
-                                            </li>
-
                                         </ol>
                                         <style>
                                         .ml-3 {
@@ -544,11 +536,17 @@
                                 </li>
 
                                 <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan2"
-                                        class="collapsed">Afirmasi
+                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan4"
+                                        class="collapsed">Prestasi
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="persyaratan2" class="collapse" data-bs-parent=".umum-list">
+                                    <div id="persyaratan4" class="collapse" data-bs-parent=".umum-list">
                                         <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
+                                                    Surat</a>
+                                            </li>
                                             <li class="pb-2">
                                                 Buku rapor SMP/Sederajat
                                             </li>
@@ -565,13 +563,54 @@
                                                     Ketentuan</a>
                                             </li>
                                             <li class="pb-2">
+                                                Surat pernyataan kebenaran prestasi. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1vThchunn3CyM4yqfK6gk5LhNIuoX6F_S/view">Download
+                                                    Surat</a>
+                                            </li>
+
+                                        </ol>
+                                    </div>
+                                </li>
+
+                                <li data-aos="fade-up" data-aos-delay="200">
+                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan2"
+                                        class="collapsed">Afirmasi
+                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
+                                    <div id="persyaratan2" class="collapse" data-bs-parent=".umum-list">
+                                        <ol class="ml-2">
+                                            <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
+                                                    Surat</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                Buku rapor SMP/Sederajat
+                                            </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
+                                                    class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
+                                                    Surat</a> </li>
+                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
+                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
+                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
+                                            <li class="pb-2">
+                                                CMB yang memiliki Kartu Penyandang Disabilitas dari Kementrian Sosial
+                                                atau Surat Keterangan dari Dokter/Dokter Spesialis:
+                                            </li>
+                                            <li class="pb-2">
                                                 CMB yang bersal dari keluarga ekonomi kurang mampu dibuktikan dengan :
                                                 <br>
                                                 <span class="fw-bold">Ketentuan :</span>
                                                 <ol class="ml-2 sub_ol" type='a'>
-                                                    <li class="">Kepesertaan dalam Program Indonesia Pintar (PIP)
-                                                        berdasarkan Data Pokok Pendidikan; atau</li>
                                                     <li class="">Terdatadalam Data Terpadu Kesejahteraan Sosial (DTKS)
+                                                        Prioritas 1,2 dan 3
                                                         yang dikeluarkan oleh Kementerian Sosial(Screenshoot DTK). <br>
                                                         <a href="" id="https://caribdt.dinsos.jatengprov.go.id/"
                                                             class="sub-link btn_link">Link DTKS</a>
@@ -586,25 +625,15 @@
                                                     surat keterangan</a>
                                             </li>
                                             <li class="pb-2">
-                                                CMB ATS yang terdaftar dalam sistem informasi kesejahteraan sosial -
-                                                Dinsos Prov. Jateng (SIKS-DJ) dan ATS selain yang terdaftar dalam
-                                                SIKS-DJ yang dibuktikan dengan surat keterangan yang diterbitkan oleh
-                                                kepala desa/lurah dan diketahui oleh camat/kecamatan
-                                                setempat(dilampirkan ijazah SMP/Sederajat sebelum tahun kelulusan
-                                                2023/2024).
+                                                CMB ATS yang terdaftar dalam Database Pusdatin Kemendikdasmen/Surat
+                                                Pernyataan dari calon murid.
                                                 <br>
-
                                                 <a href="" class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1RIR1SXIJvtbiGBjSsyrHek0JoUGyLbTU/view?usp=sharing">Download
+                                                    id="https://docs.google.com/document/d/1eNkeku1iyt68-JlR2SqV-fAGHU1e0UlwOiEqmY3_nr8/edit?tab=t.0">Download
                                                     surat keterangan</a>
 
                                             </li>
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran dokumen. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
-                                                    Surat</a>
-                                            </li>
+
                                         </ol>
                                     </div>
                                 </li>
@@ -615,6 +644,12 @@
                                     <div id="persyaratan3" class="collapse" data-bs-parent=".umum-list">
                                         <ol class="ml-2">
                                             <li class="pb-2">
+                                                Surat pernyataan kebenaran dokumen. </br>
+                                                <a href="" class="sub-link btn_link"
+                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
+                                                    Surat</a>
+                                            </li>
+                                            <li class="pb-2">
                                                 Buku rapor SMP/Sederajat
                                             </li>
                                             <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
@@ -624,67 +659,33 @@
                                             <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
                                             <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
                                             <li class="pb-2">Kartu keluarga(KK). <br></li>
+                                            <li class="pb-2">
+                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
+                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
+                                                    Ketentuan</a>
+                                            </li>
                                             <li class="pb-2">
                                                 Surat penugasan dari kantor/instansi yang bersangkutan.</br>
                                                 <span class="fw-bold">Ketentuan :</span>
                                                 <ol class="ml-2 sub_ol" type='a'>
                                                     <li class="">
-                                                        Surat penugasan yang diterbitkan paling lama 1 tahun terhitung
-                                                        tanggal 27 Juni 2024(Tanpa adanya perubahan alamat domisili).
+                                                        Surat Penugasan sekurang-kurangnya antarKabupaten/Kota mininal 1
+                                                        tahun.
                                                     </li>
-                                                    <li class=>
-                                                        Perpindahan penugasan harus antar kota/kabupaten.
+                                                    <li class="">
+                                                        Kartu Keluarga Luar Kabupaten/Kota
                                                     </li>
+
                                                 </ol>
                                             </li>
-                                            <li class="pb-2">Surat keterangan alamat kantor/instansi yang bersangkutan.
+                                            <li class="">
+                                                Surat Keterangan Domisili yang diterbitkan oleh Kepala
+                                                Desa/Lurah dan diketahui oleh Camat
                                             </li>
-                                            <li class="pb-2">
-                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
-                                                    Ketentuan</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran dokumen. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
-                                                    Surat</a>
-                                            </li>
+
                                         </ol>
                                     </div>
                                 </li>
-
-                                <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan4"
-                                        class="collapsed">Prestasi
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="persyaratan4" class="collapse" data-bs-parent=".umum-list">
-                                        <ol class="ml-2">
-                                            <li class="pb-2">
-                                                Buku rapor SMP/Sederajat
-                                            </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
-                                                    class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
-                                                    Surat</a> </li>
-                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
-                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
-                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
-                                            <li class="pb-2">
-                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
-                                                    Ketentuan</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran dokumen. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
-                                                    Surat</a>
-                                            </li>
-                                        </ol>
-                                    </div>
-                                </li>
-
                             </ul>
                         </div>
                     </div>
