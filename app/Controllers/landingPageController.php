@@ -12,9 +12,17 @@ class landingPageController extends BaseController
 {
     public function index()
     {
+        $masterReferensiModel = new masterReferensiModel();
+        $masterReferensi = $masterReferensiModel->getReferensiByKodeKategori('set_antrian');
+        foreach($masterReferensi as $row){
+            if ($row['nama_referensi'] == 'status_antrian') {
+                $status_antrian = $row['kode_referensi'];
+            }
+        }
         $data = [
             'title' => 'SPMB SMANSA',
             'active' => 'Landing Page',
+            'status_antrian' => $status_antrian,
         ];
         return view('landingPage/index', $data);
     }
@@ -267,7 +275,7 @@ class landingPageController extends BaseController
         if(strtotime($dateNow) < strtotime($tanggal_antrian)){
             $dateTime = $tanggal_antrian . ' ' . $start_antrian;
             
-            $pesan = 'Pendaftaran antrean dapat dilakukan pada tanggal ' . date('d F Y', strtotime($tanggal_antrian)) . ' pukul ' . $start_antrian . ' WIB s.d. ' . $close_antrian . ' WIB';
+            $pesan = 'Pendaftaran antrean dapat dilakukan pada tanggal ' . date('d F Y', strtotime($tanggal_antrian)) . ' pukul ' . $start_antrian . ' WIB';
 
             // $pesan = 'Pengumuman datapat dilihat pada tanggal ' . date('d F Y', strtotime($tanggal_antrian)) . ' pukul ' . $start_antrian . ' WIB';
             

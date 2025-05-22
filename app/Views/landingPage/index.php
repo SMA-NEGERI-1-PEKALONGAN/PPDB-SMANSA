@@ -110,7 +110,13 @@
                     <li><a class="nav-link scrollto" href="#ketentuan">Ketentuan</a></li>
                     <li><a class="nav-link scrollto" href="#alur">Alur</a></li>
                     <li><a class="nav-link scrollto" href="#kontak">Kontak</a></li>
+                    <?php 
+                    if($status_antrian== '1'):
+                    ?>
                     <li><a class="nav-link scrollto" href="<?= base_url('Antrean')?>">Antrean</a></li>
+                    <?php 
+                    endif;
+                    ?>
                     <!-- <li><a class="nav-link scrollto" href="<?= base_url('Pengumuman')?>">Pengumuman</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -669,7 +675,8 @@
                                                 <span class="fw-bold">Ketentuan :</span>
                                                 <ol class="ml-2 sub_ol" type='a'>
                                                     <li class="">
-                                                        Surat Penugasan sekurang-kurangnya antarKabupaten/Kota mininal 1
+                                                        Surat Penugasan sekurang-kurangnya antar Kabupaten/Kota mininal
+                                                        1
                                                         tahun.
                                                     </li>
                                                     <li class="">
@@ -761,7 +768,7 @@
                                                 <ol class="ml-2 sub_ol" type='a'>
                                                     <li class="">Melakukan pendaftaran antrean <br>
                                                         <a href="" class="sub-link btn_link"
-                                                            id="https://ppdb.sman1pekalongan.sch.id/Antrean">Link
+                                                            id="https://spmb.sman1pekalongan.sch.id/Antrean">Link
                                                             antrean</a>
                                                     </li>
                                                     <li class="pb-2">Membawa berkas pendaftaran. <br>
