@@ -485,31 +485,19 @@
                                             <li class="pb-2">
                                                 Buku rapor SMP/Sederajat
                                             </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
+                                                    class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
+                                                    Surat</a> </li>
                                             <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
                                             <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
                                             <li class="pb-2">Kartu keluarga(KK).</br>
                                                 <span class="fw-bold">Ketentuan :</span>
                                                 <ol class="ml-2 sub_ol" type='a'>
-                                                    <li class="">Kartu
-                                                        keluarga yang diterbitkan paling singkat 1 tahun
-                                                        sebelum tanggal pendaftaran penerimaan Murid
-                                                        baru.
-                                                    </li>
-                                                    <li class="">Bagi KK yang mangalami perubahan
-                                                        alamat domisili, kepindahan alamat domisili harus seluruh
-                                                        keluarga yang ada
-                                                        pada KK tersebut.</li>
-                                                    <li>
-                                                        Bagi CMB yang tidak tinggal bersama keluarga inti, namun telah
-                                                        tinggal sesuai alamat domisili Kartu Keluarga tersebut paling
-                                                        singkat 3 (tiga) tahun terhitung sebelum tanggal pendaftaran
-                                                        SPMB, maka calon murid dimaksud tetap dapat mengikuti
-                                                        SPMB melalui jalur zonasi(Harus melampirlan surat pertanggung
-                                                        jawaban mutlak). <a href="" class="sub-link btn_link"
-                                                            id="https://drive.google.com/file/d/1Ldoj-AzUe6fYzyCjacqkpUHaBk9UbCHT/view">Download
-                                                            Surat</a>
-                                                    </li>
+                                                    <li class="">Kartu Keluarga (paling singkat 1 tahun yang dihitung
+                                                        sampai dengan tanggal akhir pendaftaran SMPB 17 Juni 2025)</li>
+
+
                                                     <!-- <li>
                                                         Bagi CMB dari pondok pesantren harus menyertakan surat
                                                         keterangan
@@ -525,7 +513,7 @@
                                             <li class="pb-2">
                                                 Surat pernyataan kebenaran dokumen. </br>
                                                 <a href="" class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1LasHdk-MHgFiANMDrv7AfoBCL1XYhV2Z/view">Download
+                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
                                                     Surat</a>
                                             </li>
 
@@ -564,7 +552,10 @@
                                             <li class="pb-2">
                                                 Buku rapor SMP/Sederajat
                                             </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
+                                                    class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
+                                                    Surat</a> </li>
                                             <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
                                             <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
                                             <li class="pb-2">Kartu keluarga(KK). <br></li>
@@ -611,7 +602,7 @@
                                             <li class="pb-2">
                                                 Surat pernyataan kebenaran dokumen. </br>
                                                 <a href="" class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1LasHdk-MHgFiANMDrv7AfoBCL1XYhV2Z/view">Download
+                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
                                                     Surat</a>
                                             </li>
                                         </ol>
@@ -626,7 +617,10 @@
                                             <li class="pb-2">
                                                 Buku rapor SMP/Sederajat
                                             </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
+                                                    class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
+                                                    Surat</a> </li>
                                             <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
                                             <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
                                             <li class="pb-2">Kartu keluarga(KK). <br></li>
@@ -653,7 +647,7 @@
                                             <li class="pb-2">
                                                 Surat pernyataan kebenaran dokumen. </br>
                                                 <a href="" class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1LasHdk-MHgFiANMDrv7AfoBCL1XYhV2Z/view">Download
+                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
                                                     Surat</a>
                                             </li>
                                         </ol>
@@ -669,7 +663,10 @@
                                             <li class="pb-2">
                                                 Buku rapor SMP/Sederajat
                                             </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </li>
+                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
+                                                    class="sub-link btn_link"
+                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
+                                                    Surat</a> </li>
                                             <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
                                             <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
                                             <li class="pb-2">Kartu keluarga(KK). <br></li>
@@ -681,7 +678,7 @@
                                             <li class="pb-2">
                                                 Surat pernyataan kebenaran dokumen. </br>
                                                 <a href="" class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1LasHdk-MHgFiANMDrv7AfoBCL1XYhV2Z/view">Download
+                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
                                                     Surat</a>
                                             </li>
                                         </ol>
