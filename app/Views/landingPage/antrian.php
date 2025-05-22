@@ -99,7 +99,6 @@ h6 {
     $macAddrs =  exec('getmac');
     $macAddrs = substr($macAddrs, 0, 17);
     $macAddrs = str_replace(' ', '', $macAddrs);
-
     // echo $macAddrs;
  ?>
 <div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
@@ -141,14 +140,17 @@ h6 {
     </div>
 
     <form id="form_tambah_antrian" enctype="multipart/form-data">
+        <!-- <form action="<?= base_url('Admin/Antrian/save'); ?>" method="post" enctype="multipart/form-data"> -->
+
         <div class="modal-body">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
                     <div class="alert alert-warning" role="alert">
-                        <h4 class="alert-heading">Perhatian!</h4>
+                        <h4 class="alert-heading mb-2">Perhatian!</h4>
                         <p class="mb-2">
-                            Kartu atrean ini hanya berlaku dihari pendaftaran antrean, pastikan anda mendafatar
-                            ketika ingin melakukan verifikasi berkas dihari itu juga.
+                            Anda dapat melakukan pedaftaran antrean jika sudah melengkapi semua berkas
+                            yang telah ditentukan dan telah mendaftar akun di laman <a target="_blank"
+                                href="https://spmb.jatengprov.go.id/"><b>SPMB Jateng</b></a>
                         </p>
 
                     </div>
@@ -167,7 +169,8 @@ h6 {
                     <div class="form-group">
                         <label for="nisn">NISN<span class="rq">*</span></label>
                         <input type="text" class="form-control required" id="nisn" name="nisn"
-                            placeholder="Masukan NISN">
+                            placeholder="Masukan NISN" maxlength="10" minlength="10"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         <div class="form-control-feedback" id="errornisn"></div>
                     </div>
                 </div>
@@ -175,10 +178,10 @@ h6 {
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label for="kode_pendaftaran">Nomor peserta
-                            PPDB<span class="rq">*</span></label></label>
+                        <label for="kode_pendaftaran">Nomor pendaftraran
+                            SPMB<span class="rq">*</span></label></label>
                         <input type="text" class="form-control required" id="kode_pendaftaran" name="kode_pendaftaran"
-                            placeholder="Masukan nomor peserta PPDB">
+                            placeholder="Masukan nomor peserta SPMB">
                         <div class="form-control-feedback " id="errorkode_pendaftaran"></div>
                     </div>
                 </div>
@@ -211,11 +214,11 @@ h6 {
                             Pendaftaran<span class="rq">*</span></label></label>
                         <select class="form-control required" id="jalur_pendaftaran" name="jalur_pendaftaran">
                             <option value="">Pilih Jalur Pendaftaran</option>
-                            <option value="Zonasi">Zonasi</option>
+                            <option value="Domisili">Domisili</option>
                             <option value="Afirmasi">Afirmasi</option>
-                            <option value="Perpindahan Orang Tua">Perpindahan Orang Tua
-                            </option>
                             <option value="Prestasi">Prestasi</option>
+                            <option value="Mutasi">Mutasi
+                            </option>
                         </select>
                         <div class="form-control-feedback " id="errorjalur_pendaftaran">
                         </div>
@@ -246,6 +249,9 @@ h6 {
 
 
             <div class="modal-footer">
+                <!-- <button type="submit" class="btn btn-primary">
+                    Simpan
+                </button> -->
                 <button type="submit" class="btn btn-primary" id="btn_tambah_antiran">
                     Simpan
                 </button>
@@ -255,6 +261,7 @@ h6 {
                     Lihat Berkas
                 </button> -->
             </div>
+        </div>
     </form>
 </div>
 
@@ -333,11 +340,11 @@ h6 {
                                         <div class="card">
                                             <div class="card-header">
                                                 <button class="btn btn-block collapsed" data-toggle="collapse"
-                                                    data-target="#zonasi">
-                                                    Zonasi
+                                                    data-target="#Domisili">
+                                                    Domisili
                                                 </button>
                                             </div>
-                                            <div id="zonasi" class="collapse" data-parent="#accordion">
+                                            <div id="Domisili" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <ul class="ml-3">
                                                         <li class="pb-2">1. Buku rapor SMP/sederajat</li>
@@ -395,7 +402,7 @@ h6 {
                                             <div class="card-header">
                                                 <button class="btn btn-block collapsed" data-toggle="collapse"
                                                     data-target="#pto">
-                                                    Perpindahan Orang Tua
+                                                    Mutasi
                                                 </button>
                                             </div>
                                             <div id="pto" class="collapse" data-parent="#accordion">

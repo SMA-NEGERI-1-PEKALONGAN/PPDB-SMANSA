@@ -20,6 +20,16 @@ class landingPageController extends BaseController
     }
 
     public function Antrian(){
+        $masterReferensiModel = new masterReferensiModel();
+        $masterReferensi = $masterReferensiModel->getReferensiByKodeKategori('set_antrian');
+        foreach($masterReferensi as $row){
+            if ($row['nama_referensi'] == 'status_antrian') {
+                $status_antrian = $row['kode_referensi'];
+            }
+        }
+        if($status_antrian == '0'){
+            return redirect()->to('/');
+        }
         $data = [
             'title' => 'Antrean - SPMB SMANSA',
             'active' => 'Antrian',
@@ -51,7 +61,6 @@ class landingPageController extends BaseController
         return view('landingPage/FORM', $data);
     }
     
-
     public function search_antrian(){
         $keyword = $this->request->getVar('keyword');
         $antrianModel = new antrianModel();
@@ -260,17 +269,17 @@ class landingPageController extends BaseController
             
             $pesan = 'Pendaftaran antrean dapat dilakukan pada tanggal ' . date('d F Y', strtotime($tanggal_antrian)) . ' pukul ' . $start_antrian . ' WIB s.d. ' . $close_antrian . ' WIB';
 
-            $pesan = 'Pengumuman datapat dilihat pada tanggal ' . date('d F Y', strtotime($tanggal_antrian)) . ' pukul ' . $start_antrian . ' WIB';
+            // $pesan = 'Pengumuman datapat dilihat pada tanggal ' . date('d F Y', strtotime($tanggal_antrian)) . ' pukul ' . $start_antrian . ' WIB';
             
         }else{
             // + 1 hari
-            if(strtotime($timeNow) > strtotime($close_antrian)){
-                $dateTime = date('Y-m-d', strtotime($dateNow . ' +1 day')) . ' ' . $start_antrian;
-            }else{
+            // if(strtotime($timeNow) < strtotime($close_antrian)){
+            //     $dateTime = date('Y-m-d', strtotime($dateNow . ' +1 day')) . ' ' . $start_antrian;
+            // }else{
                 $dateTime = $dateNow . ' ' . $start_antrian;
-            }
+            // }
 
-            $pesan = 'Pendaftaran antrean dapat dilakukan pada tanggal setiap hari senin s.d. jumat pukul ' . $start_antrian . ' WIB s.d ' . $close_antrian . ' WIB';
+            // $pesan = 'Pendaftaran antrean dapat dilakukan pada tanggal setiap hari senin s.d. jumat pukul ' . $start_antrian . ' WIB s.d ' . $close_antrian . ' WIB';
 
         }
         

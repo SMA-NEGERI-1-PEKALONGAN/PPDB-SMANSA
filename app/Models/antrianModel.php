@@ -32,7 +32,7 @@ class antrianModel extends Model
     public function getLastAntrian($tanggal)
     {
         return $this
-       ->where('tanggal_antrian', $tanggal)
+        ->where('tanggal_antrian', $tanggal)
         ->orderBy('no_antrian', 'DESC')
         ->first();
     }

@@ -194,7 +194,7 @@
                 <a class="navbar-brand" href="#">
                     <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="" width="40" height="40" class=""
                         loading="lazy">
-                    PPDB SMANSA
+                    SPMB SMANSA
 
                     <style>
                     .navbar-brand img {
@@ -217,21 +217,21 @@
                             <a class="nav-link" href="<?= base_url('/'); ?>"> Home
                             </a>
                         </li>
-                        <!-- <li class="nav-item <?= $active == 'Antrian' ? 'active-nav' : ''; ?>">
+                        <li class="nav-item <?= $active == 'Antrian' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Antrean'); ?>">
-                                Antrean</a> -->
-                        <li class="nav-item <?= $active == 'Pengumuman' ? 'active-nav' : ''; ?>">
+                                Antrean</a>
+                            <!-- <li class="nav-item <?= $active == 'Pengumuman' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Pengumuman'); ?>">
                                 Pengumuman</a>
                         </li>
                         <li class="nav-item <?= $active == 'Form-DU' ? 'active-nav' : ''; ?>" id="formDu">
                             <a class="nav-link" href="<?= base_url('FORM-DU'); ?>">
                                 Form</a>
-                        </li>
-                        <!-- <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
+                        </li> -->
+                        <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Cari'); ?>">
                                 Cari</a>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
 
@@ -253,7 +253,7 @@
         <footer class="footer my-3">
             <div class="row text-center">
                 <div class="col-md-12">
-                    &copy; 2024 <strong><span>PPDB SMANSA</span></strong>. All Rights Reserved
+                    &copy; 2025 <strong><span>SPMB SMANSA</span></strong>. All Rights Reserved
                 </div>
             </div>
         </footer>

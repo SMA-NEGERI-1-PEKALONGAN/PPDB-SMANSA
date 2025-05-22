@@ -66,7 +66,7 @@
     }
 
     .btn_soft:hover {
-        background-color: #7D0A0A;
+        background-color: #044aad;
         color: #fff;
     }
 
@@ -110,7 +110,7 @@
                     <li><a class="nav-link scrollto" href="#ketentuan">Ketentuan</a></li>
                     <li><a class="nav-link scrollto" href="#alur">Alur</a></li>
                     <li><a class="nav-link scrollto" href="#kontak">Kontak</a></li>
-                    <!-- <li><a class="nav-link scrollto" href="<?= base_url('Antrean')?>">Antrean</a></li> -->
+                    <li><a class="nav-link scrollto" href="<?= base_url('Antrean')?>">Antrean</a></li>
                     <!-- <li><a class="nav-link scrollto" href="<?= base_url('Pengumuman')?>">Pengumuman</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -619,8 +619,7 @@
                                 </li>
 
                                 <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan3"
-                                        class="collapsed">Perpindahan Orang Tua
+                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan3" class="collapsed">Mutasi
                                         <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
                                     <div id="persyaratan3" class="collapse" data-bs-parent=".umum-list">
                                         <ol class="ml-2">
@@ -883,7 +882,7 @@
                                 <path
                                     d="M24-606c24.962 117.911 49 191.829 49 319.375C73-159.079 23.961-94.295 24 33.25c.039 127.164 48.98 192.712 49 319.875C73.02 480.48 48.979 556.31 24 674"
                                     stroke="#FFA62F" stroke-width="4" stroke-dasharray="8 12"></path>
-                                <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                 <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600" font-size="24">
                                     <tspan x="17" y="30.792">1</tspan>
                                 </text>
@@ -941,7 +940,7 @@
                                 <path
                                     d="M24-306C48.962-188.089 73-114.171 73 13.375c0 127.546-49.039 192.329-49 319.875.039 127.164 48.98 192.712 49 319.875C73.02 780.48 48.979 856.31 24 974"
                                     stroke="#FFA62F" stroke-width="4" stroke-dasharray="8 12"></path>
-                                <rect x="49" width="48" height="48" rx="24" fill="#7D0A0A"></rect><text fill="#F2F2FA"
+                                <rect x="49" width="48" height="48" rx="24" fill="#044aad"></rect><text fill="#F2F2FA"
                                     font-family="AvertaStd" font-weight="600" font-size="24">
                                     <tspan x="66.5" y="30.792">2</tspan>
                                 </text>
@@ -964,7 +963,7 @@
                                 <path
                                     d="M24-606c24.962 117.911 49 191.829 49 319.375C73-159.079 23.961-94.295 24 33.25c.039 127.164 48.98 192.712 49 319.875C73.02 480.48 48.979 556.31 24 674"
                                     stroke="#FFA62F" stroke-width="4" stroke-dasharray="8 12"></path>
-                                <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                 <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600" font-size="24">
                                     <tspan x="17" y="30.792">3</tspan>
                                 </text>
@@ -1007,7 +1006,7 @@
                                 <path
                                     d="M24-306C48.962-188.089 73-114.171 73 13.375c0 127.546-49.039 192.329-49 319.875.039 127.164 48.98 192.712 49 319.875C73.02 780.48 48.979 856.31 24 974"
                                     stroke="#FFA62F" stroke-width="5" stroke-dasharray="8 12"></path>
-                                <rect x="49" width="48" height="48" rx="24" fill="#7D0A0A"></rect><text fill="#F2F2FA"
+                                <rect x="49" width="48" height="48" rx="24" fill="#044aad"></rect><text fill="#F2F2FA"
                                     font-family="AvertaStd" font-weight="600" font-size="24">
                                     <tspan x="66.5" y="30.792">4</tspan>
                                 </text>
@@ -1030,7 +1029,7 @@
                                 <path
                                     d="M24-606c24.962 117.911 49 191.829 49 319.375C73-159.079 23.961-94.295 24 33.25c.039 127.164 48.98 192.712 49 319.875C73.02 480.48 48.979 556.31 24 674"
                                     stroke="#FFA62F" stroke-width="4" stroke-dasharray="8 12"></path>
-                                <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                 <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600" font-size="24">
                                     <tspan x="17" y="30.792">5</tspan>
                                 </text>
@@ -1071,7 +1070,7 @@
                         <div class="col-md-2 svg-line">
                             <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
 
-                                <rect x="49" width="48" height="48" rx="24" fill="#7D0A0A"></rect><text fill="#F2F2FA"
+                                <rect x="49" width="48" height="48" rx="24" fill="#044aad"></rect><text fill="#F2F2FA"
                                     font-family="AvertaStd" font-weight="600" font-size="24">
                                     <tspan x="66.5" y="30.792">6</tspan>
                                 </text>
@@ -1096,7 +1095,7 @@
                                     <div class="col-2">
                                         <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
                                             class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                             <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
                                                 font-size="24">
                                                 <tspan x="17" y="30.792">1</tspan>
@@ -1131,7 +1130,7 @@
                                     <div class="col-2">
                                         <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
                                             class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                             <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
                                                 font-size="24">
                                                 <tspan x="17" y="30.792">2</tspan>
@@ -1169,7 +1168,7 @@
                                     <div class="col-2">
                                         <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
                                             class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                             <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
                                                 font-size="24">
                                                 <tspan x="17" y="30.792">3</tspan>
@@ -1202,7 +1201,7 @@
                                     <div class="col-2">
                                         <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
                                             class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                             <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
                                                 font-size="24">
                                                 <tspan x="17" y="30.792">4</tspan>
@@ -1240,7 +1239,7 @@
                                     <div class="col-2">
                                         <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
                                             class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                             <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
                                                 font-size="24">
                                                 <tspan x="17" y="30.792">5</tspan>
@@ -1273,7 +1272,7 @@
                                     <div class="col-2">
                                         <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
                                             class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#7D0A0A"></rect>
+                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
                                             <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
                                                 font-size="24">
                                                 <tspan x="17" y="30.792">6</tspan>
@@ -1368,7 +1367,7 @@
 
         <div class="container">
             <div class="copyright">
-                &copy; 2024 <strong><span>SPMB SMANSA</span></strong>. All Rights Reserved
+                &copy; 2025 <strong><span>SPMB SMANSA</span></strong>. All Rights Reserved
             </div>
 
         </div>
@@ -1406,7 +1405,7 @@
             class="bi bi-arrow-up-short"></i></a> -->
 
     <button class="back-to-top d-flex align-items-center justify-content-center" id="btn_chat_bot">
-        <i class="bi bi-chat-dots">
+        <i class="bi bi-chat-dots"> </i>
     </button>
 
     <!-- chat bot -->
@@ -1489,7 +1488,7 @@
     }
 
     .chat_bot_header {
-        background-color: #7D0A0A;
+        background-color: #044aad;
         color: #fff;
         padding: 10px;
         display: flex;
@@ -1548,7 +1547,7 @@
     }
 
     .input-group-message button {
-        background-color: #7D0A0A;
+        background-color: #044aad;
         color: #fff;
         border: none;
         border-radius: 25%;
@@ -1561,7 +1560,7 @@
     }
 
     .input-group-message input:invalid {
-        border: 1px solid #7D0A0A;
+        border: 1px solid #044aad;
     }
 
     .input-group-message input:valid {
@@ -1639,7 +1638,7 @@
     }
 
     .chat_body_user .container-chat {
-        background-color: #7D0A0A;
+        background-color: #044aad;
         color: #fff;
         padding: 10px;
         border-radius: 10px;
@@ -1670,7 +1669,7 @@
     }
 
     .btn_opsi:hover {
-        background-color: #7D0A0A;
+        background-color: #044aad;
         color: #fff;
     }
 
@@ -1689,7 +1688,7 @@
         }
 
         .chat_bot_header_close {
-            background-color: #7D0A0A;
+            background-color: #044aad;
             border-radius: 50%;
             padding: 5px;
         }
@@ -1741,7 +1740,7 @@
         }
 
         .input-group-message button {
-            background-color: #7D0A0A;
+            background-color: #044aad;
             color: #fff;
             border: none;
             border-radius: 25%;
@@ -1758,7 +1757,7 @@
         }
 
         .input-group-message input:valid {
-            border: 1px solid #7D0A0A;
+            border: 1px solid #044aad;
         }
 
         @keyframes typing {
