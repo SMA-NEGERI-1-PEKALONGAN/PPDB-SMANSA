@@ -1338,15 +1338,14 @@
                                         class="bx bxl-facebook"></i></a>
                                 <a href="#" class="instagram btn_link" id="https://www.instagram.com/sma1pekalongan/"><i
                                         class="bx bxl-instagram"></i></a>
-                                <a href="#" class="google-plus btn_link" id="https://t.me/+CsDFxjN0OO5kM2I1"><i
+                                <a href="#" class="google-plus btn_link" id="https://t.me/SPMB2025_Sma1pkl"><i
                                         class="bx bxl-telegram"></i></a>
                                 <a href="#" class="linkedin btn_link" id="http://www.youtube.com/@sman1pekalongan"><i
                                         class="bx bxl-youtube"></i></a>
                             </div>
 
                             <!-- btn to linkt informasi -->
-                            <a href="#" class="btn btn_soft mt-3 btn_link"
-                                id="https://s.id/ppdbsman1pekalongan">Informasi
+                            <a href="#" class="btn btn_soft mt-3 btn_link" id="https://s.id/spmb2025_sma1pkl">Informasi
                                 SPMB</a>
                             <a href="#" class="btn btn_soft mt-3 btn_link mx-2" id="<?= base_url('Auth'); ?>">Login
                                 portal admin</a>
