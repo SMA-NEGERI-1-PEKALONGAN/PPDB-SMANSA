@@ -17,7 +17,7 @@ class landingPageController extends BaseController
         // add data to aktifitas web
         $mac_address2 = exec('getmac');
         $mac_address = shell_exec('getmac');
-        dd($mac_address2, $mac_address);
+        // dd($mac_address2, $mac_address);
         $mac_address = explode(' ', $mac_address);
         $mac_address = str_replace('-', ':', $mac_address);
         $mac_address = $mac_address[0];
