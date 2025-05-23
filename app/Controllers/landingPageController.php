@@ -34,8 +34,8 @@ class landingPageController extends BaseController
     
     public function index()
     {
-        $mac_address2 = exec('getmac');
-        $mac_address = shell_exec('getmac');
+        $ip = $this->request->getIPAddress();
+        $mac_address = exec("arp -n " . $ip);
         dd($mac_address2, $mac_address);
         $masterReferensiModel = new masterReferensiModel();
         $masterReferensi = $masterReferensiModel->getReferensiByKodeKategori('set_antrian');
