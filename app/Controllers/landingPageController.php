@@ -36,7 +36,7 @@ class landingPageController extends BaseController
     {
         $ip = $this->request->getIPAddress();
         $mac_address = exec("arp -n " . $ip);
-        dd($mac_address2, $mac_address);
+        dd($mac_address);
         $masterReferensiModel = new masterReferensiModel();
         $masterReferensi = $masterReferensiModel->getReferensiByKodeKategori('set_antrian');
         foreach($masterReferensi as $row){
