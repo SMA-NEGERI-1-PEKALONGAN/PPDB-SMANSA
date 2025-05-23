@@ -42,16 +42,6 @@ h6 {
         font-size: 1.2rem;
     }
 
-    .search {
-        margin-top: 50px;
-    }
-
-    .logo-antrian {
-        width: 100px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
     #desktop-mode {
         display: none;
     }
@@ -95,12 +85,6 @@ h6 {
 
     .header-1 {
         font-size: 2rem;
-    }
-
-    .logo-antrian {
-        width: 100px;
-        margin-top: 10px;
-        margin-bottom: 10px;
     }
 
     .search {
@@ -166,16 +150,6 @@ h6 {
 }
 </style>
 
-<script type="text/javascript">
-window.addEventListener('load', function() {
-    window.print(); // Open the print dialog
-    // when window print close
-    window.onafterprint = function() {
-        // window.location.href = "<?= base_url('Antrean'); ?>";
-        window.close();
-    }
-});
-</script>
 <div class="container" id="hasil">
     <div class="row align-items-center justify-content-center">
         <div class="col-12">
@@ -249,12 +223,8 @@ window.addEventListener('load', function() {
                         <div class="row mb-3">
                             <div class="col-sm-4">
                                 <h6 class="text-black">Tanggal Antrean</h6>
-                                <p class="text-muted" id="tanggal_antrian">
-                                    <?php 
-                                    $date = new DateTime($data->tanggal_antrian);
-                                    echo $date->format('d F Y');
-                                    
-                                    ?>
+                                <p class="" id="tanggal_antrian" style="color: red; font-weight: 700;">
+
                                 </p>
                             </div>
                             <div class="col-sm-4">
@@ -300,13 +270,34 @@ window.addEventListener('load', function() {
         </div>
     </div>
 </div>
+<input type="hidden" id="text_tanggal_antrian" value="<?= $data->tanggal_antrian; ?>">
 <?= $this->endSection('content'); ?>
 
 <?= $this->section('script'); ?>
 <script>
+const tanggal_antri = $('#text_tanggal_antrian').val();
+// console.log(tanggal_antri);
+let date = new Date(tanggal_antri);
+let ops = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+};
+let tanggal = date.toLocaleDateString('id-ID', ops);
+$('#tanggal_antrian').text(tanggal);
 // when window print save name file
 window.onbeforeprint = function() {
     document.title = 'Kartu Antrean ' + $('#nama_siswa').text();
 }
+
+window.addEventListener('load', function() {
+    window.print(); // Open the print dialog
+    // when window print close
+    window.onafterprint = function() {
+        // window.location.href = "<?= base_url('Antrean'); ?>";
+        window.close();
+    }
+});
 </script>
 <?= $this->endSection('script'); ?>

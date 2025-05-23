@@ -243,7 +243,7 @@ h6 {
                         <div class="row mb-3">
                             <div class="col-sm-4">
                                 <h6 class="text-black">Tanggal Antrean</h6>
-                                <p class="text-muted" id="tanggal_antrian"></p>
+                                <p class="" style="color: red; font-weight: 700;" id="tanggal_antrian"></p>
                             </div>
                             <div class="col-sm-4">
                                 <h6 class="text-black">Sesi Antrean</h6>

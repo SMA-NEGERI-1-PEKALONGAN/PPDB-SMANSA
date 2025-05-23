@@ -6,10 +6,30 @@ use App\Controllers\BaseController;
 use App\Models\antrianModel;
 use App\Models\notifikasiModel;
 use App\Models\masterReferensiModel;
+use App\Models\aktifitasWebModel;
 use CodeIgniter\HTTP\RequestInterface;
 
 class landingPageController extends BaseController
 {
+    public function __construct()
+    {
+        $aktifitasWebModel = new aktifitasWebModel();
+        // add data to aktifitas web
+        $mac_address = exec('getmac');
+        $mac_address = explode(' ', $mac_address);
+        $mac_address = str_replace('-', ':', $mac_address);
+        $mac_address = $mac_address[0];
+        // dd($mac_address);
+        $aktifitasWeb = $aktifitasWebModel->getAktifitasWebByMac($mac_address, date('Y-m-d'));
+        if(!$aktifitasWeb){
+            $data_aktifitas = [
+                'mac_address' => $mac_address,
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $aktifitasWebModel->insert($data_aktifitas);
+        }
+    }
+    
     public function index()
     {
         $masterReferensiModel = new masterReferensiModel();
@@ -19,6 +39,8 @@ class landingPageController extends BaseController
                 $status_antrian = $row['kode_referensi'];
             }
         }
+
+        
         $data = [
             'title' => 'SPMB SMANSA',
             'active' => 'Landing Page',

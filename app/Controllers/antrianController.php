@@ -351,6 +351,268 @@ class antrianController extends BaseController
                     'status' => '406'
                 ]);
             }
+            
+            $referensi = new masterReferensiModel();
+            $data_referensi = $referensi->getReferensiByKodeKategori('set_antrian');
+            // dd($data_referensi);
+            
+            foreach ($data_referensi as $row) {
+                    
+                if ($row['nama_referensi'] == 'max_antrian') {
+                    $max_antrian = $row['kode_referensi'];
+                }
+                
+                if ($row['nama_referensi'] == 'tanggal_antrian') {
+                    $tanggal_mulai = $row['kode_referensi'];
+                }
+                if ($row['nama_referensi'] == 'tanggal_penutupan_antrian') {
+                    $tanggal_penutupan_antrian = $row['kode_referensi'];
+                }
+                if ($row['nama_referensi'] == 'total_sesi') {
+                    $total_sesi = $row['kode_referensi'];
+                }   
+                
+                if ($row['nama_referensi'] == 'start_antrian') {
+                    $start_antrian = str_replace('.', ':', $row['kode_referensi']) . ':00';
+                }
+                
+                if ($row['nama_referensi'] == 'close_antrian') {
+                    $close_antrian = str_replace('.', ':', $row['kode_referensi']) . ':00';
+                } 
+
+            }
+            
+            $tanggal_mulai = date('Y-m-d', strtotime($tanggal_mulai));
+            $tanggal_penutupan_antrian = date('Y-m-d', strtotime($tanggal_penutupan_antrian));
+            $tanggal_antrian = date('Y-m-d');
+            
+            // dd($day);
+            $timeNow = date('H:i:s');
+            // dd($tanggal_mulai);
+            if($timeNow >= $start_antrian && $timeNow <= $close_antrian){
+                $tanggal_antrian = $tanggal_antrian; 
+            }else{
+                $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+            }
+            $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);
+            // jika hari sabtu atau minggu day +1
+            $day = date('D', strtotime($tanggal_antrian));
+            if ($day == 'Sat') {
+                $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +2 day'));
+            } elseif ($day == 'Sun') {
+                $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+            }
+            // dd($tanggal_antrian);
+            // dd($last_antrian, $max_antrian);
+            if($last_antrian){
+                if($last_antrian['no_antrian'] >= $max_antrian){
+                    $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+                    $day = date('D', strtotime($tanggal_antrian));
+                    if ($day == 'Sat') {
+                        $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +2 day'));
+                    } elseif ($day == 'Sun') {
+                        $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+                    } 
+                    
+                    // dd($tanggal_antrian);
+                    $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);
+                    if($last_antrian){
+                        if($last_antrian['no_antrian'] >= $max_antrian){
+                            return $this->response->setJSON([
+                                'error' => true,
+                                'data' => 'Antrean sudah penuh, silahkan dapat mendaftar di hari berikutnya',
+                                'status' => '406'
+                            ]);
+                        }
+                    }
+                }else{
+                    $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);
+                }
+            }
+            
+            if($tanggal_antrian > $tanggal_penutupan_antrian){
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Antrean sudah ditutup',
+                    'status' => '406'
+                ]);
+            }
+            // dd($tanggal_antrian, $tanggal_penutupan_antrian, $tanggal_mulai);
+            // if($timeNow >= $start_antrian && $timeNow <= $close_antrian){
+
+            if($tanggal_antrian >= $tanggal_mulai && $tanggal_antrian <= $tanggal_penutupan_antrian){
+                for ($i=1; $i <= $total_sesi; $i++) { 
+                    foreach ($data_referensi as $data) {
+                        if ($data['nama_referensi'] == 'Sesi ' . $i) {
+                            $dataSesi = explode(' - ', $data['kode_referensi']);
+                            $sesi[$i] = "Sesi " . $i . " (" . $dataSesi[0] . " WIB)";
+                        }
+                    }
+                }
+                // dd($sesi);  
+            
+                $uuid = Uuid::uuid4();
+                $id_antrian = str_replace('-', '', $uuid->toString());
+                $result = Builder::create()
+                    ->writer(new PngWriter())
+                    ->writerOptions([])
+                    ->data($id_antrian)
+                    ->encoding(new Encoding('UTF-8'))
+                    ->errorCorrectionLevel(ErrorCorrectionLevel::High)
+                    ->size(300)
+                    ->margin(10)
+                    ->roundBlockSizeMode(RoundBlockSizeMode::Margin)
+                    ->logoPath('Assets/LOGO SMANSA.png')
+                    ->logoResizeToWidth(50)
+                    ->logoPunchoutBackground(true)
+                    // ->labelText('This is the label')
+                    // ->labelFont(new NotoSans(20))
+                    // ->labelAlignment(LabelAlignment::Center)
+                    ->validateResult(false)
+                    ->build();
+                $result->saveToFile('Assets/qr_code/' . $id_antrian . '.png');
+                
+                $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);
+                if ($last_antrian) {
+                    $no_antrian = $last_antrian['no_antrian'] + 1;
+                    if ($no_antrian > $max_antrian) {
+                        return $this->response->setJSON([
+                            'error' => true,
+                            'data' => 'Antrean sudah penuh, silahkan dapat mendaftar di hari berikutnya',
+                            'status' => '406'
+                        ]);
+                    }
+                } else {
+                    $no_antrian = 1;
+                }
+
+                // dd($no_antrian);
+        
+                $sesi_antrian = $sesi[1];
+                for ($i=1; $i <= $total_sesi; $i++) { 
+                    if ($no_antrian > ($max_antrian / $total_sesi) * $i) {
+                        $sesi_antrian = $sesi[$i + 1];
+                    }
+                }
+                
+                // dd($sesi_antrian);
+                $data = [
+                    'id_antrian' => $id_antrian,
+                    'nama_siswa' => $this->request->getPost('nama_siswa'),
+                    'nisn' => $this->request->getPost('nisn'),
+                    'asal_sekolah' => $this->request->getPost('asal_sekolah'),
+                    'alamat' => $this->request->getPost('alamat'),
+                    'no_tlp' => $this->request->getPost('no_tlp'),
+                    'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
+                    'jalur_pendaftaran' => $this->request->getPost('jalur_pendaftaran'),
+                    'kode_pendaftaran' => $this->request->getPost('kode_pendaftaran'),
+                    'qr_code' => $id_antrian . '.png',
+                    'status_antrian' => '0',
+                    'no_antrian' => $no_antrian,
+                    'sesi_antrian' => $sesi_antrian,
+                    'tanggal_antrian' => $tanggal_antrian,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ];
+                $this->antrianModel->insert($data);
+                return $this->response->setJSON([
+                    'error' => false,
+                    'data' => 'Data berhasil disimpan',
+                    'status' => '200'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Antrean belum dibuka',
+                    'status' => '406'
+                ]);
+            }
+        }
+    }
+
+    public function storeCopy(){
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'nama_siswa' => [
+                'label' => 'Nama Siswa',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.',
+                ]
+            ],
+            'nisn' => [
+                'label' => 'NISN',
+                'rules' => 'required|min_length[10]|max_length[10]',
+                'errors' => [
+                    'required' => '{field} harus diisi.',
+                    'min_length' => '{field} harus 10 digit.',
+                    'max_length' => '{field} harus 10 digit.',
+                    // 'is_unique' => '{field} sudah terdaftar.'
+                ]
+            ],
+            'asal_sekolah' => [
+                'label' => 'Asal Sekolah',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.'
+                ]
+            ],
+            'alamat' => [
+                'label' => 'Alamat',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.'
+                ]
+            ],
+            'no_tlp' => [
+                'label' => 'No. Telepon',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.'
+                ]
+            ],
+            'jenis_kelamin' => [
+                'label' => 'Jenis Kelamin',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.'
+                ]
+            ],
+            'jalur_pendaftaran' => [
+                'label' => 'Jalur Pendaftaran',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.'
+                ]
+            ],
+            'kode_pendaftaran' => [
+                'label' => 'Kode Pendaftaran',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus diisi.',
+                    // 'is_unique' => '{field} sudah terdaftar.'
+                ]
+            ],
+            
+          ]);
+          
+        if (!$validation->withRequest($this->request)->run()) {
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => $validation->getErrors(),
+                    'status' => '422'
+                ]);
+        }else{
+            $nisn = $this->request->getPost('nisn');
+            $kode_pendaftaran = $this->request->getPost('kode_pendaftaran');
+            $check_data = $this->antrianModel->like('nisn', $nisn)->orLike('kode_pendaftaran', $kode_pendaftaran)->where('status_antrian !=', '0')->first();
+            // dd($check_data);
+            if($check_data){
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Data sudah terdaftar',
+                    'status' => '406'
+                ]);
+            }
             $referensi = new masterReferensiModel();
             $data_referensi = $referensi->getReferensiByKodeKategori('set_antrian');
             // dd($data_referensi);

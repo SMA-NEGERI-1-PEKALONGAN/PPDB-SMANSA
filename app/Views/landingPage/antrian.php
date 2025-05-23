@@ -149,7 +149,7 @@ h6 {
                         <h4 class="alert-heading mb-2">Perhatian!</h4>
                         <p class="mb-2">
                             Anda dapat melakukan pedaftaran antrean jika sudah melengkapi semua berkas
-                            yang telah ditentukan dan telah mendaftar akun di laman <a target="_blank"
+                            yang telah ditentukan dan telah melakukan pengajuan akun di laman <a target="_blank"
                                 href="https://spmb.jatengprov.go.id/"><b>SPMB Jateng</b></a>
                         </p>
 
@@ -238,8 +238,9 @@ h6 {
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
                         <label for="no_tlp">No telpon<span class="rq">*</span></label></label>
-                        <input type="number" class="form-control required" id="no_tlp" name="no_tlp"
-                            placeholder="Masukan no telpon " maxlength="15">
+                        <input type="text" class="form-control required" id="no_tlp" name="no_tlp"
+                            placeholder="Masukan no telpon " maxlength="13" minlength="10"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         <div class="form-control-feedback " id="errorno_tlp"></div>
                     </div>
                 </div>
@@ -298,7 +299,7 @@ h6 {
                                     Ketentuan ketika melakukan verifikasi berkas:
                                 </p>
                                 <ul class="ml-3">
-                                    <li class="pb-2">1. Membawa berkas pendaftaran
+                                    <li class="pb-2 text-danger">1. Membawa berkas pendaftaran
                                     </li>
                                     <li class="pb-2">
                                         <p class="ml-3">
@@ -347,16 +348,18 @@ h6 {
                                             <div id="Domisili" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <ul class="ml-3">
-                                                        <li class="pb-2">1. Buku rapor SMP/sederajat</li>
-                                                        <li class="pb-2">2. Surat keterangan nilai rapor semester 1
-                                                            - 5
+                                                        <li class="pb-2">1. Print Out Bukti Pengajuan Akun</li>
+                                                        <li class="pb-2">2. Surat Pernyataan Kebenaran Dokumen
                                                         </li>
-                                                        <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
-                                                        <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
+                                                        <li class="pb-2">3. Buku Rapor SMP/sederajat</li>
+                                                        <li class="pb-2">4. Surat Keterangan Nilai Rapor semester 1 - 5
+                                                            SMP/sederajat</li>
+                                                        <li class="mb-2">5. Ijazah SMP/sederajat
                                                         </li>
-                                                        <li class="pb-2">6. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">7. Surat pernyataan kebenaran dokumen</li>
+                                                        <li class="pb-2">6. Akte Kelahiran</li>
+                                                        <li class="pb-2">7. Kartu Keluarga</li>
+                                                        <li class="pb-2">8. Piagam prestasi/penghargaan (bagi yang
+                                                            memiliki)</li>
                                                         <hr>
                                                         <li class="pb-2">
                                                             <a class="sub-link btn_link"
@@ -377,52 +380,27 @@ h6 {
                                             <div id="Afirmasi" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <ul class="ml-3">
-                                                        <li class="pb-2">1. Buku rapor SMP/sederajat</li>
-                                                        <li class="pb-2">2. Surat keterangan nilai rapor semester 1
-                                                            - 5
+                                                        <li class="pb-2">1. Print Out Bukti Pengajuan Akun</li>
+                                                        <li class="pb-2">2. Surat Pernyataan Kebenaran Dokumen
                                                         </li>
-                                                        <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
-                                                        <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
+                                                        <li class="pb-2">3. Buku Rapor SMP/sederajat</li>
+                                                        <li class="pb-2">4. Surat Keterangan Nilai Rapor semester 1 - 5
+                                                            SMP/sederajat</li>
+                                                        <li class="mb-2">5. Ijazah SMP/sederajat
                                                         </li>
-                                                        <li class="pb-2">6. Surat EMIS(bagi CPD pondok pesantren)
+                                                        <li class="pb-2">6. Akte Kelahiran</li>
+                                                        <li class="pb-2">7. Kartu Keluarga</li>
+                                                        <li class="pb-2">8. Piagam prestasi/penghargaan (bagi yang
+                                                            memiliki)</li>
+                                                        <li class="pb-2">9. Surat EMIS(bagi CPD pondok pesantren)
                                                         </li>
-                                                        <li class="pb-2">7. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">8. Surat pernyataan kebenaran dokumen</li>
-                                                        <hr>
-                                                        <li class="pb-2">
-                                                            <a class="sub-link btn_link"
-                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <button class="btn btn-block collapsed" data-toggle="collapse"
-                                                    data-target="#pto">
-                                                    Mutasi
-                                                </button>
-                                            </div>
-                                            <div id="pto" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <ul class="ml-3">
-                                                        <li class="pb-2">1. Buku rapor SMP/sederajat</li>
-                                                        <li class="pb-2">2. Surat keterangan nilai rapor semester 1
-                                                            - 5
-                                                        </li>
-                                                        <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
-                                                        <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
-                                                        </li>
-                                                        <li class="pb-2">6. Surat penugasan dari instansi/kantor
-                                                        </li>
-                                                        <li class="pb-2">7. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">8. Surat keterangan alamat instansi/kantor
-                                                        </li>
-                                                        <li class="pb-2">9. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">10. Surat pernyataan kebenaran dokumen</li>
+                                                        <li class="pb-2">10. Surat Keterangan DTKS (bagi yang memiliki)
+                                                            yang
+                                                            sudah di verifikasi dan divaliditasi pada DT Jateng</li>
+                                                        <li class="pb-2">11. Surat Pernyataan calon murid yang tidak
+                                                            terdata aktif
+                                                            dalam Dapodik pada satuan Pendidikan lainnya (untuk
+                                                            calon murid ATS)</li>
                                                         <hr>
                                                         <li class="pb-2">
                                                             <a class="sub-link btn_link"
@@ -442,27 +420,77 @@ h6 {
                                             <div id="prestasi" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <ul class="ml-3">
-                                                        <li class="pb-2">1. Buku rapor SMP/sederajat</li>
-                                                        <li class="pb-2">2. Surat keterangan nilai rapor semester 1
+                                                        <li class="pb-2">1. Print Out Bukti Pengajuan Akun</li>
+                                                        <li class="pb-2">2. Surat Pernyataan Kebenaran Dokumen
+                                                        </li>
+                                                        <li class="pb-2">3. Buku Rapor SMP/sederajat</li>
+                                                        <li class="pb-2">4. Surat Keterangan Nilai Rapor semester 1
                                                             - 5
+                                                            SMP/sederajat</li>
+                                                        <li class="mb-2">5. Ijazah SMP/sederajat
                                                         </li>
-                                                        <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
-                                                        <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
+                                                        <li class="pb-2">6. Akte Kelahiran</li>
+                                                        <li class="pb-2">7. Kartu Keluarga</li>
+                                                        <li class="pb-2">8. Piagam Prestasi tertinggi yang dimiliki
+                                                            (paling lama kurun
+                                                            waktu 3 tahun)
                                                         </li>
-                                                        <li class="pb-2">6. Surat keterangan prestasi</li>
-                                                        <li class="pb-2">7. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">8. Surat pernyataan kebenaran dokumen</li>
                                                         <hr>
                                                         <li class="pb-2">
                                                             <a class="sub-link btn_link"
-                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
+                                                                id="<?= base_url('/'); ?>">Lihat detail
+                                                                persayaratan</a>
                                                         </li>
                                                     </ul>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <button class="btn btn-block collapsed" data-toggle="collapse"
+                                                    data-target="#pto">
+                                                    Mutasi
+                                                </button>
+                                            </div>
+
+                                            <div id="pto" class="collapse" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <ul class="ml-3">
+                                                        <li class="pb-2">1. Print Out Bukti Pengajuan Akun</li>
+                                                        <li class="pb-2">2. Surat Pernyataan Kebenaran Dokumen
+                                                        </li>
+                                                        <li class="pb-2">3. Buku Rapor SMP/sederajat</li>
+                                                        <li class="pb-2">4. Surat Keterangan Nilai Rapor semester 1 - 5
+                                                            SMP/sederajat</li>
+                                                        <li class="mb-2">5. Ijazah SMP/sederajat
+                                                        </li>
+                                                        <li class="pb-2">6. Akte Kelahiran</li>
+                                                        <li class="pb-2">7. Kartu Keluarga</li>
+                                                        <li class="pb-2">8. Piagam Prestasi tertinggi yang dimiliki
+                                                            (paling lama kurun
+                                                            waktu 3 tahun)
+                                                        </li>
+                                                        <li class="pb-2">9. Surat pernyataan dari Kepala Sekolah (Anak
+                                                            Guru)
+                                                        </li>
+                                                        <li class="pb-2">10. Surat penugasan dari Instansi paling lama 1
+                                                            tahun
+                                                            (perpindahan kerja Ortu)
+                                                        </li>
+                                                        <li class="pb-2">11. Surat Keterangan Domisili oleh Lurah
+                                                            diketahui oleh Camat
+                                                        </li>
+                                                        <hr>
+                                                        <li class="pb-2">
+                                                            <a class="sub-link btn_link"
+                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -567,7 +595,7 @@ h6 {
                             <div class="row mb-3">
                                 <div class="col-sm-4">
                                     <h6 class="text-black">Tanggal Antrean</h6>
-                                    <p class="text-muted" id="cetaktanggal_antrian"></p>
+                                    <p class="" style="color: red; font-weight: 700;" id="cetaktanggal_antrian"></p>
                                 </div>
                                 <div class="col-sm-4">
                                     <h6 class="text-black">Sesi Antrean</h6>

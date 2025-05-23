@@ -94,10 +94,11 @@
 
             <div class="logo">
                 <div class="rows">
-                    <a href="index.html"><img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt=""
-                            class="img-fluid"> </a>
+                    <a href="<?= base_url('/'); ?>"><img
+                            src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="" class="img-fluid">
+                    </a>
                     <h1 class="mx-2">
-                        <a href="index.html">SPMB SMANSA</a>
+                        <a href="<?= base_url('/'); ?>">SPMB SMANSA</a>
                     </h1>
                 </div>
             </div>
@@ -253,11 +254,11 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PPDB-2024.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block w-100 rounded-3" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/INFORMASI.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block w-100 rounded-3" alt="...">
                                 </div>
                             </div>
@@ -407,7 +408,7 @@
                 </div>
                 <div class="row content">
                     <div class="col-md-4" data-aos="fade">
-                        <img src="<?= base_url('Assets/'); ?>Documents/images/PPDB-2024.jpg" class="img-fluid rounded-4"
+                        <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png" class="img-fluid rounded-4"
                             alt="" />
                     </div>
                     <div class="col-md-8 pt-4" data-aos="fade">
@@ -449,19 +450,19 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ZONASI.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block rounded-4 img-fluid" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/AFIRMASI.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PTO.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/PRESTASI.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                             </div>
@@ -720,15 +721,15 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ALUR PEMBUATAN AKUN.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block rounded-4 img-fluid" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/ALUR-BERKAS.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/TATATERTIB.jpg"
+                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
                                         class="d-block img-fluid rounded-4" alt="...">
                                 </div>
                             </div>
@@ -982,7 +983,7 @@
                                     </h5>
                                     <p class="content-text">
                                         <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">03 s.d 10 Juni 2025</span>
+                                        <span class="text-detail">27 Mei s.d 10 Juni 2025</span>
                                     </p>
                                     <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
                                 </div>
@@ -1409,9 +1410,9 @@
     <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a> -->
 
-    <button class="back-to-top d-flex align-items-center justify-content-center" id="btn_chat_bot">
+    <!-- <button class="back-to-top d-flex align-items-center justify-content-center" id="btn_chat_bot">
         <i class="bi bi-chat-dots"> </i>
-    </button>
+    </button> -->
 
     <!-- chat bot -->
     <div class="chat_bot" id="chat_bot">
