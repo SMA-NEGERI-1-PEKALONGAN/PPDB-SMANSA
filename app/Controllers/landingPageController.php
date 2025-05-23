@@ -15,9 +15,7 @@ class landingPageController extends BaseController
     {
         $aktifitasWebModel = new aktifitasWebModel();
         // add data to aktifitas web
-        $mac_address2 = exec('getmac');
-        $mac_address = shell_exec('getmac');
-        // dd($mac_address2, $mac_address);
+        $mac_address = exec('getmac');
         $mac_address = explode(' ', $mac_address);
         $mac_address = str_replace('-', ':', $mac_address);
         $mac_address = $mac_address[0];
@@ -34,9 +32,6 @@ class landingPageController extends BaseController
     
     public function index()
     {
-        $ip = $this->request->getIPAddress();
-        $mac_address = exec("arp -n " . $ip);
-        dd($mac_address);
         $masterReferensiModel = new masterReferensiModel();
         $masterReferensi = $masterReferensiModel->getReferensiByKodeKategori('set_antrian');
         foreach($masterReferensi as $row){
