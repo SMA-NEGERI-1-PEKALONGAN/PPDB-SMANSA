@@ -256,7 +256,7 @@ h6 {
                 </div>
             </div>
             <input type="hidden" class="form-control required" id="macAddress" name="macAddress"
-                placeholder="Masukan MC Address " value="<?= $macAddrs; ?>">
+                placeholder="Masukan MC Address " value="">
 
 
             <div class="modal-footer">
