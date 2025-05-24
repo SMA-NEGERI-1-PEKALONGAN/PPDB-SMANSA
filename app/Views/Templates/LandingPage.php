@@ -340,6 +340,38 @@
             timer: 1500
         })
     }
+
+    // add data unique id to local storage and automatic remove wehen day after 1 day
+    function addDataUniqueIdToLocalStorage() {
+        const uniqueId = localStorage.getItem('unique_id');
+        if (uniqueId) {
+            localStorage.setItem('unique_id', uniqueId);
+            // remove after 1 day
+            setTimeout(() => {
+                localStorage.removeItem('unique_id');
+            }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
+        } else {
+            const newUniqueId = 'UID-' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('unique_id', newUniqueId);
+            $.ajax({
+                url: '<?= base_url('saveAktifitasWeb'); ?>',
+                type: 'POST',
+                data: {
+                    unique_id: newUniqueId
+                },
+                success: function(response) {
+                    console.log('Data unique id saved to server:', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error saving unique id:', error);
+                }
+            });
+            // remove after 1 day
+            setTimeout(() => {
+                localStorage.removeItem('unique_id');
+            }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
+        }
+    }
     </script>
 
     <?= $this->renderSection('script'); ?>

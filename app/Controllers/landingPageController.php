@@ -11,25 +11,27 @@ use CodeIgniter\HTTP\RequestInterface;
 
 class landingPageController extends BaseController
 {
-    public function __construct()
+
+    public function saveAktifitasWeb()
     {
         $aktifitasWebModel = new aktifitasWebModel();
-        // add data to aktifitas web
-        $mac_address = exec('getmac');
-        $mac_address = explode(' ', $mac_address);
-        $mac_address = str_replace('-', ':', $mac_address);
-        $mac_address = $mac_address[0];
-        // dd($mac_address);
-        $aktifitasWeb = $aktifitasWebModel->getAktifitasWebByMac($mac_address, date('Y-m-d'));
+        $unique_id = $this->request->getVar('unique_id');
+
+        $aktifitasWeb = $aktifitasWebModel->getAktifitasWebByMac($unique_id, date('Y-m-d'));
         if(!$aktifitasWeb){
             $data_aktifitas = [
-                'mac_address' => $mac_address,
+                'mac_address' => $unique_id,
                 'created_at' => date('Y-m-d H:i:s')
             ];
             $aktifitasWebModel->insert($data_aktifitas);
         }
+        
+        return $this->response->setJSON([
+            'error' => false,
+            'data' => 'Aktifitas web berhasil disimpan',
+            'status' => '200'
+        ]);
     }
-    
     public function index()
     {
         $masterReferensiModel = new masterReferensiModel();

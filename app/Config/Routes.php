@@ -36,7 +36,8 @@ $routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1'
 $routes->get('DataTablesDataSiswa', 'dataSiswaController::ajaxDataTables');
 
 $routes->post('fetchChatResponse', 'chatBotController::fetchResponse');
-    
+
+$routes->post('saveAktifitasWeb', 'landingPageController::saveAktifitasWeb');
 
 // auth route
 $routes->group('Auth', function ($routes) {
