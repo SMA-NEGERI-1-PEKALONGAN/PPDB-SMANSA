@@ -96,18 +96,15 @@ h6 {
 </style>
 
 <?php 
-    $output = [];
-    exec("157.20.233.194", $output);
-    
-    foreach ($output as $line) {
-        if (preg_match('/ether ([0-9a-f:]{17})/', $line, $matches)) {
-            $mac = $matches[1];
-            break;
-        }
+    $interface = 'ens18'; // Sesuai hasil ip a
+    $path = "/sys/class/net/{$interface}/address";
+
+    if (file_exists($path)) {
+        $mac = trim(file_get_contents($path));
+        echo "MAC Address: " . $mac;
+    } else {
+        echo "Interface $interface not found.";
     }
-    
-    echo "MAC Address: " . ($mac ?? 'Not found');
-    
  ?>
 <div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
     <div class="clearfix">
