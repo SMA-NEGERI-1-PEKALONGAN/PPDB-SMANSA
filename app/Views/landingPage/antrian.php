@@ -96,8 +96,10 @@ h6 {
 </style>
 
 <?php 
-    $ip = $this->request->getIPAddress();
-    echo "IP Address Anda: " . $ip;
+    $macAddrs =  exec('getmac');
+    $macAddrs = substr($macAddrs, 0, 17);
+    $macAddrs = str_replace(' ', '', $macAddrs);
+    // echo $macAddrs;
  ?>
 <div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
     <div class="clearfix">
