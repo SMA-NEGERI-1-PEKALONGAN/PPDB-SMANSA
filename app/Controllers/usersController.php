@@ -225,7 +225,7 @@ class usersController extends BaseController
             'title' => 'Setting',
             'active' => 'Dashboard',
         ];
-        return view('Admin/Setting/index', $data);
+        return view('Admin/setting/index', $data);
     }
 
     public function updatePass(){

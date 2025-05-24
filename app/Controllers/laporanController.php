@@ -33,7 +33,7 @@ class laporanController extends BaseController
             'title' => 'Laporan Antrean',
             'active' => 'laporan-antrean',
         ];
-        return view('Admin/laporan/Antrean', $data);
+        return view('Admin/Laporan/Antrean', $data);
     }
 
     public function ajaxLaporanAntrean()

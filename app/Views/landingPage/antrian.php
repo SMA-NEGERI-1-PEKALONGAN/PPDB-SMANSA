@@ -100,6 +100,7 @@ h6 {
     $macAddrs = substr($macAddrs, 0, 17);
     $macAddrs = str_replace(' ', '', $macAddrs);
     echo $macAddrs;
+    dd($macAddrs);
  ?>
 <div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
     <div class="clearfix">
