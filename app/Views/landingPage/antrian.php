@@ -709,7 +709,10 @@ function fetch_set_antrean() {
     })
 }
 
-
+fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => console.log(data.ip));
+// get ip address client
 
 fetch_set_antrean();
 
