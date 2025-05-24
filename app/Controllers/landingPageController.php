@@ -23,7 +23,7 @@ class landingPageController extends BaseController
                 'mac_address' => $unique_id,
                 'created_at' => date('Y-m-d H:i:s')
             ];
-            $aktifitasWebModel->insert($data_aktifitas);
+            $aktifitasWebModel->save($data_aktifitas);
         }
         
         return $this->response->setJSON([
