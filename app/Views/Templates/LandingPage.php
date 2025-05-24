@@ -346,6 +346,9 @@
         const uniqueId = localStorage.getItem('unique_id');
         const uniqueIdDate = localStorage.getItem('unique_id_date');
         const currentDate = new Date();
+        console.log('Current Date:', currentDate);
+        console.log('Unique ID:', uniqueId);
+        console.log('Unique ID Date:', uniqueIdDate);
         if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
             // If unique_id exists but is older than 1 day, remove it
             localStorage.removeItem('unique_id');
