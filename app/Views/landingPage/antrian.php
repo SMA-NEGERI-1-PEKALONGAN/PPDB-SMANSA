@@ -96,11 +96,20 @@ h6 {
 </style>
 
 <?php 
-    $macAddrs =  exec('getmac');
-    $macAddrs = substr($macAddrs, 0, 17);
-    $macAddrs = str_replace(' ', '', $macAddrs);
-    echo $macAddrs;
-    dd($macAddrs);
+    $output = [];
+    exec('getmac', $output);
+    
+    $mac_address = null;
+    
+    foreach ($output as $line) {
+        if (preg_match('/([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})/', $line, $matches)) {
+            $mac_address = str_replace('-', ':', $matches[0]);
+            break;
+        }
+    }
+    
+    echo "MAC Address: " . ($mac_address ?? 'Not found');
+    var_dump($mac_address);
  ?>
 <div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
     <div class="clearfix">
