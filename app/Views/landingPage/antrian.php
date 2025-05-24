@@ -96,15 +96,8 @@ h6 {
 </style>
 
 <?php 
-    $interface = 'ens18'; // Sesuai hasil ip a
-    $path = "/sys/class/net/{$interface}/address";
-
-    if (file_exists($path)) {
-        $mac = trim(file_get_contents($path));
-        echo "MAC Address: " . $mac;
-    } else {
-        echo "Interface $interface not found.";
-    }
+    $ip = $this->request->getIPAddress();
+    echo "IP Address Anda: " . $ip;
  ?>
 <div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
     <div class="clearfix">
@@ -251,7 +244,7 @@ h6 {
                 </div>
             </div>
             <input type="hidden" class="form-control required" id="macAddress" name="macAddress"
-                placeholder="Masukan MC Address " value="">
+                placeholder="Masukan MC Address " value="<?= $macAddrs; ?>">
 
 
             <div class="modal-footer">
