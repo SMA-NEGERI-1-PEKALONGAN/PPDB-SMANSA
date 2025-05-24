@@ -52,9 +52,6 @@ class landingPageController extends BaseController
     public function Antrian(){
         $masterReferensiModel = new masterReferensiModel();
         $masterReferensi = $masterReferensiModel->getReferensiByKodeKategori('set_antrian');
-        $userAgent = $_SERVER['HTTP_USER_AGENT'];
-        $ip = $_SERVER['REMOTE_ADDR'];
-        dd($userAgent, $ip);
         foreach($masterReferensi as $row){
             if ($row['nama_referensi'] == 'status_antrian') {
                 $status_antrian = $row['kode_referensi'];
