@@ -24,13 +24,20 @@ class landingPageController extends BaseController
                 'created_at' => date('Y-m-d H:i:s')
             ];
             $aktifitasWebModel->save($data_aktifitas);
+            return $this->response->setJSON([
+                'error' => false,
+                'data' => 'Aktifitas web berhasil disimpan',
+                'status' => '200'
+            ]);
+        }else{
+            return $this->response->setJSON([
+                'error' => true,
+                'data' => 'Aktifitas web sudah ada',
+                'status' => '400'
+            ]);
         }
         
-        return $this->response->setJSON([
-            'error' => false,
-            'data' => 'Aktifitas web berhasil disimpan',
-            'status' => '200'
-        ]);
+       
     }
     public function index()
     {
