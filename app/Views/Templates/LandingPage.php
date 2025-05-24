@@ -344,15 +344,22 @@
     // add data unique id to local storage and automatic remove wehen day after 1 day
     function addDataUniqueIdToLocalStorage() {
         const uniqueId = localStorage.getItem('unique_id');
-        if (uniqueId) {
-            localStorage.setItem('unique_id', uniqueId);
-            // remove after 1 day
-            setTimeout(() => {
-                localStorage.removeItem('unique_id');
-            }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
+        const uniqueIdDate = localStorage.getItem('unique_id_date');
+        const currentDate = new Date();
+        if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
+            // If unique_id exists but is older than 1 day, remove it
+            localStorage.removeItem('unique_id');
+            localStorage.removeItem('unique_id_date');
+            console.log('Unique ID expired and removed:', uniqueId);
         } else {
             const newUniqueId = 'UID-' + Math.random().toString(36).substr(2, 9);
             localStorage.setItem('unique_id', newUniqueId);
+            const date = new Date();
+            localStorage.setItem('unique_id_date', date.toISOString());
+            setTimeout(() => {
+                localStorage.removeItem('unique_id');
+                localStorage.removeItem('unique_id_date');
+            }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
             $.ajax({
                 url: '<?= base_url('saveAktifitasWeb'); ?>',
                 type: 'POST',
@@ -366,12 +373,14 @@
                     console.error('Error saving unique id:', error);
                 }
             });
-            // remove after 1 day
-            setTimeout(() => {
-                localStorage.removeItem('unique_id');
-            }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
+
         }
     }
+
+    // call when page load
+    $(document).ready(function() {
+        addDataUniqueIdToLocalStorage();
+    });
     </script>
 
     <?= $this->renderSection('script'); ?>
