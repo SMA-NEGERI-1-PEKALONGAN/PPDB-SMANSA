@@ -27,9 +27,9 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'spmb',
-        'password'     => 'spmb321$',
-        'database'     => 'spmb',
+        'username'     => 'devspmb',
+        'password'     => 'devspmb321$',
+        'database'     => 'devspmb',
 
         // 'username'     => 'root',
         // 'password'     => '',
