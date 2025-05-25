@@ -384,7 +384,7 @@ class antrianController extends BaseController
             // dd($day);
             $timeNow = date('H:i:s');
             // dd($tanggal_mulai);
-            if($timeNow <= $close_antrian){
+            if($timeNow <= $close_antrian){ // jika waktu sekarang masih sebelum jam tutup antrian
                 $tanggal_antrian = $tanggal_antrian; 
             }else{
                 $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
