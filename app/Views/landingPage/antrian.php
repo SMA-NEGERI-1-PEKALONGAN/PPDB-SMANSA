@@ -602,8 +602,8 @@ h6 {
                                     <p class="text-muted" id="cetaksesi_antrian"></p>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-6">
+                            <div class="row mb-2">
+                                <div class="col-sm-12">
                                     <p class="" style="color: red;">
                                         *)Pastikan dataang sesuai dengan tanggal dan sesi antrean yang telah ditentukan.
                                     </p>
