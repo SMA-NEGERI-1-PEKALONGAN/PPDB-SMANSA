@@ -48,8 +48,8 @@ class antrianController extends BaseController
     }
 
     public function getStatistic(){
-        $tanggalAwal = '2024-06-11';
-        $tanggalAkhir = '2024-06-24';
+        $tanggalAwal = '2025-05-27';
+        $tanggalAkhir = '2025-06-10'    ;
         $tanggal_range = [];
         
         $data = $this->antrianModel->where('tanggal_antrian >=', $tanggalAwal)->where('tanggal_antrian <=', $tanggalAkhir)->orderBy('tanggal_antrian', 'ASC')->findAll();

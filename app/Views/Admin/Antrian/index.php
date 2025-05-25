@@ -122,9 +122,9 @@
                         <div class="col-sm-8">
                             <select class="form-control required" id="jalur_pendaftaran" name="jalur_pendaftaran">
                                 <option value="">Pilih Jalur Pendaftaran</option>
-                                <option value="Zonasi">Zonasi</option>
+                                <option value="Domisili">Domisili</option>
                                 <option value="Afirmasi">Afirmasi</option>
-                                <option value="Perpindahan Orang Tua">Perpindahan Orang Tua</option>
+                                <option value="Mutasi">Mutasi</option>
                                 <option value="Prestasi">Prestasi</option>
                             </select>
                             <div class="form-control-feedback " id="errorjalur_pendaftaran"></div>
@@ -385,9 +385,9 @@
                         <div class="col-sm-8">
                             <select class="form-control required" id="editjalur_pendaftaran" name="jalur_pendaftaran">
                                 <option value="">Pilih Jalur Pendaftaran</option>
-                                <option value="Zonasi">Zonasi</option>
+                                <option value="Domisili">Domisili</option>
                                 <option value="Afirmasi">Afirmasi</option>
-                                <option value="Perpindahan Orang Tua">Perpindahan Orang Tua</option>
+                                <option value="Mutasi">Mutasi</option>
                                 <option value="Prestasi">Prestasi</option>
                             </select>
                             <div class="form-control-feedback " id="erroreditjalur_pendaftaran"></div>

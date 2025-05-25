@@ -2198,12 +2198,8 @@
         const uniqueId = localStorage.getItem('unique_id');
         const uniqueIdDate = localStorage.getItem('unique_id_date');
         const currentDate = new Date();
-        if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
-            // If unique_id exists but is older than 1 day, remove it
-            localStorage.removeItem('unique_id');
-            localStorage.removeItem('unique_id_date');
-            console.log('Unique ID expired and removed:', uniqueId);
-        } else {
+        // console.log('Current Date:', currentDate, 'Unique ID Date:', uniqueIdDate);
+        if (uniqueId === null || uniqueIdDate === null) {
             const newUniqueId = 'UID-' + Math.random().toString(36).substr(2, 9);
             localStorage.setItem('unique_id', newUniqueId);
             const date = new Date();
@@ -2220,13 +2216,19 @@
                 },
                 dataType: 'json',
                 success: function(response) {
-                    console.log('Data unique id saved to server:', response);
+                    // console.log('Data unique id saved to server:', response);
                 },
                 error: function(xhr, status, error) {
-                    console.error('Error saving unique id:', error);
+                    // console.error('Error saving unique id:', error);
                 }
             });
-
+        } else {
+            if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
+                // If unique_id exists but is older than 1 day, remove it
+                localStorage.removeItem('unique_id');
+                localStorage.removeItem('unique_id_date');
+                // console.log('Unique ID expired and removed:', uniqueId);
+            }
         }
     }
 

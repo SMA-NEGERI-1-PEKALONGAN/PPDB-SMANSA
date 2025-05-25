@@ -18,7 +18,8 @@ class App extends BaseConfig
      */
     // public string $baseURL = 'http://localhost:8080/';
     // public string $baseURL = 'http://localhost/PPDB-SMANSA/public/';    
-    public string $baseURL = 'https://devspmb.sman1pekalongan.sch.id/';    
+    // public string $baseURL = 'https://devspmb.sman1pekalongan.sch.id/';    
+    public string $baseURL = 'https://spmb.sman1pekalongan.sch.id/';    
     
 
     /**

@@ -349,42 +349,85 @@ $(document).on('click', '.detailsAntrian', function() {
 
 // chart
 function getChartAntrean() {
-    let data = [];
-    let tanggal = [];
+    var data_antrean = [];
     $.ajax({
         url: '<?= base_url('Admin/Antrian/getStatistic') ?>',
         type: 'GET',
         dataType: 'json',
         success: function(response) {
             if (response.error == false) {
-                // alert(response.data);
-                for (let i = 0; i < response.data.length; i++) {
-                    dataArray = [
-                        response.data[i].total,
-                        response.data[i].gagal,
-                        response.data[i].sukses
-                    ];
-                    // console.log(dataArray);
-                    data.push(dataArray);
-                    tanggal.push(response.data[i].tanggal);
-                }
+                data_antrean = response.data.data_antrian;
+                console.log(data_antrean);
+            } else {
+                getSwall('error', response.message);
             }
-            console.log(data);
-            console.log(tanggal);
         }
     });
 
     var options3 = {
-        series: [{
-            name: 'Net Profit',
-            data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 80, 89, 90, 100, 20]
-        }, {
-            name: 'Revenue',
-            data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 80, 89, 90, 100, 20]
-        }, {
-            name: 'Free Cash Flow',
-            data: [44, 55, 57, 56, 61, 58, 63, 60, 66, 80, 89, 90, 100, 20]
-        }],
+        series: [
+            //             Array(15)
+            // 0
+            // : 
+            // {tanggal: '2025-05-27', nama_tanggal: '27 May', total: 1, gagal: 1, sukses: 0}
+            // 1
+            // : 
+            // {tanggal: '2025-05-28', nama_tanggal: '28 May', total: 0, gagal: 0, sukses: 0}
+            // 2
+            // : 
+            // {tanggal: '2025-05-29', nama_tanggal: '29 May', total: 0, gagal: 0, sukses: 0}
+            // 3
+            // : 
+            // {tanggal: '2025-05-30', nama_tanggal: '30 May', total: 0, gagal: 0, sukses: 0}
+            // 4
+            // : 
+            // {tanggal: '2025-05-31', nama_tanggal: '31 May', total: 0, gagal: 0, sukses: 0}
+            // 5
+            // : 
+            // {tanggal: '2025-06-01', nama_tanggal: '01 Jun', total: 0, gagal: 0, sukses: 0}
+            // 6
+            // : 
+            // {tanggal: '2025-06-02', nama_tanggal: '02 Jun', total: 0, gagal: 0, sukses: 0}
+            // 7
+            // : 
+            // {tanggal: '2025-06-03', nama_tanggal: '03 Jun', total: 0, gagal: 0, sukses: 0}
+            // 8
+            // : 
+            // {tanggal: '2025-06-04', nama_tanggal: '04 Jun', total: 0, gagal: 0, sukses: 0}
+            // 9
+            // : 
+            // {tanggal: '2025-06-05', nama_tanggal: '05 Jun', total: 0, gagal: 0, sukses: 0}
+            // 10
+            // : 
+            // {tanggal: '2025-06-06', nama_tanggal: '06 Jun', total: 0, gagal: 0, sukses: 0}
+            // 11
+            // : 
+            // {tanggal: '2025-06-07', nama_tanggal: '07 Jun', total: 0, gagal: 0, sukses: 0}
+            // 12
+            // : 
+            // {tanggal: '2025-06-08', nama_tanggal: '08 Jun', total: 0, gagal: 0, sukses: 0}
+            // 13
+            // : 
+            // {tanggal: '2025-06-09', nama_tanggal: '09 Jun', total: 0, gagal: 0, sukses: 0}
+            // 14
+            // : 
+            // {tanggal: '2025-06-10', nama_tanggal: '10 Jun', total: 0, gagal: 0, sukses: 0}
+            // length
+            // : 
+            // 15
+            {
+                name: 'Total Antrean',
+                data: data_antrean.map(item => item.total)
+            },
+            {
+                name: 'Antrean Sukses',
+                data: data_antrean.map(item => item.sukses)
+            },
+            {
+                name: 'Antrean Gagal',
+                data: data_antrean.map(item => item.gagal)
+            }
+        ],
         chart: {
             type: 'bar',
             height: 350,
@@ -408,24 +451,20 @@ function getChartAntrean() {
             colors: ['transparent']
         },
         xaxis: {
-            categories: ['11 Jun', '12 Jun', '13 Jun', '14 Jun', '15 Jun', '16 Jun', '17 Jun', '18 Jun', '19 Jun',
-                '20 Jun', '21 Jun', '22 Jun', '23 Jun', '24 Jun'
+            categories: ['27 Mei', '28 Mei', '29 Mei', '30 Mei', '31 Mei', '1 Juni', '2 Juni', '3 Juni', '4 Juni',
+                '5 Juni', '6 Juni', '7 Juni', '8 Juni', '9 Juni', '10 Juni',
             ],
         },
         yaxis: {
             title: {
-                text: '$(thousands)'
+                text: 'Jumlah Antrean',
             }
         },
         fill: {
             opacity: 1
         },
         tooltip: {
-            y: {
-                formatter: function(val) {
-                    return "$" + val + "thousands"
-                }
-            }
+
         }
     };
     var chart = new ApexCharts(document.querySelector("#chart1"), options3);

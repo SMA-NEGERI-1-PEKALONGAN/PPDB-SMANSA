@@ -48,35 +48,30 @@ class antrianController extends BaseController
     }
 
     public function getStatistic(){
-        $tanggalAwal = '2024-06-11';
-        $tanggalAkhir = '2024-06-24';
-        $tanggal_range = [];
+        $tanggalAwal = '2025-05-27';
+        $tanggalAkhir = '2025-06-10'    ;
+        $data_antrian = [];
         
-        $data = $this->antrianModel->where('tanggal_antrian >=', $tanggalAwal)->where('tanggal_antrian <=', $tanggalAkhir)->orderBy('tanggal_antrian', 'ASC')->findAll();
-       
-        foreach ($data as $row) {
-            if (!in_array($row['tanggal_antrian'], $tanggal_range)) {
-                $tanggal_range[] = $row['tanggal_antrian'];
-            }
+        for ($i = strtotime($tanggalAwal); $i <= strtotime($tanggalAkhir); $i = strtotime("+1 day", $i)) {
+            // dd(date('Y-m-d', $i));
+            // convert tanggal to 27 JUN
+            $tanggal = date('Y-m-d', $i);
+            $nama_tanggal = date('d M', $i);
+            // dd($tanggal, $nama_tanggal);
+            $data_antrian[] = [
+                'tanggal' => $tanggal,
+                'nama_tanggal' => $nama_tanggal,
+                'total' => count($this->antrianModel->where('tanggal_antrian', $tanggal)->findAll()),
+                'gagal' => count($this->antrianModel->where('tanggal_antrian', $tanggal)->where('status_antrian !=', '3')->findAll()),
+                'sukses' => count($this->antrianModel->where('tanggal_antrian', $tanggal)->where('status_antrian', '3')->findAll()),
+            ];
         }
+        // dd($data_antrian);
         
-        $total = [];
-        $gagal = [];
-        $sukses = [];
-    
-        foreach ($tanggal_range as $tanggal) {
-            $total[] = count($this->antrianModel->where('tanggal_antrian', $tanggal)->findAll());
-            $gagal[] = count($this->antrianModel->where('tanggal_antrian', $tanggal)->where('status_antrian !=', '3')->findAll());
-            $sukses[] = count($this->antrianModel->where('tanggal_antrian', $tanggal)->where('status_antrian', '3')->findAll());
-        }
-
         return $this->response->setJSON([
             'error' => false,
             'data' => [
-                'tanggal' => $tanggal_range,
-                'total' => $total,
-                'gagal' => $gagal,
-                'sukses' => $sukses,
+                'data_antrian' => $data_antrian,
             ],
             'status' => '200'
         ]);
@@ -389,12 +384,11 @@ class antrianController extends BaseController
             // dd($day);
             $timeNow = date('H:i:s');
             // dd($tanggal_mulai);
-            if($timeNow >= $start_antrian && $timeNow <= $close_antrian){
+            if($timeNow <= $close_antrian){
                 $tanggal_antrian = $tanggal_antrian; 
             }else{
                 $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
             }
-            $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);
             // jika hari sabtu atau minggu day +1
             $day = date('D', strtotime($tanggal_antrian));
             if ($day == 'Sat') {
@@ -402,6 +396,7 @@ class antrianController extends BaseController
             } elseif ($day == 'Sun') {
                 $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
             }
+            $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);
             // dd($tanggal_antrian);
             // dd($last_antrian, $max_antrian);
             if($last_antrian){
@@ -441,6 +436,15 @@ class antrianController extends BaseController
             // if($timeNow >= $start_antrian && $timeNow <= $close_antrian){
 
             if($tanggal_antrian >= $tanggal_mulai && $tanggal_antrian <= $tanggal_penutupan_antrian){
+                if ($tanggal_mulai == $tanggal_antrian) {
+                    if($timeNow < $start_antrian){
+                        return $this->response->setJSON([
+                            'error' => true,
+                            'data' => 'Antrean belum dibuka',
+                            'status' => '406'
+                        ]);
+                    }
+                }
                 for ($i=1; $i <= $total_sesi; $i++) { 
                     foreach ($data_referensi as $data) {
                         if ($data['nama_referensi'] == 'Sesi ' . $i) {
