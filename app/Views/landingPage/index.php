@@ -1347,7 +1347,8 @@
                             <!-- btn to linkt informasi -->
                             <a href="#" class="btn btn_soft mt-3 btn_link" id="https://s.id/spmb2025_sma1pkl">Informasi
                                 SPMB</a>
-                            <a href="#" class="btn btn_soft mt-3 btn_link mx-2" id="<?= base_url('Auth'); ?>">Login
+                            <a href="<?= base_url('Auth'); ?>" class="btn btn_soft mt-3 btn_link mx-2"
+                                id="<?= base_url('Auth'); ?>" target="_blank">Login
                                 portal admin</a>
 
                         </div>
