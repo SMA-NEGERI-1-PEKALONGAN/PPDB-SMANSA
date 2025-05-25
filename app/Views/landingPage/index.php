@@ -1814,7 +1814,50 @@
     <!-- include cdn  -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script>
+    <script type="text/javascript">
+    // add data unique id to local storage and automatic remove wehen day after 1 day
+    function addDataUniqueIdToLocalStorage() {
+        const uniqueId = localStorage.getItem('unique_id');
+        const uniqueIdDate = localStorage.getItem('unique_id_date');
+        const currentDate = new Date();
+        // console.log('Current Date:', currentDate, 'Unique ID Date:', uniqueIdDate);
+        if (uniqueId == null || empty(uniqueId) uniqueId == '') {
+            const newUniqueId = 'UID-' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('unique_id', newUniqueId);
+            const date = new Date();
+            localStorage.setItem('unique_id_date', date.toISOString());
+            setTimeout(() => {
+                localStorage.removeItem('unique_id');
+                localStorage.removeItem('unique_id_date');
+            }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
+            $.ajax({
+                url: '<?= base_url('saveAktifitasWeb'); ?>',
+                type: 'POST',
+                data: {
+                    unique_id: newUniqueId
+                },
+                dataType: 'json',
+                success: function(response) {
+                    // console.log('Data unique id saved to server:', response);
+                },
+                error: function(xhr, status, error) {
+                    // console.error('Error saving unique id:', error);
+                }
+            });
+        } else {
+            if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
+                // If unique_id exists but is older than 1 day, remove it
+                localStorage.removeItem('unique_id');
+                localStorage.removeItem('unique_id_date');
+                // console.log('Unique ID expired and removed:', uniqueId);
+            }
+        }
+    }
+
+    // call when page load
+    $(document).ready(function() {
+        addDataUniqueIdToLocalStorage();
+    });
     // chat bot
     $(document).on('click', '#btn_chat_bot', function() {
         $('#chat_bot').toggle();
