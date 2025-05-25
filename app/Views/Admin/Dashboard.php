@@ -70,14 +70,48 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="bg-white pd-20 card-box mb-30">
+            <h4 class="h4 text-blue">
+                <div class="row">
+                    <div class="col-sm-9">
+                        Grafik Aktifitas Web
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <div class="form-group">
+                            <select class="custom-select2 form-control" id="bulanAktifitasWeb" style="width: 50%;"
+                                data-placeholder="Pilih Bulan">
+                                <option value="1" <?= date('m') == '01' ? 'selected' : '' ?>>Januari</option>
+                                <option value="2" <?= date('m') == '02' ? 'selected' : '' ?>>Februari</option>
+                                <option value="3" <?= date('m') == '03' ? 'selected' : '' ?>>Maret</option>
+                                <option value="4" <?= date('m') == '04' ? 'selected' : '' ?>>April</option>
+                                <option value="5" <?= date('m') == '05' ? 'selected' : '' ?>>Mei</option>
+                                <option value="6" <?= date('m') == '06' ? 'selected' : '' ?>>Juni</option>
+                                <option value="7" <?= date('m') == '07' ? 'selected' : '' ?>>Juli</option>
+                                <option value="8" <?= date('m') == '08' ? 'selected' : '' ?>>Agustus</option>
+                                <option value="9" <?= date('m') == '09' ? 'selected' : '' ?>>September</option>
+                                <option value="10" <?= date('m') == '10' ? 'selected' : '' ?>>Oktober</option>
+                                <option value="11" <?= date('m') == '11' ? 'selected' : '' ?>>November</option>
+                                <option value="12" <?= date('m') == '12' ? 'selected' : '' ?>>Desember</option>
+                            </select>
 
+                        </div>
+                    </div>
+                </div>
+
+            </h4>
+            <div id="chartActivity"></div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="bg-white pd-20 card-box mb-30">
             <h4 class="h4 text-blue">
                 Grafik Antrean
             </h4>
-            <div id="chart1"></div>
+            <div id="chartAntrean"></div>
         </div>
     </div>
 </div>
@@ -357,120 +391,170 @@ function getChartAntrean() {
         success: function(response) {
             if (response.error == false) {
                 data_antrean = response.data.data_antrian;
-                console.log(data_antrean);
+                // console.log(data_antrean);
+                var options = {
+                    series: [{
+                            name: 'Total Antrean',
+                            data: data_antrean.map(item => parseInt(item.total))
+                        },
+                        {
+                            name: 'Antrean Sukses',
+                            data: data_antrean.map(item => parseInt(item.sukses))
+                        },
+                        {
+                            name: 'Antrean Gagal',
+                            data: data_antrean.map(item => parseInt(item.gagal))
+                        }
+                    ],
+                    chart: {
+                        type: 'bar',
+                        height: 350,
+                        toolbar: {
+                            show: false,
+                        }
+                    },
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: '25%',
+                            endingShape: 'rounded'
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    stroke: {
+                        show: true,
+                        width: 2,
+                        colors: ['transparent']
+                    },
+                    xaxis: {
+                        categories: data_antrean.map(item => item.nama_tanggal),
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Jumlah Antrean'
+                        },
+                        min: 0,
+                        max: Math.max(...data_antrean.map(item => parseInt(item.total))) + 5
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    tooltip: {
+                        y: {
+                            formatter: function(val) {
+                                return val + " Antrean"
+                            }
+                        }
+                    }
+                };
+                var chart = new ApexCharts(document.querySelector("#chartAntrean"), options);
+                chart.render();
             } else {
                 getSwall('error', response.message);
             }
         }
     });
 
-    var options3 = {
-        series: [
-            //             Array(15)
-            // 0
-            // : 
-            // {tanggal: '2025-05-27', nama_tanggal: '27 May', total: 1, gagal: 1, sukses: 0}
-            // 1
-            // : 
-            // {tanggal: '2025-05-28', nama_tanggal: '28 May', total: 0, gagal: 0, sukses: 0}
-            // 2
-            // : 
-            // {tanggal: '2025-05-29', nama_tanggal: '29 May', total: 0, gagal: 0, sukses: 0}
-            // 3
-            // : 
-            // {tanggal: '2025-05-30', nama_tanggal: '30 May', total: 0, gagal: 0, sukses: 0}
-            // 4
-            // : 
-            // {tanggal: '2025-05-31', nama_tanggal: '31 May', total: 0, gagal: 0, sukses: 0}
-            // 5
-            // : 
-            // {tanggal: '2025-06-01', nama_tanggal: '01 Jun', total: 0, gagal: 0, sukses: 0}
-            // 6
-            // : 
-            // {tanggal: '2025-06-02', nama_tanggal: '02 Jun', total: 0, gagal: 0, sukses: 0}
-            // 7
-            // : 
-            // {tanggal: '2025-06-03', nama_tanggal: '03 Jun', total: 0, gagal: 0, sukses: 0}
-            // 8
-            // : 
-            // {tanggal: '2025-06-04', nama_tanggal: '04 Jun', total: 0, gagal: 0, sukses: 0}
-            // 9
-            // : 
-            // {tanggal: '2025-06-05', nama_tanggal: '05 Jun', total: 0, gagal: 0, sukses: 0}
-            // 10
-            // : 
-            // {tanggal: '2025-06-06', nama_tanggal: '06 Jun', total: 0, gagal: 0, sukses: 0}
-            // 11
-            // : 
-            // {tanggal: '2025-06-07', nama_tanggal: '07 Jun', total: 0, gagal: 0, sukses: 0}
-            // 12
-            // : 
-            // {tanggal: '2025-06-08', nama_tanggal: '08 Jun', total: 0, gagal: 0, sukses: 0}
-            // 13
-            // : 
-            // {tanggal: '2025-06-09', nama_tanggal: '09 Jun', total: 0, gagal: 0, sukses: 0}
-            // 14
-            // : 
-            // {tanggal: '2025-06-10', nama_tanggal: '10 Jun', total: 0, gagal: 0, sukses: 0}
-            // length
-            // : 
-            // 15
-            {
-                name: 'Total Antrean',
-                data: data_antrean.map(item => item.total)
-            },
-            {
-                name: 'Antrean Sukses',
-                data: data_antrean.map(item => item.sukses)
-            },
-            {
-                name: 'Antrean Gagal',
-                data: data_antrean.map(item => item.gagal)
-            }
-        ],
-        chart: {
-            type: 'bar',
-            height: 350,
-            toolbar: {
-                show: false,
-            }
-        },
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: '25%',
-                endingShape: 'rounded'
-            },
-        },
-        dataLabels: {
-            enabled: false
-        },
-        stroke: {
-            show: true,
-            width: 2,
-            colors: ['transparent']
-        },
-        xaxis: {
-            categories: ['27 Mei', '28 Mei', '29 Mei', '30 Mei', '31 Mei', '1 Juni', '2 Juni', '3 Juni', '4 Juni',
-                '5 Juni', '6 Juni', '7 Juni', '8 Juni', '9 Juni', '10 Juni',
-            ],
-        },
-        yaxis: {
-            title: {
-                text: 'Jumlah Antrean',
-            }
-        },
-        fill: {
-            opacity: 1
-        },
-        tooltip: {
 
-        }
-    };
-    var chart = new ApexCharts(document.querySelector("#chart1"), options3);
-    chart.render();
 }
 getChartAntrean();
+
+function getChartAktifitasWeb(bulan) {
+    $.ajax({
+        url: '<?= base_url('Admin/GrafikAktifitasWeb') ?>/' + bulan,
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if (response.error == false) {
+                // clear chartActivity
+                $('#chartActivity').empty();
+                // create chart
+                var data = response.data;
+                var options = {
+                    series: [{
+                        name: 'Aktifitas Web',
+                        data: data.map(item => parseInt(item.jumlah))
+                    }],
+                    chart: {
+                        height: 350,
+                        type: 'line',
+                        toolbar: {
+                            show: false,
+                        }
+                    },
+                    grid: {
+                        show: false,
+                        padding: {
+                            left: 0,
+                            right: 0
+                        }
+                    },
+                    stroke: {
+                        width: 7,
+                        curve: 'smooth'
+                    },
+                    xaxis: {
+                        categories: data.map(item => item.tanggal),
+                        title: {
+                            text: 'Tanggal'
+                        }
+                    },
+                    yaxis: {
+                        title: {
+                            text: 'Jumlah Aktifitas'
+                        },
+                        min: 0,
+                        max: Math.max(...data.map(item => parseInt(item.jumlah))) + 5
+                    },
+                    fill: {
+                        type: 'gradient',
+                        gradient: {
+                            shade: 'dark',
+                            gradientToColors: ['#1b00ff'],
+                            shadeIntensity: 1,
+                            type: 'horizontal',
+                            opacityFrom: 1,
+                            opacityTo: 1,
+                            stops: [0, 100, 100, 100]
+                        },
+                    },
+                    markers: {
+                        size: 4,
+                        colors: ["#FFA41B"],
+                        strokeColors: "#fff",
+                        strokeWidth: 2,
+                        hover: {
+                            size: 7,
+                        }
+                    },
+                    tooltip: {
+                        x: {
+                            format: 'dd/MM/yy'
+                        }
+                    }
+                };
+                var chart = new ApexCharts(document.querySelector("#chartActivity"), options);
+                chart.render();
+            } else {
+                getSwall('error', response.message);
+            }
+        }
+    });
+}
+$(document).ready(function() {
+    // fetch data antrian
+    fetchAntrian();
+    // get chart aktifitas web
+    var bulanAktifitasWeb = $('#bulanAktifitasWeb').val();
+    getChartAktifitasWeb(bulanAktifitasWeb);
+    // change month aktifitas web
+    $('#bulanAktifitasWeb').change(function() {
+        var bulan = $(this).val();
+        getChartAktifitasWeb(bulan);
+    });
+});
 </script>
 
 <?= $this->endSection('dataTables');?>s

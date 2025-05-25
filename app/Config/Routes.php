@@ -50,6 +50,7 @@ $routes->group('Auth', function ($routes) {
 // group route admin
 $routes->group('Admin', function ($routes) {
     $routes->get('Dashboard', 'Home::index');
+    $routes->get('GrafikAktifitasWeb/(:segment)', 'Home::getGrafikAktifitasWeb/$1');
     $routes->group('Kategori', function ($routes) {
         $routes->get('fetch', 'masterKategoriController::fetchKategori');
         $routes->get('DataTables', 'masterKategoriController::ajaxDataTables');

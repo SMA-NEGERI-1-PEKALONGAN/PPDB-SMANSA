@@ -28,5 +28,21 @@ class aktifitasWebModel extends Model
         ->first();
     }
 
+    public function getGrafikAktifitasWeb($bulan, $tahun = null)
+    {
+        if ($tahun === null) {
+            $tahun = date('Y');
+        }
+
+        $query = $this->select('COUNT(id_aktifitas_web) as jumlah, DATE(created_at) as tanggal')
+                      ->where('MONTH(created_at)', $bulan)
+                      ->where('YEAR(created_at)', $tahun)
+                      ->groupBy('DATE(created_at)')
+                      ->orderBy('tanggal', 'ASC')
+                      ->findAll();
+        
+        return $query;
+    }
+
 }
     // protected $updatedField = 'updated_at';
