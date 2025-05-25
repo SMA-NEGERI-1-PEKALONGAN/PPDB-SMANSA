@@ -347,7 +347,7 @@
         const uniqueIdDate = localStorage.getItem('unique_id_date');
         const currentDate = new Date();
         // console.log('Current Date:', currentDate, 'Unique ID Date:', uniqueIdDate);
-        if (uniqueId == null || empty(uniqueId) uniqueId == '') {
+        if (uniqueId == null || empty(uniqueId) || uniqueId == '') {
             const newUniqueId = 'UID-' + Math.random().toString(36).substr(2, 9);
             localStorage.setItem('unique_id', newUniqueId);
             const date = new Date();
