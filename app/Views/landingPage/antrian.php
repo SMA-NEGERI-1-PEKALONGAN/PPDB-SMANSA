@@ -605,7 +605,8 @@ h6 {
                             <div class="row mb-2">
                                 <div class="col-sm-12">
                                     <p class="" style="color: red;">
-                                        *)Pastikan dataang sesuai dengan tanggal dan sesi antrean yang telah ditentukan.
+                                        *)Pastikan datang tepat waktusesuai dengan tanggal dan sesi antrean yang telah
+                                        ditentukan.
                                     </p>
                                 </div>
                             </div>
