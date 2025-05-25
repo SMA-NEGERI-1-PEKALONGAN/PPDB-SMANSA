@@ -28,7 +28,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'devspmb',
-        'password'     => 'devspmb321$',
+        'password'     => 'devspmb321',
         'database'     => 'devspmb',
 
         // 'username'     => 'root',
