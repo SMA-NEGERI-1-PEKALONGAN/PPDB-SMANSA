@@ -384,6 +384,20 @@
                 currentDate.getFullYear() !== storedDate.getFullYear()) {
                 localStorage.removeItem('unique_id');
                 localStorage.removeItem('unique_id_date');
+                $.ajax({
+                    url: '<?= base_url('saveAktifitasWeb'); ?>',
+                    type: 'POST',
+                    data: {
+                        unique_id: newUniqueId
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        // console.log('Data unique id saved to server:', response);
+                    },
+                    error: function(xhr, status, error) {
+                        // console.error('Error saving unique id:', error);
+                    }
+                });
                 // console.log('Unique ID expired and removed:', uniqueId);
             }
         }
