@@ -1821,7 +1821,7 @@
         const uniqueIdDate = localStorage.getItem('unique_id_date');
         const currentDate = new Date();
         // console.log('Current Date:', currentDate, 'Unique ID Date:', uniqueIdDate);
-        if (uniqueId == null || empty(uniqueId) || uniqueId == '') {
+        if (uniqueId == null || uniqueId == '') {
             const newUniqueId = 'UID-' + Math.random().toString(36).substr(2, 9);
             localStorage.setItem('unique_id', newUniqueId);
             const date = new Date();
@@ -1845,8 +1845,17 @@
                 }
             });
         } else {
-            if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
-                // If unique_id exists but is older than 1 day, remove it
+            // if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
+            //     // If unique_id exists but is older than 1 day, remove it
+            //     localStorage.removeItem('unique_id');
+            //     localStorage.removeItem('unique_id_date');
+            //     // console.log('Unique ID expired and removed:', uniqueId);
+            // }
+            // jika beda hari maka akan menghapus unique_id
+            const storedDate = new Date(uniqueIdDate);
+            if (currentDate.getDate() !== storedDate.getDate() ||
+                currentDate.getMonth() !== storedDate.getMonth() ||
+                currentDate.getFullYear() !== storedDate.getFullYear()) {
                 localStorage.removeItem('unique_id');
                 localStorage.removeItem('unique_id_date');
                 // console.log('Unique ID expired and removed:', uniqueId);
