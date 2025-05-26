@@ -124,12 +124,23 @@
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
-                    <a href="https://ppdb.sman1pekalongan.sch.id" target="_blank" class="dropdown-toggle no-arrow">
+                    <a href="<?= base_url('/'); ?>" target="_blank" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-layout-text-window-reverse"></span>
                         <span class="mtext">Landing Page
                             <img src="vendors/images/coming-soon.png" alt="" width="25" /></span>
                     </a>
                 </li>
+                <?php 
+                if(session()->get('role') == 'Administrator'):
+                ?>
+                <li>
+                    <a href="<?= base_url('Views'); ?>" target="_blank" class="dropdown-toggle no-arrow">
+                        <span class="micon bi bi-layout-text-window-reverse"></span>
+                        <span class="mtext">View Antrean
+                            <img src="vendors/images/coming-soon.png" alt="" width="25" /></span>
+                    </a>
+                </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

@@ -309,7 +309,7 @@ h6 {
                                     </li class="pb-2">
                                     <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
                                     <li class="pb-2">3. Potongan ramput rapi (CPD Putra) </li>
-                                    <li class="pb-2">4. Mengenakan spatu & kaos kaki </li>
+                                    <li class="pb-2">4. Mengenakan sepatu & kaos kaki </li>
                                     <li class="pb-2">5. Orang tua/wali yg mengantar berpakaian rapi </li>
                                 </ul>
                             </div>

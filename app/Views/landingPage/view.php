@@ -114,7 +114,7 @@
 <?= $this->section('script')?>
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=jQZ2zcdq">
 </script>
-<script>
+<script type="text/javascript">
 $(document).ready(function() {
     fetchAntrian();
 });
@@ -159,7 +159,6 @@ function fetchNotifikasi() {
         }
     });
 }
-
 
 function updateNotifikasi(id) {
     $.ajax({
