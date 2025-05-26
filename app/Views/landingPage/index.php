@@ -1845,22 +1845,12 @@
                 }
             });
         } else {
-            // if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
-            //     // If unique_id exists but is older than 1 day, remove it
-            //     localStorage.removeItem('unique_id');
-            //     localStorage.removeItem('unique_id_date');
-            //     // console.log('Unique ID expired and removed:', uniqueId);
-            // }
-            // jika beda hari maka akan menghapus unique_id
-            const storedDate = new Date(uniqueIdDate);
-            console.log('Stored Date:', storedDate, 'Current Date:', currentDate);
-            // if (currentDate.getDate() !== storedDate.getDate() ||
-            //     currentDate.getMonth() !== storedDate.getMonth() ||
-            //     currentDate.getFullYear() !== storedDate.getFullYear()) {
-            //     localStorage.removeItem('unique_id');
-            //     localStorage.removeItem('unique_id_date');
-            //     // console.log('Unique ID expired and removed:', uniqueId);
-            // }
+            if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
+                // If unique_id exists but is older than 1 day, remove it
+                localStorage.removeItem('unique_id');
+                localStorage.removeItem('unique_id_date');
+                // console.log('Unique ID expired and removed:', uniqueId);
+            }
         }
     }
 
