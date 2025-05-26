@@ -352,10 +352,10 @@
             localStorage.setItem('unique_id', newUniqueId);
             const date = new Date();
             localStorage.setItem('unique_id_date', date.toISOString());
-            setTimeout(() => {
-                localStorage.removeItem('unique_id');
-                localStorage.removeItem('unique_id_date');
-            }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
+            // setTimeout(() => {
+            //     localStorage.removeItem('unique_id');
+            //     localStorage.removeItem('unique_id_date');
+            // }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
             $.ajax({
                 url: '<?= base_url('saveAktifitasWeb'); ?>',
                 type: 'POST',

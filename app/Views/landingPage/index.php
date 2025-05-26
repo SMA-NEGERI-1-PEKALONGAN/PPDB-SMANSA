@@ -1853,13 +1853,14 @@
             // }
             // jika beda hari maka akan menghapus unique_id
             const storedDate = new Date(uniqueIdDate);
-            if (currentDate.getDate() !== storedDate.getDate() ||
-                currentDate.getMonth() !== storedDate.getMonth() ||
-                currentDate.getFullYear() !== storedDate.getFullYear()) {
-                localStorage.removeItem('unique_id');
-                localStorage.removeItem('unique_id_date');
-                // console.log('Unique ID expired and removed:', uniqueId);
-            }
+            console.log('Stored Date:', storedDate, 'Current Date:', currentDate);
+            // if (currentDate.getDate() !== storedDate.getDate() ||
+            //     currentDate.getMonth() !== storedDate.getMonth() ||
+            //     currentDate.getFullYear() !== storedDate.getFullYear()) {
+            //     localStorage.removeItem('unique_id');
+            //     localStorage.removeItem('unique_id_date');
+            //     // console.log('Unique ID expired and removed:', uniqueId);
+            // }
         }
     }
 
