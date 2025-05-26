@@ -1826,10 +1826,6 @@
             localStorage.setItem('unique_id', newUniqueId);
             const date = new Date();
             localStorage.setItem('unique_id_date', date.toISOString());
-            setTimeout(() => {
-                localStorage.removeItem('unique_id');
-                localStorage.removeItem('unique_id_date');
-            }, 24 * 60 * 60 * 1000); // 1 day in milliseconds
             $.ajax({
                 url: '<?= base_url('saveAktifitasWeb'); ?>',
                 type: 'POST',
@@ -1845,12 +1841,6 @@
                 }
             });
         } else {
-            // if (uniqueId && currentDate - new Date(uniqueIdDate) >= 24 * 60 * 60 * 1000) {
-            //     // If unique_id exists but is older than 1 day, remove it
-            //     localStorage.removeItem('unique_id');
-            //     localStorage.removeItem('unique_id_date');
-            //     // console.log('Unique ID expired and removed:', uniqueId);
-            // }
             // jika beda hari maka akan menghapus unique_id
             const storedDate = new Date(uniqueIdDate);
             if (currentDate.getDate() !== storedDate.getDate() ||
@@ -1858,12 +1848,16 @@
                 currentDate.getFullYear() !== storedDate.getFullYear()) {
                 localStorage.removeItem('unique_id');
                 localStorage.removeItem('unique_id_date');
+                const newUniqueId2 = 'UID-' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('unique_id', newUniqueId2);
+                const date2 = new Date();
+                localStorage.setItem('unique_id_date', date2.toISOString());
                 // console.log('Unique ID expired and removed:', uniqueId);
                 $.ajax({
                     url: '<?= base_url('saveAktifitasWeb'); ?>',
                     type: 'POST',
                     data: {
-                        unique_id: newUniqueId
+                        unique_id: newUniqueId2
                     },
                     dataType: 'json',
                     success: function(response) {
