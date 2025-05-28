@@ -12,7 +12,11 @@ class Home extends BaseController
             'title' => 'Dashboard',
             'active' => 'Dashboard',
         ];
-        return view('Admin/Dashboard', $data);
+        if(session()->get('role') == 'Administrator'){
+            return view('Admin/DashboardAdmin', $data);
+        } else {
+            return view('Admin/Dashboard', $data);
+        }
     }
 
     public function getGrafikAktifitasWeb($bulan)
