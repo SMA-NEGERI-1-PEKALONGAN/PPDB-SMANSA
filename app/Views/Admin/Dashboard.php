@@ -339,7 +339,7 @@ const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', '
 
 function fetchAntrian() {
     $.ajax({
-        url: '<?= base_url('Admin/Antrian/getResultAntrean') ?>',
+        url: '<?= base_url('getAllDataAntrian') ?>',
         type: 'GET',
         dataType: 'json',
         success: function(response) {

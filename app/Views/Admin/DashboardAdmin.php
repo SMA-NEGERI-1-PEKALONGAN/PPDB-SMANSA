@@ -344,10 +344,10 @@ function fetchAntrian() {
         dataType: 'json',
         success: function(response) {
             if (response.error == false) {
-                $('#total_antrian').html(response.data.total_antrean);
-                $('#antrian_active').html(response.data.total_antrean);
-                $('#antrian_now').html(response.data.total_antrean);
-                $('#sisa_antrian').html(response.data.total_antrean);
+                $('#total_antrian').html(response.data.totalAntrian);
+                $('#antrian_active').html(response.data.antrianActive);
+                $('#antrian_now').html(response.data.antrianNow);
+                $('#sisa_antrian').html(response.data.sisa_antrian);
             }
         }
     });
