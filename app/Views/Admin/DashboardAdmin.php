@@ -7,7 +7,7 @@
         <div class="card-box height-100-p widget-style3">
             <div class="d-flex flex-wrap">
                 <div class="widget-data">
-                    <div class="weight-700 font-30 text-dark" id="total_antrian"></div>
+                    <div class="weight-700 font-30 text-dark" id="total_antrean"></div>
                     <div class="font-15 text-secondary weight-500">
                         Total Antrean
                     </div>
@@ -24,9 +24,9 @@
         <div class="card-box height-100-p widget-style3">
             <div class="d-flex flex-wrap">
                 <div class="widget-data">
-                    <div class="weight-700 font-30 text-dark" id="antrian_active"></div>
+                    <div class="weight-700 font-30 text-dark" id="total_antrean_aktif"></div>
                     <div class="font-15 text-secondary weight-500">
-                        Antrean Aktif
+                        Antrean Selesai
                     </div>
                 </div>
                 <div class="widget-icon" data-color="#09cc06">
@@ -41,8 +41,8 @@
         <div class="card-box height-100-p widget-style3">
             <div class="d-flex flex-wrap">
                 <div class="widget-data">
-                    <div class="weight-700 font-30 text-dark" id="sisa_antrian"></div>
-                    <div class="font-15 text-secondary weight-500">Antrean tidak aktif</div>
+                    <div class="weight-700 font-30 text-dark" id="total_antrean_bermasalah"></div>
+                    <div class="font-15 text-secondary weight-500">Antrean Bermasalah</div>
                 </div>
                 <div class="widget-icon">
                     <div class="icon" data-color="#ff5b5b">
@@ -56,9 +56,9 @@
         <div class="card-box height-100-p widget-style3">
             <div class="d-flex flex-wrap">
                 <div class="widget-data">
-                    <div class="weight-700 font-30 text-dark" id="antrian_now"></div>
+                    <div class="weight-700 font-30 text-dark" id="total_antrean_tidak_aktif"></div>
                     <div class="font-15  text-secondary weight-500">
-                        Antrean saat ini
+                        Antrean Tidak Aktif
                     </div>
                 </div>
                 <div class="widget-icon">
@@ -344,10 +344,10 @@ function fetchAntrian() {
         dataType: 'json',
         success: function(response) {
             if (response.error == false) {
-                $('#total_antrian').html(response.data.totalAntrian);
-                $('#antrian_active').html(response.data.antrianActive);
-                $('#antrian_now').html(response.data.antrianNow);
-                $('#sisa_antrian').html(response.data.sisa_antrian);
+                $('#total_antrean').html(response.data.total_antrean);
+                $('#total_antrean_aktif').html(response.data.total_antrean_aktif);
+                $('#total_antrean_tidak_aktif').html(response.data.total_antrean_tidak_aktif);
+                $('#total_antrean_bermasalah').html(response.data.total_antrean_bermasalah);
             }
         }
     });

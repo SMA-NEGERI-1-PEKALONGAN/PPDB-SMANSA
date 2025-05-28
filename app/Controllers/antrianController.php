@@ -38,10 +38,18 @@ class antrianController extends BaseController
 
     public function getResultAntrean(){
         $total_antrean = $this->antrianModel->findAll();
+        $total_antrean_aktif = $this->antrianModel->where('status_antrian', '1')->findAll();
+        $total_antrean_selesan = $this->antrianModel->where('status_antrian', '3')->findAll();
+        $total_antrean_bermasalah = $this->antrianModel->where('status_antrian', '4')->findAll();
+        $total_antrean_tidak_aktif = $this->antrianModel->where('status_antrian', '0')->findAll();
         return $this->response->setJSON([
             'error' => false,
             'data' => [
                 'total_antrean' => count($total_antrean),
+                'total_antrean_aktif' => count($total_antrean_aktif),
+                'total_antrean_selesan' => count($total_antrean_selesan),
+                'total_antrean_bermasalah' => count($total_antrean_bermasalah),
+                'total_antrean_tidak_aktif' => count($total_antrean_tidak_aktif),
             ],
             'status' => '200'
         ]);
