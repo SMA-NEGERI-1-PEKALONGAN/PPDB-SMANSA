@@ -137,6 +137,8 @@ $routes->group('Admin', function ($routes) {
         $routes->get('getStatus', 'waGatewayController::getStatus');
         $routes->get('getBarCode', 'waGatewayController::getBarCode');
         $routes->post('stopWaGateway', 'waGatewayController::stopWaGateway');
+        $routes->post('sendMessageToAll', 'waGatewayController::sendMessageToAll');
+
     });
 
     $routes->group('Setting', function ($routes) {
