@@ -417,7 +417,8 @@ class antrianController extends BaseController
             // dd($last_antrian, $max_antrian);
             if($last_antrian){
                 if($last_antrian['no_antrian'] >= $max_antrian){
-                    $day = date('D', strtotime($tanggal_antrian));
+                    // $day = hari ini
+                    $day = date('D');
                     if($day == 'Sat' || $day == 'Sun'){
                         return $this->response->setJSON([
                             'error' => true,
