@@ -178,8 +178,8 @@ h6 {
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label for="kode_pendaftaran">Nomor pendaftraran
-                            SPMB<span class="rq">*</span></label></label>
+                        <label for="kode_pendaftaran">Nomor Peserta
+                            (Ajuan Akun)<span class="rq">*</span></label></label>
                         <input type="text" class="form-control required" id="kode_pendaftaran" name="kode_pendaftaran"
                             placeholder="Masukan nomor peserta SPMB">
                         <div class="form-control-feedback " id="errorkode_pendaftaran"></div>
