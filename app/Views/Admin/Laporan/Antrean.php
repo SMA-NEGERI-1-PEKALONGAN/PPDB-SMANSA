@@ -109,7 +109,6 @@ function laporanAntrean() {
             },
             "lengthMenu": [
                 ["All"],
-                ["All"]
             ],
             columns: [{
                     data: 'nisn'
