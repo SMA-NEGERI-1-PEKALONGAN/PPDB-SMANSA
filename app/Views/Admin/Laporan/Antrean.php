@@ -71,7 +71,6 @@
                             <th>Nomor Antrean</th>
                             <th>Kode Pendafatran</th>
                             <th>Nama</th>
-                            <th>Tanggal</th>
                             <th>Status</th>
                         </thead>
                         <tbody></tbody>
@@ -122,9 +121,6 @@ function laporanAntrean() {
                 },
                 {
                     data: 'nama_siswa'
-                },
-                {
-                    data: 'tanggal_antrian'
                 },
                 {
                     data: 'status_antrian'
@@ -208,4 +204,4 @@ $('#btn-filter').on('click', function() {
 });
 </script>
 
-<?= $this->endSection('dataTables');?>s
+<?= $this->endSection('dataTables');?>
