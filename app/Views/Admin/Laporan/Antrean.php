@@ -184,7 +184,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 3, 4],
+                        columns: [1, 2, 3, 4],
                         modifier: {
                             page: 'all'
                         }

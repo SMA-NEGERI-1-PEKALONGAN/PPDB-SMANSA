@@ -21,9 +21,9 @@
                         <thead>
                             <tr>
                                 <th class="table-plus">Tanggal Antrean</th>
+                                <th>Sesi</th>
                                 <th>No Antrean</th>
                                 <th>Kode Regristrasi</th>
-                                <th>Sesi</th>
                                 <th>Nama</th>
                                 <th>No. Wa</th>
                                 <th>Status</th>
