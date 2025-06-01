@@ -21,6 +21,7 @@
                         <thead>
                             <tr>
                                 <th class="table-plus">Tanggal Antrean</th>
+                                <th>No Antrean</th>
                                 <th>Kode Regristrasi</th>
                                 <th>Nama</th>
                                 <th>Status</th>
@@ -479,6 +480,9 @@ function dataTablesAntrian() {
                     render: function(data, type, row) {
                         return moment(data).format('DD-MM-YYYY');
                     }
+                },
+                {
+                    data: 'no_antrian',
                 },
                 {
 

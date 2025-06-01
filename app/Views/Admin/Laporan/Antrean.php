@@ -67,7 +67,9 @@
                 <div class="pb-20 table-responsive">
                     <table class="table hover multiple-select-row nowrap" id="laporanAntrian">
                         <thead>
-                            <th class="table-plus">Kode Pendafatran</th>
+                            <th class="table-plus">Tanggal Antrean</th>
+                            <th>Nomor Antrean</th>
+                            <th>Kode Pendafatran</th>
                             <th>Nama</th>
                             <th>Tanggal</th>
                             <th>Status</th>
@@ -106,6 +108,15 @@ function laporanAntrean() {
                 }
             },
             columns: [{
+                    data: 'tanggal_antrian',
+                    class: 'table-plus',
+                    render: function(data, type, row) {
+                        return moment(data).format('DD-MM-YYYY');
+                    }
+                } {
+                    data: 'nomor_antrian'
+                },
+                {
                     data: 'nisn'
                 },
                 {
