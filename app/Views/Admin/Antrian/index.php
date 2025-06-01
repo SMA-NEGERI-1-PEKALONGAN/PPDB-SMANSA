@@ -24,6 +24,7 @@
                                 <th>No Antrean</th>
                                 <th>Kode Regristrasi</th>
                                 <th>Nama</th>
+                                <th>No. Wa</th>
                                 <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
@@ -492,6 +493,10 @@ function dataTablesAntrian() {
                 {
                     data: 'nama_siswa',
 
+                },
+                {
+                    data: 'no_tlp',
+                    class: 'text-center',
                 },
                 {
                     data: 'status_antrian',

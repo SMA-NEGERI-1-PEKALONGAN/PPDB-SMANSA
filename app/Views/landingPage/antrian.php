@@ -237,7 +237,7 @@ h6 {
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label for="no_tlp">No telpon<span class="rq">*</span></label></label>
+                        <label for="no_tlp">No Wa.<span class="rq">*</span></label></label>
                         <input type="text" class="form-control required" id="no_tlp" name="no_tlp"
                             placeholder="Masukan no telpon " maxlength="13" minlength="10"
                             onkeypress="return event.charCode >= 48 && event.charCode <= 57">

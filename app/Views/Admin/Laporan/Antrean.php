@@ -71,6 +71,7 @@
                             <th>Nama</th>
                             <th>Tanggal</th>
                             <th>No Antrean</th>
+                            <th>No. Wa.</th>
                             <th>Status</th>
                         </thead>
                         <tbody></tbody>
@@ -118,6 +119,10 @@ function laporanAntrean() {
                 {
                     data: 'no_antrian'
                 },
+                {
+                    data: 'no_tlp'
+                },
+
                 {
                     data: 'status_antrian'
                 },
