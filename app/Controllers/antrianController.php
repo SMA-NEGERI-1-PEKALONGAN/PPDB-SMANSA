@@ -349,7 +349,6 @@ class antrianController extends BaseController
             ->where('nisn', $nisn)
             // ->orLike('kode_pendaftaran', $kode_pendaftaran)
             ->where('status_antrian !=', '0')
-            ->where('tanggal_antrian >=', date('Y-m-d'))
             ->first();
             // dd($check_data);
             if($check_data){
