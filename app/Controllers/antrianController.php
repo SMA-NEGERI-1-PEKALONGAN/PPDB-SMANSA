@@ -345,7 +345,10 @@ class antrianController extends BaseController
         }else{
             $nisn = $this->request->getPost('nisn');
             $kode_pendaftaran = $this->request->getPost('kode_pendaftaran');
-            $check_data = $this->antrianModel->like('nisn', $nisn)->orLike('kode_pendaftaran', $kode_pendaftaran)->where('status_antrian !=', '0')
+            $check_data = $this->antrianModel
+            ->where('nisn', $nisn)
+            // ->orLike('kode_pendaftaran', $kode_pendaftaran)
+            ->where('status_antrian !=', '0')
             ->where('tanggal_antrian >=', date('Y-m-d'))
             ->first();
             // dd($check_data);
