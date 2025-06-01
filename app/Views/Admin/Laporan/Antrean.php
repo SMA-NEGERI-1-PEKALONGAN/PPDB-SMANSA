@@ -113,7 +113,7 @@ function laporanAntrean() {
                     render: function(data, type, row) {
                         return moment(data).format('DD-MM-YYYY');
                     }
-                } {
+                }, {
                     data: 'nomor_antrian',
                     class: 'text-center',
                 },
