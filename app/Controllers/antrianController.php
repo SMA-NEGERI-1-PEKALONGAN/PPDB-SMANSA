@@ -409,13 +409,22 @@ class antrianController extends BaseController
             // dd($last_antrian, $max_antrian);
             if($last_antrian){
                 if($last_antrian['no_antrian'] >= $max_antrian){
-                    $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
                     $day = date('D', strtotime($tanggal_antrian));
-                    if ($day == 'Sat') {
-                        $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +2 day'));
-                    } elseif ($day == 'Sun') {
+                    if($day == 'Sat' || $day == 'Sun'){
+                        return $this->response->setJSON([
+                            'error' => true,
+                            'data' => 'Antrean sudah penuh, silahkan dapat mendaftar di hari berikutnya',
+                            'status' => '406'
+                        ]);
+                    }else{
                         $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
-                    } 
+                        $day = date('D', strtotime($tanggal_antrian));
+                        if ($day == 'Sat') {
+                            $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +2 day'));
+                        } elseif ($day == 'Sun') {
+                            $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+                        } 
+                    }
                     
                     // dd($tanggal_antrian);
                     $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);

@@ -20,7 +20,8 @@
                     <table class="table hover multiple-select-row nowrap" id="tableAntrian">
                         <thead>
                             <tr>
-                                <th class="table-plus">Kode Regristrasi</th>
+                                <th class="table-plus">Tanggal Antrean</th>
+                                <th>Kode Regristrasi</th>
                                 <th>Nama</th>
                                 <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
@@ -473,9 +474,15 @@ function dataTablesAntrian() {
                 [5, 10, 25, 50, "All"]
             ],
             columns: [{
+                    data: 'tanggal_antrian',
+                    class: 'table-plus',
+                    render: function(data, type, row) {
+                        return moment(data).format('DD-MM-YYYY');
+                    }
+                },
+                {
 
                     data: 'kode_pendaftaran',
-                    class: 'table-plus'
                 },
                 {
                     data: 'nama_siswa',
