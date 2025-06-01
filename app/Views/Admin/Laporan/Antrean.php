@@ -112,8 +112,9 @@ function laporanAntrean() {
                     render: function(data, type, row) {
                         return moment(data).format('DD-MM-YYYY');
                     }
-                }, {
-                    data: 'nomor_antrian',
+                },
+                {
+                    data: 'kode_pendaftaran',
                     class: 'text-center',
                 },
                 {
