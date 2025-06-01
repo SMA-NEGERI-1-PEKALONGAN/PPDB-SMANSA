@@ -107,6 +107,10 @@ function laporanAntrean() {
                     data.status_antrian = $('#status_antrian').val();
                 }
             },
+            lengthMenu: [
+
+                ['All']
+            ],
             columns: [{
                     data: 'nisn'
                 },
