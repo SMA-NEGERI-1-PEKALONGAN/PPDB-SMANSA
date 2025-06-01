@@ -483,6 +483,7 @@ function dataTablesAntrian() {
                 },
                 {
                     data: 'no_antrian',
+                    class: 'text-center',
                 },
                 {
 

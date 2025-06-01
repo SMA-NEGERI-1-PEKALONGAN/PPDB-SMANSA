@@ -114,7 +114,8 @@ function laporanAntrean() {
                         return moment(data).format('DD-MM-YYYY');
                     }
                 } {
-                    data: 'nomor_antrian'
+                    data: 'nomor_antrian',
+                    class: 'text-center',
                 },
                 {
                     data: 'nisn'
