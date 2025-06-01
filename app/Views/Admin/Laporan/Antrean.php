@@ -107,9 +107,9 @@ function laporanAntrean() {
                     data.status_antrian = $('#status_antrian').val();
                 }
             },
-            lengthMenu: [
-
-                ['All']
+            "lengthMenu": [
+                ["All"],
+                ["All"]
             ],
             columns: [{
                     data: 'nisn'
