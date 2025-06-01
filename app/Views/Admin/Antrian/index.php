@@ -500,6 +500,7 @@ function dataTablesAntrian() {
             columnDefs: [{
                 targets: "datatable-nosort",
                 orderable: false,
+                order: 'desc'
             }],
         });
     });
