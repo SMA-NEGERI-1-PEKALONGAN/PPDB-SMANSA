@@ -70,6 +70,7 @@
                             <th class="table-plus">Kode Pendafatran</th>
                             <th>Nama</th>
                             <th>Tanggal</th>
+                            <th>Sesi</th>
                             <th>No Antrean</th>
                             <th>No. Wa.</th>
                             <th>Status</th>
@@ -119,6 +120,9 @@ function laporanAntrean() {
                     data: 'tanggal_antrian'
                 },
                 {
+                    data: 'sesi_antrian'
+                },
+                {
                     data: 'no_antrian'
                 },
                 {
@@ -135,7 +139,7 @@ function laporanAntrean() {
                     className: 'table-plus'
                 },
                 {
-                    targets: 5,
+                    targets: 6,
                     render: function(data, type, row) {
                         if (data == 0) {
                             return '<span class="badge badge-danger">Tidak Aktif</span>';
@@ -180,7 +184,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5],
+                        columns: [0, 1, 3, 4],
                         modifier: {
                             page: 'all'
                         }

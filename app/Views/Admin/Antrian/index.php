@@ -23,6 +23,7 @@
                                 <th class="table-plus">Tanggal Antrean</th>
                                 <th>No Antrean</th>
                                 <th>Kode Regristrasi</th>
+                                <th>Sesi</th>
                                 <th>Nama</th>
                                 <th>No. Wa</th>
                                 <th>Status</th>
@@ -478,9 +479,10 @@ function dataTablesAntrian() {
             columns: [{
                     data: 'tanggal_antrian',
                     class: 'table-plus',
-                    render: function(data, type, row) {
-                        return moment(data).format('DD-MM-YYYY');
-                    }
+                },
+                {
+                    data: 'sesi_antrian',
+                    class: 'text-center',
                 },
                 {
                     data: 'no_antrian',
