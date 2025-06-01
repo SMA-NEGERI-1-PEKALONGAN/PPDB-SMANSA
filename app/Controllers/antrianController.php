@@ -345,7 +345,9 @@ class antrianController extends BaseController
         }else{
             $nisn = $this->request->getPost('nisn');
             $kode_pendaftaran = $this->request->getPost('kode_pendaftaran');
-            $check_data = $this->antrianModel->like('nisn', $nisn)->orLike('kode_pendaftaran', $kode_pendaftaran)->where('status_antrian !=', '0')->first();
+            $check_data = $this->antrianModel->like('nisn', $nisn)->orLike('kode_pendaftaran', $kode_pendaftaran)->where('status_antrian !=', '0')
+            ->where('tanggal_antrian >=', date('Y-m-d'))
+            ->first();
             // dd($check_data);
             if($check_data){
                 return $this->response->setJSON([
@@ -392,17 +394,23 @@ class antrianController extends BaseController
             // dd($day);
             $timeNow = date('H:i:s');
             // dd($tanggal_mulai);
-            if($timeNow <= $close_antrian){ // jika waktu sekarang masih sebelum jam tutup antrian
-                $tanggal_antrian = $tanggal_antrian; 
-            }else{
-                $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
-            }
+            
             // jika hari sabtu atau minggu day +1
             $day = date('D', strtotime($tanggal_antrian));
             if ($day == 'Sat') {
-                $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +2 day'));
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Antrean dihari Sabtu tidak dibuka, silahkan daftar di hari berikutnya',
+                    'status' => '406'
+                ]);
             } elseif ($day == 'Sun') {
                 $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+            }else{
+                if($timeNow <= $close_antrian){ // jika waktu sekarang masih sebelum jam tutup antrian
+                    $tanggal_antrian = $tanggal_antrian; 
+                }else{
+                    $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+                }
             }
             $last_antrian = $this->antrianModel->getLastAntrian($tanggal_antrian);
             // dd($tanggal_antrian);
@@ -420,10 +428,12 @@ class antrianController extends BaseController
                         $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
                         $day = date('D', strtotime($tanggal_antrian));
                         if ($day == 'Sat') {
-                            $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +2 day'));
-                        } elseif ($day == 'Sun') {
-                            $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
-                        } 
+                            return $this->response->setJSON([
+                                'error' => true,
+                                'data' => 'Antrean dihari Sabtu tidak dibuka, silahkan daftar di hari berikutnya',
+                                'status' => '406'
+                            ]);
+                        }  
                     }
                     
                     // dd($tanggal_antrian);
