@@ -67,10 +67,10 @@
                 <div class="pb-20 table-responsive">
                     <table class="table hover multiple-select-row nowrap" id="laporanAntrian">
                         <thead>
-                            <th class="table-plus">Tanggal Antrean</th>
-                            <th>Nomor Antrean</th>
-                            <th>Kode Pendafatran</th>
+                            <th class="table-plus">Kode Pendafatran</th>
                             <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>No Antrean</th>
                             <th>Status</th>
                         </thead>
                         <tbody></tbody>
@@ -107,21 +107,16 @@ function laporanAntrean() {
                 }
             },
             columns: [{
-                    data: 'tanggal_antrian',
-                    class: 'table-plus',
-                    render: function(data, type, row) {
-                        return moment(data).format('DD-MM-YYYY');
-                    }
-                },
-                {
-                    data: 'kode_pendaftaran',
-                    class: 'text-center',
-                },
-                {
                     data: 'nisn'
                 },
                 {
                     data: 'nama_siswa'
+                },
+                {
+                    data: 'tanggal_antrian'
+                },
+                {
+                    data: 'no_antrian'
                 },
                 {
                     data: 'status_antrian'
@@ -205,4 +200,4 @@ $('#btn-filter').on('click', function() {
 });
 </script>
 
-<?= $this->endSection('dataTables');?>
+<?= $this->endSection('dataTables');?>s
