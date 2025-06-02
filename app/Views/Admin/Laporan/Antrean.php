@@ -161,7 +161,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5],
+                        columns: [0, 1, 2, 3, 4, 5, 6],
                         // all row
                         modifier: {
                             page: 'all'
@@ -173,7 +173,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5],
+                        columns: [0, 1, 2, 3, 4, 5, 6],
                         modifier: {
                             page: 'all'
                         }
@@ -184,7 +184,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [1, 2, 3, 4],
+                        columns: [0, 1, 2, 3, 4, 5, 6],
                         modifier: {
                             page: 'all'
                         }
@@ -195,7 +195,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5],
+                        columns: [0, 1, 2, 3, 4, 5, 6],
                         modifier: {
                             page: 'all'
                         }
