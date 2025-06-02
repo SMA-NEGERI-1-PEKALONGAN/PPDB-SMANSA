@@ -429,7 +429,10 @@ class antrianController extends BaseController
                             'status' => '406'
                         ]);
                     }else{
-                        $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+                        // jika tanggan antrian sama dengan tanggal saat ini
+                        if($tanggal_antrian == date('Y-m-d')){
+                            $tanggal_antrian = date('Y-m-d', strtotime($tanggal_antrian . ' +1 day'));
+                        }
                         $day = date('D', strtotime($tanggal_antrian));
                         if ($day == 'Sat') {
                             return $this->response->setJSON([
