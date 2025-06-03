@@ -1041,10 +1041,19 @@ class antrianController extends BaseController
         $referensi = new masterReferensiModel();
         $timeNow = date('H:i:s');
         $data_referensi = $referensi->getReferensiByKodeKategori('set_antrian');
+        $dateNow = date('Y-m-d');
         $active = '';
         
     
         if($data){
+            // jika tanggal antrian tidak sama dengan tanggal sekarang
+            if($data['tanggal_antrian'] != $dateNow){
+                return $this->response->setJSON([
+                    'error' => true,
+                    'data' => 'Anda tidak dapat check in diluar tanggal antrian',
+                    'status' => '422'
+                ]);
+            }
             if($data_referensi){
                 foreach ($data_referensi as $row) {
                     if ($row['nama_referensi'] == 'Sesi 1') {
