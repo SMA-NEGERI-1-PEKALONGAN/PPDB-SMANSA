@@ -337,11 +337,15 @@ $('#form_search').submit(function(e) {
         }
     });
 
-});
-
+}); <
+script async src = "https://whatsform.com/launcher.js"
+id = "wf-widget"
+data - id = "jtzlqt"
+data - message = "Hubgungi admin di WhatsApp" >
+</script>
 // when window print save name file
 window.onbeforeprint = function() {
-    document.title = 'Kartu Antrean ' + $('#nama_siswa').text();
+document.title = 'Kartu Antrean ' + $('#nama_siswa').text();
 }
 </script>
 <?= $this->endSection('script'); ?>

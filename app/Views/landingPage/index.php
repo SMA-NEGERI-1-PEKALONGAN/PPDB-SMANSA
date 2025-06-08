@@ -1477,7 +1477,7 @@
         </div>
     </div>
 
-    <iframe src="https://whatsform.com/jtzlqt" width="100%" height="600" frameBorder="0"></iframe>
+    <!-- <iframe src="https://whatsform.com/jtzlqt" width="100%" height="600" frameBorder="0"></iframe> -->
     <script async src="https://whatsform.com/launcher.js" id="wf-widget" data-id="jtzlqt"
         data-message="Hubgungi admin di WhatsApp"  ></script>
     <style>
