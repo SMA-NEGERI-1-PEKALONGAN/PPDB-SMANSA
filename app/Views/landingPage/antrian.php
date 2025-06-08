@@ -649,7 +649,8 @@ h6 {
         </div>
     </div>
 </div>
-
+<script async src="https://whatsform.com/launcher.js" id="wf-widget" data-id="jtzlqt"
+    data-message="Hubgungi admin di WhatsApp"  ></script>
 <?= $this->endSection('content') ?>
 
 <?= $this->section('script') ?>
