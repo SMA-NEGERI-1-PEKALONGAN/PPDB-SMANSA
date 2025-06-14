@@ -69,6 +69,7 @@
                         <thead>
                             <th class="table-plus">Kode Pendafatran</th>
                             <th>Nama</th>
+                            <th>Jalur</th>
                             <th>Tanggal</th>
                             <th>Sesi</th>
                             <th>No Antrean</th>
@@ -117,6 +118,9 @@ function laporanAntrean() {
                     data: 'nama_siswa'
                 },
                 {
+                    data: 'jalur_pendaftaran'
+                },
+                {
                     data: 'tanggal_antrian'
                 },
                 {
@@ -161,7 +165,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7],
                         // all row
                         modifier: {
                             page: 'all'
@@ -173,7 +177,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7],
                         modifier: {
                             page: 'all'
                         }
@@ -184,7 +188,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7],
                         modifier: {
                             page: 'all'
                         }
@@ -195,7 +199,7 @@ function laporanAntrean() {
                     title: 'Data Antrian',
                     className: 'btn btn-primary',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6],
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7],
                         modifier: {
                             page: 'all'
                         }
