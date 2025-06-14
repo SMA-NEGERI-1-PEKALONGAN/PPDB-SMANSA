@@ -143,7 +143,7 @@ function laporanAntrean() {
                     className: 'table-plus'
                 },
                 {
-                    targets: 6,
+                    targets: 7,
                     render: function(data, type, row) {
                         if (data == 0) {
                             return '<span class="badge badge-danger">Tidak Aktif</span>';
