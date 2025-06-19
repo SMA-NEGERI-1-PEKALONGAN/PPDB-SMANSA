@@ -7,13 +7,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'landingPageController::index');
 
-// $routes->get('Pengumuman', 'landingPageController::Pengumuman');
+$routes->get('Pengumuman', 'landingPageController::Pengumuman');
 
 // $routes->get('FORM-DU', 'landingPageController::Form');
 
-$routes->get('Antrean', 'landingPageController::Antrian');
+// $routes->get('Antrean', 'landingPageController::Antrian');
 
-$routes->get('Cari', 'landingPageController::Cari');
+// $routes->get('Cari', 'landingPageController::Cari');
 
 $routes->post('search_antrian', 'landingPageController::search_antrian');
 
