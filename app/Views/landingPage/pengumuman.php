@@ -476,21 +476,21 @@ function set_clock(date_now, set_date, pesan) {
 }
 
 
-function fetch_set_pengumuman() {
-    $.ajax({
-        url: '<?= base_url('fetchFilterPengumuman'); ?>',
-        type: 'GET',
-        success: function(response) {
-            if (response.status == '200') {
-                set_clock(response.data.dateTimeNow, response.data.dateTime, response.data.pesan);
-                // $('#total_antrian').text(response.data.total_antrian);
-                // $('#max_antrian').text(response.data.max_antrian);
-            } else {
-                getSwall(response.status, response.data);
-            }
-        }
-    })
-}
+// function fetch_set_pengumuman() {
+//     $.ajax({
+//         url: '<?= base_url('fetchFilterPengumuman'); ?>',
+//         type: 'GET',
+//         success: function(response) {
+//             if (response.status == '200') {
+//                 set_clock(response.data.dateTimeNow, response.data.dateTime, response.data.pesan);
+//                 // $('#total_antrian').text(response.data.total_antrian);
+//                 // $('#max_antrian').text(response.data.max_antrian);
+//             } else {
+//                 getSwall(response.status, response.data);
+//             }
+//         }
+//     })
+// }
 
 
 fetch_set_pengumuman();
