@@ -218,20 +218,20 @@
                             </a>
                         </li>
                         <li class="nav-item <?= $active == 'Antrian' ? 'active-nav' : ''; ?>">
-                            <a class="nav-link" href="<?= base_url('Antrean'); ?>">
-                                Antrean</a>
-                            <!-- <li class="nav-item <?= $active == 'Pengumuman' ? 'active-nav' : ''; ?>">
+                            <!-- <a class="nav-link" href="<?= base_url('Antrean'); ?>">
+                                Antrean</a> -->
+                        <li class="nav-item <?= $active == 'Pengumuman' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Pengumuman'); ?>">
                                 Pengumuman</a>
                         </li>
-                        <li class="nav-item <?= $active == 'Form-DU' ? 'active-nav' : ''; ?>" id="formDu">
+                        <!-- <li class="nav-item <?= $active == 'Form-DU' ? 'active-nav' : ''; ?>" id="formDu">
                             <a class="nav-link" href="<?= base_url('FORM-DU'); ?>">
                                 Form</a>
                         </li> -->
-                        <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
+                        <!-- <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Cari'); ?>">
                                 Cari</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
 

@@ -128,7 +128,7 @@ h6 {
                 <div class="alert alert-primary" role="alert">
                     <h4 class="alert-heading mb-1">Informasi</h4>
                     <p>
-                        <span>Selamat bagi CPD yang telah lolos tahap seleksi PPDB TA 2024/2025 di SMA Negeri 1
+                        <span>Selamat bagi CPD yang telah lolos tahap seleksi SPMB TA 2025/2026 di SMA Negeri 1
                             Pekalongan</span> <span class="terompet">🎉</span>
                     </p>
 
