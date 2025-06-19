@@ -265,15 +265,16 @@ h6 {
                                 <ul class="ml-3 mt-2">
 
                                     <li class="pb-2">1. Bukti pendaftaran sekolah</li>
-                                    <li class="pb-2">2. Surat ket. nilai rapor semester 1-5</li>
-                                    <li class="pb-2">3. Akte kelahiran(Asli)</li>
-                                    <li class="pb-2">4. Kartu keluarga(Asli)</li>
-                                    <li class="pb-2">5. Semua piagam/sertifikat penghargaan yang dimiliki</li>
+                                    <li class="pb-2">2. Surat ket. Lulus / Ijazah SMP</li>
+                                    <li class="pb-2">3. Surat ket. nilai rapor semester 1-5</li>
+                                    <li class="pb-2">4. Akte kelahiran(Asli)</li>
+                                    <li class="pb-2">5. Kartu keluarga(Asli)</li>
+                                    <li class="pb-2">6. Semua piagam/sertifikat penghargaan yang dimiliki</li>
                                     <li class="pb-2 rq">* Semua berkas diurutkan sesuai dengan urutan diatas dan
                                         dimasuakn
                                         dalam map
                                     </li>
-                                    <li class="pb-2">Map merah (CPD Putra) & map biru (CPD Putri)</li>
+                                    <li class="pb-2">Map hijau (CPD Putra) & map kuning (CPD Putri)</li>
 
                                 </ul>
                             </div>
