@@ -30,12 +30,12 @@
     html {
         margin: 0;
         height: 100%;
-        overflow: hidden;
+        // overflow: hidden;
     }
 
     iframe {
         position: absolute;
-        top: 0;
+        top: 50px;
         right: 0;
         bottom: 0;
         left: 0;
@@ -130,7 +130,7 @@
         }
 
         iframe {
-            top: 20px;
+            top: 50px;
         }
     }
 
@@ -200,7 +200,7 @@
                         </li>
                         <li class="nav-item <?= $active == 'Form-DU' ? 'active-nav' : ''; ?>" id="formDu">
                             <a class="nav-link" href="<?= base_url('FORM-DU'); ?>">
-                                Form</a>
+                                Form DU</a>
                         </li>
                         <!-- <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Cari'); ?>">
@@ -221,8 +221,13 @@
     </svg>
     </a>
 
-    <iframe data-tally-src="https://tally.so/r/wbkGa1" width="100%" height="100%" frameborder="0" marginheight="0"
-        marginwidth="0" title="PPDB 2024/2025 (DAFTAR ULANG)"></iframe>
+    <iframe  class="mt-4"
+  width="100%" 
+  height="700px" 
+  src="https://www.appsheet.com/start/0bcc4050-029c-47b7-b7d4-5543a7e9d3f1" 
+  frameborder="0" 
+  allowfullscreen>
+</iframe>
 
 
     <!-- js -->

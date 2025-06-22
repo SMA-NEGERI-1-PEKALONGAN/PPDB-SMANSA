@@ -224,10 +224,10 @@
                             <a class="nav-link" href="<?= base_url('Pengumuman'); ?>">
                                 Pengumuman</a>
                         </li>
-                        <!-- <li class="nav-item <?= $active == 'Form-DU' ? 'active-nav' : ''; ?>" id="formDu">
-                            <a class="nav-link" href="<?= base_url('FORM-DU'); ?>">
-                                Form</a>
-                        </li> -->
+                        <li class="nav-item <?= $active == 'Form-DU' ? 'active-nav' : ''; ?>" id="formDu">
+                            <a class="nav-link" href="<?= base_url('FORM-DU')?>">
+                                Form DU</a>
+                        </li>
                         <!-- <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
                             <a class="nav-link" href="<?= base_url('Cari'); ?>">
                                 Cari</a>

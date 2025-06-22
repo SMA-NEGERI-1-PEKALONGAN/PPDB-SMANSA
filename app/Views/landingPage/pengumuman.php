@@ -128,8 +128,8 @@ h6 {
                 <div class="alert alert-primary" role="alert">
                     <h4 class="alert-heading mb-1">Informasi</h4>
                     <p>
-                        <span>Selamat bagi CPD yang telah lolos tahap seleksi SPMB TA 2025/2026 di SMA Negeri 1
-                            Pekalongan</span> <span class="terompet">🎉</span>
+                        <span>Selamat bagi CMB yang telah lolos tahap seleksi SPMB TA 2025/2026 di SMA Negeri 1
+                            Pekalongan</span> <span class="terompet"></span>
                     </p>
 
                     <style>
@@ -159,8 +159,7 @@ h6 {
                         <th>No Urut</th>
                         <th>No Peserta</th>
                         <th>Nama Siswa</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Asal Sekolah</th>
+                        <th>Jalur Pendaftaran</th>
                         <th>Tanggal</th>
                         <th>Sesi</th>
                         <th>Waktu</th>
@@ -221,14 +220,14 @@ h6 {
                                     </li>
                                     <li class="pb-2">
                                         <p class="ml-3">
-                                            <a class="sub-link" href="<?= base_url('FORM-DU'); ?>" target="_blank">Lihat
+                                            <a class="sub-link" href="<?= base_url('FORM-DU')?>" target="_blank">Lihat
                                                 formulir daftar
                                                 ulang </a>
                                         </p>
                                     </li class="pb-2">
                                     <li class="pb-2">3. Datang 30 menit sebelum sesi dimulai </li>
                                     <li class="pb-2">4. Mengenakan seragam sekolah asal atribut lengkap</li>
-                                    <li class="pb-2">5. Potongan ramput rapi (CPD Putra) </li>
+                                    <li class="pb-2">5. Potongan ramput rapi (CMB Putra) </li>
                                     <li class="pb-2">6. Mengenakan sepatu & kaos kaki </li>
                                     <li class="pb-2">7. Orang tua/wali yg mengantar berpakaian rapi </li>
                                 </ul>
@@ -265,16 +264,16 @@ h6 {
                                 <ul class="ml-3 mt-2">
 
                                     <li class="pb-2">1. Bukti pendaftaran sekolah</li>
-                                    <li class="pb-2">2. Surat ket. Lulus / Ijazah SMP</li>
-                                    <li class="pb-2">3. Surat ket. nilai rapor semester 1-5</li>
-                                    <li class="pb-2">4. Akte kelahiran(Asli)</li>
-                                    <li class="pb-2">5. Kartu keluarga(Asli)</li>
-                                    <li class="pb-2">6. Semua piagam/sertifikat penghargaan yang dimiliki</li>
+                                    <li class="pb-2">2. FC. Surat ket. Lulus / Ijazah SMP</li>
+                                    <li class="pb-2">3. FC. Surat ket. nilai rapor semester 1-5</li>
+                                    <li class="pb-2">4. FC. Akte kelahiran</li>
+                                    <li class="pb-2">5. FC. Kartu keluarga</li>
+                                    <li class="pb-2">6. FC. Semua piagam/sertifikat penghargaan yang dimiliki</li>
                                     <li class="pb-2 rq">* Semua berkas diurutkan sesuai dengan urutan diatas dan
                                         dimasuakn
                                         dalam map
                                     </li>
-                                    <li class="pb-2">Map hijau (CPD Putra) & map kuning (CPD Putri)</li>
+                                    <li class="pb-2">Map hijau (CMB Putra) & map kuning (CMB Putri)</li>
 
                                 </ul>
                             </div>
@@ -346,12 +345,12 @@ function dataTablesDataSiswa() {
                     data: 'nama_siswa',
                     sortable: false,
                 },
-                {
-                    data: 'jenis_kelamin',
-                    className: 'text-center',
-                    searchable: false,
-                    sortable: false,
-                },
+                // {
+                //     data: 'jenis_kelamin',
+                //     className: 'text-center',
+                //     searchable: false,
+                //     sortable: false,
+                // },
                 {
                     data: 'asal_sekolah',
                     sortable: false,
