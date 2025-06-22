@@ -2,7 +2,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>SPMB 2025/2026 (DAFTAR ULANG)</title>
+    <title>PPDB 2024/2025 (DAFTAR ULANG)</title>
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
@@ -26,23 +26,6 @@
         href="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.css" />
 
     <script async src="https://tally.so/widgets/embed.js"></script>
-    <style type="text/css">
-    html {
-        margin: 0;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    iframe {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border: 0;
-    }
-    </style>
-
     <style type="text/css">
     html {
         margin: 0;
@@ -238,8 +221,9 @@
     </svg>
     </a>
 
-    <iframe data-tally-src="https://tally.so/r/3NvQ7p?transparentBackground=1" width="100%" height="100%"
-        frameborder="0" marginheight="0" marginwidth="0" title="SPMB 2025/2026 (DAFTAR ULANG)"></iframe>
+    <iframe class="mt-4" width="100%" height="700px"
+        src="https://www.appsheet.com/start/0bcc4050-029c-47b7-b7d4-5543a7e9d3f1" frameborder="0" allowfullscreen>
+    </iframe>
 
 
     <!-- js -->
