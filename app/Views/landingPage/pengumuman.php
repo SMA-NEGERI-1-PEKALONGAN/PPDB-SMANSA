@@ -204,7 +204,7 @@ h6 {
                         <div class="tab-pane fade show active" id="persyaratan" role="tabpanel">
                             <div class="pd-20">
                                 <p class="fw-bold">
-                                    Ketentuan ketika melakukan Dafter Ulang:
+                                    Ketentuan ketika melakukan daftar ulang:
                                 </p>
                                 <ul class="ml-3 mt-2">
                                     <li class="pb-2">1. Membawa berkas daftar ulang
@@ -311,11 +311,11 @@ h6 {
                                                         <li class="pb-2">9. Piagam prestasi/penghargaan (bagi yang
                                                             memiliki)</li>
                                                         <hr>
-                                                        <li class="pb-2">
+                                                        <!-- <li class="pb-2">
                                                             <a class="sub-link btn_link"
                                                                 id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
 
-                                                        </li>
+                                                        </li> -->
                                                     </ul>
                                                 </div>
                                             </div>
@@ -358,10 +358,10 @@ h6 {
                                                             dalam Dapodik pada satuan Pendidikan lainnya (untuk
                                                             calon murid ATS)</li>
                                                         <hr>
-                                                        <li class="pb-2">
+                                                        <!-- <li class="pb-2">
                                                             <a class="sub-link btn_link"
                                                                 id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
-                                                        </li>
+                                                        </li> -->
                                                     </ul>
                                                 </div>
                                             </div>
@@ -400,11 +400,11 @@ h6 {
                                                             waktu 3 tahun)
                                                         </li>
                                                         <hr>
-                                                        <li class="pb-2">
+                                                        <!-- <li class="pb-2">
                                                             <a class="sub-link btn_link"
                                                                 id="<?= base_url('/'); ?>">Lihat detail
                                                                 persayaratan</a>
-                                                        </li>
+                                                        </li> -->
                                                     </ul>
                                                     </ul>
                                                 </div>
@@ -454,10 +454,10 @@ h6 {
                                                             diketahui oleh Camat
                                                         </li>
                                                         <hr>
-                                                        <li class="pb-2">
+                                                        <!-- <li class="pb-2">
                                                             <a class="sub-link btn_link"
                                                                 id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
-                                                        </li>
+                                                        </li> -->
                                                     </ul>
                                                 </div>
                                             </div>
