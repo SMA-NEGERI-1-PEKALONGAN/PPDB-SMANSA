@@ -261,10 +261,21 @@ h6 {
                                 <p class="fw-bold">
                                     Berkas yang harus dibawa:
                                 </p>
-                                <div class="alert alert-danger" role="alert">
-                                    <p class="mb-0">Masih terdapat revisi persyaratan daftar ulang menyesuaikan surat
-                                        edaran dari dinas yg baru keluar siang ini.</p>
-                                </div>
+                                <ul class="ml-3 mt-2">
+
+                                    <li class="pb-2">1. Bukti pendaftaran sekolah</li>
+                                    <li class="pb-2">2. FC. Surat ket. Lulus / Ijazah SMP</li>
+                                    <li class="pb-2">3. FC. Surat ket. nilai rapor semester 1-5</li>
+                                    <li class="pb-2">4. FC. Akte kelahiran</li>
+                                    <li class="pb-2">5. FC. Kartu keluarga</li>
+                                    <li class="pb-2">6. FC. Semua piagam/sertifikat penghargaan yang dimiliki</li>
+                                    <li class="pb-2 rq">* Semua berkas diurutkan sesuai dengan urutan diatas dan
+                                        dimasuakn
+                                        dalam map
+                                    </li>
+                                    <li class="pb-2">Map hijau (CMB Putra) & map kuning (CMB Putri)</li>
+
+                                </ul>
                             </div>
                         </div>
                     </div>
