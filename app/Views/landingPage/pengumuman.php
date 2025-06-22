@@ -220,9 +220,9 @@ h6 {
                                     </li>
                                     <li class="pb-2">
                                         <p class="ml-3">
-                                            <a class="sub-link" href="<?= base_url('FORM-DU')?>" target="_blank">Lihat
+                                            <!-- <a class="sub-link" href="<?= base_url('FORM-DU')?>" target="_blank">Lihat
                                                 formulir daftar
-                                                ulang </a>
+                                                ulang </a> -->
                                         </p>
                                     </li class="pb-2">
                                     <li class="pb-2">3. Datang 30 menit sebelum sesi dimulai </li>
