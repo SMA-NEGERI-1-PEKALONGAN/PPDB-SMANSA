@@ -185,7 +185,7 @@
                 <a class="navbar-brand" href="#">
                     <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="" width="40" height="40" class=""
                         loading="lazy">
-                    PPDB SMANSA
+                    SPMB SMANSA
 
                     <style>
                     .navbar-brand img {
