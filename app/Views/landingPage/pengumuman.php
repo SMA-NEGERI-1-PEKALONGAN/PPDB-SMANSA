@@ -289,7 +289,8 @@ h6 {
                                             <div id="Domisili" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <ul class="ml-3">
-                                                        <li class="pb-2">1. Print Out Bukti Pendaftaran</li>
+                                                        <li class="pb-2">1. Print Out Bukti Pendaftaran & Print Out
+                                                            Bukti Verifikasi Berkas</li>
                                                         <li class="pb-2">2. Surat Pernyataan Kebenaran Dokumen & Lembar
                                                             Verifikasi
                                                         </li>
@@ -300,15 +301,14 @@ h6 {
                                                                     Lihat Format</a>
                                                             </p>
                                                         </li class="pb-2">
-                                                        <li class="pb-2">3. Buku Rapor SMP/sederajat</li>
-                                                        <li class="pb-2">4. Surat Keterangan Nilai Rapor semester 1 - 5
+                                                        <li class="pb-2">3. Surat Keterangan Nilai Rapor semester 1 - 5
                                                             SMP/sederajat</li>
+                                                        <li class="pb-2">4. Buku Rapor SMP/sederajat</li>
                                                         <li class="mb-2">5. Ijazah SMP/sederajat
                                                         </li>
                                                         <li class="pb-2">6. Akte Kelahiran</li>
                                                         <li class="pb-2">7. Kartu Keluarga</li>
-                                                        <li class="pb-2">8. Surat EMIS(bagi CPD pondok pesantren)</li>
-                                                        <li class="pb-2">9. Piagam prestasi/penghargaan (bagi yang
+                                                        <li class="pb-2">8. Piagam prestasi/penghargaan (bagi yang
                                                             memiliki)</li>
                                                         <hr>
                                                         <!-- <li class="pb-2">
@@ -330,7 +330,8 @@ h6 {
                                             <div id="Afirmasi" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <ul class="ml-3">
-                                                        <li class="pb-2">1. Print Out Bukti Pendaftaran</li>
+                                                        <li class="pb-2">1. Print Out Bukti Pendaftaran & Print Out
+                                                            Bukti Verifikasi Berkas </li>
                                                         <li class="pb-2">2. Surat Pernyataan Kebenaran Dokumen & Lembar
                                                             Verifikasi
                                                         </li>
@@ -341,22 +342,19 @@ h6 {
                                                                     Lihat Format</a>
                                                             </p>
                                                         </li class="pb-2">
-                                                        <li class="pb-2">3. Buku Rapor SMP/sederajat</li>
-                                                        <li class="pb-2">4. Surat Keterangan Nilai Rapor semester 1 - 5
+                                                        <li class="pb-2">3. Surat Keterangan Nilai Rapor semester 1 - 5
                                                             SMP/sederajat</li>
+                                                        <li class="pb-2">4. Buku Rapor SMP/sederajat</li>
                                                         <li class="mb-2">5. Ijazah SMP/sederajat
                                                         </li>
                                                         <li class="pb-2">6. Akte Kelahiran</li>
                                                         <li class="pb-2">7. Kartu Keluarga</li>
-                                                        <li class="pb-2">8. Piagam prestasi/penghargaan (bagi yang
-                                                            memiliki)</li>
-                                                        <li class="pb-2">10. ATS Non Database, dibuktikan dengan surat
+
+                                                        <li class="pb-2">8. ATS Non Database, dibuktikan dengan surat
                                                             keterangan yang diterbitkan oleh kelurahan dan diketahui
                                                             oleh camat.</li>
-                                                        <li class="pb-2">11. Surat Pernyataan calon murid yang tidak
-                                                            terdata aktif
-                                                            dalam Dapodik pada satuan Pendidikan lainnya (untuk
-                                                            calon murid ATS)</li>
+                                                        <li class="pb-2">9. Piagam prestasi/penghargaan (bagi yang
+                                                            memiliki)</li>
                                                         <hr>
                                                         <!-- <li class="pb-2">
                                                             <a class="sub-link btn_link"
@@ -376,7 +374,8 @@ h6 {
                                             <div id="prestasi" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <ul class="ml-3">
-                                                        <li class="pb-2">1. Print Out Bukti Pengajuan Akun</li>
+                                                        <li class="pb-2">1. Print Out Bukti Pendaftaran & Print Out
+                                                            Bukti Verifikasi Berkas</li>
                                                         <li class="pb-2">2. Surat Pernyataan Kebenaran Dokumen & Lembar
                                                             Verifikasi
                                                         </li>
@@ -387,10 +386,10 @@ h6 {
                                                                     Lihat Format</a>
                                                             </p>
                                                         </li class="pb-2">
-                                                        <li class="pb-2">3. Buku Rapor SMP/sederajat</li>
-                                                        <li class="pb-2">4. Surat Keterangan Nilai Rapor semester 1
+                                                        <li class="pb-2">3. Surat Keterangan Nilai Rapor semester 1
                                                             - 5
                                                             SMP/sederajat</li>
+                                                        <li class="pb-2">4. Buku Rapor SMP/sederajat</li>
                                                         <li class="mb-2">5. Ijazah SMP/sederajat
                                                         </li>
                                                         <li class="pb-2">6. Akte Kelahiran</li>
@@ -421,7 +420,8 @@ h6 {
                                             <div id="pto" class="collapse" data-parent="#accordion">
                                                 <div class="card-body">
                                                     <ul class="ml-3">
-                                                        <li class="pb-2">1. Print Out Bukti Pengajuan Akun</li>
+                                                        <li class="pb-2">1. Print Out Bukti Pendaftaran & Print Out
+                                                            Bukti Verifikasi Berkas</li>
                                                         <li class="pb-2">2. Surat Pernyataan Kebenaran Dokumen & Lembar
                                                             Verifikasi
                                                         </li>
@@ -432,26 +432,28 @@ h6 {
                                                                     Lihat Format</a>
                                                             </p>
                                                         </li class="pb-2">
-                                                        <li class="pb-2">3. Buku Rapor SMP/sederajat</li>
-                                                        <li class="pb-2">4. Surat Keterangan Nilai Rapor semester 1 - 5
+                                                        <li class="pb-2">3. Surat Keterangan Nilai Rapor semester 1 - 5
                                                             SMP/sederajat</li>
+                                                        <li class="pb-2">4. Buku Rapor SMP/sederajat</li>
                                                         <li class="mb-2">5. Ijazah SMP/sederajat
                                                         </li>
                                                         <li class="pb-2">6. Akte Kelahiran</li>
                                                         <li class="pb-2">7. Kartu Keluarga</li>
-                                                        <li class="pb-2">8. Piagam Prestasi tertinggi yang dimiliki
-                                                            (paling lama kurun
-                                                            waktu 3 tahun)
+                                                        <li class="pb-2">8. Surat penugasan dari instansi, lembaga,
+                                                            kantor, atau perusahaan yang mempekerjakan dengan
+                                                            perpindahan sekurangnya antar kab/kota
                                                         </li>
-                                                        <li class="pb-2">9. Surat pernyataan dari Kepala Sekolah (Anak
-                                                            Guru)
+                                                        <li class="pb-2">9. Surat Keterangan Domisili
                                                         </li>
-                                                        <li class="pb-2">10. Surat penugasan dari Instansi paling lama 1
-                                                            tahun
-                                                            (perpindahan kerja Ortu)
+                                                        <li class="pb-2">10. Calon peserta didik yang merupakan anak
+                                                            guru/tenaga kependidikan dibuktikan dengan Surat Pernyataan
+                                                            dari Kepala Sekolah yang bersangkutan dilampiri Surat
+                                                            Keputusan/ Penugasan dari pejabat yang berwenang
+
                                                         </li>
-                                                        <li class="pb-2">11. Surat Keterangan Domisili oleh Lurah
-                                                            diketahui oleh Camat
+                                                        <li class="pb-2">11. Piagam Prestasi/Penghargaan pada jenis
+                                                            kejuaraan berjenjang/tidak berjenjang (khusus bagi yang
+                                                            memiliki)
                                                         </li>
                                                         <hr>
                                                         <!-- <li class="pb-2">
