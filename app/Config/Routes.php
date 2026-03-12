@@ -7,37 +7,37 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'landingPageController::index');
 
-$routes->get('Pengumuman', 'landingPageController::Pengumuman');
+// $routes->get('Pengumuman', 'landingPageController::Pengumuman');
 
-// $routes->get('FORM-DU', 'landingPageController::Form');
+// // $routes->get('FORM-DU', 'landingPageController::Form');
 
-$routes->get('Antrean', 'landingPageController::Antrian');
+// $routes->get('Antrean', 'landingPageController::Antrian');
 
-// $routes->get('Cari', 'landingPageController::Cari');
+// // $routes->get('Cari', 'landingPageController::Cari');
 
-$routes->post('search_antrian', 'landingPageController::search_antrian');
+// $routes->post('search_antrian', 'landingPageController::search_antrian');
 
-$routes->get('Views', 'landingPageController::Views');
+// $routes->get('Views', 'landingPageController::Views');
 
-$routes->get('getAllDataAntrian', 'landingPageController::getAllDataAntrian');
+// $routes->get('getAllDataAntrian', 'landingPageController::getAllDataAntrian');
 
-$routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
+// $routes->get('fetchNotifikasi', 'landingPageController::fetchNotifikasi');
 
-$routes->post('updateNotifikasi', 'landingPageController::updateNotifikasi');
+// $routes->post('updateNotifikasi', 'landingPageController::updateNotifikasi');
 
-$routes->get('fect_total_antrian', 'landingPageController::fect_total_antrian');    
+// $routes->get('fect_total_antrian', 'landingPageController::fect_total_antrian');    
 
-$routes->get('fetchFilterAntrean', 'landingPageController::getDataFormAntrean');
+// $routes->get('fetchFilterAntrean', 'landingPageController::getDataFormAntrean');
 
-$routes->get('fetchFilterPengumuman', 'landingPageController::getDataPengumuman');
+// $routes->get('fetchFilterPengumuman', 'landingPageController::getDataPengumuman');
 
-$routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1');
+// $routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1');
 
-$routes->get('DataTablesDataSiswa', 'dataSiswaController::ajaxDataTables');
+// $routes->get('DataTablesDataSiswa', 'dataSiswaController::ajaxDataTables');
 
-$routes->post('fetchChatResponse', 'chatBotController::fetchResponse');
+// $routes->post('fetchChatResponse', 'chatBotController::fetchResponse');
 
-$routes->post('saveAktifitasWeb', 'landingPageController::saveAktifitasWeb');
+// $routes->post('saveAktifitasWeb', 'landingPageController::saveAktifitasWeb');
 
 // auth route
 $routes->group('Auth', function ($routes) {
