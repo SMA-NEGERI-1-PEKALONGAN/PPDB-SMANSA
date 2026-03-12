@@ -52,7 +52,7 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #7D0A0A;
+  border: 6px solid #044aad;
   border-top-color: #d2f9eb;
   border-radius: 50%;
   width: 60px;
@@ -80,7 +80,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #7D0A0A;
+  background: #044aad;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -129,7 +129,7 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  background: #7D0A0A;
+  background: #044aad;
 }
 
 #header.header-transparent {
@@ -137,7 +137,7 @@ h6 {
 }
 
 #header.header-scrolled {
-  background: #7D0A0A;
+  background: #044aad;
   height: 65px;
 }
 
@@ -274,7 +274,7 @@ h6 {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #7D0A0A;
+  color: #044aad;
 }
 
 .navbar .dropdown:hover>ul {
@@ -352,7 +352,7 @@ h6 {
   right: 0;
   left: 0;
   bottom: 0;
-  background: #7D0A0A;
+  background: #044aad;
   transition: 0.3s;
   z-index: 999;
 }
@@ -391,7 +391,7 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #7D0A0A;
+  color: #044aad;
 }
 
 .navbar-mobile .getstarted,
@@ -453,7 +453,7 @@ h6 {
 
 #hero:before {
   content: "";
-  background: #7D0A0A;
+  background: #044aad;
   position: absolute;
   bottom: 0;
   top: 0;
@@ -652,7 +652,7 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #010483;
+  color: #092b5b;
 }
 
 /*--------------------------------------------------------------
@@ -735,7 +735,7 @@ section {
 .about .icon-boxes h3 {
   font-size: 28px;
   font-weight: 700;
-  color: #010483;
+  color: #092b5b;
   margin-bottom: 15px;
 }
 
@@ -902,7 +902,7 @@ section {
 }
 
 .features .icon-box h3 a {
-  color: #010483;
+  color: #092b5b;
   transition: ease-in-out 0.3s;
 }
 
@@ -952,7 +952,7 @@ section {
   font-size: 36px;
   display: block;
   font-weight: 600;
-  color: #010483;
+  color: #092b5b;
 }
 
 .counts .count-box p {
@@ -972,13 +972,13 @@ section {
 .details .content h3 {
   font-weight: 600;
   font-size: 26px;
-  color: #010483;
+  color: #092b5b;
 }
 
 .faq .content h3 {
   font-weight: 600;
   font-size: 26px;
-  color: #010483;
+  color: #092b5b;
 }
 
 .details .content ul {
@@ -1434,7 +1434,7 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #010483;
+  color: #092b5b;
 }
 
 .contact .info p {
@@ -1559,7 +1559,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footers {
-  background: #010351;
+  background: #092b5b;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
@@ -1571,7 +1571,7 @@ section {
 
 .footers .footer-top .footer-info {
   margin-bottom: 15px;
-  background: #010246;
+  background: #06327d;
   color: #fff;
   border-top: 4px solid #FFA62F;
   text-align: center;
@@ -1693,7 +1693,7 @@ section {
 }
 
 .footers .copyright {
-  border-top: 1px solid #010479;
+  border-top: 1px solid #06327d;
   text-align: center;
   padding-top: 30px;
 }

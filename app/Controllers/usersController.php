@@ -19,6 +19,7 @@ class usersController extends BaseController
     public function index()
     {
         $data = [
+            'main_menu' => 'Administator',
             'title' => 'Users',
             'active' => 'Users',
         ];
@@ -222,9 +223,9 @@ class usersController extends BaseController
     {
         $data = [
             'title' => 'Setting',
-            'active' => 'Setting',
+            'active' => 'Dashboard',
         ];
-        return view('Admin/Setting/index', $data);
+        return view('Admin/setting/index', $data);
     }
 
     public function updatePass(){

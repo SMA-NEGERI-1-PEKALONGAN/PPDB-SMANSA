@@ -21,7 +21,6 @@
                             <tr>
                                 <th class="table-plus">Nama</th>
                                 <th>Kode</th>
-                                <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -307,9 +306,6 @@ function dataTablesKategori() {
                     data: 'kode_kategori'
                 },
                 {
-                    data: 'status_kategori',
-                },
-                {
                     data: 'action',
                     class: 'datatable-nosort'
                 },
@@ -403,7 +399,9 @@ $(function() {
             $(this).addClass('form-control-success');
         } else {
             $("#btn_tambah_kategori").attr("disabled", "disabled");
-            $("#btn_tambah_kategori").html("Loading.....");
+            $("#btn_tambah_kategori").html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+            );
             $.ajax({
                 url: '<?= base_url('Admin/Kategori/save') ?>',
                 method: 'post',
@@ -476,7 +474,9 @@ $(function() {
             $(this).addClass('form-control-success');
         } else {
             $("#btn_edit_kategori").attr("disabled", "disabled");
-            $("#btn_edit_kategori").html("Loading.....");
+            $("#btn_edit_kategori").html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+            );
             $.ajax({
                 url: '<?= base_url('Admin/Kategori/update') ?>',
                 method: 'post',
@@ -591,7 +591,9 @@ $(function() {
             $(this).addClass('form-control-success');
         } else {
             $("#btn_tambah_referensi").attr("disabled", "disabled");
-            $("#btn_tambah_referensi").html("Loading.....");
+            $("#btn_tambah_referensi").html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+            );
             $.ajax({
                 url: '<?= base_url('Admin/Referensi/save') ?>',
                 method: 'post',
@@ -685,7 +687,9 @@ $(function() {
             $(this).addClass('form-control-success');
         } else {
             $("#btn_edit_referensi").attr("disabled", "disabled");
-            $("#btn_edit_referensi").html("Loading.....");
+            $("#btn_edit_referensi").html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
+            );
             $.ajax({
                 url: '<?= base_url('Admin/Referensi/update') ?>',
                 method: 'post',

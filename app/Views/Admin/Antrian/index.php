@@ -7,7 +7,7 @@
             <div class="pd-20">
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h4 class="text-blue h4">Data Antrian</h4>
+                        <h4 class="text-blue h4">Data Antrean</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addAntrian" type="button"
@@ -20,8 +20,12 @@
                     <table class="table hover multiple-select-row nowrap" id="tableAntrian">
                         <thead>
                             <tr>
-                                <th class="table-plus">Kode Regristrasi</th>
+                                <th class="table-plus">Tanggal Antrean</th>
+                                <th>Sesi</th>
+                                <th>No Antrean</th>
+                                <th>Kode Regristrasi</th>
                                 <th>Nama</th>
+                                <th>No. Wa</th>
                                 <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
@@ -41,7 +45,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="myLargeModalLabel">
-                    Tambah Antrian
+                    Tambah Antrean
                 </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
@@ -122,9 +126,9 @@
                         <div class="col-sm-8">
                             <select class="form-control required" id="jalur_pendaftaran" name="jalur_pendaftaran">
                                 <option value="">Pilih Jalur Pendaftaran</option>
-                                <option value="Zonasi">Zonasi</option>
+                                <option value="Domisili">Domisili</option>
                                 <option value="Afirmasi">Afirmasi</option>
-                                <option value="Perpindahan Orang Tua">Perpindahan Orang Tua</option>
+                                <option value="Mutasi">Mutasi</option>
                                 <option value="Prestasi">Prestasi</option>
                             </select>
                             <div class="form-control-feedback " id="errorjalur_pendaftaran"></div>
@@ -385,9 +389,9 @@
                         <div class="col-sm-8">
                             <select class="form-control required" id="editjalur_pendaftaran" name="jalur_pendaftaran">
                                 <option value="">Pilih Jalur Pendaftaran</option>
-                                <option value="Zonasi">Zonasi</option>
+                                <option value="Domisili">Domisili</option>
                                 <option value="Afirmasi">Afirmasi</option>
-                                <option value="Perpindahan Orang Tua">Perpindahan Orang Tua</option>
+                                <option value="Mutasi">Mutasi</option>
                                 <option value="Prestasi">Prestasi</option>
                             </select>
                             <div class="form-control-feedback " id="erroreditjalur_pendaftaran"></div>
@@ -473,13 +477,28 @@ function dataTablesAntrian() {
                 [5, 10, 25, 50, "All"]
             ],
             columns: [{
+                    data: 'tanggal_antrian',
+                    class: 'table-plus',
+                },
+                {
+                    data: 'sesi_antrian',
+                    class: 'text-center',
+                },
+                {
+                    data: 'no_antrian',
+                    class: 'text-center',
+                },
+                {
 
                     data: 'kode_pendaftaran',
-                    class: 'table-plus'
                 },
                 {
                     data: 'nama_siswa',
 
+                },
+                {
+                    data: 'no_tlp',
+                    class: 'text-center',
                 },
                 {
                     data: 'status_antrian',
@@ -493,6 +512,7 @@ function dataTablesAntrian() {
             columnDefs: [{
                 targets: "datatable-nosort",
                 orderable: false,
+                order: 'desc'
             }],
         });
     });
@@ -549,7 +569,8 @@ $("#form_tambah_antrian").submit(function(e) {
         $(this).addClass('form-control-success');
     } else {
         $("#btn_tambah_antiran").attr("disabled", "disabled");
-        $("#btn_tambah_antiran").html("Loading.....");
+        $("#btn_tambah_antiran").html(
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         $.ajax({
             url: '<?= base_url('Admin/Antrian/saveAntrian') ?>',
             method: 'post',
@@ -698,6 +719,7 @@ $(document).on('click', '.edit_antrian', function() {
                             i] + '</option>');
                 }
             }
+
             switch (response.data.status_antrian) {
                 case '1':
                     $("#status1").attr('selected', 'selected');
@@ -729,7 +751,8 @@ $("#form_edit_antrian").submit(function(e) {
         $(this).addClass('form-control-success');
     } else {
         $("#btn_edit_antiran").attr("disabled", "disabled");
-        $("#btn_edit_antiran").html("Loading.....");
+        $("#btn_edit_antiran").html(
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
         $.ajax({
             url: '<?= base_url('Admin/Antrian/update') ?>',
             method: 'post',

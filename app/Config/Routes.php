@@ -7,9 +7,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'landingPageController::index');
 
+$routes->get('Pengumuman', 'landingPageController::Pengumuman');
+
+// $routes->get('FORM-DU', 'landingPageController::Form');
+
 $routes->get('Antrean', 'landingPageController::Antrian');
 
-$routes->get('Cari', 'landingPageController::Cari');
+// $routes->get('Cari', 'landingPageController::Cari');
 
 $routes->post('search_antrian', 'landingPageController::search_antrian');
 
@@ -25,7 +29,15 @@ $routes->get('fect_total_antrian', 'landingPageController::fect_total_antrian');
 
 $routes->get('fetchFilterAntrean', 'landingPageController::getDataFormAntrean');
 
+$routes->get('fetchFilterPengumuman', 'landingPageController::getDataPengumuman');
+
 $routes->get('printAntrean/(:segment)', 'landingPageController::printAntrean/$1');
+
+$routes->get('DataTablesDataSiswa', 'dataSiswaController::ajaxDataTables');
+
+$routes->post('fetchChatResponse', 'chatBotController::fetchResponse');
+
+$routes->post('saveAktifitasWeb', 'landingPageController::saveAktifitasWeb');
 
 // auth route
 $routes->group('Auth', function ($routes) {
@@ -38,6 +50,7 @@ $routes->group('Auth', function ($routes) {
 // group route admin
 $routes->group('Admin', function ($routes) {
     $routes->get('Dashboard', 'Home::index');
+    $routes->get('GrafikAktifitasWeb/(:segment)', 'Home::getGrafikAktifitasWeb/$1');
     $routes->group('Kategori', function ($routes) {
         $routes->get('fetch', 'masterKategoriController::fetchKategori');
         $routes->get('DataTables', 'masterKategoriController::ajaxDataTables');
@@ -89,13 +102,53 @@ $routes->group('Admin', function ($routes) {
         $routes->post('addNotifikasi', 'antrianController::addNotifikasi');
         $routes->get('AjaxAntrianNotActive', 'antrianController::AjaxAntrianNotActive');
         $routes->get('AjaxAntrianBermasalah', 'antrianController::AjaxAntrianBermasalah');
-        $routes->get('Laporan', 'antrianController::Laporan');
-        $routes->get('ajaxLaporan', 'antrianController::ajaxajaxLaporan');
+        $routes->get('getResultAntrean', 'antrianController::getResultAntrean');
+        $routes->get('getStatistic', 'antrianController::getStatistic');
+    });
+
+    $routes->group('DataSiswa', function ($routes) {
+        $routes->get('/', 'dataSiswaController::index');
+        $routes->get('DataTables', 'dataSiswaController::ajaxDataTables');
+        $routes->post('Import', 'dataSiswaController::importSiswa');
+        $routes->post('deleteAll', 'dataSiswaController::deleteAll');
+    });
+    $routes->group('chatBot', function ($routes) {
+        $routes->get('/', 'chatBotController::index');
+        $routes->get('DataTables', 'chatBotController::ajaxDataTables');
+        $routes->post('save', 'chatBotController::store');
+        $routes->post('delete', 'chatBotController::destroy');
+        $routes->post('edit', 'chatBotController::edit');
+        $routes->post('update', 'chatBotController::update');
+        $routes->post('changeStatus', 'chatBotController::changeStatus');
+        $routes->post('changeStar', 'chatBotController::changeStar');
+        $routes->post('fetchResponse', 'chatBotController::fetchResponse');
+    });
+    $routes->group('DataSiswa', function ($routes) {
+        $routes->get('/', 'dataSiswaController::index');
+        $routes->get('DataTables', 'dataSiswaController::ajaxDataTables');
+        $routes->post('Import', 'dataSiswaController::importSiswa');
+        $routes->post('deleteAll', 'dataSiswaController::deleteAll');
+    });
+
+    $routes->group('waGateway', function ($routes) {
+        $routes->get('/', 'waGatewayController::index');
+        $routes->post('startWaGateway', 'waGatewayController::startWaGateway');
+        $routes->post('sendMessage', 'waGatewayController::sendMessage');
+        $routes->get('getStatus', 'waGatewayController::getStatus');
+        $routes->get('getBarCode', 'waGatewayController::getBarCode');
+        $routes->post('stopWaGateway', 'waGatewayController::stopWaGateway');
+        $routes->post('sendMessageToAll', 'waGatewayController::sendMessageToAll');
+
     });
 
     $routes->group('Setting', function ($routes) {
         $routes->get('/', 'usersController::Setting');
         $routes->post('update', 'usersController::update');
+    });
+
+    $routes->group('Laporan', function ($routes) {
+        $routes->get('Antrean', 'laporanController::LaporanAntrean');
+        $routes->post('ajaxLaporanAntrean', 'laporanController::ajaxLaporanAntrean');
     });
 
 });

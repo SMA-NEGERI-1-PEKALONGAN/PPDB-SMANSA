@@ -77,17 +77,17 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
-            'Middleware' => ['except' => ['/','Auth','Auth/*', 'Antrean', 'Cari', 'search_antrian', 'Admin/Antrian/save', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'printAntrean','printAntrean/*', 'fect_total_antrian','fetchFilterAntrean']],
+            'Middleware' => ['except' => ['/','Auth','Auth/*', 'Antrean', 'Cari','Pengumuman', 'search_antrian', 'Admin/Antrian/save', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'printAntrean','printAntrean/*', 'fect_total_antrian','fetchFilterAntrean', 'DataTablesDataSiswa', 'fetchFilterPengumuman','FORM-DU', 'fetchChatResponse','saveAktifitasWeb']],
         ],
         'after' => [
             'filterAdmin' => ['except' => [ 
-                '/', 'Auth/logout','Auth/login', 'Views', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard','Admin/Kategori', 'Admin/Kategori/*', 'Admin/Referensi', 'Admin/Referensi/*', 'Admin/User', 'Admin/User/*', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'printAntrean','printAntrean/*', 'fect_total_antrian', 'fetchFilterAntrean'
+                '/', 'Auth/logout','Auth/login', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard','Admin/Kategori', 'Admin/Kategori/*', 'Admin/DataSiswa', 'Admin/DataSiswa/*', 'Admin/Referensi', 'Admin/Referensi/*', 'Admin/User', 'Admin/User/*', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'printAntrean','printAntrean/*', 'fect_total_antrian', 'fetchFilterAntrean','Pengumuman', 'DataTablesDataSiswa', 'Admin/waGateway', 'Admin/waGateway/*', 'Admin/chatBot', 'Admin/chatBot/*', 'fetchChatResponse', 'Admin/Laporan', 'Admin/Laporan/*', 'saveAktifitasWeb', 'Admin/GrafikAktifitasWeb', 'Admin/GrafikAktifitasWeb/*', 'Views', 'fetchFilterPengumuman'
             ]],
             'filterPetugas' => ['except' => [ 
-                '/', 'Auth/logout','Auth/login', 'Views', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 'printAntrean','printAntrean/*', 'fect_total_antrian', 'fetchFilterAntrean'
+                '/', 'Auth/logout','Auth/login', 'Antrean', 'Cari', 'search_antrian', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 'printAntrean','printAntrean/*', 'fect_total_antrian', 'fetchFilterAntrean','Pengumuman', 'DataTablesDataSiswa', 'saveAktifitasWeb', 'Admin/GrafikAktifitasWeb', 'Admin/GrafikAktifitasWeb/*', 'fetchFilterPengumuman', 
             ]],
             'filterUser' => ['except' => [ 
-                '/', 'Auth/logout','Auth/login', 'Views', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 'printAntrean','printAntrean/*', 'fect_total_antrian', 'fetchFilterAntrean'
+                '/', 'Auth/logout','Auth/login', 'fetchNotifikasi', 'fetchNotifikasi', 'updateNotifikasi', 'getAllDataAntrian', 'Admin', 'Admin/Dashboard', 'Admin/Antrian', 'Admin/Antrian/*', 'Admin/Setting', 'Admin/Setting/*', 'Admin/User/updatePass', 'Admin/User/fetchDataUser', 'printAntrean','printAntrean/*', 'fect_total_antrian', 'fetchFilterAntrean','Pengumuman','DataTablesDataSiswa','saveAktifitasWeb', 'Admin/GrafikAktifitasWeb', 'Admin/GrafikAktifitasWeb/*', 'fetchFilterPengumuman'
             ]],
         ],
     ];

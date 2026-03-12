@@ -17,6 +17,7 @@ class masterReferensiController extends BaseController
 
     public function index(){
         $data = [
+            'main_menu' => 'Administator',
             'title' => 'Master Referensi',
             'active' => 'Referensi',
         ];

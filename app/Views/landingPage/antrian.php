@@ -1,653 +1,528 @@
 <?= $this->extend('Templates/LandingPage') ?>
+
 <?= $this->section('content') ?>
-<link rel="stylesheet" href="<?= base_url('Assets/'); ?>css/style.css">
-<style type="text/css">
-p {
-    margin-bottom: 0px;
-}
-
-h6 {
-    margin-top: 0px;
-}
-
-.header-antrean {
-    font-size: 3rem !important;
-}
-
-@media (max-width: 991px) {
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .search {
-        margin-top: 50px;
-    }
-
-    .logo-antrian {
-        width: 100px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    #desktop-mode {
+<style>
+/* print */
+@media print {
+    #alert {
         display: none;
     }
 
-    .mb-3 {
-        margin-bottom: 0 !important;
-    }
-
-    .col-sm-4 {
-        margin-bottom: 10px;
-    }
-
-    .header-antrean {
-        font-size: 2.3rem;
-    }
-
-    .tgl_cetak {
+    #antrian {
         display: none;
     }
 
-    #btnBerkas:hover {
-        cursor: pointer;
-    }
-
-
-}
-
-
-@media (max-width: 576px) {
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    .search {
-        margin-top: 50px;
-    }
-
-    .logo-antrian {
-        width: 100px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    #desktop-mode {
+    nav {
         display: none;
     }
 
-    .mb-3 {
-        margin-bottom: 0 !important;
+    #countdown {
+        display: none;
     }
 
-    .col-sm-4 {
-        margin-bottom: 10px;
+    #close {
+        display: none;
     }
 
-    .header-antrean {
-        font-size: 2rem;
+    #close2 {
+        display: none;
     }
 
-    .tgl_cetak {
+    #close3 {
         display: none;
     }
 }
 </style>
-
-
-<div class="pd-20 card-box mb-30 mt-4" id="alert" style="display: none;">
-    <div class="clearfix">
-        <div class="pull-left">
-            <h4 class="text-black h4">
-                Informasi Pendaftaran Antrean
-            </h4>
-        </div>
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div
+        class="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-primary-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 dark:opacity-10">
     </div>
-    <div class="alert alert-primary" role="alert" id="pesan"> </div>
-    <div class="py-5" id="countdown" style="display: none;">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="rounded bg-gradient-4 text-white shadow py-5 text-center mb-5">
-                    <p class="mb-0 font-weight-bold text-uppercase text-white"></p>
-                    <div id="clock-c" class="countdown py-4 text-white"></div>
-                </div>
-            </div>
-        </div>
+    <div
+        class="absolute bottom-[-10%] right-[-10%] w-[40rem] h-[40rem] bg-accent-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 dark:opacity-10">
     </div>
-
 </div>
 
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 relative z-10">
+    <div id="alert" style="display: none;"
+        class="glass-panel bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-[2rem] shadow-xl border border-white/60 dark:border-slate-700/50 p-6 sm:p-10 mb-8 mt-4 transform transition-all">
 
-<!-- form -->
-<div class="pd-20 card-box mb-30  mt-4" id="antrian" style="display: none;">
-    <div class="clearfix">
-        <div class="pull-left">
-            <h4 class="text-black h4">
-                Form Antrean
-            </h4>
-        </div>
-        <div class="pull-right">
-            <!-- <h4 class="text-black h4">
-                <i class="fa fa-user mr-2"></i><span id="total_antrian"></span> / <span id="max_antrian"></span>
-            </h4> -->
-        </div>
-    </div>
-
-    <form id="form_tambah_antrian" enctype="multipart/form-data">
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="alert alert-warning" role="alert">
-                        <h4 class="alert-heading">Perhatian!</h4>
-                        <p class="mb-2">
-                            Kartu atrean ini hanya berlaku dihari pendaftaran antrean, pastikan anda mendafatar
-                            ketika ingin melakukan verifikasi berkas dihari itu juga.
-                        </p>
-
-                    </div>
-                </div>
+        <div class="flex items-center gap-4 mb-6 border-b border-slate-100 dark:border-slate-700/50 pb-6">
+            <div
+                class="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white shadow-lg shrink-0">
+                <i class="fa-solid fa-clock text-xl"></i>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="nama_siswa">Nama Siswa<span class="rq">*</span></label>
-                        <input type="text" class="form-control required" id="nama_siswa" name="nama_siswa"
-                            placeholder="Masukan nama">
-                        <div class="form-control-feedback " id="errornama_siswa"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="nisn">NISN<span class="rq">*</span></label>
-                        <input type="text" class="form-control required" id="nisn" name="nisn"
-                            placeholder="Masukan NISN">
-                        <div class="form-control-feedback" id="errornisn"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="kode_pendaftaran">Nomor peserta
-                            PPDB<span class="rq">*</span></label></label>
-                        <input type="text" class="form-control required" id="kode_pendaftaran" name="kode_pendaftaran"
-                            placeholder="Masukan nomor peserta PPDB">
-                        <div class="form-control-feedback " id="errorkode_pendaftaran"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="jenis_kelamin">Jenis
-                            Kelamin<span class="rq">*</span></label></label>
-                        <select class="form-control required" id="jenis_kelamin" name="jenis_kelamin">
-                            <option value="">Pilih Jenis Kelamin</option>
-                            <option value="L">Laki-laki</option>
-                            <option value="P">Perempuan</option>
-                        </select>
-                        <div class="form-control-feedback " id="errorjenis_kelamin"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="asal_sekolah">Asal
-                            Sekolah<span class="rq">*</span></label></label>
-                        <input type="text" class="form-control required" id="asal_sekolah" name="asal_sekolah"
-                            placeholder="Masukan asal sekolah ">
-                        <div class="form-control-feedback " id="errorasal_sekolah"></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="jalur_pendaftaran">Jalur
-                            Pendaftaran<span class="rq">*</span></label></label>
-                        <select class="form-control required" id="jalur_pendaftaran" name="jalur_pendaftaran">
-                            <option value="">Pilih Jalur Pendaftaran</option>
-                            <option value="Zonasi">Zonasi</option>
-                            <option value="Afirmasi">Afirmasi</option>
-                            <option value="Perpindahan Orang Tua">Perpindahan Orang Tua
-                            </option>
-                            <option value="Prestasi">Prestasi</option>
-                        </select>
-                        <div class="form-control-feedback " id="errorjalur_pendaftaran">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="alamat">Alamat<span class="rq">*</span></label></label>
-                        <textarea class="form-control required" id="alamat" name="alamat"
-                            placeholder="Masukan alamat "></textarea>
-                        <div class="form-control-feedback " id="erroralamat"></div>
-                    </div>
-
-                </div>
-                <div class="col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label for="no_tlp">No telpon<span class="rq">*</span></label></label>
-                        <input type="number" class="form-control required" id="no_tlp" name="no_tlp"
-                            placeholder="Masukan no telpon " maxlength="15">
-                        <div class="form-control-feedback " id="errorno_tlp"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btn_tambah_antiran">
-                    Simpan
-                </button>
-                <!-- button open modal-->
-                <!-- <button type="button" class="btn btn-primary" id="btnBerkas" data-toggle="modal"
-                    data-target="#Medium-modal">
-                    Lihat Berkas
-                </button> -->
-            </div>
-    </form>
-</div>
-
-<!-- Syarat dan Ketentuan -->
-<div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">
-                    Syarat & Ketentuan
+            <div>
+                <h4 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
+                    Informasi Pendaftaran Antrean
                 </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
             </div>
-            <div class="modal-body">
-                <div class="tab">
-                    <ul class="nav nav-tabs customtab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#persyaratan" role="tab"
-                                aria-selected="true" id="tabPersyaratan">Persyaratan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#berkas" role="tab" aria-selected="false"
-                                id="tabBerkas">Berkas</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-
-                        <div class="tab-pane fade show active" id="persyaratan" role="tabpanel">
-                            <div class="pd-20">
-                                <p class="fw-bold">
-                                    Ketentuan ketika melakukan verifikasi berkas:
-                                </p>
-                                <ul class="ml-3">
-                                    <li class="pb-2">1. Membawa berkas pendaftaran
-                                    </li>
-                                    <li class="pb-2">
-                                        <p class="ml-3">
-                                            <a id="btnBerkas">
-                                                Lihat berkas</a>
-                                        </p>
-                                    </li class="pb-2">
-                                    <li class="pb-2">2. Mengenakan seragam sekolah asal </li>
-                                    <li class="pb-2">3. Potongan ramput rapi (CPD Putra) </li>
-                                    <li class="pb-2">4. Mengenakan spatu & kaos kaki </li>
-                                    <li class="pb-2">5. Orang tua/wali yg mengantar berpakaian rapi </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <style>
-                        .ml-3 {
-                            margin-bottom: 0;
-                        }
-
-                        .pb-2 {
-                            padding-bottom: 0.5rem;
-                        }
-
-                        .fw-bold {
-                            font-weight: bold;
-                        }
-
-
-                        .sub-link {
-                            cursor: pointer;
-                        }
-                        </style>
-
-                        <div class="tab-pane fade" id="berkas" role="tabpanel">
-                            <div class="pd-10">
-                                <div class="faq-wrap">
-                                    <div id="accordion">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <button class="btn btn-block collapsed" data-toggle="collapse"
-                                                    data-target="#zonasi">
-                                                    Zonasi
-                                                </button>
-                                            </div>
-                                            <div id="zonasi" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <ul class="ml-3">
-                                                        <li class="pb-2">1. Buku rapor SMP/sederajat</li>
-                                                        <li class="pb-2">2. Surat keterangan nilai rapor semester 1
-                                                            - 5
-                                                        </li>
-                                                        <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
-                                                        <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
-                                                        </li>
-                                                        <li class="pb-2">6. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">7. Surat pernyataan kebenaran dokumen</li>
-                                                        <hr>
-                                                        <li class="pb-2">
-                                                            <a class="sub-link btn_link"
-                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
-
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <button class="btn btn-block collapsed" data-toggle="collapse"
-                                                    data-target="#Afirmasi">
-                                                    Afirmasi
-                                                </button>
-                                            </div>
-                                            <div id="Afirmasi" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <ul class="ml-3">
-                                                        <li class="pb-2">1. Buku rapor SMP/sederajat</li>
-                                                        <li class="pb-2">2. Surat keterangan nilai rapor semester 1
-                                                            - 5
-                                                        </li>
-                                                        <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
-                                                        <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
-                                                        </li>
-                                                        <li class="pb-2">6. Surat EMIS(bagi CPD pondok pesantren)
-                                                        </li>
-                                                        <li class="pb-2">7. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">8. Surat pernyataan kebenaran dokumen</li>
-                                                        <hr>
-                                                        <li class="pb-2">
-                                                            <a class="sub-link btn_link"
-                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <button class="btn btn-block collapsed" data-toggle="collapse"
-                                                    data-target="#pto">
-                                                    Perpindahan Orang Tua
-                                                </button>
-                                            </div>
-                                            <div id="pto" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <ul class="ml-3">
-                                                        <li class="pb-2">1. Buku rapor SMP/sederajat</li>
-                                                        <li class="pb-2">2. Surat keterangan nilai rapor semester 1
-                                                            - 5
-                                                        </li>
-                                                        <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
-                                                        <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
-                                                        </li>
-                                                        <li class="pb-2">6. Surat penugasan dari instansi/kantor
-                                                        </li>
-                                                        <li class="pb-2">7. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">8. Surat keterangan alamat instansi/kantor
-                                                        </li>
-                                                        <li class="pb-2">9. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">10. Surat pernyataan kebenaran dokumen</li>
-                                                        <hr>
-                                                        <li class="pb-2">
-                                                            <a class="sub-link btn_link"
-                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <button class="btn btn-block collapsed" data-toggle="collapse"
-                                                    data-target="#prestasi">
-                                                    Prestasi
-                                                </button>
-                                            </div>
-                                            <div id="prestasi" class="collapse" data-parent="#accordion">
-                                                <div class="card-body">
-                                                    <ul class="ml-3">
-                                                        <li class="pb-2">1. Buku rapor SMP/sederajat</li>
-                                                        <li class="pb-2">2. Surat keterangan nilai rapor semester 1
-                                                            - 5
-                                                        </li>
-                                                        <li class="pb-2">3. Ijazah SMP/SKL/Kejar Paket B</li>
-                                                        <li class="pb-2">4. Akta kelahiran(max usia 21t ahun)</li>
-                                                        <li class="mb-2">5. Kartu Keluarga (KK)
-                                                        </li>
-                                                        <li class="pb-2">6. Surat keterangan prestasi</li>
-                                                        <li class="pb-2">7. Piagam prestasi(jika ada)</li>
-                                                        <li class="pb-2">8. Surat pernyataan kebenaran dokumen</li>
-                                                        <hr>
-                                                        <li class="pb-2">
-                                                            <a class="sub-link btn_link"
-                                                                id="<?= base_url('/'); ?>">Lihat detail persayaratan</a>
-                                                        </li>
-                                                    </ul>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <form id="form_syarat_ketentuan">
-                    <div class="form-group mt-3">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="syatKetentuan" name="syatKetentuan"
-                                required title="Syarat & Ketentuan harus di centang">
-                            <label class="custom-control-label" for="syatKetentuan">Saya setuju dengan
-                                syarat &
-                                ketentuan yang berlaku</label>
-                        </div>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Close
-                </button>
-                <button type="submit" class="btn btn-primary" id="btn_sk">
-                    Kirim
-                </button>
-
-            </div>
-            </form>
         </div>
-    </div>
-</div>
 
-<!-- modal -->
-<div class="modal fade bs-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog"
-    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">
-                    Hasil Antrean
-                </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    ×
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="clearfix mb-20">
-                    <div class="pull-left">
-                        <!-- <h4 class="text-black h4">Hasil</h4> -->
+        <div id="pesan"
+            class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 sm:p-5 rounded-r-xl mb-8 text-sm sm:text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed flex items-start gap-3">
+            <i class="fa-solid fa-circle-info text-blue-500 mt-1 shrink-0"></i>
+            <div class="pesan-content"></div>
+        </div>
+
+        <div id="countdown" style="display: none;" class="py-4 sm:py-6">
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="bg-gradient-to-br from-primary-600 to-accent-600 rounded-[2.5rem] shadow-2xl shadow-primary-500/30 p-6 sm:p-10 md:p-12 text-center relative overflow-hidden group border border-white/20">
+
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-transform duration-1000 group-hover:scale-150 pointer-events-none">
                     </div>
-                    <div class="pull-right">
-                        <a class="btn btn-primary text-white" target="_blank" id="btn_print">
-                            <i class="fa fa-print"></i>
-                            </i> Cetak
-                        </a>
+                    <div
+                        class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 transition-transform duration-1000 group-hover:scale-150 pointer-events-none">
                     </div>
-                </div>
-                <div class="cetaks">
-                    <div class="row border-1">
-                        <div class="col-sm-2 text-center">
-                            <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="foto"
-                                class="img-thumbnail border-0 logo-antrian">
-                        </div>
-                        <div class="col-sm-10 align-self-center">
-                            <h2 class="text-center header-1">
-                                KARTU ANTREAN <span id="desktop-mode">VERIFIKASI BERKAS</span>
-                            </h2>
-                            <h2 class="text-center header-1">SMA Negeri 1 Pekalongan</h2>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-10">
-                            <div class="row mb-3">
-                                <div class="col-sm-4">
-                                    <h6 class="text-black">Nama</h6>
-                                    <p class="text-muted" id="cetaknama_siswa"></p>
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6 class="text-black">NISN</h6>
-                                    <p class="text-muted" id="cetaknisn"></p>
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6 class="text-black">Kode Pendaftaran</h6>
-                                    <p class="text-muted" id="cetakkode_pendaftaran"></p>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-4">
-                                    <h6 class="text-black">Asal Sekolah</h6>
-                                    <p class="text-muted" id="cetakasal_sekolah"></p>
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6 class="text-black">Jalur</h6>
-                                    <p class="text-muted" id="cetakjalur_pendaftaran"></p>
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6 class="text-black">Alamat</h6>
-                                    <p class="text-muted" id="cetakalamat"></p>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-4">
-                                    <h6 class="text-black">Tanggal Antrean</h6>
-                                    <p class="text-muted" id="cetaktanggal_antrian"></p>
-                                </div>
-                                <div class="col-sm-4">
-                                    <h6 class="text-black">Sesi Antrean</h6>
-                                    <p class="text-muted" id="cetaksesi_antrian"></p>
-                                </div>
-                            </div>
+
+                    <p
+                        class="mb-6 sm:mb-8 font-bold uppercase text-white/90 tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm relative z-10 drop-shadow-md">
+                        <i class="fa-solid fa-hourglass-half animate-pulse mr-2"></i> Menuju Pembukaan Antrean
+                    </p>
+
+                    <div id="clock-c" class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 relative z-10">
+
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl hover:bg-white/20">
+                            <span id="days"
+                                class="text-4xl sm:text-5xl md:text-6xl font-black text-white font-mono tracking-tighter drop-shadow-lg">00</span>
+                            <span
+                                class="text-[10px] sm:text-xs text-primary-100 uppercase tracking-widest font-bold mt-2">Hari</span>
                         </div>
 
-                        <div class="col-sm-2 text-center">
-                            <img src="" alt="foto" class="img-thumbnai border-0" id="cetakqr_code">
-                            <h6 class="text-black">No Antrean</h6>
-                            <h2 class="text-muted fw-700 header-antrean" id="cetakno_antrian"></h2>
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl hover:bg-white/20">
+                            <span id="hours"
+                                class="text-4xl sm:text-5xl md:text-6xl font-black text-white font-mono tracking-tighter drop-shadow-lg">00</span>
+                            <span
+                                class="text-[10px] sm:text-xs text-primary-100 uppercase tracking-widest font-bold mt-2">Jam</span>
                         </div>
-                    </div>
-                    <hr>
-                    <!-- ketentuan -->
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h6 class="text-black">Ketentuan :</h6>
-                            <p class="text-muted ml-2">1. Kartu ini berlaku sebagai kartu antrean
-                                verifikasi berkas
-                            </p>
-                            <p class="text-muted ml-2">2. Kartu ini tidak dapat dipindah tangankan</p>
-                            <p class="text-muted ml-2">3. Kartu ini berlaku selama proses verifikasi
-                                berkas</p>
-                            <p class="text-muted ml-2">4. Kartu ini dapat dicetak / discreenshot pada
-                                bagian QrCode
-                            </p>
+
+                        <div
+                            class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-2xl hover:bg-white/20">
+                            <span id="minutes"
+                                class="text-4xl sm:text-5xl md:text-6xl font-black text-white font-mono tracking-tighter drop-shadow-lg">00</span>
+                            <span
+                                class="text-[10px] sm:text-xs text-primary-100 uppercase tracking-widest font-bold mt-2">Menit</span>
                         </div>
-                    </div>
-                    <hr>
-                    <!-- link web and date search -->
-                    <div class="row">
-                        <div class="col-12 align-self-end">
-                            <p class="text-black text-right"><span class="tgl_cetak">Tanggal cetak
-                                    : <span id="created_at"></span></span>
-                            </p>
+
+                        <div
+                            class="bg-white/20 backdrop-blur-md border border-white/40 rounded-2xl p-4 sm:p-6 flex flex-col items-center justify-center hover:-translate-y-2 transition-all duration-300 shadow-lg shadow-white/10 hover:shadow-2xl hover:bg-white/30">
+                            <span id="seconds"
+                                class="text-4xl sm:text-5xl md:text-6xl font-black text-white font-mono tracking-tighter drop-shadow-lg">00</span>
+                            <span
+                                class="text-[10px] sm:text-xs text-white uppercase tracking-widest font-bold mt-2 animate-pulse">Detik</span>
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
+
+    </div>
+
+    <div id="antrian" style="display: none;"
+        class="glass-panel bg-white/80 dark:bg-slate-800/80 rounded-[2rem] shadow-2xl border border-white/60 dark:border-slate-700/50 overflow-hidden">
+
+        <div class="p-6 sm:p-10 border-b border-slate-200 dark:border-slate-700 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-primary-500/10 rounded-bl-full"></div>
+            <div class="flex items-center gap-4 relative z-10">
+                <div
+                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white shadow-lg">
+                    <i class="fa-solid fa-users-line text-2xl"></i>
+                </div>
+                <div>
+                    <h4 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Formulir Antrean
+                    </h4>
+                    <p class="text-sm sm:text-base text-slate-500 dark:text-slate-400">Silakan lengkapi data diri
+                        Anda di bawah ini.</p>
+                </div>
+            </div>
+        </div>
+
+        <form id="form_tambah_antrian" class="p-6 sm:p-10">
+            <div
+                class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5 mb-8 flex gap-4 items-start">
+                <i class="fa-solid fa-triangle-exclamation text-amber-500 text-2xl mt-1 shrink-0"></i>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-1">Perhatian!</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Anda dapat melakukan pendaftaran antrean jika sudah melengkapi semua berkas dan telah
+                        melakukan pengajuan akun di laman <a href="#"
+                            class="text-primary-600 dark:text-primary-400 font-bold hover:underline">SPMB
+                            Jateng</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Nama Lengkap
+                        Siswa <span class="text-rose-500">*</span></label>
+                    <input type="text" id="nama_siswa" required
+                        class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none text-slate-700 dark:text-slate-200 transition-all required"
+                        placeholder="Sesuai Ijazah/Akte">
+                    <span id="nama_siswa-error" class="text-sm text-rose-500 mt-2 hidden"></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">NISN (10
+                        Digit) <span class="text-rose-500">*</span></label>
+                    <input type="text" id="nisn" maxlength="10" required
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                        class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none text-slate-700 dark:text-slate-200 transition-all font-mono tracking-widest required"
+                        placeholder="0012345678">
+                    <span id="nisn-error" class="text-sm text-rose-500 mt-2 hidden"></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Nomor Peserta
+                        (Ajuan Akun) <span class="text-rose-500">*</span></label>
+                    <input type="text" id="kode_pendaftaran" required
+                        class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none text-slate-700 dark:text-slate-200 transition-all font-mono required"
+                        placeholder="Masukan nomor peserta">
+                    <span id="kode_pendaftaran-error" class="text-sm text-rose-500 mt-2 hidden "></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Jenis Kelamin
+                        <span class="text-rose-500">*</span></label>
+                    <select id="jenis_kelamin" required
+                        class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none text-slate-700 dark:text-slate-200 transition-all required">
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="L">Laki-laki</option>
+                        <option value="P">Perempuan</option>
+                    </select>
+                    <span id="jenis_kelamin-error" class="text-sm text-rose-500 mt-2 hidden"></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Asal Sekolah
+                        (SMP/MTs) <span class="text-rose-500">*</span></label>
+                    <input type="text" id="asal_sekolah" required
+                        class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none text-slate-700 dark:text-slate-200 transition-all required"
+                        placeholder="Contoh: SMPN 1 Pekalongan">
+                    <span id="asal_sekolah-error" class="text-sm text-rose-500 mt-2 hidden"></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Jalur
+                        Pendaftaran <span class="text-rose-500">*</span></label>
+                    <select id="jalur_pendaftaran" required
+                        class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none text-slate-700 dark:text-slate-200 transition-all required">
+                        <option value="">Pilih Jalur Pendaftaran</option>
+                        <option value="Domisili">Domisili / Zonasi</option>
+                        <option value="Afirmasi">Afirmasi</option>
+                        <option value="Prestasi">Prestasi</option>
+                        <option value="Mutasi">Mutasi / PTO</option>
+                    </select>
+                    <span id="jalur_pendaftaran-error" class="text-sm text-rose-500 mt-2 hidden"></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">No. Telp<span
+                            class="text-rose-500">*</span></label>
+                    <input type="text" id="no_tlp" maxlength="15" required
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                        class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none text-slate-700 dark:text-slate-200 transition-all font-mono tracking-widest required"
+                        placeholder="089570244545">
+                    <span id="no_tlp-error" class="text-sm text-rose-500 mt-2 hidden"></span>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Alamat
+                        Lengkap <span class="text-rose-500">*</span></label>
+                    <textarea id="alamat" rows="3" required
+                        class="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-primary-500 outline-none text-slate-700 dark:text-slate-200 transition-all required"
+                        placeholder="Masukan alamat lengkap beserta RT/RW dan Kelurahan"></textarea>
+                    <span id="alamat-error" class="text-sm text-rose-500 mt-2 hidden"></span>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-6 border-t border-slate-200 dark:border-slate-700 mt-6">
+                <button type="button"
+                    class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                    Lanjut Proses <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 
-<?= $this->endSection('content') ?>
+<div id="modal-sk" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+    <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm transition-opacity" onclick="closeModalSK()">
+    </div>
 
-<?= $this->section('script') ?>
+    <div
+        class="relative w-full max-w-2xl max-h-[95vh] flex flex-col bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary-500 to-accent-500 z-10"></div>
 
+        <div
+            class="flex items-center justify-between p-5 sm:p-6 border-b border-slate-100 dark:border-slate-700 shrink-0 mt-1">
+            <h4 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-file-signature text-primary-500"></i> Syarat & Ketentuan
+            </h4>
+            <button type="button" onclick="closeModalSK()"
+                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 flex items-center justify-center text-slate-500 dark:text-slate-300 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <form id="form_syarat_ketentuan" class="flex flex-col overflow-hidden h-full">
+            <div class="p-0 flex-1 overflow-y-auto custom-scroll">
+
+                <div
+                    class="flex border-b border-slate-200 dark:border-slate-700 px-6 pt-4 sticky top-0 bg-white dark:bg-slate-800 z-10">
+                    <button type="button" onclick="switchTab('tab-persyaratan')" id="btn-tab-persyaratan"
+                        class="px-4 py-3 border-b-2 font-bold text-primary-600 border-primary-500 transition-colors outline-none">Ketentuan
+                        Hadir</button>
+                    <button type="button" onclick="switchTab('tab-berkas')" id="btn-tab-berkas"
+                        class="px-4 py-3 border-b-2 font-bold text-slate-500 dark:text-slate-400 border-transparent hover:text-slate-700 dark:hover:text-slate-300 transition-colors outline-none">Berkas
+                        Dokumen</button>
+                </div>
+
+                <div class="p-6">
+                    <div id="tab-persyaratan" class="block space-y-4">
+                        <div
+                            class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-5 border border-blue-100 dark:border-blue-800/50">
+                            <p class="font-bold text-slate-900 dark:text-white mb-4">Wajib diperhatikan saat datang
+                                verifikasi:</p>
+                            <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                                <li class="flex items-start gap-3"><i
+                                        class="fa-solid fa-check text-green-500 mt-0.5 shrink-0"></i> Membawa
+                                    seluruh berkas pendaftaran asli.</li>
+                                <li class="flex items-start gap-3"><i
+                                        class="fa-solid fa-check text-green-500 mt-0.5 shrink-0"></i> Menggunakan
+                                    seragam SMP/MTs asal.</li>
+                                <li class="flex items-start gap-3"><i
+                                        class="fa-solid fa-check text-green-500 mt-0.5 shrink-0"></i> Sepatu dan
+                                    kaos kaki tertutup.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="tab-berkas" class="hidden space-y-3">
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Pastikan Anda membawa berkas
+                            berikut:</p>
+                        <div
+                            class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-300">
+                            <ul class="list-decimal pl-5 space-y-2">
+                                <li>Print Out Bukti Pengajuan Akun</li>
+                                <li>Surat Pernyataan Kebenaran Dokumen</li>
+                                <li>Buku Rapor SMP/sederajat</li>
+                                <li>Surat Keterangan Nilai Rapor smt 1-5</li>
+                                <li>Ijazah / SKL Asli</li>
+                                <li>Akte Kelahiran Asli</li>
+                                <li>Kartu Keluarga (KK) Asli</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="mt-8 bg-slate-50 dark:bg-slate-900/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <label class="flex items-start gap-3 cursor-pointer group">
+                            <input type="checkbox" id="syarat_check" required
+                                class="mt-1 w-5 h-5 rounded border-slate-300 text-primary-600 cursor-pointer">
+                            <span
+                                class="text-sm text-slate-700 dark:text-slate-300 font-medium group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
+                                Saya menyatakan bersedia hadir dan mematuhi seluruh persyaratan serta memastikan
+                                dokumen yang saya lampirkan adalah benar dan valid.
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="p-5 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/80 flex justify-end gap-3 shrink-0">
+                <button type="button" onclick="closeModalSK()"
+                    class="px-5 py-2.5 rounded-xl font-bold text-slate-600 dark:text-slate-300 bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 transition-colors">Batal</button>
+                <button type="button" onclick="submitAntrean()"
+                    class="px-6 py-2.5 rounded-xl font-bold text-white bg-primary-600 hover:bg-primary-700 transition-all flex items-center justify-center">
+                    Kirim Data
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="modal-tiket" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+    <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-md transition-opacity" onclick="closeModalTiket()">
+    </div>
+
+    <div
+        class="relative w-full max-w-4xl max-h-[95vh] flex flex-col bg-slate-100 dark:bg-[#0f172a] rounded-[2rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+
+        <div
+            class="flex items-center justify-between p-5 border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white dark:bg-slate-900">
+            <h4 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white"><i
+                    class="fa-solid fa-ticket text-primary-500 mr-2"></i> Tiket Antrean Verifikasi</h4>
+            <div class="flex items-center gap-3">
+                <button onclick="window.print()"
+                    class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-bold rounded-lg shadow-md transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i> <span class="hidden sm:inline">Cetak PDF</span>
+                </button>
+                <button type="button" onclick="closeModalTiket()"
+                    class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="p-4 sm:p-8 overflow-y-auto custom-scroll flex-1">
+            <div
+                class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col md:flex-row overflow-hidden relative">
+
+                <div
+                    class="hidden md:block absolute top-1/2 left-[65%] -translate-y-1/2 -translate-x-3 w-6 h-6 bg-slate-100 dark:bg-[#0f172a] rounded-full z-10">
+                </div>
+
+                <div class="w-full md:w-[65%] p-6 sm:p-8">
+                    <div class="flex items-center gap-4 mb-6 border-b border-slate-100 dark:border-slate-700 pb-4">
+                        <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <div>
+                            <h2
+                                class="text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">
+                                Bukti Pendaftaran Antrean</h2>
+                            <p class="text-sm font-semibold text-slate-500 dark:text-slate-400">SMAN 1 Pekalongan
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-6 gap-x-4 mb-6">
+                        <div class="col-span-2 sm:col-span-1">
+                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">Nama Lengkap
+                            </p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm" id="tiket_nama">-</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">NISN</p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm" id="tiket_nisn">-</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">Kode Daftar
+                            </p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm font-mono" id="tiket_kode">-
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">No. Telp
+                            </p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm font-mono" id="tiket_tlp">-
+                            </p>
+                        </div>
+
+                        <div class="col-span-2 sm:col-span-1">
+                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">Asal Sekolah
+                            </p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm" id="tiket_sekolah">-</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">Jalur PPDB</p>
+                            <span
+                                class="px-2 py-0.5 bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded text-xs font-bold uppercase"
+                                id="tiket_jalur">-</span>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 flex gap-3 items-start border border-amber-100 dark:border-amber-800/50">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-500 mt-0.5 shrink-0"></i>
+                        <div class="text-xs text-amber-800 dark:text-amber-200">
+                            <strong>Penting:</strong> Hadirlah 15 menit sebelum sesi Anda dimulai dan bawa kartu ini
+                            (cetak/screenshot) sebagai bukti.
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="w-full md:w-[35%] ticket-dashed bg-slate-50 dark:bg-slate-800/50 p-6 sm:p-8 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-700">
+                    <p class="text-xs uppercase font-bold text-slate-500 tracking-widest mb-2 text-center">Nomor
+                        Antrean Anda</p>
+                    <h1
+                        class="text-6xl sm:text-7xl font-black text-primary-600 dark:text-primary-400 font-mono tracking-tighter mb-4 drop-shadow-sm">
+                        A012</h1>
+
+                    <div class="bg-white p-2 rounded-xl shadow-sm border border-slate-200 mb-5">
+                        <img src="" alt="QR Code" id="cetakqr_code" class="w-24 h-24 sm:w-28 sm:h-28 object-contain">
+                    </div>
+
+                    <div class="text-center w-full">
+                        <div
+                            class="bg-white dark:bg-slate-700 rounded-lg py-2 px-3 mb-2 shadow-sm border border-slate-100 dark:border-slate-600">
+                            <p class="text-[10px] uppercase font-bold text-slate-400">Jadwal Kehadiran</p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm" id="tiket_jadwal"></p>
+                            <p class="font-extrabold text-rose-500 text-sm" id="tiket_sesi"></p>
+                        </div>
+                        <p class="text-[9px] text-slate-400" id="tiket_created_at">Dicetak: Hari ini</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?= $this->endSection('content');?>
+<?= $this->section('script');?>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 
-<script>
-const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp',
-    'alamat', 'jalur_pendaftaran'
+<script type="text/javascript">
+// --- 2. Tabs Logic Modal S&K ---
+function switchTab(tabId) {
+    $('#tab-persyaratan, #tab-berkas').addClass('hidden');
+    $('#btn-tab-persyaratan, #btn-tab-berkas').attr('class',
+        'px-4 py-3 border-b-2 font-bold text-slate-500 dark:text-slate-400 border-transparent hover:text-slate-700 dark:hover:text-slate-300 transition-colors outline-none'
+    );
+
+    $('#' + tabId).removeClass('hidden');
+    $('#btn-' + tabId).attr('class',
+        'px-4 py-3 border-b-2 font-bold text-primary-600 border-primary-500 transition-colors outline-none');
+}
+
+// --- 3. Logic Tutup Modal Manual Tailwind ---
+function closeModalSK() {
+    $('#modal-sk').addClass('hidden');
+}
+
+function closeModalTiket() {
+    $('#modal-tiket').addClass('hidden');
+    $('#form_tambah_antrian')[0].reset();
+    $('#syarat_check').prop('checked', false);
+}
+
+// --- 4. Logic Sistem Antrean (Tersinkronisasi dengan Desain) ---
+const listFields = ['nama_siswa', 'nisn', 'jenis_kelamin', 'kode_pendaftaran', 'asal_sekolah', 'no_tlp', 'alamat',
+    'jalur_pendaftaran'
 ];
 const dataAntrian = [];
 
+// PERBAIKAN COUNTDOWN
 function set_clock(date_now, set_date, pesan) {
-
     function DateRange() {
-
         const date = set_date;
-
-        $('#pesan').text(pesan);
-
+        $('#pesan .pesan-content').text(pesan); // Memasukkan teks ke div tanpa menghilangkan icon info
         return date;
-
     }
 
     $("#clock-c").countdown(DateRange(), function(event) {
-        var $this = $(this).html(
-            event.strftime(
-                "" +
-                '<span class="h1 font-weight-bold">%D</span> Day%!d' +
-                '<span class="h1 font-weight-bold">%H</span> Hr' +
-                '<span class="h1 font-weight-bold">%M</span> Min' +
-                '<span class="h1 font-weight-bold">%S</span> Sec'
-            )
-        );
+        // JANGAN gunakan .html(), gunakan .text() untuk mengisi masing-masing ID kotak
+        $('#days').text(event.strftime('%D'));
+        $('#hours').text(event.strftime('%H'));
+        $('#minutes').text(event.strftime('%M'));
+        $('#seconds').text(event.strftime('%S'));
+
         if (event.elapsed) {
-            $("#clock-c").hide();
+            // Waktu Habis -> Tampilkan Form Antrean
             $("#countdown").hide();
-            $("#title-head").hide();
-            $("#antrian").show();
+            $("#alert").hide();
+            $("#antrian").fadeIn('slow'); // Efek transisi halus
         } else {
-            $("#clock-c").show();
+            // Waktu Masih Ada -> Tampilkan Countdown
             $("#countdown").show();
-            $("#title-head").show();
-            $("#form-search").hide();
             $("#alert").show();
+            $("#antrian").hide();
         }
     });
 }
 
-
+// Simulasi atau Panggilan AJAX asli
 function fetch_set_antrean() {
     $.ajax({
         url: '<?= base_url('fetchFilterAntrean'); ?>',
@@ -655,45 +530,56 @@ function fetch_set_antrean() {
         success: function(response) {
             if (response.status == '200') {
                 set_clock(response.data.dateTimeNow, response.data.dateTime, response.data.pesan);
-                // $('#total_antrian').text(response.data.total_antrian);
-                // $('#max_antrian').text(response.data.max_antrian);
             } else {
-                getSwall(response.status, response.data);
+                if (typeof getSwall === "function") getSwall(response.status, response.data);
             }
+        },
+        error: function() {
+            // Fallback untuk testing jika script PHP belum jalan
+            console.log("Menjalankan mode simulasi countdown (AJAX gagal/tidak ada server)");
+            let futureDate = new Date();
+            futureDate.setDate(futureDate.getDate() + 2); // Set simulasi 2 hari ke depan
+            set_clock(new Date(), futureDate, "Antrean pendaftaran SPMB akan segera dibuka.");
         }
-    })
+    });
 }
 
 fetch_set_antrean();
 
-$('#btn_tambah_antiran').click(function(e) {
+// Validasi & Menampilkan Modal S&K
+$('#form_tambah_antrian button').click(function(e) {
     e.preventDefault();
     let formData = new FormData();
     let status = true;
+
     listFields.forEach((field) => {
-        if ($(`#${field}`).val() == '') {
-            $(`#${field}`).addClass('form-control-danger');
-            $(`#error${field}`).html('Field ini tidak boleh kosong');
-            $(`#error${field}`).addClass('has-danger');
+        let val = $(`#${field}`).val();
+        // Perbaikan sinkronisasi ID error -> ID di HTML adalah "field-error"
+        if (val == '' || val == null) {
+            $(`#${field}`).addClass('border-rose-500'); // Class error Tailwind
+            $(`#${field}-error`).html('Field ini wajib diisi').removeClass('hidden');
             status = false;
         } else {
-            $(`#${field}`).addClass('form-control-success');
-            $(`#${field}`).removeClass('form-control-danger');
-            $(`#error${field}`).html('');
-            $(`#error${field}`).removeClass('has-danger');
-            formData.append(field, $(`#${field}`).val());
+            $(`#${field}`).removeClass('border-rose-500');
+            $(`#${field}-error`).html('').addClass('hidden');
+            formData.append(field, val);
         }
     });
 
     if (status) {
-        $('#Medium-modal').modal('show');
+        $('#modal-sk').removeClass('hidden'); // Membuka Modal ala Tailwind
         dataAntrian.push(formData);
+    } else {
+        // Scroll ke atas sedikit jika ada error
+        $('html, body').animate({
+            scrollTop: $('#antrian').offset().top - 100
+        }, 500);
     }
 });
 
 function getResultAntrean(key) {
     $.ajax({
-        url: '<?= base_url('search_antrian '); ?>',
+        url: '<?= base_url('search_antrian'); ?>',
         type: 'POST',
         data: {
             keyword: key
@@ -701,16 +587,21 @@ function getResultAntrean(key) {
         success: function(response) {
             if (response.status == '200') {
                 setTimeout(() => {
-                    $('#bd-example-modal-lg').modal('show');
-                }, 1500);
+                    $('#modal-tiket').removeClass('hidden'); // Membuka Modal Tiket Tailwind
+                }, 1000);
+
                 $('#btn_print').attr('href', '<?= base_url('printAntrean/'); ?>' + response.data
                     .kode_pendaftaran);
-                $('#cetaknama_siswa').text(response.data.nama_siswa);
-                $('#cetaknisn').text(response.data.nisn);
-                $('#cetakkode_pendaftaran').text(response.data.kode_pendaftaran);
-                $('#cetakasal_sekolah').text(response.data.asal_sekolah);
-                $('#cetakjalur_pendaftaran').text(response.data.jalur_pendaftaran);
-                $('#cetakalamat').text(response.data.alamat);
+
+                // Isi Data Tiket
+                $('#tiket_nama').text(response.data.nama_siswa);
+                $('#tiket_nisn').text(response.data.nisn);
+                $('#tiket_kode').text(response.data.kode_pendaftaran);
+                $('#tiket_tlp').text(response.data.no_tlp);
+                $('#tiket_sekolah').text(response.data.asal_sekolah);
+                $('#tiket_jalur').text(response.data.jalur_pendaftaran);
+
+                // Format Tanggal
                 let date = new Date(response.data.tanggal_antrian);
                 let options = {
                     weekday: 'long',
@@ -718,27 +609,31 @@ function getResultAntrean(key) {
                     month: 'long',
                     day: 'numeric'
                 };
-                $('#cetaktanggal_antrian').text(date.toLocaleDateString('id-ID', options));
-                $('#cetaksesi_antrian').text(response.data.sesi_antrian);
-                $('#cetakno_antrian').text(response.data.no_antrian);
-                $('#cetakbtn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
+                $('#tiket_jadwal').text(date.toLocaleDateString('id-ID', options));
+                $('#tiket_sesi').text(response.data.sesi_antrian);
+                $('#tiket_nomor').text(response.data.no_antrian);
+                // Data QR & Nomor
+                $('.text-6xl.font-black').text(response.data.no_antrian); // Target angka H1 besar
                 $("#cetakqr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
                     .qr_code);
-                $('#created_at').text(response.data.created_at);
+
             } else {
-                $('#btn_search').html('<i class="bi bi-search"></i>').attr('disabled', false);
-                getSwall(response.status, response.data);
+                if (typeof getSwall === "function") getSwall(response.status, response.data);
             }
         }
     });
 }
 
-$('#form_syarat_ketentuan').submit(function(e) {
-    e.preventDefault();
-    $("#btn_sk").attr("disabled", "disabled");
-    $("#btn_sk").html(
-        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
-    ).attr('disabled', true);
+// Submit ke Database dari Modal S&K
+function submitAntrean() {
+    const isChecked = $('#syarat_check').is(':checked');
+    if (!isChecked) {
+        getSwall('error', 'Anda belum menyetujui syarat dan ketentuan.');
+        return;
+    }
+
+    $("#btn-submit-sk").html('<i class="fa-solid fa-spinner fa-spin mr-2"></i> Memproses...').attr('disabled', true);
+
     $.ajax({
         url: '<?= base_url('Admin/Antrian/save'); ?>',
         type: 'POST',
@@ -750,53 +645,38 @@ $('#form_syarat_ketentuan').submit(function(e) {
                 if (response.status != '406') {
                     $.each(response.data, function(key, value) {
                         if (value != '') {
-                            $("#" + key).addClass('form-control-danger');
-                            $("#error" + key).addClass('has-danger');
-                            $("#error" + key).html(value);
-                        } else {
-                            $("#" + key).removeClass('form-control-danger');
-                            $("#" + key).addClass('form-control-success');
-                            $("#error" + key).html('');
-                            $("#error" + key).removeClass('has-danger');
+                            $("#" + key).addClass('border-rose-500');
+                            $("#" + key + "-error").html(value).removeClass('hidden');
                         }
                     });
                 } else {
-                    getSwall(response.status, response.data);
-                    $("#btn_sk").removeAttr("disabled");
-                    $("#btn_sk").html("Kirim");
+                    if (typeof getSwall === "function") getSwall(response.status, response.data);
                 }
                 dataAntrian.pop();
-                fetch_set_antrean();
-                $('#Medium-modal').modal('hide');
-                $("#btn_sk").removeAttr("disabled");
-                $("#btn_sk").html("Tambah");
+                $('#modal-sk').addClass('hidden'); // Tutup modal
+                $("#btn-submit-sk").html("Kirim Data").removeAttr("disabled");
             } else {
-                getSwall(response.status, 'Antrean berhasil ditambahkan');
-                // alert(dataAntrian[0].get('kode_pendaftaran'));
+                if (typeof getSwall === "function") getSwall(response.status,
+                    'Antrean berhasil ditambahkan');
+
+                // Bersihkan form
                 listFields.forEach(function(item) {
-                    $("#" + item).removeClass('form-control-danger');
-                    $("#" + item).removeClass('form-control-success');
-                    $("#error" + item).html('');
-                    $("#error" + item).removeClass('has-danger');
+                    $("#" + item).removeClass('border-rose-500');
+                    $("#" + item + "-error").html('').addClass('hidden');
                 });
-                fetch_set_antrean();
-                $('#syatKetentuan').prop('checked', false);
+                $('#syarat_check').prop('checked', false);
                 $("#form_tambah_antrian")[0].reset();
-                $('#Medium-modal').modal('hide');
-                $("#btn_sk").removeAttr("disabled");
-                $("#btn_sk").html("Kirim");
+
+                $('#modal-sk').addClass('hidden'); // Tutup modal S&K
+                $("#btn-submit-sk").html("Kirim Data").removeAttr("disabled");
+
+                // Tampilkan Hasil Tiket
                 getResultAntrean(dataAntrian[0].get('kode_pendaftaran'));
                 dataAntrian.pop();
+                fetch_set_antrean();
             }
-        } //end success
-    }) //end ajax
-});
-
-// btn link
-$(document).on('click', '.btn_link', function(e) {
-    e.preventDefault();
-    let link = $(this).attr('id');
-    window.open(link, '_blank');
-});
+        }
+    });
+}
 </script>
-<?= $this->endSection('script') ?>
+<?= $this->endSection('script');?>

@@ -243,11 +243,19 @@ h6 {
                         <div class="row mb-3">
                             <div class="col-sm-4">
                                 <h6 class="text-black">Tanggal Antrean</h6>
-                                <p class="text-muted" id="tanggal_antrian"></p>
+                                <p class="" style="color: red; font-weight: 700;" id="tanggal_antrian"></p>
                             </div>
                             <div class="col-sm-4">
                                 <h6 class="text-black">Sesi Antrean</h6>
                                 <p class="text-muted" id="sesi_antrian"></p>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-sm-12">
+                                <p class="" style="color: red;">
+                                    *)Pastikan datang tepat waktu sesuai dengan tanggal dan sesi antrean yang telah
+                                    ditentukan.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -283,6 +291,8 @@ h6 {
         </div>
     </div>
 </div>
+<script async src="https://whatsform.com/launcher.js" id="wf-widget" data-id="jtzlqt"
+    data-message="Hubgungi admin di WhatsApp"  ></script>
 <?= $this->endSection('content'); ?>
 
 <?= $this->section('script'); ?>

@@ -28,18 +28,12 @@ class masterKategoriController extends BaseController
         $builder = $this->masterKategoriModel->getKategori($id = false);
         // dd($builder);
         return DataTable::of($builder)
-            ->add('status_kategori', function ($row) {
-                return '<div class="custom-control custom-switch"> <input type="checkbox" 
-                '.($row->status_kategori == 1 ? 'checked' : '').' 
-                class="custom-control-input switch-btn change_status_kategori" data-size="small" data-color="#0099ff" id="'.$row->id_kategori.'"> <label class="custom-control-label" for="'.$row->id_kategori.'"></label> </div>';
-            })
             ->add('action', function ($row) {
                 return '
                 <div class="dropdown">
 					<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown"> <i class="dw dw-more"></i></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-							<button class="dropdown-item edit_kategori" id="'.$row->id_kategori.'" type="button"><i class="dw dw-edit2"></i> Edit</button>
+                            <button class="dropdown-item edit_kategori" id="'.$row->id_kategori.'" type="button"><i class="dw dw-edit2"></i> Edit</button>
 							<button class="dropdown-item delete_kategori" id="'.$row->id_kategori.'" type="button"><i class="dw dw-delete-3"></i> Delete</button>
 						</div>
 				</div>
@@ -80,7 +74,6 @@ class masterKategoriController extends BaseController
             $this->masterKategoriModel->insert([
                 'nama_kategori' => $this->request->getPost('nama_kategori'),
                 'kode_kategori' => $this->request->getPost('kode_kategori'),
-                'status' => '1',
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
             return $this->response->setJSON([
