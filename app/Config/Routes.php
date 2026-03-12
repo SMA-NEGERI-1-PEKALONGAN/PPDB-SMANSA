@@ -11,7 +11,7 @@ $routes->get('Pengumuman', 'landingPageController::Pengumuman');
 
 // $routes->get('FORM-DU', 'landingPageController::Form');
 
-// $routes->get('Antrean', 'landingPageController::Antrian');
+$routes->get('Antrean', 'landingPageController::Antrian');
 
 // $routes->get('Cari', 'landingPageController::Cari');
 

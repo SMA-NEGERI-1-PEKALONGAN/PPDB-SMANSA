@@ -1,35 +1,119 @@
 <?= $this->extend('Templates/LandingPage') ?>
 
 <?= $this->section('content') ?>
-<style>
-/* print */
+<style type="text/css">
+/* --- STYLING GARIS TIKET --- */
+.ticket-dashed {
+    background-image: linear-gradient(to bottom, transparent 50%, rgba(148, 163, 184, 0.4) 50%);
+    background-size: 2px 15px;
+    background-repeat: repeat-y;
+    background-position: left center;
+}
+
+@media (max-width: 768px) {
+    .ticket-dashed {
+        background-image: linear-gradient(to right, transparent 50%, rgba(148, 163, 184, 0.4) 50%);
+        background-size: 15px 2px;
+        background-repeat: repeat-x;
+        background-position: top center;
+    }
+}
+
+/* --- PERBAIKAN TOTAL CSS CETAK (TIDAK KOSONG / BLANK) --- */
 @media print {
-    #alert {
-        display: none;
+
+    /* 1. Paksa browser untuk mencetak semua warna dan background */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-    #antrian {
-        display: none;
+    /* 2. Sembunyikan SEMUA elemen bawaan website */
+    body * {
+        visibility: hidden;
     }
 
-    nav {
-        display: none;
+    /* 3. Tampilkan HANYA elemen yang ada di dalam id area-cetak-tiket */
+    #area-cetak-tiket,
+    #area-cetak-tiket * {
+        visibility: visible;
     }
 
-    #countdown {
-        display: none;
+    /* 4. PERBAIKAN KOSONG: Cabut tiket dari posisinya dan letakkan di pojok kiri atas kertas */
+    #area-cetak-tiket {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        /* Mencegah tiket terlempar ke luar kertas */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 12px !important;
+        background-color: #ffffff !important;
     }
 
-    #close {
-        display: none;
+    /* 5. Paksa layout tiket menjadi kolom kanan-kiri (Mencegah tampilan HP saat dicetak) */
+    .print-row {
+        display: flex !important;
+        flex-direction: row !important;
     }
 
-    #close2 {
-        display: none;
+    .print-col-65 {
+        width: 65% !important;
+        padding: 25px !important;
     }
 
-    #close3 {
-        display: none;
+    .print-col-35 {
+        width: 35% !important;
+        padding: 25px !important;
+        border-left: 2px dashed #cbd5e1 !important;
+        border-top: none !important;
+        background-color: #f8fafc !important;
+    }
+
+    /* 6. Atur Warna Teks Khusus Cetak (Mematikan Dark Mode di kertas) */
+    #area-cetak-tiket p,
+    #area-cetak-tiket h1,
+    #area-cetak-tiket h2,
+    #area-cetak-tiket span,
+    #area-cetak-tiket div {
+        color: #0f172a !important;
+        /* Paksa teks menjadi gelap/hitam */
+    }
+
+    #area-cetak-tiket .text-primary-600 {
+        color: #2563eb !important;
+    }
+
+    /* Aksen biru */
+    #area-cetak-tiket .text-rose-500 {
+        color: #e11d48 !important;
+    }
+
+    /* Aksen merah */
+    #area-cetak-tiket .bg-primary-600 {
+        background-color: #2563eb !important;
+    }
+
+    #area-cetak-tiket .bg-primary-600 * {
+        color: #ffffff !important;
+    }
+
+    /* Teks putih di dalam icon biru */
+    #area-cetak-tiket .text-slate-400 {
+        color: #64748b !important;
+    }
+
+    /* 7. Matikan ornamen yang tidak perlu di kertas */
+    .ticket-dashed {
+        background-image: none !important;
+    }
+
+    .no-print {
+        display: none !important;
     }
 }
 </style>
@@ -340,22 +424,27 @@
     </div>
 </div>
 
+<!-- Modal 2: Hasil Cetak Antrean (Ticket Design) -->
 <div id="modal-tiket" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-    <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-md transition-opacity" onclick="closeModalTiket()">
-    </div>
+    <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-md transition-opacity" onclick="closeModalTiket()"></div>
 
     <div
         class="relative w-full max-w-4xl max-h-[95vh] flex flex-col bg-slate-100 dark:bg-[#0f172a] rounded-[2rem] shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
 
+        <!-- Header Modal (Tidak Ikut Dicetak) -->
         <div
-            class="flex items-center justify-between p-5 border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white dark:bg-slate-900">
+            class="no-print flex items-center justify-between p-5 border-b border-slate-200 dark:border-slate-800 shrink-0 bg-white dark:bg-slate-900">
             <h4 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white"><i
                     class="fa-solid fa-ticket text-primary-500 mr-2"></i> Tiket Antrean Verifikasi</h4>
             <div class="flex items-center gap-3">
                 <button onclick="window.print()"
                     class="px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white text-sm font-bold rounded-lg shadow-md transition-colors flex items-center gap-2">
-                    <i class="fa-solid fa-print"></i> <span class="hidden sm:inline">Cetak PDF</span>
+                    <i class="fa-solid fa-print"></i> <span class="hidden sm:inline">Cetak Tiket</span>
                 </button>
+                <a id="btn_print" target="_blank"
+                    class="px-4 py-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-white text-sm font-bold rounded-lg shadow-sm transition-colors hidden md:flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-download"></i> Unduh PDF
+                </a>
                 <button type="button" onclick="closeModalTiket()"
                     class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:text-slate-800 dark:hover:text-white transition-colors">
                     <i class="fa-solid fa-xmark"></i>
@@ -363,81 +452,82 @@
             </div>
         </div>
 
-        <div class="p-4 sm:p-8 overflow-y-auto custom-scroll flex-1">
-            <div
-                class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col md:flex-row overflow-hidden relative">
+        <!-- Area Scroll Modal -->
+        <div class="p-4 sm:p-8 overflow-y-auto custom-scroll flex-1 w-full flex justify-center">
 
+            <!-- KOTAK TIKET UTAMA (ID area-cetak-tiket ini yang akan ditarik oleh printer) -->
+            <!-- Class 'print-row' mengunci posisi agar tidak turun jadi tampilan HP saat dicetak -->
+            <div id="area-cetak-tiket"
+                class="bg-white dark:bg-slate-800 w-full max-w-3xl rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 flex flex-col md:flex-row overflow-hidden relative print-row">
+
+                <!-- Ornamen Plong Tiket (Hilang Saat Cetak) -->
                 <div
-                    class="hidden md:block absolute top-1/2 left-[65%] -translate-y-1/2 -translate-x-3 w-6 h-6 bg-slate-100 dark:bg-[#0f172a] rounded-full z-10">
+                    class="no-print hidden md:block absolute top-0 left-[65%] -translate-x-3 w-6 h-3 bg-slate-100 dark:bg-[#0f172a] rounded-b-full z-10">
+                </div>
+                <div
+                    class="no-print hidden md:block absolute bottom-0 left-[65%] -translate-x-3 w-6 h-3 bg-slate-100 dark:bg-[#0f172a] rounded-t-full z-10">
                 </div>
 
-                <div class="w-full md:w-[65%] p-6 sm:p-8">
+                <!-- BAGIAN KIRI (Detail Siswa) -->
+                <div class="w-full md:w-[65%] p-6 sm:p-8 print-col-65">
                     <div class="flex items-center gap-4 mb-6 border-b border-slate-100 dark:border-slate-700 pb-4">
-                        <div class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white">
+                        <div
+                            class="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white shrink-0">
                             <i class="fa-solid fa-school"></i>
                         </div>
                         <div>
                             <h2
-                                class="text-lg sm:text-xl font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">
-                                Bukti Pendaftaran Antrean</h2>
-                            <p class="text-sm font-semibold text-slate-500 dark:text-slate-400">SMAN 1 Pekalongan
-                            </p>
+                                class="text-xl font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">
+                                Bukti Antrean PPDB</h2>
+                            <p class="text-sm font-semibold text-slate-500 dark:text-slate-400">SMAN 1 Pekalongan - Th.
+                                2026/2027</p>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-6 gap-x-4 mb-6">
-                        <div class="col-span-2 sm:col-span-1">
-                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">Nama Lengkap
-                            </p>
-                            <p class="font-bold text-slate-900 dark:text-white text-sm" id="tiket_nama">-</p>
+                    <div class="grid grid-cols-2 gap-y-5 gap-x-4 mb-6">
+                        <div class="col-span-2">
+                            <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Nama Lengkap Siswa</p>
+                            <p class="font-bold text-slate-900 dark:text-white text-base" id="tiket_nama">-</p>
                         </div>
                         <div>
-                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">NISN</p>
-                            <p class="font-bold text-slate-900 dark:text-white text-sm" id="tiket_nisn">-</p>
+                            <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">NISN</p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm font-mono" id="tiket_nisn">-</p>
                         </div>
                         <div>
-                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">Kode Daftar
-                            </p>
-                            <p class="font-bold text-slate-900 dark:text-white text-sm font-mono" id="tiket_kode">-
-                            </p>
-                        </div>
-                        <div>
-                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">No. Telp
-                            </p>
-                            <p class="font-bold text-slate-900 dark:text-white text-sm font-mono" id="tiket_tlp">-
-                            </p>
+                            <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Kode Pendaftaran</p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm font-mono" id="tiket_kode">-</p>
                         </div>
 
-                        <div class="col-span-2 sm:col-span-1">
-                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">Asal Sekolah
-                            </p>
+                        <div class="col-span-2">
+                            <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Asal Sekolah</p>
                             <p class="font-bold text-slate-900 dark:text-white text-sm" id="tiket_sekolah">-</p>
                         </div>
-                        <div>
-                            <p class="text-[10px] sm:text-xs uppercase font-bold text-slate-400 mb-1">Jalur PPDB</p>
+                        <div class="col-span-2">
+                            <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Jalur Pilihan</p>
                             <span
-                                class="px-2 py-0.5 bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 rounded text-xs font-bold uppercase"
+                                class="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900/50 text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800 rounded-lg text-xs font-bold uppercase"
                                 id="tiket_jalur">-</span>
                         </div>
                     </div>
 
                     <div
-                        class="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 flex gap-3 items-start border border-amber-100 dark:border-amber-800/50">
-                        <i class="fa-solid fa-triangle-exclamation text-amber-500 mt-0.5 shrink-0"></i>
-                        <div class="text-xs text-amber-800 dark:text-amber-200">
-                            <strong>Penting:</strong> Hadirlah 15 menit sebelum sesi Anda dimulai dan bawa kartu ini
-                            (cetak/screenshot) sebagai bukti.
+                        class="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 flex gap-3 items-start border border-amber-200 dark:border-amber-800/50">
+                        <i class="fa-solid fa-circle-exclamation text-amber-500 mt-0.5 shrink-0"></i>
+                        <div class="text-[11px] sm:text-xs text-amber-800 dark:text-amber-200 leading-relaxed">
+                            <strong>Instruksi:</strong> Bawa tiket ini (dicetak/di-screenshot) dan seluruh berkas asli
+                            saat datang ke sekolah. Harap hadir 15 menit sebelum sesi Anda dimulai.
                         </div>
                     </div>
                 </div>
 
+                <!-- BAGIAN KANAN (QR & Nomor Antrean) -->
                 <div
-                    class="w-full md:w-[35%] ticket-dashed bg-slate-50 dark:bg-slate-800/50 p-6 sm:p-8 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-700">
-                    <p class="text-xs uppercase font-bold text-slate-500 tracking-widest mb-2 text-center">Nomor
-                        Antrean Anda</p>
-                    <h1
-                        class="text-6xl sm:text-7xl font-black text-primary-600 dark:text-primary-400 font-mono tracking-tighter mb-4 drop-shadow-sm">
-                        A012</h1>
+                    class="w-full md:w-[35%] ticket-dashed bg-slate-50 dark:bg-slate-800/50 p-6 sm:p-8 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-slate-200 dark:border-slate-700 print-col-35">
+                    <p class="text-xs uppercase font-bold text-slate-500 tracking-widest mb-2 text-center">Nomor Antrean
+                    </p>
+
+                    <h1 class="text-6xl sm:text-7xl font-black text-primary-600 dark:text-primary-400 font-mono tracking-tighter mb-4 drop-shadow-sm"
+                        id="cetakno_antrian">A012</h1>
 
                     <div class="bg-white p-2 rounded-xl shadow-sm border border-slate-200 mb-5">
                         <img src="" alt="QR Code" id="cetakqr_code" class="w-24 h-24 sm:w-28 sm:h-28 object-contain">
@@ -445,14 +535,16 @@
 
                     <div class="text-center w-full">
                         <div
-                            class="bg-white dark:bg-slate-700 rounded-lg py-2 px-3 mb-2 shadow-sm border border-slate-100 dark:border-slate-600">
-                            <p class="text-[10px] uppercase font-bold text-slate-400">Jadwal Kehadiran</p>
-                            <p class="font-bold text-slate-900 dark:text-white text-sm" id="tiket_jadwal"></p>
-                            <p class="font-extrabold text-rose-500 text-sm" id="tiket_sesi"></p>
+                            class="bg-white dark:bg-slate-700 rounded-xl py-3 px-3 mb-3 shadow-sm border border-slate-200 dark:border-slate-600">
+                            <p class="text-[10px] uppercase font-bold text-slate-400 mb-1">Jadwal Kehadiran</p>
+                            <p class="font-bold text-slate-900 dark:text-white text-sm mb-0.5"
+                                id="cetaktanggal_antrian">-</p>
+                            <p class="font-extrabold text-rose-500 text-sm" id="cetaksesi_antrian">-</p>
                         </div>
-                        <p class="text-[9px] text-slate-400" id="tiket_created_at">Dicetak: Hari ini</p>
+                        <p class="text-[9px] text-slate-400">Waktu Cetak: <span id="created_at">-</span></p>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -597,7 +689,6 @@ function getResultAntrean(key) {
                 $('#tiket_nama').text(response.data.nama_siswa);
                 $('#tiket_nisn').text(response.data.nisn);
                 $('#tiket_kode').text(response.data.kode_pendaftaran);
-                $('#tiket_tlp').text(response.data.no_tlp);
                 $('#tiket_sekolah').text(response.data.asal_sekolah);
                 $('#tiket_jalur').text(response.data.jalur_pendaftaran);
 
@@ -609,9 +700,9 @@ function getResultAntrean(key) {
                     month: 'long',
                     day: 'numeric'
                 };
-                $('#tiket_jadwal').text(date.toLocaleDateString('id-ID', options));
-                $('#tiket_sesi').text(response.data.sesi_antrian);
-                $('#tiket_nomor').text(response.data.no_antrian);
+                $('#cetaktanggal_antrian').text(date.toLocaleDateString('id-ID', options));
+                $('#cetaksesi_antrian').text(response.data.sesi_antrian);
+
                 // Data QR & Nomor
                 $('.text-6xl.font-black').text(response.data.no_antrian); // Target angka H1 besar
                 $("#cetakqr_code").attr('src', '<?= base_url('Assets/qr_code/') ?>' + response.data
@@ -628,7 +719,7 @@ function getResultAntrean(key) {
 function submitAntrean() {
     const isChecked = $('#syarat_check').is(':checked');
     if (!isChecked) {
-        getSwall('error', 'Anda belum menyetujui syarat dan ketentuan.');
+        alert("Anda harus menyetujui syarat dan ketentuan.");
         return;
     }
 

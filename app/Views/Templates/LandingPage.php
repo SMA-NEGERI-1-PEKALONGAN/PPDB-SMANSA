@@ -1,335 +1,480 @@
 <!DOCTYPE html>
-<html>
+<html lang="id" class="scroll-smooth">
 
 <head>
-    <!-- Basic Page Info -->
-    <meta charset="utf-8" />
-    <title>
-        <?= $title; ?>
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPMB SMAN 1 Pekalongan</title>
+    <!-- Favicons -->
+    <link href="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" rel="icon">
+    <link href="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" rel="apple-touch-icon">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('Assets/'); ?>LOGO SMANSA.png" />
-
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-
-    <!-- dataTables -->
-    <link rel="stylesheet" type="text/css"
-        href="<?= base_url('Assets/'); ?>src/plugins/datatables/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="<?= base_url('Assets/'); ?>src/plugins/datatables/css/responsive.bootstrap4.min.css" />
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/core.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/icon-font.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.css" />
-    <link rel="stylesheet" type="text/css" href="<?= base_url('Assets/'); ?>vendors/styles/style.css" />
-
-    <link rel="stylesheet" type="text/css"
-        href="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.css" />
-
+    <!-- Konfigurasi Tailwind untuk Dark Mode, Animasi & Warna Tema -->
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                },
+                colors: {
+                    primary: {
+                        50: '#eff6ff',
+                        100: '#dbeafe',
+                        400: '#60a5fa',
+                        500: '#3b82f6',
+                        600: '#2563eb',
+                        700: '#1d4ed8',
+                        800: '#1e40af',
+                        900: '#1e3a8a',
+                    },
+                    accent: {
+                        400: '#a78bfa',
+                        500: '#8b5cf6',
+                        600: '#7c3aed',
+                        700: '#6d28d9',
+                        800: '#5b21b6',
+                        900: '#4c1d95',
+                    }
+                },
+                animation: {
+                    'blob': 'blob 7s infinite',
+                    'float': 'float 6s ease-in-out infinite',
+                    'text-gradient': 'text-gradient 4s linear infinite',
+                    'ring-pulse': 'ring-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                },
+                keyframes: {
+                    blob: {
+                        '0%': {
+                            transform: 'translate(0px, 0px) scale(1)'
+                        },
+                        '33%': {
+                            transform: 'translate(30px, -50px) scale(1.1)'
+                        },
+                        '66%': {
+                            transform: 'translate(-20px, 20px) scale(0.9)'
+                        },
+                        '100%': {
+                            transform: 'translate(0px, 0px) scale(1)'
+                        },
+                    },
+                    float: {
+                        '0%, 100%': {
+                            transform: 'translateY(0)'
+                        },
+                        '50%': {
+                            transform: 'translateY(-15px)'
+                        },
+                    },
+                    'text-gradient': {
+                        '0%': {
+                            backgroundPosition: '0% 50%'
+                        },
+                        '50%': {
+                            backgroundPosition: '100% 50%'
+                        },
+                        '100%': {
+                            backgroundPosition: '0% 50%'
+                        },
+                    },
+                    'ring-pulse': {
+                        '0%': {
+                            boxShadow: '0 0 0 0 rgba(59, 130, 246, 0.7)'
+                        },
+                        '70%': {
+                            boxShadow: '0 0 0 10px rgba(59, 130, 246, 0)'
+                        },
+                        '100%': {
+                            boxShadow: '0 0 0 0 rgba(59, 130, 246, 0)'
+                        },
+                    }
+                }
+            }
+        }
+    }
+    </script>
     <style>
-    .navbar {
-        background-color: ;
-        color: black;
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
     }
 
-    .navbar .navbar-brand {
-        color: black;
-        padding: 0 20px;
-        font-weight: bold;
-        font-family: 'Inter', sans-serif;
-        height: 50px;
-        line-height: 50px;
+    ::-webkit-scrollbar-track {
+        background: #f1f5f9;
     }
 
-    .navbar .nav-link {
-        color: black;
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
+    .dark ::-webkit-scrollbar-track {
+        background: #0f172a;
     }
 
-    .rq {
-        color: red;
+    ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
     }
 
-    .navbar-shrink {
-        background-color: #fff;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    .dark ::-webkit-scrollbar-thumb {
+        background: #334155;
     }
 
-    .navbar-shrink .navbar-brand {
-        color: #333;
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
     }
 
-    .navbar-shrink .nav-link {
-        color: #333;
+    /* Animasi Scroll Reveal */
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
     }
 
-    .navbar-shrink .nav-link:hover {
-        color: #333;
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
     }
 
-    .navbar .nav-link:hover {
-        color: #333;
+    .reveal-delay-1 {
+        transition-delay: 0.15s;
     }
 
-    .navbar .nav-link::after {
-        content: '';
-        display: block;
-        width: 0;
-        height: 2px;
-        background: #333;
-        transition: width .3s;
+    .reveal-delay-2 {
+        transition-delay: 0.3s;
     }
 
-    .navbar .nav-link:hover::after {
-        width: 20px;
-        transition: width .3s;
+    .reveal-delay-3 {
+        transition-delay: 0.45s;
     }
 
-    /* change color  wizard contetm */
-    .wizard-content !important {
-        background-color: #f8f9fa;
-        color: black;
+    /* Accordion Style */
+    details>summary {
+        list-style: none;
     }
 
-    /* perbesar icon bi bi-x */
-    .bi-x {
-        font-size: 2rem;
-        color: #333;
+    details>summary::-webkit-details-marker {
+        display: none;
     }
 
-    .active-nav a !important {
-        color: #007bff !important;
-    }
-
-    .active-nav a::after {
-        width: 20px !important;
-
-    }
-
-
-
-    @media (max-width: 1024px) {
-        .main-container {
-            margin-top: 50px;
-        }
-    }
-
-    @media (max-width: 767px) {
-        .main-container {
-            margin-top: 0px;
-        }
-
-        .footer {
-            text-align: center;
-        }
-    }
-
-    .footer {
-        position: relative;
+    /* Timeline Line Glow */
+    .timeline-line {
+        position: absolute;
+        left: 24px;
+        top: 0;
         bottom: 0;
-        width: 100%;
-        color: #333;
-        padding: 10px 0;
+        width: 3px;
+        background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+        border-radius: 10px;
     }
 
-    /* icon nabvar */
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        color: black;
+    @media (min-width: 768px) {
+        .timeline-line {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Glassmorphism */
+    .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .dark .glass {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Animated Text Gradient Class */
+    .animate-bg-text {
+        background-size: 200% auto;
+    }
+
+    /* Custom Styling (Glassmorphism & Scrollbar) */
+    .glass-panel {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Validasi Error Style */
+    .form-control-danger {
+        border-color: #f43f5e !important;
+    }
+
+    .form-control-success {
+        border-color: #22c55e !important;
+    }
+
+    .has-danger {
+        color: #f43f5e !important;
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+
+    /* Hilangkan panah input type number */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Custom Scrollbar untuk modal */
+    .custom-scroll::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scroll::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+    }
+
+    .dark .custom-scroll::-webkit-scrollbar-thumb {
+        background: #475569;
+    }
+
+    /* Tiket Cetak Antrean - Garis Putus-putus */
+    .ticket-dashed {
+        background-image: linear-gradient(to bottom, transparent 50%, rgba(148, 163, 184, 0.4) 50%);
+        background-size: 2px 15px;
+        background-repeat: repeat-y;
+        background-position: left center;
+    }
+
+    @media (max-width: 768px) {
+        .ticket-dashed {
+            background-image: linear-gradient(to right, transparent 50%, rgba(148, 163, 184, 0.4) 50%);
+            background-size: 15px 2px;
+            background-repeat: repeat-x;
+            background-position: top center;
+        }
     }
     </style>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
-        crossorigin="anonymous"></script>
-
-    <script>
-    window.onscroll = function() {
-        var currentScrollPos = window.pageYOffset;
-        if (currentScrollPos > 0) {
-            document.querySelector('.navbar').classList.add('navbar-shrink');
-        } else {
-            document.querySelector('.navbar').classList.remove('navbar-shrink');
-        }
-    }
-
-    // change icons navbar to close
-    </script>
-
-
 </head>
 
-<body class="sidebar-shrink">
-    <!-- <div class="pre-loader">
-        <div class="pre-loader-box">
-            <div class="loader-logo">
-                <img src="vendors/images/deskapp-logo.svg" alt="" />
-            </div>
-            <div class="loader-progress" id="progress_div">
-                <div class="bar" id="bar1"></div>
-            </div>
-            <div class="percent" id="percent1">0%</div>
-            <div class="loading-text">Loading...</div>  
-        </div>
-    </div> -->
-    <!-- navbar -->
-    <?php 
-    if($active != 'Views'  && $active != 'printAntrean'):
-        
-    ?>
-    <div class="row">
-        <!-- list menu center -->
-        <div class="col-md-12 mx-2">
-            <nav class="navbar navbar-expand-lg fixed-top">
-                <a class="navbar-brand" href="#">
-                    <img src="<?= base_url('Assets/'); ?>LOGO SMANSA.png" alt="" width="40" height="40" class=""
-                        loading="lazy">
-                    SPMB SMANSA
-
-                    <style>
-                    .navbar-brand img {
-                        margin-right: 10px;
-                        /* posistion align center */
-                        display: inline-block;
-                        vertical-align: middle;
-
-
-                    }
-                    </style>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" id="iconNavBar"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?= base_url('/'); ?>"> Home
-                            </a>
-                        </li>
-                        <li class="nav-item <?= $active == 'Antrian' ? 'active-nav' : ''; ?>">
-                            <!-- <a class="nav-link" href="<?= base_url('Antrean'); ?>">
-                                Antrean</a> -->
-                        <li class="nav-item <?= $active == 'Pengumuman' ? 'active-nav' : ''; ?>">
-                            <a class="nav-link" href="<?= base_url('Pengumuman'); ?>">
-                                Pengumuman</a>
-                        </li>
-                        <li class="nav-item <?= $active == 'Form-DU' ? 'active-nav' : ''; ?>" id="formDu">
-                            <a class="nav-link" href="<?= base_url('FORM-DU')?>">
-                                Form DU</a>
-                        </li>
-                        <!-- <li class="nav-item <?= $active == 'Cari' ? 'active-nav' : ''; ?>">
-                            <a class="nav-link" href="<?= base_url('Cari'); ?>">
-                                Cari</a>
-                        </li> -->
-                    </ul>
+<body
+    class="bg-slate-50 text-slate-800 dark:bg-[#0B1120] dark:text-slate-200 transition-colors duration-500 font-sans overflow-x-hidden relative">
+    <!-- 1. Navigasi -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 rounded-2xl px-2 transition-all duration-300"
+                id="navbar-container">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xl0">
+                        <!-- <i class="fa-solid fa-graduation-cap"></i> --><img
+                            src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="" class="img-fluid">
+                    </div>
+                    <div>
+                        <span
+                            class="font-bold text-lg tracking-tight block text-slate-900 dark:text-white leading-none">SMAN
+                            1 Pekalongan</span>
+                        <span
+                            class="text-[10px] text-primary-600 dark:text-primary-400 font-bold tracking-widest uppercase">Portal
+                            SPMB</span>
+                    </div>
                 </div>
 
-            </nav>
-        </div>
-    </div>
-    <?php endif; ?>
+                <!-- Menu Desktop -->
+                <div
+                    class="hidden md:flex items-center space-x-1 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md px-2 py-1 rounded-full border border-white/40 dark:border-slate-700/50 shadow-sm">
+                    <?php 
+                    if($active != 'Antrian'):
+                    ?>
+                    <a href="#beranda"
+                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Beranda</a>
+                    <a href="#jalur"
+                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Jalur</a>
+                    <a href="#persyaratan"
+                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Persyaratan</a>
+                    <a href="#alur"
+                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Alur</a>
+                    <a href="#kontak"
+                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Kontak</a>
+                    <a href="<?= base_url('Antrean'); ?>"
+                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Antrean</a>
+                    <?php 
+                        else:
+                    ?>
+                    <a href="<?= base_url('/'); ?>"
+                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Beranda</a>
+                    <a href="<?= base_url('Antrean'); ?>"
+                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Antrean</a>
+                    <?php 
+                        endif;
+                    ?>
+                    <div class="w-[1px] h-4 bg-slate-300 dark:bg-slate-600 mx-2"></div>
 
-    <div class="main-container" id="container-footer">
-        <div class="pd-ltr-20 xs-pd-20-10">
-            <div class="min-height-200px">
-                <!-- section -->
-                <?= $this->renderSection('content'); ?>
-            </div>
-        </div>
-        <?php 
-       if($active != 'Views'  && $active != 'printAntrean'):
-        ?>
-        <footer class="footer my-3">
-            <div class="row text-center">
-                <div class="col-md-12">
-                    &copy; 2025 <strong><span>SPMB SMANSA</span></strong>. All Rights Reserved
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" type="button"
+                        class="text-slate-500 dark:text-amber-300 hover:bg-white dark:hover:bg-slate-700 rounded-full w-9 h-9 flex items-center justify-center transition-all">
+                        <i id="theme-toggle-dark-icon" class="hidden fa-solid fa-moon text-lg"></i>
+                        <i id="theme-toggle-light-icon" class="hidden fa-solid fa-sun text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Menu Mobile Btn -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="theme-toggle-mobile" type="button"
+                        class="text-slate-500 dark:text-amber-300 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center border border-white/40 dark:border-slate-700/50 shadow-sm">
+                        <i id="theme-toggle-dark-icon-mobile" class="hidden fa-solid fa-moon"></i>
+                        <i id="theme-toggle-light-icon-mobile" class="hidden fa-solid fa-sun"></i>
+                    </button>
+                    <button id="mobile-menu-btn"
+                        class="text-slate-800 dark:text-white bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center border border-white/40 dark:border-slate-700/50 shadow-sm">
+                        <i class="fa-solid fa-bars-staggered text-lg"></i>
+                    </button>
                 </div>
             </div>
-        </footer>
-        <?php endif; ?>
-    </div>
+        </div>
 
-    </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-20 left-4 right-4 glass rounded-2xl p-4 shadow-xl border border-white/40 dark:border-slate-700/50 transition-all transform origin-top">
+            <div class="space-y-2">
+                <?php 
+                    if($active != 'Antrian'):
+                ?>
+                <a href="#beranda"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Beranda</a>
+                <a href="#jalur"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Jalur
+                    Pendaftaran</a>
+                <a href="#persyaratan"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Persyaratan</a>
+                <a href="#alur"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Alur
+                    Pendaftaran</a>
+                <a href="#kontak"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Kontak
+                    Informasi</a>
 
+                <a href="<?= base_url('Antrean'); ?>"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Antrean</a>
+                <?php 
+                    else:
+                ?>
+                <a href="<?= base_url('/'); ?>"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Beranda</a>
+                <a href="<?= base_url('Antrean'); ?>"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Antrean</a>
+                <?php 
+                    endif;
+                ?>
+            </div>
+        </div>
+    </nav>
+    <?= $this->renderSection('content'); ?>
 
+    <footer class="bg-slate-900 dark:bg-black pt-12 sm:pt-16 pb-6 sm:pb-8 border-t border-slate-800 w-full mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8 text-center md:text-left">
+                <div
+                    class="flex flex-col sm:flex-row items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
+                    <div
+                        class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-white shrink-0 shadow-inner">
+                        <i class="fa-solid fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-white font-bold text-lg">SMAN 1 Pekalongan</span>
+                        <span class="block text-sm text-slate-400">Pendidikan Berkarakter</span>
+                    </div>
+                </div>
 
-    <!-- js -->
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/core.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/script.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/process.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/layout-settings.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/dashboard3.js"></script>
+                <div class="flex space-x-4">
+                    <a href="#" aria-label="Facebook"
+                        class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"
+                        class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"
+                        class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-sm"><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
 
-
-    <script src="<?= base_url('Assets/'); ?>src/plugins/jquery-steps/jquery.steps.js"></script>
-    <script src="<?= base_url('Assets/'); ?>vendors/scripts/steps-setting.js"></script>
-
+            <div
+                class="mt-8 pt-6 sm:pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs sm:text-sm gap-4">
+                <p>© 2026 Tim IT SMAN 1 Pekalongan. Hak Cipta Dilindungi.</p>
+                <p class="flex items-center">Dibuat dengan <i
+                        class="fa-solid fa-heart text-red-500 mx-1.5 animate-pulse"></i> untuk Pendidikan.</p>
+            </div>
+        </div>
+    </footer>
     <script src="<?= base_url('Assets/'); ?>src/plugins/sweetalert2/sweetalert2.all.js"></script>
-
-
-    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-
-    <!-- Datatable Setting js -->
-    <?= $this->renderSection('dataTables');?>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- Scripts -->
     <script type="text/javascript">
-    $('.navbar-toggler').click(function() {
-        if ($('#iconNavBar').hasClass('navbar-toggler-icon')) {
-            $('#iconNavBar').removeClass('navbar-toggler-icon');
-            $('#iconNavBar').addClass('bi bi-x');
+    // 3. Logic Dark Mode
+    const themeToggleBtns = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+    const darkIcons = document.querySelectorAll('#theme-toggle-dark-icon, #theme-toggle-dark-icon-mobile');
+    const lightIcons = document.querySelectorAll('#theme-toggle-light-icon, #theme-toggle-light-icon-mobile');
+
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+            '(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        lightIcons.forEach(icon => icon.classList.remove('hidden'));
+    } else {
+        darkIcons.forEach(icon => icon.classList.remove('hidden'));
+    }
+
+    function toggleTheme() {
+        darkIcons.forEach(icon => icon.classList.toggle('hidden'));
+        lightIcons.forEach(icon => icon.classList.toggle('hidden'));
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
         } else {
-            $('#iconNavBar').removeClass('bi bi-x');
-            $('#iconNavBar').addClass('navbar-toggler-icon');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+        }
+    }
+    themeToggleBtns.forEach(btn => btn.addEventListener('click', toggleTheme));
+
+    // 1. Navbar Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.remove('bg-transparent', 'py-4');
+            navbar.classList.add('bg-white/90', 'dark:bg-slate-900/90', 'py-2', 'shadow-sm',
+                'border-b', 'border-slate-200', 'dark:border-slate-800');
+        } else {
+            navbar.classList.add('bg-transparent', 'py-4');
+            navbar.classList.remove('bg-white/90', 'dark:bg-slate-900/90', 'py-2',
+                'shadow-sm', 'border-b', 'border-slate-200', 'dark:border-slate-800');
         }
     });
 
-    $('#btnBerkas').click(function() {
-        $('#tabBerkas').click();
-    });
 
-    $(document).on('focusout', '.required', function() {
-        const id = $(this).attr('id');
-        if ($(this).val() == '') {
-            $(this).addClass('form-control-danger');
-            $(`#error${id}`).html('Field ini tidak boleh kosong');
-            $(`#error${id}`).addClass('has-danger');
+    // 4. Mobile Menu
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
         } else {
-            $(this).addClass('form-control-success');
-            $(this).removeClass('form-control-danger');
-            $(`#error${id}`).html('');
-            $(`#error${id}`).removeClass('has-danger');
+            mobileMenu.classList.add('hidden');
         }
     });
-
-    // on keyup
-    $(document).on('keyup', '.required', function() {
-        const id = $(this).attr('id');
-        if ($(this).val() == '') {
-            $(this).addClass('form-control-danger');
-            $(`#error${id}`).html('Field ini tidak boleh kosong');
-            $(`#error${id}`).addClass('has-danger');
-        } else {
-            $(this).addClass('form-control-success');
-            $(this).removeClass('form-control-danger');
-            $(`#error${id}`).html('');
-            $(`#error${id}`).removeClass('has-danger');
-        }
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
-
 
     function getSwall(status, message) {
         swal({
@@ -340,74 +485,44 @@
             timer: 1500
         })
     }
-
-    // add data unique id to local storage and automatic remove wehen day after 1 day
-    function addDataUniqueIdToLocalStorage() {
-        const uniqueId = localStorage.getItem('unique_id');
-        const uniqueIdDate = localStorage.getItem('unique_id_date');
-        const currentDate = new Date();
-        // console.log('Current Date:', currentDate, 'Unique ID Date:', uniqueIdDate);
-        if (uniqueId == null || uniqueId == '') {
-            const newUniqueId = 'UID-' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('unique_id', newUniqueId);
-            const date = new Date();
-            localStorage.setItem('unique_id_date', date.toISOString());
-            $.ajax({
-                url: '<?= base_url('saveAktifitasWeb'); ?>',
-                type: 'POST',
-                data: {
-                    unique_id: newUniqueId
-                },
-                dataType: 'json',
-                success: function(response) {
-                    // console.log('Data unique id saved to server:', response);
-                },
-                error: function(xhr, status, error) {
-                    // console.error('Error saving unique id:', error);
-                }
-            });
+    // if (!document.getElementById(id).value) {
+    //             document.getElementById(id).classList.add('border-rose-500');
+    //             // tampilan error di sini id + error
+    //             document.getElementById(id + '-error').classList.remove('hidden');
+    //             valid = false;
+    //         } else {
+    //             document.getElementById(id).classList.remove('border-rose-500');
+    //             document.getElementById(id + '-error').classList.add('hidden');
+    //         }
+    $(document).on('focusout', '.required', function() {
+        const id = $(this).attr('id');
+        if ($(this).val() == '') {
+            $(this).addClass('border-rose-500');
+            $(`#${id}-error`).html('Field ini tidak boleh kosong');
+            $(`#${id}-error`).removeClass('hidden');
         } else {
-            // jika beda hari maka akan menghapus unique_id
-            const storedDate = new Date(uniqueIdDate);
-            if (currentDate.getDate() !== storedDate.getDate() ||
-                currentDate.getMonth() !== storedDate.getMonth() ||
-                currentDate.getFullYear() !== storedDate.getFullYear()) {
-                localStorage.removeItem('unique_id');
-                localStorage.removeItem('unique_id_date');
-                const newUniqueId2 = 'UID-' + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem('unique_id', newUniqueId2);
-                const date2 = new Date();
-                localStorage.setItem('unique_id_date', date2.toISOString());
-                // console.log('Unique ID expired and removed:', uniqueId);
-                $.ajax({
-                    url: '<?= base_url('saveAktifitasWeb'); ?>',
-                    type: 'POST',
-                    data: {
-                        unique_id: newUniqueId2
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        // console.log('Data unique id saved to server:', response);
-                    },
-                    error: function(xhr, status, error) {
-                        // console.error('Error saving unique id:', error);
-                    }
-                });
-            }
+            $(this).removeClass('border-rose-500');
+            $(`#${id}-error`).html('');
+            $(`#${id}-error`).addClass('hidden');
         }
-    }
+    });
 
-    // call when page load
-    $(document).ready(function() {
-        addDataUniqueIdToLocalStorage();
+    // on keyup
+    $(document).on('keyup', '.required', function() {
+        const id = $(this).attr('id');
+        if ($(this).val() == '') {
+            $(this).addClass('border-rose-500');
+            $(`#error${id}`).html('Field ini tidak boleh kosong');
+            $(`#error${id}`).addClass('has-danger');
+        } else {
+            $(this).removeClass('border-rose-500');
+            $(`#error${id}`).html('');
+            $(`#error${id}`).removeClass('has-danger');
+        }
     });
     </script>
 
     <?= $this->renderSection('script'); ?>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
-            style="display: none; visibility: hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 </body>
 
 </html>

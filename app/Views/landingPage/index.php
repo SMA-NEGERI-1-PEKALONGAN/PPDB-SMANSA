@@ -1,2261 +1,911 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('Templates/LandingPage') ?>
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<?= $this->section('content') ?>
 
-    <title><?= $title; ?></title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+<!-- 2. Beranda (Hero Section) -->
+<section id="beranda" class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+    <!-- Background Animasi Glow -->
+    <div class="absolute top-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[30rem] h-[30rem] bg-primary-400 rounded-full mix-blend-multiply filter blur-[120px] opacity-40 dark:opacity-20 animate-blob">
+        </div>
+        <div
+            class="absolute top-[20%] right-[-10%] w-[30rem] h-[30rem] bg-accent-400 rounded-full mix-blend-multiply filter blur-[120px] opacity-40 dark:opacity-20 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute bottom-[-20%] left-[20%] w-[30rem] h-[30rem] bg-pink-400 rounded-full mix-blend-multiply filter blur-[120px] opacity-40 dark:opacity-20 animate-blob animation-delay-4000">
+        </div>
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utd2lkdGg9IjAuMiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTAgMGg2MHY2MEgweiIvPjwvZz48L3N2Zz4=')] opacity-[0.05] dark:opacity-[0.02]">
+        </div>
+    </div>
 
-    <!-- Favicons -->
-    <link href="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" rel="icon">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" rel="apple-touch-icon">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            <!-- Konten Kiri (Teks) -->
+            <div class="text-center lg:text-left reveal">
+                <!-- Badge Diperbaiki: Warna lebih terang di dark mode -->
+                <div
+                    class="inline-flex items-center px-4 py-2 rounded-full glass border-white/50 dark:border-slate-700 shadow-sm mb-6 lg:mb-8 transform transition hover:scale-105">
+                    <span
+                        class="flex h-2.5 w-2.5 bg-green-500 rounded-full mr-3 shadow-[0_0_8px_#22c55e] animate-pulse"></span>
+                    <!-- <span
+                            class="flex h-2.5 w-2.5 bg-red-500 rounded-full mr-3 shadow-[0_0_8px_#ff0000] animate-pulse"></span> -->
+                    <span class="text-sm font-bold text-primary-700 dark:text-primary-400">Pendaftaran Segera
+                        Dibuka</span>
+                </div>
 
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+                <!-- Judul Diperbaiki: Animated Gradient Text -->
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.1]">
+                    <span class="block mb-2">Penerimaan Murid Baru</span>
+                    <!-- Teks SPMB dengan efek animasi yang estetis -->
+                    <span
+                        class="block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-accent-500 to-pink-500 animate-text-gradient animate-bg-text pb-2 drop-shadow-sm">SPMB
+                        2026/2027</span>
+                </h1>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+                <p
+                    class="mt-4 text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
+                    Selamat Datang di Portal Informasi Sistem Penerimaan Murid Baru <span
+                        class="font-bold text-slate-900 dark:text-white relative inline-block"><span
+                            class="relative z-10">SMAN 1 Pekalongan</span><span
+                            class="absolute bottom-1 left-0 w-full h-2 bg-primary-200 dark:bg-primary-900/50 -z-0 rounded-full"></span></span>.
+                </p>
 
-    <!-- Vendors CSS Files -->
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/aos/aos.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/remixicon/remixicon.css" rel="stylesheet">
-    <link href="<?= base_url('Assets/'); ?>LandingPage/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+                    <span
+                        class="px-4 py-1.5 glass rounded-lg text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 shadow-sm">#NoTitipNoJustif</span>
+                    <span
+                        class="px-4 py-1.5 glass rounded-lg text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 shadow-sm">#NgopeniNglakoniJateng</span>
+                </div>
 
-    <!-- Template Main CSS File -->
-    <link href="<?= base_url('Assets/'); ?>LandingPage/css/style.css" rel="stylesheet">
-
-    <style>
-    .title-content {
-        font-size: 20px;
-        font-weight: 700;
-        color: #000;
-    }
-
-    .content-text {
-        font-size: 16px;
-        color: #000;
-        margin-bottom: 25px;
-    }
-
-    .icon-left {
-        display: flex;
-        justify-content: right;
-        align-items: start;
-    }
-
-    .icon-right {
-        display: flex;
-        justify-content: left;
-        align-items: start;
-    }
-
-    .btn_soft {
-        background-color: #FFA62F;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 10px;
-        text-decoration: none;
-    }
-
-    .btn_soft:hover {
-        background-color: #044aad;
-        color: #fff;
-    }
-
-    .svg-line {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    </style>
-
-    <!-- =======================================================
-  * Template Name: Bootslander
-  * Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <div class="logo">
-                <div class="rows">
-                    <a href="<?= base_url('/'); ?>"><img
-                            src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="" class="img-fluid">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <!-- Button diperbaiki saat hover mode gelap -->
+                    <a href="#alur"
+                        class="relative group px-8 py-4 bg-slate-900 dark:bg-primary-600 text-white font-bold rounded-2xl shadow-xl shadow-slate-900/20 dark:shadow-primary-600/20 hover:shadow-primary-500/40 transition-all duration-300 overflow-hidden text-center">
+                        <div
+                            class="absolute inset-0 w-full h-full bg-gradient-to-r from-primary-600 to-accent-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                        <span class="relative flex items-center justify-center gap-2 group-hover:text-white">Mulai
+                            Pendaftaran <i
+                                class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
                     </a>
-                    <h1 class="mx-2">
-                        <a href="<?= base_url('/'); ?>">SPMB SMANSA</a>
-                    </h1>
+                    <a href="#jalur"
+                        class="px-8 py-4 glass text-slate-800 dark:text-white font-bold rounded-2xl hover:bg-white/50 dark:hover:bg-slate-800 transition-all duration-300 text-center flex items-center justify-center gap-2 group">
+                        Pelajari Jalur <i
+                            class="fa-solid fa-book-open text-primary-500 dark:text-primary-400 group-hover:rotate-12 transition-transform"></i>
+                    </a>
                 </div>
             </div>
 
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-                    <li><a class="nav-link scrollto" href="#persyaratan">Persyaratan</a></li>
-                    <li><a class="nav-link scrollto" href="#ketentuan">Ketentuan</a></li>
-                    <li><a class="nav-link scrollto" href="#alur">Alur</a></li>
-                    <li><a class="nav-link scrollto" href="#kontak">Kontak</a></li>
-                    <?php 
-                    if($status_antrian== '1'):
-                    ?>
-                    <li><a class="nav-link scrollto" href="<?= base_url('Antrean')?>">Antrean</a></li>
-                    <?php 
-                    endif;
-                    ?>
-                    <li><a class="nav-link scrollto" href="<?= base_url('Pengumuman')?>">Pengumuman</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+            <!-- Konten Kanan (Visual) -->
+            <div class="relative z-10 lg:pl-10 reveal reveal-delay-2 mt-8 lg:mt-0 animate-float">
+                <div
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-primary-500/20 to-accent-500/20 rounded-full blur-3xl -z-10">
+                </div>
 
-        </div>
-    </header><!-- End Header -->
+                <div
+                    class="relative rounded-[2.5rem] p-3 glass shadow-2xl border border-white/50 dark:border-slate-700/50">
+                    <div class="relative rounded-3xl overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-primary-900/10 group-hover:bg-transparent transition-colors duration-500 z-10">
+                        </div>
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero">
+                        <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png" alt="Murid SMAN 1 Pekalongan"
+                            class="w-full h-auto object-cover object-center aspect-[4/3] transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
 
-        <div class="container my-3">
-            <div class="row justify-content-between">
-                <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
-                    <div data-aos="zoom-out">
-                        <h1>SPMB <span>2025/2026</span></h1>
-                        <h2>
-                            Selamat Datang di Website Informasi SPMB(Sistem Penerimaan Murid Baru) SMAN 1 Pekalongan
-                        </h2>
-                        <div class="text-center text-lg-start">
-                            <a href="#persyaratan" class="btn-get-started scrollto">Daftar Sekarang</a>
+                    <!-- Floating Cards -->
+                    <div class="absolute -bottom-6 -left-2 sm:-left-8 glass p-3 sm:p-4 rounded-2xl shadow-xl shadow-primary-500/10 flex items-center gap-3 sm:gap-4 animate-float"
+                        style="animation-delay: 1s;">
+                        <!-- <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white shadow-lg shadow-green-500/30">
+                                <i class="fa-solid fa-file-circle-check text-lg sm:text-xl"></i>
+                            </div> -->
+                        <div
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center text-white shadow-lg shadow-red-500/30">
+                            <i class="fa-solid fa-user-graduate text-lg sm:text-xl"></i>
+                        </div>
+                        <div>
+                            <p
+                                class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">
+                                SPMB</p>
+                            <p class="text-slate-900 dark:text-white font-extrabold text-sm sm:text-lg">Belum Dibuka
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
-                    <!-- inluce svg -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="img-fluid animated" data-name="Layer 1"
-                        width="891.29496" height="745.19434" viewBox="0 0 891.29496 745.19434"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <ellipse cx="418.64354" cy="727.19434" rx="352" ry="18" fill="#f2f2f2" />
-                        <path
-                            d="M778.64963,250.35008h-3.99878V140.80476a63.40187,63.40187,0,0,0-63.4018-63.40193H479.16232a63.40188,63.40188,0,0,0-63.402,63.4017v600.9744a63.40189,63.40189,0,0,0,63.4018,63.40192H711.24875a63.40187,63.40187,0,0,0,63.402-63.40168V328.32632h3.99878Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#3f3d56" />
-                        <path
-                            d="M761.156,141.24713v600.09a47.35072,47.35072,0,0,1-47.35,47.35h-233.2a47.35084,47.35084,0,0,1-47.35-47.35v-600.09a47.3509,47.3509,0,0,1,47.35-47.35h28.29a22.50659,22.50659,0,0,0,20.83,30.99h132.96a22.50672,22.50672,0,0,0,20.83-30.99h30.29A47.35088,47.35088,0,0,1,761.156,141.24713Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#fff" />
-                        <path
-                            d="M686.03027,400.0032q-2.32543,1.215-4.73047,2.3-2.18994.99-4.4497,1.86c-.5503.21-1.10987.42-1.66992.63a89.52811,89.52811,0,0,1-13.6001,3.75q-3.43506.675-6.96,1.06-2.90991.33-5.87989.47c-1.41015.07-2.82031.1-4.24023.1a89.84124,89.84124,0,0,1-16.75977-1.57c-1.44043-.26-2.85009-.57-4.26025-.91a88.77786,88.77786,0,0,1-19.66992-7.26c-.56006-.28-1.12012-.58-1.68018-.87-.83008-.44-1.63965-.9-2.4497-1.38.38964-.54.81005-1.07,1.23974-1.59a53.03414,53.03414,0,0,1,78.87012-4.1,54.27663,54.27663,0,0,1,5.06006,5.86C685.25977,398.89316,685.6499,399.44321,686.03027,400.0032Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#ffa62f" />
-                        <circle cx="492.14325" cy="234.76352" r="43.90974" fill="#2f2e41" />
-                        <circle cx="642.49883" cy="327.46205" r="32.68086"
-                            transform="translate(-232.6876 270.90663) rotate(-28.66315)" fill="#a0616a" />
-                        <path
-                            d="M676.8388,306.90589a44.44844,44.44844,0,0,1-25.402,7.85033,27.23846,27.23846,0,0,0,10.796,4.44154,89.62764,89.62764,0,0,1-36.61.20571,23.69448,23.69448,0,0,1-7.66395-2.63224,9.699,9.699,0,0,1-4.73055-6.3266c-.80322-4.58859,2.77227-8.75743,6.488-11.567a47.85811,47.85811,0,0,1,40.21662-8.03639c4.49246,1.16124,8.99288,3.12327,11.91085,6.731s3.78232,9.16981,1.00224,12.88488Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#2f2e41" />
-                        <path
-                            d="M644.5,230.17319a89.98675,89.98675,0,0,0-46.83984,166.83l.58007.34q.72.43506,1.43995.84c.81005.48,1.61962.94,2.4497,1.38.56006.29,1.12012.59,1.68018.87a88.77786,88.77786,0,0,0,19.66992,7.26c1.41016.34,2.81982.65,4.26025.91a89.84124,89.84124,0,0,0,16.75977,1.57c1.41992,0,2.83008-.03,4.24023-.1q2.97-.135,5.87989-.47,3.52513-.39,6.96-1.06a89.52811,89.52811,0,0,0,13.6001-3.75c.56005-.21,1.11962-.42,1.66992-.63q2.26464-.87,4.4497-1.86,2.40015-1.08,4.73047-2.3a90.7919,90.7919,0,0,0,37.03955-35.97c.04-.07995.09034-.16.13038-.24a89.30592,89.30592,0,0,0,9.6499-26.41,90.051,90.051,0,0,0-88.3501-107.21Zm77.06006,132.45c-.08008.14-.1499.28-.23.41a88.17195,88.17195,0,0,1-36.48,35.32q-2.29542,1.2-4.66992,2.25c-1.31006.59-2.64991,1.15-4,1.67-.57032.22-1.14991.44-1.73.64a85.72126,85.72126,0,0,1-11.73,3.36,84.69473,84.69473,0,0,1-8.95019,1.41c-1.8501.2-3.73.34-5.62012.41-1.21.05-2.42969.08-3.6499.08a86.762,86.762,0,0,1-16.21973-1.51,85.62478,85.62478,0,0,1-9.63037-2.36,88.46592,88.46592,0,0,1-13.98974-5.67c-.52-.27-1.04-.54-1.5503-.82-.73-.39-1.46972-.79-2.18994-1.22-.54-.3-1.08008-.62-1.60986-.94-.31006-.18-.62012-.37-.93018-.56a88.06851,88.06851,0,1,1,123.18018-32.47Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#3f3d56" />
-                        <path
-                            d="M624.2595,268.86254c-.47244-4.968-6.55849-8.02647-11.3179-6.52583s-7.88411,6.2929-8.82863,11.19308a16.0571,16.0571,0,0,0,2.16528,12.12236c2.40572,3.46228,6.82664,5.623,10.95,4.74406,4.70707-1.00334,7.96817-5.59956,8.90127-10.32105s.00667-9.58929-.91854-14.31234Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#2f2e41" />
-                        <path
-                            d="M691.24187,275.95964c-.47245-4.968-6.5585-8.02646-11.3179-6.52582s-7.88412,6.29289-8.82864,11.19307a16.05711,16.05711,0,0,0,2.16529,12.12236c2.40571,3.46228,6.82663,5.623,10.95,4.74406,4.70707-1.00334,7.96817-5.59955,8.90127-10.32105s.00667-9.58929-.91853-14.31234Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#2f2e41" />
-                        <path
-                            d="M488.93638,356.14169a4.47525,4.47525,0,0,1-3.30664-1.46436L436.00767,300.544a6.02039,6.02039,0,0,0-4.42627-1.94727H169.3618a15.02615,15.02615,0,0,1-15.00928-15.00927V189.025a15.02615,15.02615,0,0,1,15.00928-15.00928H509.087A15.02615,15.02615,0,0,1,524.0963,189.025v94.5625A15.02615,15.02615,0,0,1,509.087,298.59676h-9.63135a6.01157,6.01157,0,0,0-6.00464,6.00489v47.0332a4.474,4.474,0,0,1-2.87011,4.1958A4.52563,4.52563,0,0,1,488.93638,356.14169Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#fff" />
-                        <path
-                            d="M488.93638,356.14169a4.47525,4.47525,0,0,1-3.30664-1.46436L436.00767,300.544a6.02039,6.02039,0,0,0-4.42627-1.94727H169.3618a15.02615,15.02615,0,0,1-15.00928-15.00927V189.025a15.02615,15.02615,0,0,1,15.00928-15.00928H509.087A15.02615,15.02615,0,0,1,524.0963,189.025v94.5625A15.02615,15.02615,0,0,1,509.087,298.59676h-9.63135a6.01157,6.01157,0,0,0-6.00464,6.00489v47.0332a4.474,4.474,0,0,1-2.87011,4.1958A4.52563,4.52563,0,0,1,488.93638,356.14169ZM169.3618,176.01571A13.024,13.024,0,0,0,156.35252,189.025v94.5625a13.024,13.024,0,0,0,13.00928,13.00927H431.5814a8.02436,8.02436,0,0,1,5.90039,2.59571l49.62208,54.1333a2.50253,2.50253,0,0,0,4.34716-1.69092v-47.0332a8.0137,8.0137,0,0,1,8.00464-8.00489H509.087a13.024,13.024,0,0,0,13.00928-13.00927V189.025A13.024,13.024,0,0,0,509.087,176.01571Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#3f3d56" />
-                        <circle cx="36.81601" cy="125.19345" r="13.13371" fill="#ffa62f" />
-                        <path
-                            d="M493.76439,275.26947H184.68447a7.00465,7.00465,0,1,1,0-14.00929H493.76439a7.00465,7.00465,0,0,1,0,14.00929Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#e6e6e6" />
-                        <path
-                            d="M393.07263,245.49973H184.68447a7.00465,7.00465,0,1,1,0-14.00929H393.07263a7.00464,7.00464,0,0,1,0,14.00929Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#e6e6e6" />
-                        <path
-                            d="M709.41908,676.83065a4.474,4.474,0,0,1-2.87011-4.1958v-47.0332a6.01157,6.01157,0,0,0-6.00464-6.00489H690.913a15.02615,15.02615,0,0,1-15.00928-15.00927V510.025A15.02615,15.02615,0,0,1,690.913,495.01571H1030.6382a15.02615,15.02615,0,0,1,15.00928,15.00928v94.5625a15.02615,15.02615,0,0,1-15.00928,15.00927H768.4186a6.02039,6.02039,0,0,0-4.42627,1.94727l-49.62207,54.1333a4.47525,4.47525,0,0,1-3.30664,1.46436A4.52563,4.52563,0,0,1,709.41908,676.83065Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#fff" />
-                        <path
-                            d="M709.41908,676.83065a4.474,4.474,0,0,1-2.87011-4.1958v-47.0332a6.01157,6.01157,0,0,0-6.00464-6.00489H690.913a15.02615,15.02615,0,0,1-15.00928-15.00927V510.025A15.02615,15.02615,0,0,1,690.913,495.01571H1030.6382a15.02615,15.02615,0,0,1,15.00928,15.00928v94.5625a15.02615,15.02615,0,0,1-15.00928,15.00927H768.4186a6.02039,6.02039,0,0,0-4.42627,1.94727l-49.62207,54.1333a4.47525,4.47525,0,0,1-3.30664,1.46436A4.52563,4.52563,0,0,1,709.41908,676.83065ZM690.913,497.01571A13.024,13.024,0,0,0,677.9037,510.025v94.5625A13.024,13.024,0,0,0,690.913,617.59676h9.63135a8.0137,8.0137,0,0,1,8.00464,8.00489v47.0332a2.50253,2.50253,0,0,0,4.34716,1.69092l49.62208-54.1333a8.02436,8.02436,0,0,1,5.90039-2.59571h262.2196a13.024,13.024,0,0,0,13.00928-13.00927V510.025a13.024,13.024,0,0,0-13.00928-13.00928Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#3f3d56" />
-                        <path
-                            d="M603.53027,706.11319a89.06853,89.06853,0,0,1-93.65039,1.49,54.12885,54.12885,0,0,1,9.40039-12.65,53.43288,53.43288,0,0,1,83.90967,10.56994C603.2998,705.71316,603.41992,705.91318,603.53027,706.11319Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#ffa62f" />
-                        <circle cx="398.44256" cy="536.68841" r="44.20157" fill="#2f2e41" />
-                        <circle cx="556.81859" cy="629.4886" r="32.89806"
-                            transform="translate(-416.96496 738.72884) rotate(-61.33685)" fill="#ffb8b8" />
-                        <path
-                            d="M522.25039,608.79582a44.74387,44.74387,0,0,0,25.57085,7.9025,27.41946,27.41946,0,0,1-10.8677,4.47107,90.22316,90.22316,0,0,0,36.85334.20707,23.852,23.852,0,0,0,7.71488-2.64973,9.76352,9.76352,0,0,0,4.762-6.36865c.80855-4.61909-2.7907-8.81563-6.53113-11.64387a48.17616,48.17616,0,0,0-40.4839-8.08981c-4.52231,1.169-9.05265,3.144-11.99,6.77579s-3.80746,9.23076-1.0089,12.97052Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#2f2e41" />
-                        <path
-                            d="M555.5,721.17319a89.97205,89.97205,0,1,1,48.5708-14.21875A89.87958,89.87958,0,0,1,555.5,721.17319Zm0-178a88.00832,88.00832,0,1,0,88,88A88.09957,88.09957,0,0,0,555.5,543.17319Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#3f3d56" />
-                        <circle cx="563.81601" cy="445.19345" r="13.13371" fill="#ffa62f" />
-                        <path
-                            d="M1020.76439,595.26947H711.68447a7.00465,7.00465,0,1,1,0-14.00929h309.07992a7.00464,7.00464,0,0,1,0,14.00929Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#e6e6e6" />
-                        <path
-                            d="M920.07263,565.49973H711.68447a7.00465,7.00465,0,1,1,0-14.00929H920.07263a7.00465,7.00465,0,0,1,0,14.00929Z"
-                            transform="translate(-154.35252 -77.40283)" fill="#e6e6e6" />
-                        <ellipse cx="554.64354" cy="605.66091" rx="24.50394" ry="2.71961" fill="#f2f2f2" />
-                        <ellipse cx="335.64354" cy="285.66091" rx="24.50394" ry="2.71961" fill="#f2f2f2" />
-                    </svg>
-                    <!-- <img src="<?= base_url('Assets/'); ?>LandingPage/img/hero-img.png" class="img-fluid animated" alt=""> -->
+
+                    <div class="absolute -top-6 -right-2 sm:-right-6 glass px-3 sm:px-4 py-2 sm:py-3 rounded-2xl shadow-xl flex items-center gap-2 sm:gap-3 animate-float"
+                        style="animation-delay: 2s;">
+                        <span class="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                            <span
+                                class="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-primary-500"></span>
+                        </span>
+                        <p class="text-xs sm:text-sm font-bold text-slate-800 dark:text-white">TA. 2026/2027</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
 
-        <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28 " preserveAspectRatio="none">
-            <defs>
-                <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-            </defs>
-            <g class="wave1">
-                <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
-            </g>
-            <g class="wave2">
-                <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
-            </g>
-            <g class="wave3">
-                <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
-            </g>
+    <!-- Gelombang Bawah -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        <svg class="relative block w-full h-[30px] sm:h-[50px] md:h-[100px]" data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path
+                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C-1,95.8,11.55,90.43,26.4,84.14,103.49,51.54,208.89,77.53,321.39,56.44Z"
+                class="fill-white dark:fill-slate-900 transition-colors duration-500"></path>
         </svg>
+    </div>
+</section>
 
-    </section><!-- End Hero -->
+<!-- 3. Jalur Pendaftaran (Section) -->
+<section id="jalur" class="py-16 md:py-24 bg-white dark:bg-slate-900 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <span
+                class="text-primary-600 dark:text-primary-400 font-extrabold uppercase tracking-widest text-xs md:text-sm mb-2 block">Pilihan
+                Penerimaan</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">Jalur Pendaftaran
+            </h2>
+            <div class="w-16 md:w-24 h-1.5 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full mb-6">
+            </div>
+            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed p-4 glass rounded-2xl">
+                Sesuai dengan Petunjuk Operasional Penyelenggaraan SPMB SMA Negeri Provinsi Jawa Tengah Tahun
+                2026/2027.
+            </p>
+        </div>
 
-    <main id="main">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-        <!-- ======= Informasi Section ======= -->
-        <section id="informasi" class="about">
-            <div class="container-fluid">
-
-                <div class="row">
+            <!-- Infografis Kuota dengan Animasi Bar -->
+            <div class="lg:col-span-4 relative order-2 lg:order-1 reveal reveal-delay-1">
+                <div
+                    class="sticky top-28 bg-slate-50 dark:bg-slate-800/40 rounded-[2rem] p-6 sm:p-8 border border-slate-200 dark:border-slate-700 text-center shadow-lg">
                     <div
-                        class="col-xl-5 col-lg-4 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-                        <div id="carouselExampleIndicators" class="carousel slide">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
+                        class="absolute -top-6 -right-6 w-20 h-20 bg-primary-400 blur-2xl rounded-full opacity-20 pointer-events-none">
+                    </div>
+                    <h3 class="text-xl font-bold mb-8 text-slate-900 dark:text-white relative z-10">Kuota Penerimaan
+                    </h3>
+
+                    <div class="space-y-6 text-left relative z-10" id="progress-container">
+                        <!-- Domisili -->
+                        <div>
+                            <div class="flex justify-between items-end mb-2">
+                                <span
+                                    class="font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-blue-500"></div> Domisili / Zonasi
+                                </span>
+                                <span class="font-black text-blue-600 dark:text-blue-400">55%</span>
                             </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block w-100 rounded-3" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block w-100 rounded-3" alt="...">
-                                </div>
+                            <div
+                                class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden shadow-inner">
+                                <div class="progress-bar bg-gradient-to-r from-blue-400 to-blue-600 h-full rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="55%"></div>
                             </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
                         </div>
-                    </div>
-
-                    <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
-                        data-aos="fade">
-                        <h3>Informasi</h3>
-                        <p>
-                            Berdasarkan Surat Keputusan Kepala Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah
-                            Nomor : 400.3 / 06498, Tentang PETUNJUK OPERASIONAL PENYELENGGARAAN SISTEM PENERIMAAN MURID
-                            BARU PADA SEKOLAH MENENGAH ATAS (SMA) NEGERI DAN SEKOLAH MENENGAH KEJURUAN (SMK) NEGERI
-                            PROVINSI JAWA TENGAH TAHUN AJARAN 2025/2026. Maka jalur penerimaan murid baru di SMA Negeri
-                            1
-                            Pekalongan Tahun Ajaran 2025/2026 adalah sebagai berikut :
-                        </p>
-
-                        <div class="icon-box" data-aos="fade" data-aos-delay="100">
-                            <div class="icon">
-                                <!-- maps location -->
-                                <i class="bi bi-geo-alt"></i>
-                                </i>
+                        <!-- Prestasi -->
+                        <div>
+                            <div class="flex justify-between items-end mb-2">
+                                <span
+                                    class="font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div> Prestasi
+                                </span>
+                                <span class="font-black text-green-600 dark:text-green-400">20%</span>
                             </div>
-                            <h4 class="title"><a href="">Jalur Domisili</a></h4>
-                            <p class="description">
-                                Jalur Domisili adalah jalur dalam penerimaan Murid baru yang diperuntukkan bagi calon
-                                Murid yang berdomisili di dalam wilayah penerimaan Murid baru yang ditetapkan oleh
-                                Pemerintah Daerah.
-                            </p>
+                            <div
+                                class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden shadow-inner">
+                                <div class="progress-bar bg-gradient-to-r from-green-400 to-green-600 h-full rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="20%"></div>
+                            </div>
                         </div>
-                        <div class="icon-box" data-aos="fade" data-aos-delay="300">
-                            <div class="icon"><i class="bi bi-award"></i></div>
-                            <h4 class="title"><a href="">Jalur Afirmasi</a></h4>
-                            <p class="description">
-                                jalur Afirmasi adalah jalur dalam penerimaan Murid baru yang diperuntukkan bagi calon
-                                Murid
-                                yang berasal dari keluarga ekonomi tidak mampu dan calon murid penyandang disabilitas.
-                            </p>
+                        <!-- Afirmasi -->
+                        <div>
+                            <div class="flex justify-between items-end mb-2">
+                                <span
+                                    class="font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-amber-500"></div> Afirmasi
+                                </span>
+                                <span class="font-black text-amber-600 dark:text-amber-400">20%</span>
+                            </div>
+                            <div
+                                class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden shadow-inner">
+                                <div class="progress-bar bg-gradient-to-r from-amber-400 to-amber-600 h-full rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="20%"></div>
+                            </div>
                         </div>
-                        <div class="icon-box" data-aos="fade" data-aos-delay="200">
-                            <div class="icon"><i class="bi bi-trophy"></i></div>
-                            <h4 class="title"><a href="">Jalur Prestasi</a></h4>
-                            <p class="description">
-                                Jalur Prestasi adalah jalur dalam penerimaan Murid baru yang diperuntukkan bagi calon
-                                Murid yang memiliki prestasi di bidang akademik dan/atau nonakademik.
-                            </p>
-                        </div>
-                        <div class="icon-box" data-aos="fade" data-aos-delay="200">
-                            <div class="icon"><i class="bi bi-people"></i></div>
-                            <h4 class="title"><a href="">Jalur Mutasi</a></h4>
-                            <p class="description">
-                                Jalur Mutasi adalah jalur dalam penerimaan Murid baru yang diperuntukkan bagi calon
-                                Murid yang berpindah domisili karena perpindahan tugas dari orang tua/wali dan bagi anak
-                                guru yang mendaftar di satuan pendidikan tempat orang tua mengajar.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- End Informasi Section -->
-
-        <!-- ======= Informasi section Section ======= -->
-        <section id="" class="counts">
-            <div class="container">
-                <div class="section-title" data-aos="fade">
-                    <h2>Informasi</h2>
-                    <p>Daya Tampung</p>
-                </div>
-                <div class="row mb-4" data-aos="fade">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-geo-alt"></i>
-                            <span class="persen">33%</span>
-                            <p>Jalur Domisili</p>
+                        <!-- Mutasi -->
+                        <div>
+                            <div class="flex justify-between items-end mb-2">
+                                <span
+                                    class="font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-rose-500"></div> Mutasi Tugas
+                                </span>
+                                <span class="font-black text-rose-600 dark:text-rose-400">5%</span>
+                            </div>
+                            <div
+                                class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden shadow-inner">
+                                <div class="progress-bar bg-gradient-to-r from-rose-400 to-rose-600 h-full rounded-full w-0 transition-all duration-1000 ease-out"
+                                    data-width="5%"></div>
+                            </div>
                         </div>
                     </div>
-
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-                        <div class="count-box">
-                            <i class="bi bi-award"></i>
-                            <span class="persen">32%</span>
-                            <p>Jalur Afiramsi</p>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                        <div class="count-box">
-                            <i class="bi bi-trophy"></i>
-                            <span> 30%
-                            </span>
-                            <p>Jalur Prestasi</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                        <div class="count-box">
-                            <i class="bi bi-people"></i>
-                            <span>5%</span>
-                            <p>Jalur Mutasi</p>
-                        </div>
-                    </div>
-
-                    <!-- add present after number -->
-                    <script type="text/javascript">
-                    </script>
-
-
-                    <div class="col-lg-12 mt-5 text-center">
-
-                        <h5>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Data diatas merupakan presentase daya tampung tiap jalur yang ada di SMA Negeri 1 Pekalongan
-                            Tahun
-                            Ajaran
-                            2025/2026, Dengan total daya tampung sebanyak 324 calon murid baru.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </h5>
-                    </div>
+                    <button onclick="document.getElementById('modal-jalur').classList.remove('hidden')"
+                        class="mt-10 w-full py-4 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-black hover:to-black text-white dark:from-primary-600 dark:to-accent-600 dark:hover:from-primary-500 dark:hover:to-accent-500 font-bold rounded-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group">
+                        <span
+                            class="absolute top-0 left-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-[shimmer_1s_forwards]"></span>
+                        <i class="fa-solid fa-expand mr-2"></i> Detail Aturan
+                    </button>
                 </div>
             </div>
 
-            </div>
-        </section><!-- End Informasi Section -->
-
-        <!-- ======= Persyaratan Section ======= -->
-        <section id="persyaratan" class="details">
-            <div class="container">
-                <div class="section-title" data-aos="fade">
-                    <h2>Persyaratan</h2>
-                    <p>Umum & Khusus</p>
-                </div>
-                <div class="row content">
-                    <div class="col-md-4" data-aos="fade">
-                        <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png" class="img-fluid rounded-4"
-                            alt="" />
+            <!-- Kartu Jalur -->
+            <div class="lg:col-span-8 order-1 lg:order-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div
+                    class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] dark:hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden reveal">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 dark:bg-blue-500/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500">
                     </div>
-                    <div class="col-md-8 pt-4" data-aos="fade">
-                        <h3>Persyaratan UMUM</h3>
-                        <!-- <p class="fst-italic">
-
-                        </p> -->
-                        <ul>
-                            <li class="list-items"><i class="bi bi-check"></i>
-                                Warga Negara Indonesia (WNI).
-                            </li>
-                            <li class="list-items"><i class="bi bi-check"></i> Calon murid telah menyelesaikan
-                                pendidikan SMP/MTS atau sederajat.</li>
-                            </li>
-                            <li class="list-items"><i class="bi bi-check"></i>
-                                Usia calon murid maksimal 21 tahun pada tanggal 1 Juli tahun berjalan,
-                                dan belum menikah.
-                            </li>
-                            <li class="list-items"><i class="bi bi-check"></i>
-                                Melakukan pendaftaran secara online dan mencetak bukti pendaftaran (Bukti
-                                pendaftaran
-                                yang sudah dicetak dan dibawa saat pengumpulan berkas).</li>
-                        </ul>
+                    <div
+                        class="w-12 h-12 md:w-14 md:h-14 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
+                    <h4
+                        class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        Jalur Domisili</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Prioritas bagi calon Murid
+                        yang berdomisili paling dekat dengan sekolah berdasarkan titik koordinat (Radius).</p>
                 </div>
 
-                <div class="row content">
-                    <div class="col-md-5 order-1 order-md-2" data-aos="fade">
-                        <div id="carousel_persyaratan" class="carousel slide">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carousel_persyaratan" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carousel_persyaratan" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carousel_persyaratan" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                                <button type="button" data-bs-target="#carousel_persyaratan" data-bs-slide-to="3"
-                                    aria-label="Slide 4"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block rounded-4 img-fluid" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block img-fluid rounded-4" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block img-fluid rounded-4" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block img-fluid rounded-4" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_persyaratan"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel_persyaratan"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
+                <div
+                    class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-[0_10px_30px_rgba(245,158,11,0.15)] dark:hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden reveal reveal-delay-1">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 dark:bg-amber-500/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500">
                     </div>
-                    <div class="col-md-7 pt-5 order-2 order-md-1 umum" data-aos="fade-up">
-                        <h3>Persyaratan Khusus</h3>
-                        <div class="umum-list">
-                            <ul>
-                                <li data-aos="fade-up" data-aos-delay="100">
-                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan1" class="collapsed">
-                                        Domisili
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="persyaratan1" class="collapse" data-bs-parent=".umum-list">
-
-                                        <ol class="ml-2">
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran dokumen. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
-                                                    Surat</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                Buku rapor SMP/Sederajat
-                                            </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
-                                                    class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
-                                                    Surat</a> </li>
-                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
-                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
-                                            <li class="pb-2">Kartu keluarga(KK).</br>
-                                                <span class="fw-bold">Ketentuan :</span>
-                                                <ol class="ml-2 sub_ol" type='a'>
-                                                    <li class="">Kartu Keluarga (paling singkat 1 tahun yang dihitung
-                                                        sampai dengan tanggal akhir pendaftaran SMPB 17 Juni 2025)</li>
-                                                </ol>
-                                            </li>
-                                            <li class="pb-2">
-                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
-                                                    Ketentuan</a>
-                                            </li>
-                                        </ol>
-                                        <style>
-                                        .ml-3 {
-                                            margin-bottom: 0;
-                                        }
-
-                                        .pb-2 !important {
-                                            padding-bottom: 0 !important;
-                                        }
-
-                                        .fw-bold {
-                                            font-weight: bold;
-                                        }
-
-                                        .sub-link {
-                                            cursor: pointer;
-                                        }
-
-                                        .sub_ol {
-                                            list-style-type: lower-alpha;
-                                            margin-bottom: 0 !important;
-                                        }
-                                        </style>
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan4"
-                                        class="collapsed">Prestasi
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="persyaratan4" class="collapse" data-bs-parent=".umum-list">
-                                        <ol class="ml-2">
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran dokumen. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
-                                                    Surat</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                Buku rapor SMP/Sederajat
-                                            </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
-                                                    class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
-                                                    Surat</a> </li>
-                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
-                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
-                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
-                                            <li class="pb-2">
-                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
-                                                    Ketentuan</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran prestasi. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1vThchunn3CyM4yqfK6gk5LhNIuoX6F_S/view">Download
-                                                    Surat</a>
-                                            </li>
-
-                                        </ol>
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan2"
-                                        class="collapsed">Afirmasi
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="persyaratan2" class="collapse" data-bs-parent=".umum-list">
-                                        <ol class="ml-2">
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran dokumen. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
-                                                    Surat</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                Buku rapor SMP/Sederajat
-                                            </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
-                                                    class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
-                                                    Surat</a> </li>
-                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
-                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
-                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
-                                            <li class="pb-2">
-                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
-                                                    Ketentuan</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                CMB yang memiliki Kartu Penyandang Disabilitas dari Kementrian Sosial
-                                                atau Surat Keterangan dari Dokter/Dokter Spesialis:
-                                            </li>
-                                            <li class="pb-2">
-                                                CMB yang bersal dari keluarga ekonomi kurang mampu dibuktikan dengan :
-                                                <br>
-                                                <span class="fw-bold">Ketentuan :</span>
-                                                <ol class="ml-2 sub_ol" type='a'>
-                                                    <li class="">Terdatadalam Data Terpadu Kesejahteraan Sosial (DTKS)
-                                                        Prioritas 1,2 dan 3
-                                                        yang dikeluarkan oleh Kementerian Sosial(Screenshoot DTK). <br>
-                                                        <a href="" id="https://caribdt.dinsos.jatengprov.go.id/"
-                                                            class="sub-link btn_link">Link DTKS</a>
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                            <li class="pb-2">
-                                                CMB yang bersal dari panti asuhan berdasarkan data yang
-                                                ditetapkan/dikelola oleh Dinas Sosial Provinsi Jawa Tengah.
-                                                <a href="" class="sub-link btn_file_pdf"
-                                                    id="JUKNIS-SPMB025.pdf">Download
-                                                    surat keterangan</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                CMB ATS yang terdaftar dalam Database Pusdatin Kemendikdasmen/Surat
-                                                Pernyataan dari calon murid.
-                                                <br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1eNkeku1iyt68-JlR2SqV-fAGHU1e0UlwOiEqmY3_nr8/edit?tab=t.0">Download
-                                                    surat keterangan</a>
-
-                                            </li>
-
-                                        </ol>
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#persyaratan3" class="collapsed">Mutasi
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="persyaratan3" class="collapse" data-bs-parent=".umum-list">
-                                        <ol class="ml-2">
-                                            <li class="pb-2">
-                                                Surat pernyataan kebenaran dokumen. </br>
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://docs.google.com/document/d/1XZOpvdwUQ3VsjFDDpokR6NlzL0xLY_tkAlOiXD3G5-Y/edit?tab=t.0">Download
-                                                    Surat</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                Buku rapor SMP/Sederajat
-                                            </li>
-                                            <li class="pb-2">Surat keterangan nilai rapor semester 1 -5 </br> <a href=""
-                                                    class="sub-link btn_link"
-                                                    id="https://drive.google.com/file/d/1zmAKhR3bJwKEnfUKdRA10gYqCl8iJ-we/view">Download
-                                                    Surat</a> </li>
-                                            <li class="pb-2">Ijazah SMP/SKL/Kejar Paket B</li>
-                                            <li class="pb-2">Akta kelahiran maksimal umur 21 tahun</li>
-                                            <li class="pb-2">Kartu keluarga(KK). <br></li>
-                                            <li class="pb-2">
-                                                Piagam prestasi akademik maupun non akademik (jika ada). </br>
-                                                <a href="" class="sub-link btn_file_pdf" id="JUKNIS-SPMB025.pdf">Lihat
-                                                    Ketentuan</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                Surat penugasan dari kantor/instansi yang bersangkutan.</br>
-                                                <span class="fw-bold">Ketentuan :</span>
-                                                <ol class="ml-2 sub_ol" type='a'>
-                                                    <li class="">
-                                                        Surat Penugasan sekurang-kurangnya antar Kabupaten/Kota mininal
-                                                        1
-                                                        tahun.
-                                                    </li>
-                                                    <li class="">
-                                                        Kartu Keluarga Luar Kabupaten/Kota
-                                                    </li>
-
-                                                </ol>
-                                            </li>
-                                            <li class="">
-                                                Surat Keterangan Domisili yang diterbitkan oleh Kepala
-                                                Desa/Lurah dan diketahui oleh Camat
-                                            </li>
-
-                                        </ol>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <div
+                        class="w-12 h-12 md:w-14 md:h-14 bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hands-holding-child"></i>
                     </div>
-                </div>
-            </div>
-        </section><!-- End Persyaratan Section -->
-
-        <!-- ======= ketentuan Section ======= -->
-        <section id="ketentuan" class="faq section-bg">
-            <div class="container">
-                <div class="section-title" data-aos="fade">
-                    <h2>Ketentuan</h2>
-                    <p>Ketentuan Pendaftaran</p>
-                </div>
-                <div class="row content">
-                    <div class="col-md-5 order-1 order-md-2" data-aos="fade">
-                        <div id="carousel_ketentuan" class="carousel slide">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carousel_ketentuan" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block rounded-4 img-fluid" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block img-fluid rounded-4" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="<?= base_url('Assets/'); ?>Documents/images/spmb.png"
-                                        class="d-block img-fluid rounded-4" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_ketentuan"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel_ketentuan"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-md-7 pt-4" data-aos="fade-up">
-                        <div class="faq-list">
-                            <ul>
-                                <li data-aos="fade-up" data-aos-delay="100">
-                                    <a data-bs-toggle="collapse" data-bs-target="#pendaftaran1" class="collapsed">
-                                        Pendaftaran Akun dan
-                                        Verifikasi Berkas
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="pendaftaran1" class="collapse" data-bs-parent=".faq-list">
-                                        <ol class="ml-2">
-                                            <li class="pb-2">
-                                                CMB melakukan pendaftaran akun pada laman SPMB Jateng PRov secara
-                                                mandiri
-                                                dirumah.
-                                                <a href="" class="sub-link btn_link"
-                                                    id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
-                                            </li>
-                                            <li class="pb-2">
-                                                CMB melakukan verifikasi berkas pada sekolah terdekat. <br>
-                                                <span class="fw-bold">Ketentuan verifikasi berkas di SMAN 1
-                                                    Pekalongan:</span>
-                                                <ol class="ml-2 sub_ol" type='a'>
-                                                    <li class="">Melakukan pendaftaran antrean <br>
-                                                        <a href="" class="sub-link btn_link"
-                                                            id="https://spmb.sman1pekalongan.sch.id/Antrean">Link
-                                                            antrean</a>
-                                                    </li>
-                                                    <li class="pb-2">Membawa berkas pendaftaran. <br>
-                                                        <a href="#persyaratan" class="sub-link "
-                                                            id="JUKNIS-SPMB025.pdf">Lihat persyartan</a>
-                                                    </li>
-                                                    <li class="pb-2">Mengenakan seragam sekolah asal </li>
-                                                    <li class="pb-2">Potongan ramput rapi (CMB Putra) </li>
-                                                    <li class="pb-2">Mengenakan spatu & kaos kaki </li>
-                                                    <li class="pb-2">Orang tua/wali yg mengantar berpakaian rapi
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                        </ol>
-
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#pendaftaran3"
-                                        class="collapsed">Aktifasi Akun
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="pendaftaran3" class="collapse" data-bs-parent=".faq-list">
-                                        <p class="pb-2 ml-3 ">
-                                            Setelah melakukan verifikasi berkas, CMB melakukan aktifasi akun secara
-                                            mandiri pada
-                                            mandiri pada laman SPMB Jateng Porv. <br>
-                                            <a href="" class="sub-link btn_link"
-                                                id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#pendaftaran4"
-                                        class="collapsed">Pendaftaran dan
-                                        Perubahan Pilihan
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="pendaftaran4" class="collapse" data-bs-parent=".faq-list">
-                                        <p class="pb-2 ml-3">
-                                            CMB melakukan pendaftaran sekolah SMA/SMK secara mandiri pada laman SPMB
-                                            Jateng
-                                            Prov. <br>
-                                            <a href="" class="sub-link btn_link"
-                                                id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
-                                            <span class="fw-bold ml-3 mt-2">Ketentuan :</span>
-                                        <ol class="ml-3 sub_ol mt-2" type='a'>
-                                            <li class="pb-2">
-                                                CMB dapat meilih 1 jalur zonasi dan 1 jalur prestasi/afirmasi diluar
-                                                zona.
-                                            </li>
-                                            <li class="pb-2">
-                                                CMB dapat mengubah pilihan sekolah baik dari SMA ke SMK atau sebaliknya
-                                                selama masa pendaftaran(melakukan pembatalan terlebih dahulu).
-                                            </li>
-                                        </ol>
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#pendaftaran5" class="collapsed">Masa
-                                        Tenang
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="pendaftaran5" class="collapse" data-bs-parent=".faq-list">
-                                        <p class="pb-2 ml-3 ">
-                                            CMB dapat memantau jurnal SPMB Jateng Prov, untuk
-                                            mengetahui masuk / tidaknya kedalam sekolah tujuan.<br>
-                                            <a href="" class="sub-link btn_link"
-                                                id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
-                                        </p>
-                                    </div>
-                                </li>
-
-                                <li data-aos="fade-up" data-aos-delay="200">
-                                    <a data-bs-toggle="collapse" data-bs-target="#pendaftaran6"
-                                        class="collapsed">Pengumuman
-                                        <i class="bi bi-plus icon-show"></i><i class="bi bi-x icon-close"></i></a>
-                                    <div id="pendaftaran6" class="collapse" data-bs-parent=".faq-list">
-                                        <p class="pb-2 ml-3 ">
-                                            Pengumuman SPMB 2025 dapat dilihat pada laman SPMB
-                                            Jateng Prov. <br>
-                                            <a href="" class="sub-link btn_link"
-                                                id="https://spmb.jatengprov.go.id/">Link SPMB Jateng</a>
-                                        </p>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End ketentuan Section -->
-
-        <!-- alur -->
-        <!-- ======= Alur Section ======= -->
-        <section id="alur" class="alur">
-            <div class="container">
-                <div class="section-title" data-aos="fade">
-                    <h2>Alur</h2>
-                    <p>Alur Pendaftaran</p>
+                    <h4
+                        class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                        Jalur Afirmasi</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Bagi peserta didik dari
+                        keluarga tidak mampu (DTKS), anak nakes penanganan COVID, dan penyandang disabilitas.</p>
                 </div>
 
-                <!-- alur desktop -->
-                <div class="alur-desktop">
-                    <!-- 1 -->
-                    <div class="row content" data-aos="fade">
-                        <div class="col-md-5 icon-left">
-                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/toa.png"
-                                class="img-fluid rounded-3" alt="" data-aos="fade" />
-                        </div>
-                        <div class="col-md-2 svg-line">
-                            <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
-                                <path
-                                    d="M24-606c24.962 117.911 49 191.829 49 319.375C73-159.079 23.961-94.295 24 33.25c.039 127.164 48.98 192.712 49 319.875C73.02 480.48 48.979 556.31 24 674"
-                                    stroke="#FFA62F" stroke-width="4" stroke-dasharray="8 12"></path>
-                                <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600" font-size="24">
-                                    <tspan x="17" y="30.792">1</tspan>
-                                </text>
-                            </svg>
-                        </div>
-                        <div class="col-md-5 icon-right">
-                            <div class="card border-0" data-aos="fade">
-                                <div class="card-body">
-                                    <h5 class="title-content">Pengumuman SPMB 2025</h5>
-                                    <p class="content-text">
-                                        <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">15 Juni 2025</span>
-
-                                        <style>
-                                        .icon-calenders {
-                                            font-size: 1.5rem;
-                                            color: #343a40;
-                                        }
-
-                                        .text-detail {
-                                            font-size: 1rem;
-                                            font-weight: 600;
-                                            margin-left: 10px;
-                                            color: #343a40;
-                                            margin-top: 0px;
-
-                                        }
-                                        </style>
-                                    </p>
-                                    <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-SPMB025.pdf">Baca
-                                        ketentuan</a>
-                                </div>
-                            </div>
-                        </div>
+                <div
+                    class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-[0_10px_30px_rgba(34,197,94,0.15)] dark:hover:border-green-500/50 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden reveal reveal-delay-2">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-green-500/10 dark:bg-green-500/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500">
                     </div>
-
-                    <!-- 2 -->
-                    <div class="row content" data-aos="fade">
-                        <div class="col-md-5 icon-left">
-                            <div class="card border-0" data-aos="fade">
-                                <div class="card-body">
-                                    <h5 class="title-content">
-                                        Pendaftaran Akun & Verifikasi Berkas
-                                    </h5>
-                                    <p class="content-text">
-                                        <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">26 Mei s.d 10 Juni 2025</span>
-                                    </p>
-                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 svg-line">
-                            <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
-                                <path
-                                    d="M24-306C48.962-188.089 73-114.171 73 13.375c0 127.546-49.039 192.329-49 319.875.039 127.164 48.98 192.712 49 319.875C73.02 780.48 48.979 856.31 24 974"
-                                    stroke="#FFA62F" stroke-width="4" stroke-dasharray="8 12"></path>
-                                <rect x="49" width="48" height="48" rx="24" fill="#044aad"></rect><text fill="#F2F2FA"
-                                    font-family="AvertaStd" font-weight="600" font-size="24">
-                                    <tspan x="66.5" y="30.792">2</tspan>
-                                </text>
-                            </svg>
-                        </div>
-                        <div class="col-md-5 icon-right" data-aos="fade">
-                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/daftar.png"
-                                class="img-fluid rounded-3" alt="" />
-                        </div>
+                    <div
+                        class="w-12 h-12 md:w-14 md:h-14 bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-trophy"></i>
                     </div>
-
-                    <!-- 3 -->
-                    <div class="row content" data-aos="fade">
-                        <div class="col-md-5 icon-left">
-                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/gembok.png"
-                                class="img-fluid rounded-3" alt="" data-aos="fade" />
-                        </div>
-                        <div class="col-md-2 svg-line">
-                            <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
-                                <path
-                                    d="M24-606c24.962 117.911 49 191.829 49 319.375C73-159.079 23.961-94.295 24 33.25c.039 127.164 48.98 192.712 49 319.875C73.02 480.48 48.979 556.31 24 674"
-                                    stroke="#FFA62F" stroke-width="4" stroke-dasharray="8 12"></path>
-                                <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600" font-size="24">
-                                    <tspan x="17" y="30.792">3</tspan>
-                                </text>
-                            </svg>
-                        </div>
-                        <div class="col-md-5 icon-right">
-                            <div class="card border-0" data-aos="fade">
-                                <div class="card-body">
-                                    <h5 class="title-content">
-                                        Aktifasi Akun
-                                    </h5>
-                                    <p class="content-text">
-                                        <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">27 Mei s.d 10 Juni 2025</span>
-                                    </p>
-                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4 -->
-                    <div class="row content" data-aos="fade">
-                        <div class="col-md-5 icon-left">
-                            <div class="card border-0" data-aos="fade">
-                                <div class="card-body">
-                                    <h5 class="title-content">
-                                        Pendaftaran dan Perubahan Pilihan
-                                    </h5>
-                                    <p class="content-text">
-                                        <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">12 s.d 17 Juni 2025</span>
-                                    </p>
-                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 svg-line">
-                            <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
-                                <path
-                                    d="M24-306C48.962-188.089 73-114.171 73 13.375c0 127.546-49.039 192.329-49 319.875.039 127.164 48.98 192.712 49 319.875C73.02 780.48 48.979 856.31 24 974"
-                                    stroke="#FFA62F" stroke-width="5" stroke-dasharray="8 12"></path>
-                                <rect x="49" width="48" height="48" rx="24" fill="#044aad"></rect><text fill="#F2F2FA"
-                                    font-family="AvertaStd" font-weight="600" font-size="24">
-                                    <tspan x="66.5" y="30.792">4</tspan>
-                                </text>
-                            </svg>
-                        </div>
-                        <div class="col-md-5 icon-right" data-aos="fade">
-                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/pilihan.png"
-                                class="img-fluid rounded-3" alt="" />
-                        </div>
-                    </div>
-
-                    <!-- 5 -->
-                    <div class="row content" data-aos="fade">
-                        <div class="col-md-5 icon-left">
-                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/timeglass.png"
-                                class="img-fluid rounded-3" alt="" data-aos="fade" />
-                        </div>
-                        <div class="col-md-2 svg-line">
-                            <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
-                                <path
-                                    d="M24-606c24.962 117.911 49 191.829 49 319.375C73-159.079 23.961-94.295 24 33.25c.039 127.164 48.98 192.712 49 319.875C73.02 480.48 48.979 556.31 24 674"
-                                    stroke="#FFA62F" stroke-width="4" stroke-dasharray="8 12"></path>
-                                <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600" font-size="24">
-                                    <tspan x="17" y="30.792">5</tspan>
-                                </text>
-                            </svg>
-                        </div>
-                        <div class="col-md-5 icon-right">
-                            <div class="card border-0" data-aos="fade">
-                                <div class="card-body">
-                                    <h5 class="title-content">
-                                        Evaluasi dan masa tenang
-                                    </h5>
-                                    <p class="content-text">
-                                        <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">18 s.d 19 Juni 2025</span>
-                                    </p>
-                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 6 -->
-                    <div class="row content" data-aos="fade">
-                        <div class="col-md-5 icon-left">
-                            <div class="card border-0" data-aos="fade">
-                                <div class="card-body">
-                                    <h5 class="title-content">
-                                        Pengumuman
-                                    </h5>
-                                    <p class="content-text">
-                                        <i class="bi bi-calendar2-week icon-calenders"></i>
-                                        <span class="text-detail">20 Juni 2025</span>
-                                    </p>
-                                    <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 svg-line">
-                            <svg width="97" height="317" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full">
-
-                                <rect x="49" width="48" height="48" rx="24" fill="#044aad"></rect><text fill="#F2F2FA"
-                                    font-family="AvertaStd" font-weight="600" font-size="24">
-                                    <tspan x="66.5" y="30.792">6</tspan>
-                                </text>
-                            </svg>
-                        </div>
-                        <div class="col-md-5 icon-right" data-aos="fade">
-                            <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/pengumuman.png"
-                                class="rounded-3 w-50" alt="" />
-                        </div>
-                    </div>
+                    <h4
+                        class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                        Jalur Prestasi</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Seleksi menggunakan nilai
+                        Rapor SMP (Semester 1-5) ditambah bobot nilai prestasi/kejuaraan akademik & non-akademik.
+                    </p>
                 </div>
 
-                <!-- mobile -->
-                <div class="alur-mobile">
-                    <div class="row content mx-2" data-aos="fade">
-                        <div class="card border-0 shadow-lg" data-aos="fade">
-                            <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-10 mt-2">
-                                        <h5 class="title-content">Pengumuman SPMB 2025</h5>
-                                    </div>
-                                    <div class="col-2">
-                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
-                                                font-size="24">
-                                                <tspan x="17" y="30.792">1</tspan>
-                                            </text>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-8">
-                                        <p class="content-text">
-                                            <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">15 Mei 2025</span>
-                                        </p>
-                                        <a href="#" class="btn_soft btn_file_pdf" id="JUKNIS-SPMB025.pdf">Baca
-                                            ketentuan</a>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/toa.png"
-                                            class="img-fluid rounded-3" alt="" data-aos="fade" />
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                <div
+                    class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-[2rem] shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-[0_10px_30px_rgba(244,63,94,0.15)] dark:hover:border-rose-500/50 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden reveal reveal-delay-3">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-rose-500/10 dark:bg-rose-500/5 rounded-bl-full -z-10 group-hover:scale-125 transition-transform duration-500">
                     </div>
-
-                    <div class="row content mx-2 mt-4" data-aos="fade">
-                        <div class="card border-0 shadow-lg" data-aos="fade">
-                            <div class="card-body">
-                                <div class="row mb-3">
-
-                                    <div class="col-2">
-                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
-                                                font-size="24">
-                                                <tspan x="17" y="30.792">2</tspan>
-                                            </text>
-                                        </svg>
-                                    </div>
-                                    <div class="col-10 mt-2">
-                                        <h5 class="title-content">Pendaftaran Akun & Verifikasi Berkas</h5>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-4">
-                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/daftar.png"
-                                            class="img-fluid rounded-3" alt="" />
-                                    </div>
-                                    <div class="col-8">
-                                        <p class="content-text">
-                                            <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">26 Mei s.d 10 Juni 2025</span>
-                                        </p>
-                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div
+                        class="w-12 h-12 md:w-14 md:h-14 bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 rounded-2xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-truck-fast"></i>
                     </div>
-
-                    <div class="row content mx-2 mt-4" data-aos="fade">
-                        <div class="card border-0 shadow-lg" data-aos="fade">
-                            <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-10 mt-2">
-                                        <h5 class="title-content">Aktifasi Akun</h5>
-                                    </div>
-                                    <div class="col-2">
-                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
-                                                font-size="24">
-                                                <tspan x="17" y="30.792">3</tspan>
-                                            </text>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-8 mt-2">
-                                        <p class="content-text">
-                                            <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">03 s.d 10 Juni 2025</span>
-                                        </p>
-                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/gembok.png"
-                                            class="img-fluid rounded-3" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row content mx-2 mt-4" data-aos="fade">
-                        <div class="card border-0 shadow-lg" data-aos="fade">
-                            <div class="card-body">
-                                <div class="row mb-3">
-
-                                    <div class="col-2">
-                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
-                                                font-size="24">
-                                                <tspan x="17" y="30.792">4</tspan>
-                                            </text>
-                                        </svg>
-                                    </div>
-                                    <div class="col-10 mt-2">
-                                        <h5 class="title-content">Pendaftaran dan Perubahan Pilihan</h5>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-4">
-                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/pilihan.png"
-                                            class="img-fluid rounded-3" alt="" />
-                                    </div>
-                                    <div class="col-8 ">
-                                        <p class="content-text">
-                                            <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">12 s.d 17 Juni 2025</span>
-                                        </p>
-                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row content mx-2 mt-4" data-aos="fade">
-                        <div class="card border-0 shadow-lg" data-aos="fade">
-                            <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-10 mt-2">
-                                        <h5 class="title-content">Evaluasi dan masa tenang</h5>
-                                    </div>
-                                    <div class="col-2">
-                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
-                                                font-size="24">
-                                                <tspan x="17" y="30.792">5</tspan>
-                                            </text>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-8 mt-4">
-                                        <p class="content-text">
-                                            <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">18 s.d 19 Juni 2025</span>
-                                        </p>
-                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/timeglass.png"
-                                            class="img-fluid rounded-3" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row content mx-2 mt-4" data-aos="fade">
-                        <div class="card border-0 shadow-lg" data-aos="fade">
-                            <div class="card-body">
-                                <div class="row mb-3">
-
-                                    <div class="col-2">
-                                        <svg width="97" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                            class=" text-end">
-                                            <rect width="48" height="48" rx="24" fill="#044aad"></rect>
-                                            <text fill="#F2F2FA" font-family="AvertaStd" font-weight="600"
-                                                font-size="24">
-                                                <tspan x="17" y="30.792">6</tspan>
-                                            </text>
-                                        </svg>
-                                    </div>
-                                    <div class="col-10 mt-2">
-                                        <h5 class="title-content">Pengumuman</h5>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-4">
-                                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/icon/pengumuman.png"
-                                            class="img-fluid rounded-3" alt="" />
-                                    </div>
-                                    <div class="col-8   ">
-                                        <p class="content-text ">
-                                            <i class="bi bi-calendar2-week icon-calenders"></i>
-                                            <span class="text-detail">20 Juni 2025</span>
-                                        </p>
-                                        <a href="#ketentuan" class="btn_soft">Baca ketentuan</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </section>
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-    <footer class="footers">
-        <div class="footer-top" id="kontak">
-            <h1 class="text-center fw-bold mb-4">Kontak</h1>
-            <div class="container mt-4">
-                <!-- header -->
-                <div class="row">
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="footer-info">
-                            <h3>SPMB SMANSA</h3>
-                            <p class="pb-3"><em>
-                                    Jl. Ra. Kartini No. 39, Kel. Kauman, Kec. Pekalongan Timur, Kota Pekalongan, Jawa
-                                    Tengah 51118
-                                </em>
-                            </p>
-                            <p>
-                                <strong>Phone:</strong> (0285) 421190<br>
-                                <strong>Help Desk SPMB:</strong> 0857-1214-8357 <br>
-                                <strong>Email:</strong> info@sma1pekalongan.sch.id<br>
-                            </p>
-                            <div class="social-links mt-3">
-                                <a href="#" class="twitter btn_link" id="https://www.sman1pekalongan.sch.id/v2/"><i
-                                        class="bx bi-globe"></i></a>
-                                <a href="#" class="facebook btn_link" id="https://www.facebook.com/sman1pekalongan/"><i
-                                        class="bx bxl-facebook"></i></a>
-                                <a href="#" class="instagram btn_link" id="https://www.instagram.com/sma1pekalongan/"><i
-                                        class="bx bxl-instagram"></i></a>
-                                <a href="#" class="google-plus btn_link" id="https://t.me/SPMB2025_Sma1pkl"><i
-                                        class="bx bxl-telegram"></i></a>
-                                <a href="#" class="linkedin btn_link" id="http://www.youtube.com/@sman1pekalongan"><i
-                                        class="bx bxl-youtube"></i></a>
-                            </div>
-
-                            <!-- btn to linkt informasi -->
-                            <a href="#" class="btn btn_soft mt-3 btn_link" id="https://s.id/spmb2025_sma1pkl">Informasi
-                                SPMB</a>
-                            <a href="<?= base_url('Auth'); ?>" class="btn btn_soft mt-3 btn_link mx-2"
-                                id="<?= base_url('Auth'); ?>" target="_blank">Login
-                                portal admin</a>
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6">
-                        </p>
-                        <div class="mapouter">
-                            <div class="gmap_canvas">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9489047996085!2d109.67528207499628!3d-6.896715093102491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7025f06f9d33d9%3A0x467ab29a33cab166!2sSMA%20Negeri%201%20Pekalongan!5e0!3m2!1sid!2sid!4v1716997103332!5m2!1sid!2sid"
-                                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="copyright">
-                &copy; 2025 <strong><span>SPMB SMANSA</span></strong>. All Rights Reserved
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- End Footer -->
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalPDF" tabindex="-1" aria-labelledby="modalPDFLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog modal-xl modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalPDFLabel">Informasi SPMB 2025</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <iframe id="pdfFiles" width="100%" height="500px" frameborder="0"></iframe>
-                    <style>
-                    #pdfFiles {
-                        border: none;
-                    }
-                    </style>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <h4
+                        class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">
+                        Jalur Mutasi</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Diperuntukkan bagi anak
+                        yang mengikuti perpindahan tugas orang tua/wali dari luar daerah, dibuktikan dengan Surat
+                        Pindah Tugas.</p>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-
-    <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a> -->
-
-    <!-- <button class="back-to-top d-flex align-items-center justify-content-center" id="btn_chat_bot">
-        <i class="bi bi-chat-dots"> </i>
-    </button> -->
-
-    <!-- chat bot -->
-    <div class="chat_bot" id="chat_bot">
-        <div class="chat_bot_header">
-            <h5>Tanya mimin</h5>
-            <button class="chat_bot_header_close" id="chat_bot_close" type="button" aria-label="Close">
-                <i class="bi bi-x-lg "></i>
-            </button>
+<!-- 4. Persyaratan (Diperbaiki Responsivitas Mobile) -->
+<section id="persyaratan" class="py-16 md:py-24 bg-slate-50 dark:bg-[#0B1120] relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12 md:mb-16 reveal">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Persyaratan Dokumen
+            </h2>
+            <div class="w-16 md:w-24 h-1.5 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full mb-6">
+            </div>
+            <p class="text-sm md:text-lg text-slate-600 dark:text-slate-400">Siapkan dokumen asli berikut sebelum
+                melakukan pendaftaran.</p>
         </div>
-        <div class="chat_bot_body" id="chat_bot_body">
 
-            <div class="content_start" id="content_start">
-                <div class="chat_bot_body_content">
-                    <div class="chat">
-                        <div class="chat_body_content_user">
-                            <div class="chat_body_user">
-                                <div class="container-chat">Halo, saya adalah mimin SPMB SMANSA. Siapa nama kamu?</div>
-
-                            </div>
-                            <div class="chat_logo_user">
-                                <img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="">
-                            </div>
-                        </div>
-                        <div class="chat_footer_user">
-                            <p>
-                                <i class="bi bi-person-circle"></i> Mimin | <span id="time_now"></span>
-                            </p>
-                        </div>
-                        <div class="footer-chatbot">
-                            <div class="input-group-message">
-                                <input type="text" class="" placeholder="Tulis nama disini..." name="name_user"
-                                    id="name_user" required>
-                                <button class="send_message" type="button" id="start_message">
-                                    <i class="bi bi-telegram"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+        <!-- Syarat Umum - Diperbaiki Flexbox & Spacing untuk Mobile -->
+        <div
+            class="bg-white dark:bg-slate-800/80 backdrop-blur-md rounded-[2rem] shadow-xl border border-slate-100 dark:border-slate-700 p-6 md:p-10 mb-8 md:mb-10 reveal reveal-delay-1">
+            <div
+                class="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 mb-6 md:mb-8 border-b border-slate-100 dark:border-slate-700 pb-6 text-center sm:text-left">
+                <div
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white shadow-lg shrink-0">
+                    <i class="fa-solid fa-folder-open text-xl md:text-2xl"></i>
                 </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Syarat Umum (Semua Jalur)
+                </h3>
             </div>
 
-            <!-- body chat bot -->
-            <div class="chat_bot_body_content d-none" id="chat_bot_body_content">
-                <!-- chat -->
-                <div class="chat" id="chat">
-
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                <!-- Item List Diperbaiki strukturnya agar tidak meluber -->
+                <div
+                    class="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 w-full">
+                    <div
+                        class="mt-0.5 md:mt-1 bg-green-100 dark:bg-green-900/40 w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 shrink-0">
+                        <i class="fa-solid fa-check text-[10px] md:text-sm"></i>
+                    </div>
+                    <div class="flex-1 break-words"><span
+                            class="text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium leading-tight">Buku
+                            Rapor SMP/Mts Sederajat (Semester 1-5).</span></div>
                 </div>
+                <div
+                    class="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 w-full">
+                    <div
+                        class="mt-0.5 md:mt-1 bg-green-100 dark:bg-green-900/40 w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 shrink-0">
+                        <i class="fa-solid fa-check text-[10px] md:text-sm"></i>
+                    </div>
+                    <div class="flex-1 break-words"><span
+                            class="text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium leading-tight">Surat
+                            Keterangan Nilai Rapor (SKL).</span></div>
+                </div>
+                <div
+                    class="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 w-full">
+                    <div
+                        class="mt-0.5 md:mt-1 bg-green-100 dark:bg-green-900/40 w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 shrink-0">
+                        <i class="fa-solid fa-check text-[10px] md:text-sm"></i>
+                    </div>
+                    <div class="flex-1 break-words"><span
+                            class="text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium leading-tight">Ijazah
+                            SMP / Surat Keterangan Lulus Asli.</span></div>
+                </div>
+                <div
+                    class="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 w-full">
+                    <div
+                        class="mt-0.5 md:mt-1 bg-green-100 dark:bg-green-900/40 w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 shrink-0">
+                        <i class="fa-solid fa-check text-[10px] md:text-sm"></i>
+                    </div>
+                    <div class="flex-1 break-words"><span
+                            class="text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium leading-tight">Akta
+                            Kelahiran asli (Maks. usia 21 th).</span></div>
+                </div>
+                <div
+                    class="flex items-start gap-3 md:gap-4 p-3 md:p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 w-full sm:col-span-2">
+                    <div
+                        class="mt-0.5 md:mt-1 bg-green-100 dark:bg-green-900/40 w-6 h-6 md:w-7 md:h-7 rounded-full flex items-center justify-center text-green-600 dark:text-green-400 shrink-0">
+                        <i class="fa-solid fa-check text-[10px] md:text-sm"></i>
+                    </div>
+                    <div class="flex-1 break-words"><span
+                            class="text-sm md:text-base text-slate-700 dark:text-slate-300 font-medium leading-tight">Kartu
+                            Keluarga (KK) yang diterbitkan min. 1 tahun sebelum pendaftaran.</span></div>
+                </div>
+            </div>
+        </div>
 
-                <div class="footer-chatbot">
-                    <div class="input-group-message">
-                        <input type="text" class="" placeholder="Tulis pesan disini..." name="message" id="message"
-                            required>
-                        <button class="send_message" type="button" id="send_message" disabled>
-                            <i class="bi bi-telegram"></i>
+        <div class="space-y-4 reveal reveal-delay-2">
+            <h3
+                class="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 ml-1 sm:ml-2 flex items-center gap-2">
+                <span class="w-1.5 sm:w-2 h-5 sm:h-6 bg-accent-500 rounded-full shrink-0"></span> Syarat Tambahan
+                Berdasarkan Jalur
+            </h3>
+
+            <details
+                class="group bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-300">
+                <summary
+                    class="flex items-center justify-between p-4 sm:p-6 cursor-pointer bg-white dark:bg-slate-800 group-hover:bg-slate-50 dark:group-hover:bg-slate-700/50 transition-colors relative outline-none">
+                    <div class="flex items-center gap-3 sm:gap-4 pr-4">
+                        <div
+                            class="w-10 h-10 rounded-full shrink-0 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <span class="font-bold text-base sm:text-lg text-slate-900 dark:text-white leading-tight">1.
+                            Dokumen Jalur Domisili (Zonasi)</span>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full shrink-0 border-2 border-slate-200 dark:border-slate-600 flex items-center justify-center group-open:rotate-180 transition-transform duration-300 group-open:border-primary-500 group-open:text-primary-500 text-slate-400">
+                        <i class="fa-solid fa-chevron-down text-sm"></i>
+                    </div>
+                </summary>
+                <div
+                    class="p-4 sm:p-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-300">
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrow-right text-primary-500 mt-1 text-sm shrink-0"></i>
+                            <span class="text-sm sm:text-base leading-relaxed">Kartu Keluarga (KK) asli calon
+                                peserta didik.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrow-right text-primary-500 mt-1 text-sm shrink-0"></i>
+                            <span class="text-sm sm:text-base leading-relaxed">Surat Keterangan Domisili dari RT/RW
+                                dilegalisir Lurah/Kades (Khusus yang tidak punya KK karena bencana
+                                alam/sosial).</span>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details
+                class="group bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-300">
+                <summary
+                    class="flex items-center justify-between p-4 sm:p-6 cursor-pointer bg-white dark:bg-slate-800 group-hover:bg-slate-50 dark:group-hover:bg-slate-700/50 transition-colors relative outline-none">
+                    <div class="flex items-center gap-3 sm:gap-4 pr-4">
+                        <div
+                            class="w-10 h-10 rounded-full shrink-0 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                        <span class="font-bold text-base sm:text-lg text-slate-900 dark:text-white leading-tight">2.
+                            Dokumen Jalur Afirmasi</span>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full shrink-0 border-2 border-slate-200 dark:border-slate-600 flex items-center justify-center group-open:rotate-180 transition-transform duration-300 group-open:border-primary-500 group-open:text-primary-500 text-slate-400">
+                        <i class="fa-solid fa-chevron-down text-sm"></i>
+                    </div>
+                </summary>
+                <div
+                    class="p-4 sm:p-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-300">
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrow-right text-primary-500 mt-1 text-sm shrink-0"></i>
+                            <span class="text-sm sm:text-base leading-relaxed">Bukti terdaftar dalam Data Terpadu
+                                Kesejahteraan Sosial (DTKS) Kemensos RI.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrow-right text-primary-500 mt-1 text-sm shrink-0"></i>
+                            <span class="text-sm sm:text-base leading-relaxed">Anak Panti: Surat Keterangan dari
+                                Pengurus Panti Asuhan.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrow-right text-primary-500 mt-1 text-sm shrink-0"></i>
+                            <span class="text-sm sm:text-base leading-relaxed">Disabilitas: Surat Keterangan dari
+                                Psikolog/Dokter Spesialis/Kepala Sekolah asal.</span>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details
+                class="group bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden transition-all duration-300">
+                <summary
+                    class="flex items-center justify-between p-4 sm:p-6 cursor-pointer bg-white dark:bg-slate-800 group-hover:bg-slate-50 dark:group-hover:bg-slate-700/50 transition-colors relative outline-none">
+                    <div class="flex items-center gap-3 sm:gap-4 pr-4">
+                        <div
+                            class="w-10 h-10 rounded-full shrink-0 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <span class="font-bold text-base sm:text-lg text-slate-900 dark:text-white leading-tight">3.
+                            Dokumen Jalur Prestasi</span>
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full shrink-0 border-2 border-slate-200 dark:border-slate-600 flex items-center justify-center group-open:rotate-180 transition-transform duration-300 group-open:border-primary-500 group-open:text-primary-500 text-slate-400">
+                        <i class="fa-solid fa-chevron-down text-sm"></i>
+                    </div>
+                </summary>
+                <div
+                    class="p-4 sm:p-6 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-300">
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrow-right text-primary-500 mt-1 text-sm shrink-0"></i>
+                            <span class="text-sm sm:text-base leading-relaxed">Sertifikat Piagam Prestasi tertinggi
+                                (Akademik/Non Akademik) berjenjang (Juara 1-3 Kab/Prov/Nas/Int).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-arrow-right text-primary-500 mt-1 text-sm shrink-0"></i>
+                            <span class="text-sm sm:text-base leading-relaxed">Surat Keterangan Prestasi asli dari
+                                Kepala Sekolah asal.</span>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- 5. Alur Pendaftaran (Ditambah Tombol (i) & Animasi) -->
+<section id="alur" class="py-16 md:py-24 bg-white dark:bg-[#0f172a] relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16 md:mb-20 reveal">
+            <div
+                class="inline-flex items-center justify-center p-3.5 bg-gradient-to-br from-primary-500 to-accent-600 text-white rounded-2xl mb-4 md:mb-6 shadow-lg">
+                <i class="fa-solid fa-route text-xl md:text-2xl"></i>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Roadmap Pendaftaran
+            </h2>
+            <div class="w-16 md:w-24 h-1.5 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto rounded-full mb-6">
+            </div>
+            <p class="text-sm md:text-lg text-slate-600 dark:text-slate-400">Klik ikon (i) pada setiap tahapan untuk
+                melihat petunjuk lengkap.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="relative max-w-4xl mx-auto py-4">
+            <div class="timeline-line hidden md:block origin-top scale-y-0 transition-transform duration-1000"
+                id="timeline-line"></div>
+            <div
+                class="absolute left-[38px] top-0 bottom-0 w-1 bg-gradient-to-b from-primary-500 via-accent-500 to-pink-500 rounded-full md:hidden shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+            </div>
+
+            <!-- Step 1 -->
+            <div class="relative z-10 mb-16 flex flex-col md:flex-row items-center w-full reveal">
+                <div class="md:w-1/2 flex justify-end md:pr-14 w-full mb-6 md:mb-0 relative">
+                    <div
+                        class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-[2rem] border border-slate-100 dark:border-slate-700 shadow-xl w-full md:w-[95%] md:text-right relative ml-20 md:ml-0 group hover:border-primary-500 transition-colors">
+                        <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Pengumuman
+                            SPMB</h4>
+                        <div
+                            class="inline-block px-3 md:px-4 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg font-bold text-xs md:text-sm mb-4">
+                            15 Juni 2026</div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-2 text-sm">Informasi resmi mengenai kuota,
+                            zonasi, dan persyaratan dirilis.</p>
+
+                        <!-- Tombol Info (Berdenyut/Bergetar) -->
+                        <button onclick="openModal('info-step-1')"
+                            class="absolute top-4 right-4 md:-right-6 md:top-auto md:bottom-6 w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900/80 text-primary-600 dark:text-primary-400 flex items-center justify-center animate-ring-pulse hover:bg-primary-500 hover:text-white transition-colors z-10"
+                            title="Ketentuan Pengumuman">
+                            <i class="fa-solid fa-info text-sm"></i>
                         </button>
                     </div>
                 </div>
-
+                <div
+                    class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-primary-400 to-primary-600 border-4 border-white dark:border-[#0f172a] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_20px_rgba(59,130,246,0.5)] z-20">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <div class="md:w-1/2 md:pl-14 w-full hidden md:block"></div>
             </div>
 
+            <!-- Step 2 -->
+            <div class="relative z-10 mb-16 flex flex-col md:flex-row items-center w-full reveal reveal-delay-1">
+                <div class="md:w-1/2 md:pr-14 w-full hidden md:block"></div>
+                <div
+                    class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-accent-400 to-accent-600 border-4 border-white dark:border-[#0f172a] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_20px_rgba(139,92,246,0.5)] z-20">
+                    <i class="fa-solid fa-file-shield"></i>
+                </div>
+                <div class="md:w-1/2 flex justify-start md:pl-14 w-full mb-6 md:mb-0 relative">
+                    <div
+                        class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-[2rem] border border-slate-100 dark:border-slate-700 shadow-xl w-full md:w-[95%] text-left relative ml-20 md:ml-0 group hover:border-accent-500 transition-colors">
+                        <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Verifikasi
+                            Berkas</h4>
+                        <div
+                            class="inline-block px-3 md:px-4 py-1.5 bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 rounded-lg font-bold text-xs md:text-sm mb-4">
+                            26 Mei - 10 Juni</div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-2 text-sm">Pembuatan akun SPMB online dan
+                            validasi data dokumen asli di sekolah.</p>
+
+                        <!-- Tombol Info (Berdenyut/Bergetar) -->
+                        <button onclick="openModal('info-step-2')"
+                            class="absolute top-4 right-4 md:-left-6 md:top-auto md:bottom-6 w-8 h-8 rounded-full bg-accent-100 dark:bg-accent-900/80 text-accent-600 dark:text-accent-400 flex items-center justify-center animate-ring-pulse hover:bg-accent-500 hover:text-white transition-colors z-10"
+                            title="Detail Verifikasi">
+                            <i class="fa-solid fa-info text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative z-10 mb-16 flex flex-col md:flex-row items-center w-full reveal reveal-delay-2">
+                <div class="md:w-1/2 flex justify-end md:pr-14 w-full mb-6 md:mb-0 relative">
+                    <div
+                        class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-[2rem] border border-slate-100 dark:border-slate-700 shadow-xl w-full md:w-[95%] md:text-right relative ml-20 md:ml-0 group hover:border-pink-500 transition-colors">
+                        <h4 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Pilih Sekolah
+                        </h4>
+                        <div
+                            class="inline-block px-3 md:px-4 py-1.5 bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-lg font-bold text-xs md:text-sm mb-4">
+                            12 - 17 Juni 2026</div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-2 text-sm">Masa pendaftaran online,
+                            pemilihan jalur, sekolah tujuan, dan pantau jurnal harian.</p>
+
+                        <!-- Tombol Info -->
+                        <button onclick="openModal('info-step-3')"
+                            class="absolute top-4 right-4 md:-right-6 md:top-auto md:bottom-6 w-8 h-8 rounded-full bg-pink-100 dark:bg-pink-900/80 text-pink-600 dark:text-pink-400 flex items-center justify-center animate-ring-pulse hover:bg-pink-500 hover:text-white transition-colors z-10"
+                            title="Cara Mendaftar">
+                            <i class="fa-solid fa-info text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-pink-400 to-rose-600 border-4 border-white dark:border-[#0f172a] flex items-center justify-center text-white font-bold text-xl shadow-[0_0_20px_rgba(244,63,94,0.5)] z-20">
+                    <i class="fa-solid fa-hand-pointer"></i>
+                </div>
+                <div class="md:w-1/2 md:pl-14 w-full hidden md:block"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="modal-jalur" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
+        onclick="document.getElementById('modal-jalur').classList.add('hidden')"></div>
+
+    <div
+        class="relative w-full max-w-2xl max-h-[95vh] flex flex-col bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl shadow-2xl transform transition-all overflow-hidden border border-slate-200 dark:border-slate-700">
+
+        <div
+            class="absolute top-0 left-0 w-full h-1.5 sm:h-2 bg-gradient-to-r from-primary-500 via-accent-500 to-pink-500 z-10">
+        </div>
+
+        <div
+            class="flex items-center justify-between p-4 sm:p-6 md:p-8 border-b border-slate-100 dark:border-slate-700/50 shrink-0 mt-1.5 sm:mt-2">
+            <h3
+                class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2 sm:gap-3 pr-4">
+                <i class="fa-solid fa-circle-info text-primary-500 shrink-0"></i>
+                <span class="leading-tight">Ketentuan Jalur SPMB</span>
+            </h3>
+            <button type="button" onclick="document.getElementById('modal-jalur').classList.add('hidden')"
+                class="w-8 h-8 sm:w-10 sm:h-10 shrink-0 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500">
+                <i class="fa-solid fa-xmark text-base sm:text-lg"></i>
+            </button>
+        </div>
+
+        <div class="p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6 overflow-y-auto custom-scrollbar">
+            <p
+                class="text-slate-600 dark:text-slate-300 font-medium text-base sm:text-lg border-l-4 border-primary-500 pl-3 sm:pl-4">
+                Rincian ketetapan kuota berdasarkan regulasi SPMB Jawa Tengah:</p>
+
+            <div class="grid gap-3 sm:gap-4">
+                <div
+                    class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800/50 flex gap-3 sm:gap-4 items-start">
+                    <div class="mt-0.5 shrink-0"><i
+                            class="fa-solid fa-check-circle text-blue-500 text-lg sm:text-xl"></i></div>
+                    <div>
+                        <strong class="text-slate-900 dark:text-white block mb-1 text-sm sm:text-base">Jalur
+                            Domisili (Zonasi) - Min. 55%</strong>
+                        <span class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Jarak
+                            terdekat domisili ke sekolah menjadi prioritas utama.</span>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-100 dark:border-amber-800/50 flex gap-3 sm:gap-4 items-start">
+                    <div class="mt-0.5 shrink-0"><i
+                            class="fa-solid fa-check-circle text-amber-500 text-lg sm:text-xl"></i></div>
+                    <div>
+                        <strong class="text-slate-900 dark:text-white block mb-1 text-sm sm:text-base">Jalur
+                            Afirmasi - Min. 20%</strong>
+                        <span class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Wajib
+                            terdata di DTKS Dinas Sosial atau memiliki surat keterangan disabilitas/anak
+                            nakes.</span>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl border border-green-100 dark:border-green-800/50 flex gap-3 sm:gap-4 items-start">
+                    <div class="mt-0.5 shrink-0"><i
+                            class="fa-solid fa-check-circle text-green-500 text-lg sm:text-xl"></i></div>
+                    <div>
+                        <strong class="text-slate-900 dark:text-white block mb-1 text-sm sm:text-base">Jalur
+                            Prestasi - Maks. 20%</strong>
+                        <span class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Seleksi
+                            menggunakan nilai akhir (Gabungan nilai rapor dan bobot kejuaraan).</span>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-red-50 dark:bg-rose-900/20 p-4 rounded-xl border border-red-200 dark:border-rose-800 flex items-start sm:items-center gap-3">
+                <i
+                    class="fa-solid fa-triangle-exclamation text-red-500 text-xl sm:text-2xl shrink-0 mt-0.5 sm:mt-0"></i>
+                <p class="text-xs sm:text-sm text-red-800 dark:text-rose-200 font-semibold leading-relaxed">Penting:
+                    Calon peserta didik hanya dapat memilih 1 (satu) jalur pendaftaran dalam wilayah zonasi yang
+                    sama.</p>
+            </div>
+        </div>
+
+        <div
+            class="p-4 sm:p-6 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-100 dark:border-slate-700/50 shrink-0 flex justify-end">
+            <button type="button" onclick="document.getElementById('modal-jalur').classList.add('hidden')"
+                class="w-full sm:w-auto px-6 py-2.5 sm:py-3 bg-slate-900 hover:bg-black text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200 font-bold rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-slate-500 dark:focus:ring-white focus:ring-offset-2 dark:focus:ring-offset-slate-800 text-sm sm:text-base">
+                Saya Mengerti
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Informasi Roadmap -->
+<div id="modal-timeline" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-slate-900/70 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+    <!-- Modal Content (Akan diisi via JS) -->
+    <div class="relative w-full max-w-2xl bg-white dark:bg-slate-800 rounded-3xl shadow-2xl transform transition-all overflow-hidden border border-slate-200 dark:border-slate-700 max-h-[90vh] flex flex-col"
+        id="modal-timeline-content">
+        <!-- Isi modal dinamis akan di-inject di sini -->
+    </div>
+</div>
+
+<!-- 6. Footer Minimalis -->
+<section id="kontak"
+    class="relative bg-slate-50 dark:bg-[#080d1a] border-t border-slate-200 dark:border-slate-800 pt-16 sm:pt-20 flex flex-col justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 relative z-10 w-full">
+        <div
+            class="bg-white dark:bg-slate-800/80 backdrop-blur-xl rounded-3xl sm:rounded-[3rem] p-6 sm:p-8 md:p-12 shadow-2xl border border-slate-100 dark:border-slate-700 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+                <div class="order-2 lg:order-1">
+                    <span
+                        class="px-4 py-1.5 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full font-bold text-xs uppercase tracking-widest mb-4 sm:mb-6 inline-block border border-primary-100 dark:border-primary-800">Pusat
+                        Bantuan</span>
+                    <h2
+                        class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 sm:mb-6 leading-tight">
+                        Hubungi Kami</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mb-8 sm:mb-10 text-base sm:text-lg">Punya kendala
+                        teknis atau pertanyaan seputar SPMB? Tim Helpdesk kami siap membantu Anda.</p>
+
+                    <div class="space-y-4 sm:space-y-6">
+                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-4 sm:gap-6 group cursor-pointer p-3 -m-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                            <div
+                                class="w-14 h-14 sm:w-16 sm:h-16 bg-green-50 dark:bg-green-900/20 text-green-500 rounded-2xl flex items-center justify-center text-2xl sm:text-3xl shrink-0 group-hover:scale-110 group-hover:bg-green-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <p
+                                    class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1">
+                                    Helpdesk Resmi</p>
+                                <h4
+                                    class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-green-500 transition-colors">
+                                    +62 812-3456-7890</h4>
+                            </div>
+                        </a>
+
+                        <a href="mailto:info@sman1pekalongan.sch.id"
+                            class="flex items-center gap-4 sm:gap-6 group cursor-pointer p-3 -m-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                            <div
+                                class="w-14 h-14 sm:w-16 sm:h-16 bg-blue-50 dark:bg-blue-900/20 text-blue-500 rounded-2xl flex items-center justify-center text-xl sm:text-2xl shrink-0 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div class="break-all sm:break-normal">
+                                <p
+                                    class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-1">
+                                    Email Sekolah</p>
+                                <h4
+                                    class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                                    info@sman1pekalongan.sch.id</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="relative h-[250px] sm:h-[350px] md:h-[400px] w-full rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-xl sm:shadow-2xl border-4 border-white dark:border-slate-700 group order-1 lg:order-2">
+                    <div
+                        class="absolute inset-0 bg-primary-500/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none">
+                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.201385412586!2d109.67140811529125!3d-6.88339309502446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70243444654763%3A0xc3f8ec473b1ff08a!2sSMA%20Negeri%201%20Pekalongan!5e0!3m2!1sen!2sid!4v1682348576301!5m2!1sen!2sid"
+                        width="100%" height="100%" style="border:0; filter: grayscale(20%);" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        class="transition-all duration-500 group-hover:filter-none">
+                    </iframe>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- <iframe src="https://whatsform.com/jtzlqt" width="100%" height="600" frameBorder="0"></iframe> -->
-    <script async src="https://whatsform.com/launcher.js" id="wf-widget" data-id="jtzlqt"
-        data-message="Hubgungi admin di WhatsApp"  ></script>
-    <style>
-    /* chat bot */
-    .chat_bot {
-        position: fixed;
-        bottom: 0;
-        right: 20px;
-        width: 380px;
-        height: 500px;
-        background-color: #fff;
-        border-radius: 10px 10px 0 0;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        display: none;
-        z-index: 9999;
-    }
 
-    .chat_bot_header {
-        background-color: #044aad;
-        color: #fff;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        border-radius: 10px 10px 0 0;
+</section>
+<?= $this->endSection('content') ?>
+<?= $this->section('script') ?>
+<script>
+// 2. Animasi Scroll Reveal & Progress Bar
+const revealElements = document.querySelectorAll('.reveal');
+const progressBars = document.querySelectorAll('.progress-bar');
+const timelineLine = document.getElementById('timeline-line');
 
-    }
-
-    .chat_bot_header_close {
-        background-color: transparent;
-        border: none;
-        color: #fff;
-        cursor: pointer;
-    }
-
-    .chat_bot_body {
-        height: 500px;
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: #f1f1f1 transparent;
-    }
-
-
-    .chat_bot_body_content {
-        padding: 5px;
-        padding-bottom: 30px;
-    }
-
-    .chat {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 100px;
-        margin-top: 10px;
-    }
-
-    .footer-chatbot {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        padding: 10px;
-        background-color: #f1f1f1;
-        border-radius: 0 0 10px 10px;
-        background-color: transparent;
-    }
-
-    .input-group-message {
-        display: flex;
-    }
-
-    .input-group-message input {
-        flex: 1;
-        border: none;
-        border-radius: 20px;
-        padding: 10px;
-        margin-right: 10px;
-    }
-
-    .input-group-message button {
-        background-color: #044aad;
-        color: #fff;
-        border: none;
-        border-radius: 25%;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .input-group-message button:hover {
-        background-color: #FFA62F;
-    }
-
-    .input-group-message input:invalid {
-        border: 1px solid #044aad;
-    }
-
-    .input-group-message input:valid {
-        border: 1px solid blue;
-    }
-
-
-    /* admin */
-    .chat_body_content_admin {
-        display: flex;
-    }
-
-    .chat_logo_admin img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-
-    .chat_body_admin {
-        margin-left: 10px;
-    }
-
-    .chat_body_admin .container-chat {
-        background-color: #f1f1f1;
-        padding: 10px;
-        border-radius: 10px;
-        margin: 0;
-    }
-
-
-    .chat_body_admin .container-chat:last-child {
-        margin-top: 10px;
-    }
-
-
-    .chat_body_admin .container-chat:last-child {
-        margin-bottom: 0;
-    }
-
-
-    .chat_body_admin .container-chat:last-child {
-        margin-bottom: 0;
-    }
-
-    .chat_body_admin .container-chat:last-child {
-        margin-bottom: 0;
-    }
-
-    /* footer sesuai dengan */
-    .chat_footer_admin {
-        display: flex;
-        justify-content: flex-end;
-        margin-right: 5px;
-        margin-bottom: 10px;
-    }
-
-    /* user chat right */
-    .chat_body_content_user {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 10px;
-        margin-top: 20px;
-        margin-left: 5px;
-        margin-right: 10px;
-    }
-
-    .chat_logo_user img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-
-    .chat_body_user {
-        margin-right: 10px;
-    }
-
-    .chat_body_user .container-chat {
-        background-color: #044aad;
-        color: #fff;
-        padding: 10px;
-        border-radius: 10px;
-        margin: 0;
-
-    }
-
-    .chat_body_user .container-chat:last-child {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-
-    .chat_footer_user {
-        display: flex;
-        justify-content: flex-start;
-        margin-left: 5px;
-        margin-bottom: 10px;
-    }
-
-    .btn_opsi {
-        background-color: #f1f1f1;
-        border: none;
-        border-radius: 40px;
-        padding: 10px;
-        cursor: pointer;
-        margin-right: 10px;
-    }
-
-    .btn_opsi:hover {
-        background-color: #044aad;
-        color: #fff;
-    }
-
-
-    @media screen and (max-width: 600px) {
-        .chat_bot {
-            width: 100%;
-            height: 80%;
-            border-radius: 0;
-            bottom: 0;
-            right: 0;
-        }
-
-        .chat_bot_body {
-            height: 100%;
-        }
-
-        .chat_bot_header_close {
-            background-color: #044aad;
-            border-radius: 50%;
-            padding: 5px;
-        }
-
-        .chat_bot_header_close i {
-            color: #fff;
-        }
-
-        .chat_bot_body_content {
-            padding: 5px;
-            padding-bottom: 30px;
-        }
-
-        .chat {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 100px;
-            margin-top: 10px;
-        }
-
-        .chat_body_content_admin {
-            margin-right: 5px;
-        }
-
-        .chat_footer_admin {
-            maarign-right: 30px;
-        }
-
-        .footer-chatbot {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 10px;
-            background-color: #f1f1f1;
-            border-radius: 0 0 10px 10px;
-            background-color: transparent;
-        }
-
-        .input-group-message {
-            display: flex;
-        }
-
-        .input-group-message input {
-            flex: 1;
-            border: none;
-            border-radius: 20px;
-            padding: 10px;
-            margin-right: 10px;
-        }
-
-        .input-group-message button {
-            background-color: #044aad;
-            color: #fff;
-            border: none;
-            border-radius: 25%;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .input-group-message button:hover {
-            background-color: #FFA62F;
-        }
-
-        .input-group-message input:invalid {
-            border: 1px solid red;
-        }
-
-        .input-group-message input:valid {
-            border: 1px solid #044aad;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 100%;
-            }
-        }
-
-        .typing {
-            display: inline-block;
-            width: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid;
-            animation: typing 2s steps(20) forwards, blink 1s step-end infinite alternate;
-        }
-
-        @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
-        }
-
-
-    }
-    </style>
-
-
-    <!-- Vendor JS Files -->
-    <div id="preloader"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <!-- Vendors JS Files -->
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/purecounter/purecounter_vanilla.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/aos/aos.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/glightbox/js/glightbox.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/swiper/swiper-bundle.min.js"></script>
-    <script src="<?= base_url('Assets/'); ?>LandingPage/vendors/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="<?= base_url('Assets/'); ?>LandingPage/js/main.js"></script>
-    <!-- include cdn  -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-    // add data unique id to local storage and automatic remove wehen day after 1 day
-    function addDataUniqueIdToLocalStorage() {
-        const uniqueId = localStorage.getItem('unique_id');
-        const uniqueIdDate = localStorage.getItem('unique_id_date');
-        const currentDate = new Date();
-        // console.log('Current Date:', currentDate, 'Unique ID Date:', uniqueIdDate);
-        if (uniqueId == null || uniqueId == '') {
-            const newUniqueId = 'UID-' + Math.random().toString(36).substr(2, 9);
-            localStorage.setItem('unique_id', newUniqueId);
-            const date = new Date();
-            localStorage.setItem('unique_id_date', date.toISOString());
-            $.ajax({
-                url: '<?= base_url('saveAktifitasWeb'); ?>',
-                type: 'POST',
-                data: {
-                    unique_id: newUniqueId
-                },
-                dataType: 'json',
-                success: function(response) {
-                    // console.log('Data unique id saved to server:', response);
-                },
-                error: function(xhr, status, error) {
-                    // console.error('Error saving unique id:', error);
-                }
-            });
-        } else {
-            // jika beda hari maka akan menghapus unique_id
-            const storedDate = new Date(uniqueIdDate);
-            if (currentDate.getDate() !== storedDate.getDate() ||
-                currentDate.getMonth() !== storedDate.getMonth() ||
-                currentDate.getFullYear() !== storedDate.getFullYear()) {
-                localStorage.removeItem('unique_id');
-                localStorage.removeItem('unique_id_date');
-                const newUniqueId2 = 'UID-' + Math.random().toString(36).substr(2, 9);
-                localStorage.setItem('unique_id', newUniqueId2);
-                const date2 = new Date();
-                localStorage.setItem('unique_id_date', date2.toISOString());
-                // console.log('Unique ID expired and removed:', uniqueId);
-                $.ajax({
-                    url: '<?= base_url('saveAktifitasWeb'); ?>',
-                    type: 'POST',
-                    data: {
-                        unique_id: newUniqueId2
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        // console.log('Data unique id saved to server:', response);
-                    },
-                    error: function(xhr, status, error) {
-                        // console.error('Error saving unique id:', error);
-                    }
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Jika yang di-scroll adalah container progress bar
+            if (entry.target.id === 'progress-container') {
+                progressBars.forEach(bar => {
+                    bar.style.width = bar.getAttribute('data-width');
                 });
             }
-        }
-    }
-
-    // call when page load
-    $(document).ready(function() {
-        addDataUniqueIdToLocalStorage();
-    });
-    // chat bot
-    $(document).on('click', '#btn_chat_bot', function() {
-        $('#chat_bot').toggle();
-        $('#btn_chat_bot').addClass('d-none');
-        $('#time_now').text(timeNow());
-        $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
-    });
-
-    // close chat bot
-    $(document).on('click', '#chat_bot_close', function() {
-        $('#btn_chat_bot').removeClass('d-none');
-        $('#chat_bot').toggle();
-    });
-
-    // dont close the chat bot when click inside
-    $(document).on('click', '.chat_bot', function(e) {
-        e.stopPropagation();
-    });
-
-    //  dont close the chat bot when click inside
-    $(document).on('click', '.chat_bot_body', function(e) {
-        e.stopPropagation();
-    });
-
-    // disable button when input empty
-    $(document).on('keyup', '#name_user', function() {
-        let name = $(this).val();
-        if (name === '') {
-            $('#start_message').prop('disabled', true);
-        } else {
-            $('#start_message').prop('disabled', false);
-        }
-    });
-
-    // disable button when input empty
-    $(document).on('keyup', '#message', function() {
-        let message = $(this).val();
-        if (message === '') {
-            $('#send_message').prop('disabled', true);
-        } else {
-            $('#send_message').prop('disabled', false);
-        }
-    });
-
-    // time now
-    function timeNow() {
-        var d = new Date();
-        var n = d.toLocaleTimeString();
-        var time = n.split(':');
-        var hours = time[0];
-        var minutes = time[1];
-
-        return hours + ':' + minutes;
-    }
-
-    // push chat to local storage
-    function pushChatToLocalStorage(data) {
-        let dataChat = localStorage.getItem('dataChat');
-
-        // Check if 'dataChat' exists in localStorage
-        if (dataChat === null) {
-            // If 'dataChat' does not exist, initialize it with the new data
-            dataChat = [];
-        } else {
-            // If 'dataChat' exists, parse the existing data
-            try {
-                dataChat = JSON.parse(dataChat);
-                if (!Array.isArray(dataChat)) {
-                    // If the parsed data is not an array, initialize it as an empty array
-                    dataChat = [];
-                }
-            } catch (error) {
-                // If parsing fails, initialize it as an empty array
-                dataChat = [];
+            // Animasi garis timeline ditarik ke bawah
+            if (entry.target.closest('#alur')) {
+                if (timelineLine) timelineLine.style.transform = 'scaleY(1)';
             }
+            observer.unobserve(entry.target);
         }
-
-        // Push the new data to the array
-        dataChat.push(data);
-        // Save the updated array back to localStorage
-        localStorage.setItem('dataChat', JSON.stringify(dataChat));
-
-        return true;
-    }
-
-    // animate typing
-    function animateTyping(text, element) {
-        element.innerHTML = "";
-        let index = 0;
-
-        function type() {
-            if (index < text.length) {
-                element.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(type, 50);
-            }
-        }
-
-        type();
-    }
-
-    // start chat
-    $(document).on('click', '#start_message', function() {
-        let user = $('#name_user').val();
-        localStorage.setItem('user', user);
-        let chat = 'Halo, ' + user + ' ada yang bisa mimin bantu?';
-        let time = timeNow();
-
-        // push to local storage
-        let data = {
-            user: 'Mimin',
-            chat: chat,
-            time: time
-        };
-        pushChatToLocalStorage(data);
-
-        loadChatFromLocalStorage();
     });
+}, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+});
 
+revealElements.forEach(el => revealObserver.observe(el));
 
-    // get chat from local storage
-    function getChatFromLocalStorage() {
-        const dataChat = localStorage.getItem('dataChat');
-        return dataChat ? JSON.parse(dataChat) : [];
-    }
+// Progress bar container khusus di observe
+const progContainer = document.getElementById('progress-container');
+if (progContainer) revealObserver.observe(progContainer);
 
-    // load chat from local storage
-    function loadChatFromLocalStorage() {
-        let data = getChatFromLocalStorage();
+// 5. Logic Modal Roadmap Dinamis
+const modalTimeline = document.getElementById('modal-timeline');
+const modalContent = document.getElementById('modal-timeline-content');
 
-        if (data.length > 0) {
-            let chat = '';
-            data.forEach(element => {
-                if (element.user === 'Mimin') {
-                    if (Array.isArray(element.chat)) {
-                        chat += '<div class="chat_body_content_admin">';
-                        chat += '<div class="chat_logo_admin">';
-                        chat +=
-                            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
-                        chat += '</div>';
-                        chat += '<div class="chat_body_admin" id="' + element.time + '">';
-                        chat += '<div class="container-chat">' + element.chat[0] + '</div>';
-                        // jika chat > 1
-                        if (element.chat.length > 1) {
-                            chat += '<div class="container-chat mt-2">' + element.chat[1] + '</div>';
-                            for (let i = 2; i < element.chat.length; i++) {
-                                chat += '<button class="btn_opsi mt-2" id="' + element.chat[i] + '">' + element
-                                    .chat[
-                                        i] +
-                                    '</button>';
-                            }
-                        }
-                        chat += '</div>';
-                        chat += '</div>';
-                    } else {
-                        chat += '<div class="chat_body_content_admin">';
-                        chat += '<div class="chat_logo_admin">';
-                        chat +=
-                            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
-                        chat += '</div>';
-                        chat += '<div class="chat_body_admin" id="' + element.time + '">';
-                        chat += '<div class="container-chat">' + element.chat + '</div>';
-                        chat += '</div>';
-                        chat += '</div>';
-                    }
-                } else {
-                    chat += '<div class="chat_body_content_user">';
-                    chat += '<div class="chat_body_user "' + element.time + '">';
-                    chat += '<div class="container-chat">' + element.chat + '</div>';
-                    chat += '</div>';
-                    chat += '<div class="chat_logo_user">';
-                    chat +=
-                        '<img src="<?= base_url('Assets/'); ?>LandingPage/img/users.jpg" alt="User Logo">';
-                    chat += '</div>';
-                    chat += '</div>';
-                    // chat += '<div class="chat_footer_user">';
-                    // chat += '<p class="container-chat">';
-                    // chat += '<i class="bi bi-person-circle"></i> ' + element.user + ' | ' + element.time;
-                    // chat += '</p>';
-                    // chat += '</div>';
-                }
-            });
+const modalData = {
+    'info-step-2': `
+                <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-accent-400 to-accent-600"></div>
+                <div class="flex items-center justify-between p-5 md:p-6 border-b border-slate-100 dark:border-slate-700/50">
+                    <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-accent-100 dark:bg-accent-900/50 text-accent-600 dark:text-accent-400 flex items-center justify-center"><i class="fa-solid fa-file-shield"></i></div>
+                        Verifikasi Berkas
+                    </h3>
+                    <button type="button" onclick="closeModal()" class="w-8 h-8 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-full flex items-center justify-center text-slate-500 dark:text-slate-300 transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <div class="p-5 md:p-6 overflow-y-auto custom-scroll">
+                    <div class="space-y-6">
+                        <!-- Langkah 1 -->
+                        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-100 dark:border-blue-800">
+                            <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-blue-500 text-white text-xs flex items-center justify-center">1</span> Pendaftaran Akun Mandiri</h4>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 ml-8 mb-3">CMB melakukan pendaftaran akun pada laman SPMB Jateng Prov secara mandiri dari rumah.</p>
+                            <a href="#" class="ml-8 text-xs font-bold px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg inline-flex items-center gap-2 transition-colors"><i class="fa-solid fa-link"></i> Link SPMB Jateng</a>
+                        </div>
 
-            $('#content_start').addClass('d-none');
-            $('#chat_bot_body_content').removeClass('d-none');
-            $('#chat').html(chat);
+                        <!-- Langkah 2 -->
+                        <div class="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 border border-amber-100 dark:border-amber-800">
+                            <h4 class="font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2"><span class="w-6 h-6 rounded-full bg-amber-500 text-white text-xs flex items-center justify-center">2</span> Verifikasi Fisik di Sekolah</h4>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 ml-8 mb-3">CMB melakukan verifikasi berkas di SMAN 1 Pekalongan dengan ketentuan berikut:</p>
+                            
+                            <ul class="ml-8 space-y-2 text-sm text-slate-700 dark:text-slate-300 font-medium">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-amber-500 mt-1"></i> Melakukan pendaftaran antrean secara online. <a href="#" class="text-blue-500 hover:underline inline-flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Link antrean</a></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-amber-500 mt-1"></i> Membawa seluruh berkas asli. <a href="#persyaratan" onclick="closeModal()" class="text-blue-500 hover:underline">Lihat Persyaratan</a></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-amber-500 mt-1"></i> CMB wajib mengenakan <strong>seragam sekolah asal</strong>.</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-amber-500 mt-1"></i> Potongan rambut rapi (Khusus CMB Putra).</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-amber-500 mt-1"></i> Wajib mengenakan sepatu & kaos kaki.</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-caret-right text-amber-500 mt-1"></i> Orang tua/wali yang mengantar wajib berpakaian rapi dan sopan.</li>
+                            </ul>
+                        </div>
 
-            $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
+                        <!-- Info Dokumen PDF Simulasi -->
+                        <div class="border border-slate-200 dark:border-slate-700 rounded-xl p-4 flex items-center justify-between group hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-file-pdf text-rose-500 text-3xl"></i>
+                                <div>
+                                    <p class="font-bold text-slate-900 dark:text-white text-sm">Juknis_Verifikasi_SPMB.pdf</p>
+                                    <p class="text-xs text-slate-500">2.4 MB • Petunjuk Operasional</p>
+                                </div>
+                            </div>
+                            <button class="px-3 py-1.5 bg-slate-100 dark:bg-slate-600 text-slate-700 dark:text-white rounded-lg text-xs font-bold group-hover:bg-rose-500 group-hover:text-white transition-colors">Lihat PDF</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-4 md:p-5 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-100 dark:border-slate-700/50 flex justify-end">
+                    <button type="button" onclick="closeModal()" class="px-6 py-2.5 bg-slate-900 hover:bg-black text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200 font-bold rounded-xl transition-colors text-sm">Tutup</button>
+                </div>
+            `
+};
 
-        } else {
-            $('#content_start').removeClass('d-none');
-            $('#chat_bot_body_content').addClass('d-none');
-        }
-    }
+function openModal(stepId) {
+    // Default content jika belum diset detailnya
+    let content = modalData[stepId] ||
+        `<div class="p-8 text-center"><p class="dark:text-white">Detail informasi untuk tahapan ini akan segera diperbarui.</p><button onclick="closeModal()" class="mt-4 px-4 py-2 bg-primary-500 text-white rounded-lg">Tutup</button></div>`;
 
-    // function to request chat 
-    function requestChat(chat) {
-        let time = timeNow();
-        let user = localStorage.getItem('user');
+    modalContent.innerHTML = content;
+    modalTimeline.classList.remove('hidden');
+}
 
-        // push to local storage
-        let data = {
-            user: user,
-            chat: chat,
-            time: time
-        };
-        pushChatToLocalStorage(data);
-
-        loadChatFromLocalStorage();
-
-        let chatBot = '';
-
-        chatBot += '<div class="chat_body_content_admin loadding_chat">';
-        chatBot += '<div class="chat_logo_admin">';
-        chatBot +=
-            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
-        chatBot += '</div>';
-        chatBot += '<div class="chat_body_admin" id="typing_' + time + '">';
-        chatBot += '<div class="container-chat" id=""><i class="fa fa-spin fa-spinner"></i></div>';
-        chatBot += '</div>';
-        chatBot += '</div>';
-
-        // clear input
-        $('#message').val('');
-
-        // append chat
-        $('#chat').append(chatBot);
-
-        // scroll to bottom
-        $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
-
-        // disable button
-        $('#send_message').prop('disabled', true);
-
-        // get responseChat
-        responseChat(chat);
-    }
-
-
-    // load chat from local storage
-    loadChatFromLocalStorage();
-
-    // send message
-    $(document).on('click', '#send_message', function() {
-        let chat = $('#message').val();
-        requestChat(chat);
-    });
-
-    // get responseChat
-    function responseChat(chat) {
-        $.ajax({
-            url: '<?= base_url('fetchChatResponse') ?>',
-            method: 'post',
-            data: {
-                pertanyaan: chat
-            },
-            dataType: 'json',
-            success: function(response) {
-                if (response.status == '200') {
-                    let time = timeNow();
-                    let user = 'Mimin';
-                    let resChat = [];
-                    $('.loadding_chat').remove();
-                    if (response.data.message) {
-                        let chatBot = '';
-                        chatBot += '<div class="chat_body_content_admin">';
-                        chatBot += '<div class="chat_logo_admin">';
-                        chatBot +=
-                            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
-                        chatBot += '</div>';
-                        chatBot += '<div class="chat_body_admin" id="' + time + '">';
-
-                        if (response.data.star_message) {
-                            chatBot += '<div class="container-chat">' + response.data.message + '</div>';
-                            resChat.push(response.data.message);
-                            chatBot +=
-                                '<div class="container-chat mt-2"> Berikut pertanyaan yang sering diajukan :</div>';
-                            resChat.push('Berikut pertanyaan yang sering diajukan :');
-
-                            for (let i = 0; i < response.data.star_message.length; i++) {
-                                chatBot += '<button class="btn_opsi mt-2" id="' + response.data
-                                    .star_message[i]
-                                    .judul + '">' +
-                                    response.data.star_message[i].judul + '</button>';
-                                resChat.push(response.data.star_message[i].judul);
-                            }
-
-                        } else {
-                            chatBot += '<div class="container-chat">';
-                            if (response.data.message.jawaban) {
-                                chatBot += response.data.message.jawaban;
-                                resChat.push(response.data.message.jawaban);
-                            } else {
-                                chatBot += response.data.message;
-                                resChat.push(response.data.message);
-                            }
-                        }
-                        chatBot += '</div>';
-                        chatBot += '</div>';
-                        chatBot += '</div>';
-
-                        $('#chat').append(chatBot);
-
-                        $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
-
-
-                        // push to local storage
-                        let data = {
-                            user: user,
-                            chat: resChat,
-                            time: time
-                        };
-
-                        // alert(data);
-                        pushChatToLocalStorage(data);
-
-                    } else {
-                        resChat = response.data;
-                        // remove loadding
-                        $('.loadding_chat').remove();
-                        let chatBot = '';
-                        chatBot += '<div class="chat_body_content_admin">';
-                        chatBot += '<div class="chat_logo_admin">';
-                        chatBot +=
-                            '<img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="Admin Logo">';
-                        chatBot += '</div>';
-                        chatBot += '<div class="chat_body_admin" id="' + time + '">';
-                        chatBot += '<div class="container-chat">' + response.data + '</div>';
-                        chatBot += '</div>';
-                        chatBot += '</div>';
-
-                        $('#chat').append(chatBot);
-
-                        $('#chat_bot_body').scrollTop($('#chat_bot_body')[0].scrollHeight);
-
-
-                        // push to local storage
-                        let data = {
-                            user: user,
-                            chat: resChat,
-                            time: time
-                        };
-
-                        pushChatToLocalStorage(data);
-                    }
-                } else {
-                    alert('error');
-                }
-
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                // alert(xhr.status);
-                // alert(thrownError);
-            }
-        });
-    }
-
-    // click the button option
-    $(document).on('click', '.btn_opsi', function() {
-        let chat = $(this).attr('id');
-        // alert(chat); 
-        requestChat(chat);
-    });
-
-    // open modal .btn_file_pdf
-    $(document).on('click', '.btn_file_pdf', function(e) {
-        e.preventDefault();
-        let file = $(this).attr('id');
-        $('#pdfFiles').attr('src', '<?= base_url('Assets/'); ?>Documents/files/' + file);
-        $('#modalPDF').modal('show');
-    });
-
-    // open new tabs
-    $(document).on('click', '.btn_link', function(e) {
-        e.preventDefault();
-        let link = $(this).attr('id');
-        window.open(link, '_blank');
-    });
-    </script>
-</body>
-
-</html>
+function closeModal() {
+    modalTimeline.classList.add('hidden');
+}
+</script>
+<?= $this->endSection('script') ?>
