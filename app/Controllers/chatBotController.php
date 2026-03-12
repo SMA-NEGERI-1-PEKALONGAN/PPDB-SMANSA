@@ -143,6 +143,84 @@ class chatBotController extends BaseController
         ]);
     }
 
+    public function importChatBot()
+    {
+        $file_excel = $this->request->getFile('file');
+        $validation = \Config\Services::validation();
+
+        // Validasi ekstensi file
+        $validation->setRules([
+            'file' => [
+                'rules' => 'uploaded[file]|ext_in[file,xls,xlsx,csv]',
+                'errors' => [
+                    'uploaded' => 'File tidak boleh kosong',
+                    'required' => 'File tidak boleh kosong',
+                    'ext_in'   => 'File harus berupa xls, xlsx, csv'
+                ]
+            ]
+        ]);
+
+        if (!$validation->run($this->request->getPost())) {
+            return $this->response->setJSON([
+                'error'  => true,
+                'data'   => $validation->getErrors(),
+                'status' => '400'
+            ]);
+        }
+
+        // Inisialisasi Reader berdasarkan ekstensi file
+        $ext = $file_excel->getClientExtension();
+        if ($ext == 'xls') {
+            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+        } elseif ($ext == 'xlsx') {
+            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        } elseif ($ext == 'csv') {
+            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+        }
+
+        $spreadsheet = $reader->load($file_excel);
+        $data = $spreadsheet->getActiveSheet()->toArray();
+
+        // Hitung total data untuk progress (dikurangi 1 baris header)
+        $total_data = count($data) - 1;
+        
+        foreach ($data as $x => $col) {
+            // Lewati baris pertama (Header)
+            if ($x == 0) {
+                continue;
+            }
+
+            // Validasi baris kosong (jika judul kosong, lewati)
+            if (empty(trim($col[0]))) {
+                continue;
+            }
+
+            $chatData = [
+                'id_chat_bot'     => Uuid::uuid4()->toString(),
+                'judul'           => $col[0], // Kolom A: Judul
+                'pertanyaan'      => $col[1], // Kolom B: Pertanyaan (variasi dengan | )
+                'jawaban'         => $col[2], // Kolom C: Jawaban
+                'star_chat_bot'   => 0,       // Default 0 (tidak di-star)
+                'status_chat_bot' => 1,       // Default 1 (Aktif)
+            ];
+
+            // Insert ke database menggunakan model chatbot Anda
+            $this->chatBotModel->insert($chatData);
+
+            /* * Catatan: Jika Anda menggunakan progress bar di frontend (AJAX), 
+             * PHP standar tidak akan mengirim response JSON satu-persatu di dalam loop.
+             * Response akan dikirim sekaligus setelah loop selesai.
+             */
+        }
+
+        return $this->response->setJSON([
+            'error'      => false,
+            'status'     => '200',
+            'total_data' => $total_data,
+            'data'       => 'Kamus Chatbot berhasil diimport'
+        ]);
+    }
+    
     public function destroy(){
         $id = $this->request->getPost('id_chat_bot');
         $this->chatBotModel->delete($id);
@@ -178,110 +256,143 @@ class chatBotController extends BaseController
     }
 
 
-    public function fetchResponse(){
-    $pertanyaan = $this->request->getPost('pertanyaan');
-    $data = $this->chatBotModel->getResponse($pertanyaan);
-
-    if($data){
-        if($data['status_chat_bot'] == 1){
+    public function fetchResponse()
+    {
+        $pertanyaan = trim($this->request->getPost('message'));
+        
+        // 1. Fast-Path: Cek apakah ada jawaban persis di database
+        $data = $this->chatBotModel->getResponse($pertanyaan);
+        if ($data && $data['status_chat_bot'] == 1) {
             return $this->response->setJSON([
-                'error' => false,
-                'data' => $data['jawaban'],
+                'error'  => false,
+                'data'   => ['message' => $data['jawaban']],
                 'status' => '200'
             ]);
-        } else {
-            $getStar = $this->chatBotModel->getStarChatBot();
-            if($getStar){
-                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu.';
-                return $this->response->setJSON([
-                    'error' => false,
-                    'data' => [
-                        'message' => $message,
-                        'star_message' => $getStar
-                    ],
-                    'status' => '200'
-                ]);
-            } else {
-                return $this->response->setJSON([
-                    'error' => false,
-                    'data' => [
-                        'message' => 'Maaf, mimin tidak mengerti pertanyaan kamu.'
-                    ],
-                    'status' => '200'
-                ]);
-            }
         } 
-    } else {    
-        // Cari pertanyaan yang hampir sama di database
+        
+        // 2. AI Search (NLP Hybrid Match)
         $allQuestions = $this->chatBotModel->where('status_chat_bot', 1)->findAll();
         $closestMatch = $this->findClosestQuestion($pertanyaan, $allQuestions);
 
-        if($closestMatch != null){
+        if ($closestMatch != null) {
             return $this->response->setJSON([
-                'error' => false,
-                'data' => [
-                    'message' => $closestMatch
-                ],
+                'error'  => false,
+                'data'   => ['message' => $closestMatch],
                 'status' => '200'
             ]);
-        } else {
-            $getStar = $this->chatBotModel->getStarChatBot();
-            if($getStar){
-                $message = 'Maaf, mimin tidak mengerti pertanyaan kamu.';
-                return $this->response->setJSON([
-                    'error' => false,
-                    'data' => [
-                        'message' => $message,
-                        'star_message' => $getStar
-                    ],
-                    'status' => '200'
-                ]);
-            } else {
-                return $this->response->setJSON([
-                    'error' => false,
-                    'data' => [
-                        'message' => 'Maaf, mimin tidak mengerti pertanyaan kamu.'
-                    ],
-                    'status' => '200'
-                ]);
-            }
         }
-    }
-}
 
-
-private function findClosestQuestion($inputQuestion, $allQuestions) {
-    // Inisialisasi variabel
-    $closest = null;
-    // Inisialisasi variabel untuk menyimpan persentase kemiripan tertinggi
-    $highestSimilarity = 0;
-
-    foreach ($allQuestions as $question) {
-        // split $question['pertanyaan'] dengan | sebagai delimiter
-        $questionParts = explode('|', $question['pertanyaan']);
+        // 3. Fallback (Tidak Mengerti)
+        $getStar = $this->chatBotModel->getStarChatBot();
+        $fallbackData = ['message' => 'Maaf, mimin tidak mengerti pertanyaan kamu. Coba gunakan kata kunci lain (contoh: "Syarat", "Jadwal", "Zonasi").'];
         
-        foreach ($questionParts as $questionPart) {
-            // Menghitung persentase kemiripan
-            similar_text($inputQuestion, $questionPart, $similarity);
-            
-            // Jika persentase kemiripan lebih besar dari $highestSimilarity
-            if ($similarity > $highestSimilarity) {
-                // Set $highestSimilarity dengan $similarity
-                $highestSimilarity = $similarity;
-                // Set $closest dengan $question['pertanyaan']
-                $closest = $question['jawaban'];
-            }
+        if ($getStar) {
+            $fallbackData['star_message'] = $getStar;
         }
+
+        return $this->response->setJSON([
+            'error'  => false,
+            'data'   => $fallbackData,
+            'status' => '200'
+        ]);
     }
 
+    // =========================================================================
+    // AI ENGINE: LOGIKA PENCARIAN & NLP
+    // =========================================================================
 
-    // jika $highestSimilarity lebih besar dari 60
-    if ($highestSimilarity > 50) {
-        return $closest;
-    } else {
+    private function findClosestQuestion($inputQuestion, $allQuestions) 
+    {
+        $closest = null;
+        $highestSimilarity = 0;
+        
+        // Bersihkan input user dari kata-kata tidak penting (Stopwords)
+        $inputClean = $this->cleanText($inputQuestion);
+
+        foreach ($allQuestions as $question) {
+            $questionParts = explode('|', $question['pertanyaan']);
+            
+            foreach ($questionParts as $questionPart) {
+                // Bersihkan data pertanyaan dari DB
+                $partClean = $this->cleanText($questionPart);
+
+                // Hitung skor kecerdasan (Hybrid Score)
+                $score = $this->calculateNlpScore($inputClean, $partClean);
+                
+                if ($score > $highestSimilarity) {
+                    $highestSimilarity = $score;
+                    $closest = $question['jawaban'];
+                }
+            }
+        }
+
+        // Threshold ditetapkan di 45 (karena metode NLP lebih ketat & akurat)
+        if ($highestSimilarity >= 45) {
+            return $closest;
+        } 
+        
         return null;
     }
-}
+
+    /**
+     * Text Preprocessing (Membersihkan teks dari simbol dan kata pelengkap)
+     */
+    private function cleanText($text) 
+    {
+        // 1. Lowercase
+        $text = strtolower(trim($text));
+        
+        // 2. Hapus tanda baca (sisakan huruf, angka, dan spasi)
+        $text = preg_replace('/[^\w\s]/', '', $text);
+        
+        // 3. Hapus Stopwords (Kata sapaan/pelengkap bahasa Indonesia)
+        // Anda bisa menambahkan kata lain ke dalam array ini
+        $fillers = [
+            '\bhalo\b', '\bhai\b', '\bmin\b', '\bmimin\b', '\badmin\b', 
+            '\bsaya\b', '\bmau\b', '\btanya\b', '\btolong\b', '\bdong\b', 
+            '\bmohon\b', '\bkak\b', '\bapa\b', '\bapakah\b', '\bya\b', '\bsih\b'
+        ];
+        $text = preg_replace('/' . implode('|', $fillers) . '/i', '', $text);
+        
+        // 4. Hapus spasi ganda yang tersisa
+        return trim(preg_replace('/\s+/', ' ', $text));
+    }
+
+    /**
+     * Hitung Skor Kemiripan (Gabungan pencocokan Kata & Karakter Typo)
+     */
+    private function calculateNlpScore($input, $dbQuestion) 
+    {
+        if (empty($input) || empty($dbQuestion)) return 0;
+
+        // 1. Fuzzy Match (Skor karakter keseluruhan - mengatasi typo)
+        similar_text($input, $dbQuestion, $charSimilarity);
+
+        // 2. Tokenization & Word Match (Bedah per-kata)
+        $inputWords = explode(' ', $input);
+        $dbWords = explode(' ', $dbQuestion);
+        $matchCount = 0;
+
+        foreach ($dbWords as $dw) {
+            foreach ($inputWords as $iw) {
+                // Cek apakah katanya SAMA PERSIS, atau TYPO sedikit (jarak levenshtein <= 1)
+                // Contoh levenshtein: "jadwal" dan "jadawl" berjarak 1 langkah -> Dianggap sama
+                if ($dw == $iw || levenshtein($dw, $iw) <= 1) {
+                    $matchCount++;
+                    break; 
+                }
+            }
+        }
+
+        // Hitung persentase kecocokan kata kunci
+        $wordMatchScore = ($matchCount / count($dbWords)) * 100;
+
+        // 3. Weighted Score (Skor Akhir)
+        // Kita beri bobot 70% untuk kecocokan KATA, dan 30% untuk kemiripan STRING
+        $finalScore = ($wordMatchScore * 0.70) + ($charSimilarity * 0.30);
+
+        return $finalScore;
+    }
 
 
     
