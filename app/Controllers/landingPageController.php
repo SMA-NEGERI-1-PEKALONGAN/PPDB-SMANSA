@@ -55,7 +55,8 @@ class landingPageController extends BaseController
             'active' => 'Landing Page',
             'status_antrian' => $status_antrian,
         ];
-        return view('landingPage/index', $data);
+        // return view('landingPage/index', $data);
+        return view('landingPage/waiting_page');
     }
 
     public function Antrian(){

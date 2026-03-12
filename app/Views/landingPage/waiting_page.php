@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Segera Hadir - SPMB SMAN 1 Pekalongan</title>
 
+    <!-- Favicons -->
+    <link href="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" rel="icon">
+    <link href="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" rel="apple-touch-icon">
     <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+
 
     <!-- Tailwind CSS (via CDN untuk preview) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -117,7 +121,7 @@
             </h1>
             <p
                 class="text-slate-600 dark:text-slate-400 text-sm sm:text-base md:text-lg mb-8 sm:mb-14 max-w-2xl mx-auto leading-relaxed">
-                Kami sedang meracik pengalaman terbaik untuk Portal PPDB SMAN 1 Pekalongan. Persiapkan dokumen Anda,
+                Kami sedang meracik pengalaman terbaik untuk Portal SPMB SMAN 1 Pekalongan. Persiapkan dokumen Anda,
                 sistem akan dibuka dalam:
             </p>
 
@@ -158,7 +162,7 @@
             </div>
 
             <!-- Interaktif Aksi (Berlangganan & Kontak) -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
+            <!-- <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
                 <div class="relative w-full">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <i class="fa-regular fa-envelope text-slate-400"></i>
@@ -170,22 +174,30 @@
                     class="w-full sm:w-auto shrink-0 px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 hover:bg-black text-white dark:bg-primary-500 dark:hover:bg-primary-600 font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-sm sm:text-base flex items-center justify-center gap-2">
                     Beritahu Saya <i class="fa-solid fa-bell"></i>
                 </button>
-            </div>
+            </div> -->
 
             <!-- Footer dalam card -->
             <div
                 class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200 dark:border-slate-700/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-graduation-cap text-slate-400 dark:text-slate-500"></i>
+                    <img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="" class="img-fluid"
+                        width="24">
                     <span>Tim IT SMAN 1 Pekalongan</span>
                 </div>
                 <div class="flex gap-4">
-                    <a href="#" class="hover:text-primary-500 transition-colors"><i
+                    <a href="https://www.instagram.com/sma1pekalongan/" target="_blank"
+                        class="hover:text-primary-500 transition-colors"><i
                             class="fa-brands fa-instagram text-base sm:text-lg"></i></a>
-                    <a href="#" class="hover:text-blue-500 transition-colors"><i
+                    <a href="https://www.facebook.com/sman1pekalongan/?locale=id_ID" target="_blank"
+                        class="hover:text-blue-500 transition-colors"><i
                             class="fa-brands fa-facebook text-base sm:text-lg"></i></a>
-                    <a href="#" class="hover:text-red-500 transition-colors"><i
+                    <a href="https://www.youtube.com/@sman1pekalongan" target="_blank"
+                        class="hover:text-red-500 transition-colors"><i
                             class="fa-brands fa-youtube text-base sm:text-lg"></i></a>
+                    <a href="https://www.sman1pekalongan.sch.id" target="_blank"
+                        class="hover:text-red-500 transition-colors"><i
+                            class="fa-solid fa-globe text-base sm:text-lg"></i></a>
+
                 </div>
             </div>
 
@@ -218,7 +230,7 @@
     // --- 2. Logika Countdown Timer ---
     // Atur target tanggal rilis (misal: 14 hari dari hari ini)
     const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 14);
+    targetDate.setFullYear(2026, 4, 1); // 1 Mei 2026
     targetDate.setHours(8, 0, 0, 0); // Jam 08:00 Pagi
 
     function updateCountdown() {

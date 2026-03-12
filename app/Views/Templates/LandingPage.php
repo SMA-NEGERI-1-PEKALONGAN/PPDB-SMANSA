@@ -17,7 +17,7 @@
         rel="stylesheet">
 
     <!-- Konfigurasi Tailwind untuk Dark Mode, Animasi & Warna Tema -->
-    <script>
+    <script type="text/javascript">
     tailwind.config = {
         darkMode: 'class',
         theme: {
@@ -272,15 +272,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 rounded-2xl px-2 transition-all duration-300"
                 id="navbar-container">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xl0">
-                        <!-- <i class="fa-solid fa-graduation-cap"></i> --><img
-                            src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="" class="img-fluid">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <div
+                        class="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xl0 overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt=""
+                            class="img-fluid object-contain">
                     </div>
                     <div>
                         <span
-                            class="font-bold text-lg tracking-tight block text-slate-900 dark:text-white leading-none">SMAN
+                            class="font-bold text-lg tracking-tight block text-slate-900 dark:text-white leading-none group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">SMAN
                             1 Pekalongan</span>
                         <span
                             class="text-[10px] text-primary-600 dark:text-primary-400 font-bold tracking-widest uppercase">Portal
@@ -288,92 +288,109 @@
                     </div>
                 </div>
 
-                <!-- Menu Desktop -->
                 <div
-                    class="hidden md:flex items-center space-x-1 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md px-2 py-1 rounded-full border border-white/40 dark:border-slate-700/50 shadow-sm">
-                    <?php 
-                    if($active != 'Antrian'):
-                    ?>
+                    class="hidden md:flex items-center space-x-1 bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl px-2 py-1.5 rounded-full border border-white/40 dark:border-slate-700/50 shadow-sm">
+                    <?php if($active != 'Antrian'): ?>
                     <a href="#beranda"
-                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Beranda</a>
+                        class="group relative px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span>Beranda</span>
+                        <span
+                            class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full transition-all duration-300 group-hover:w-3/4 group-hover:left-[12.5%]"></span>
+                    </a>
                     <a href="#jalur"
-                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Jalur</a>
+                        class="group relative px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span>Jalur</span>
+                        <span
+                            class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full transition-all duration-300 group-hover:w-3/4 group-hover:left-[12.5%]"></span>
+                    </a>
                     <a href="#persyaratan"
-                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Persyaratan</a>
+                        class="group relative px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span>Persyaratan</span>
+                        <span
+                            class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full transition-all duration-300 group-hover:w-3/4 group-hover:left-[12.5%]"></span>
+                    </a>
                     <a href="#alur"
-                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Alur</a>
+                        class="group relative px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span>Alur</span>
+                        <span
+                            class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full transition-all duration-300 group-hover:w-3/4 group-hover:left-[12.5%]"></span>
+                    </a>
                     <a href="#kontak"
-                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Kontak</a>
+                        class="group relative px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span>Kontak</span>
+                        <span
+                            class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full transition-all duration-300 group-hover:w-3/4 group-hover:left-[12.5%]"></span>
+                    </a>
                     <a href="<?= base_url('Antrean'); ?>"
-                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Antrean</a>
-                    <?php 
-                        else:
-                    ?>
+                        class="group relative px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span>Antrean</span>
+                        <span
+                            class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full transition-all duration-300 group-hover:w-3/4 group-hover:left-[12.5%]"></span>
+                    </a>
+                    <?php else: ?>
                     <a href="<?= base_url('/'); ?>"
-                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Beranda</a>
+                        class="group relative px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span>Beranda</span>
+                        <span
+                            class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full transition-all duration-300 group-hover:w-3/4 group-hover:left-[12.5%]"></span>
+                    </a>
                     <a href="<?= base_url('Antrean'); ?>"
-                        class="px-4 py-2 rounded-full text-sm font-semibold text-slate-700 hover:text-primary-600 hover:bg-white dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-700 transition-all">Antrean</a>
-                    <?php 
-                        endif;
-                    ?>
-                    <div class="w-[1px] h-4 bg-slate-300 dark:bg-slate-600 mx-2"></div>
+                        class="group relative px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <span>Antrean</span>
+                        <span
+                            class="absolute bottom-1 left-1/2 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 rounded-full transition-all duration-300 group-hover:w-3/4 group-hover:left-[12.5%]"></span>
+                    </a>
+                    <?php endif; ?>
 
-                    <!-- Dark Mode Toggle -->
+                    <div class="w-[1px] h-5 bg-slate-300 dark:bg-slate-600 mx-2"></div>
+
                     <button id="theme-toggle" type="button"
-                        class="text-slate-500 dark:text-amber-300 hover:bg-white dark:hover:bg-slate-700 rounded-full w-9 h-9 flex items-center justify-center transition-all">
+                        class="text-slate-500 dark:text-amber-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full w-9 h-9 flex items-center justify-center transition-all hover:rotate-12">
                         <i id="theme-toggle-dark-icon" class="hidden fa-solid fa-moon text-lg"></i>
                         <i id="theme-toggle-light-icon" class="hidden fa-solid fa-sun text-lg"></i>
                     </button>
                 </div>
 
-                <!-- Menu Mobile Btn -->
                 <div class="md:hidden flex items-center gap-2">
                     <button id="theme-toggle-mobile" type="button"
-                        class="text-slate-500 dark:text-amber-300 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center border border-white/40 dark:border-slate-700/50 shadow-sm">
+                        class="text-slate-500 dark:text-amber-300 bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-full w-10 h-10 flex items-center justify-center border border-white/40 dark:border-slate-700/50 shadow-sm transition-transform hover:scale-105">
                         <i id="theme-toggle-dark-icon-mobile" class="hidden fa-solid fa-moon"></i>
                         <i id="theme-toggle-light-icon-mobile" class="hidden fa-solid fa-sun"></i>
                     </button>
                     <button id="mobile-menu-btn"
-                        class="text-slate-800 dark:text-white bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center border border-white/40 dark:border-slate-700/50 shadow-sm">
-                        <i class="fa-solid fa-bars-staggered text-lg"></i>
+                        class="text-slate-800 dark:text-white bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-full w-10 h-10 flex items-center justify-center border border-white/40 dark:border-slate-700/50 shadow-sm transition-transform hover:scale-105">
+                        <i class="fa-solid fa-bars-staggered text-lg transition-transform duration-300"
+                            id="mobile-menu-icon"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
         <div id="mobile-menu"
-            class="hidden md:hidden absolute top-20 left-4 right-4 glass rounded-2xl p-4 shadow-xl border border-white/40 dark:border-slate-700/50 transition-all transform origin-top">
-            <div class="space-y-2">
-                <?php 
-                    if($active != 'Antrian'):
-                ?>
+            class="hidden absolute top-20 left-4 right-4 bg-white/85 dark:bg-slate-800/85 backdrop-blur-2xl rounded-2xl p-4 shadow-2xl border border-white/50 dark:border-slate-700/50 transform opacity-0 -translate-y-4 transition-all duration-300 origin-top">
+            <div class="space-y-1">
+                <?php if($active != 'Antrian'): ?>
                 <a href="#beranda"
-                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Beranda</a>
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Beranda</a>
                 <a href="#jalur"
-                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Jalur
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Jalur
                     Pendaftaran</a>
                 <a href="#persyaratan"
-                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Persyaratan</a>
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Persyaratan</a>
                 <a href="#alur"
-                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Alur
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Alur
                     Pendaftaran</a>
                 <a href="#kontak"
-                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Kontak
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Kontak
                     Informasi</a>
-
                 <a href="<?= base_url('Antrean'); ?>"
-                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Antrean</a>
-                <?php 
-                    else:
-                ?>
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Antrean</a>
+                <?php else: ?>
                 <a href="<?= base_url('/'); ?>"
-                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Beranda</a>
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Beranda</a>
                 <a href="<?= base_url('Antrean'); ?>"
-                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700 hover:text-primary-600 dark:hover:text-white transition">Antrean</a>
-                <?php 
-                    endif;
-                ?>
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-primary-50 dark:hover:bg-slate-700/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Antrean</a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
@@ -451,29 +468,57 @@
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.remove('bg-transparent', 'py-4');
-            navbar.classList.add('bg-white/90', 'dark:bg-slate-900/90', 'py-2', 'shadow-sm',
+            navbar.classList.add('bg-white/80', 'dark:bg-slate-900/80', 'backdrop-blur-xl', 'py-2', 'shadow-sm',
                 'border-b', 'border-slate-200', 'dark:border-slate-800');
         } else {
             navbar.classList.add('bg-transparent', 'py-4');
-            navbar.classList.remove('bg-white/90', 'dark:bg-slate-900/90', 'py-2',
+            navbar.classList.remove('bg-white/80', 'dark:bg-slate-900/80', 'py-2', 'backdrop-blur-xl',
                 'shadow-sm', 'border-b', 'border-slate-200', 'dark:border-slate-800');
         }
     });
 
-
-    // 4. Mobile Menu
+    // 4. Mobile Menu Logic with Animation
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = document.getElementById('mobile-menu-icon');
 
-    mobileMenuBtn.addEventListener('click', () => {
+    function toggleMobileMenu() {
         if (mobileMenu.classList.contains('hidden')) {
+            // Tampilkan elemen dulu
             mobileMenu.classList.remove('hidden');
+            // Ubah ikon jadi X
+            mobileMenuIcon.classList.remove('fa-bars-staggered');
+            mobileMenuIcon.classList.add('fa-xmark', 'rotate-90');
+
+            // Kasih jeda kecil agar browser merender penghapusan 'hidden' sebelum animasi jalan
+            setTimeout(() => {
+                mobileMenu.classList.remove('opacity-0', '-translate-y-4');
+                mobileMenu.classList.add('opacity-100', 'translate-y-0');
+            }, 10);
         } else {
-            mobileMenu.classList.add('hidden');
+            // Mulai animasi menghilang
+            mobileMenu.classList.add('opacity-0', '-translate-y-4');
+            mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+            // Kembalikan ikon
+            mobileMenuIcon.classList.remove('fa-xmark', 'rotate-90');
+            mobileMenuIcon.classList.add('fa-bars-staggered');
+
+            // Sembunyikan elemen setelah animasi selesai (300ms)
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
         }
-    });
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    // Tutup menu saat link di klik (dengan animasi)
     mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        link.addEventListener('click', () => {
+            if (!mobileMenu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+        });
     });
 
     function getSwall(status, message) {
