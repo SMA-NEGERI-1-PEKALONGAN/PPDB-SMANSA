@@ -386,7 +386,7 @@
                     class="flex flex-col sm:flex-row items-center gap-3 opacity-80 hover:opacity-100 transition-opacity">
                     <div
                         class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-white shrink-0 shadow-inner">
-                        <i class="fa-solid fa-graduation-cap text-xl"></i>
+                        <img src="<?= base_url('Assets/'); ?>LandingPage/img/LOGO SMANSA.png" alt="" class="img-fluid">
                     </div>
                     <div>
                         <span class="block text-white font-bold text-lg">SMAN 1 Pekalongan</span>
